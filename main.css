@@ -1,0 +1,102 @@
+
+div.fullscreen {
+display: flex; 
+width: 100%;
+height: 100vh;
+overflow: hidden;
+}
+
+    
+ .flex-sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border-right: 1px solid;
+ 
+}
+.flex-sidebar> div.top
+{
+    display: flex;
+    height: 20%; 
+}
+ .flex-sidebar > div.top > div.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+    text-align: center; 
+    margin: auto;
+    height:100%;
+}
+
+
+.flex-sidebar> div.main>
+{
+    display: flex;
+}
+.flex-sidebar>div.main>ul
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    text-align: center; 
+    margin: auto;
+}
+.flex-sidebar>div.main>ul>li{
+    padding: 5%;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 3px;
+    display: block;
+    background-color: antiquewhite;
+    border: 2px solid;
+
+}
+
+.flex-center{
+    display: flex;
+    flex: 80%;
+    height: 100%;
+    flex-direction: column;
+ }
+.flex-center>div.main-search>{
+    display: flex;
+    vertical-align: middle;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#search{
+     width: 100%;
+     height: 100%;
+
+}
+.main-fun{
+    height: 100%;
+}
+.fun-top{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.btn-logo{
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.portal-item>#logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+    width: 40%;
+}
+
+   
