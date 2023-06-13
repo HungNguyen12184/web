@@ -15,7 +15,7 @@ function hlook() {
 }
 var cars = ["BWM", "HONDA", "KIA", "FORD", "MITSU", "MITSU XPANDER"];
 function checkCar(car) {
-    return car > document.getElementById("fname").value; // trả về giá trị car từ textbox nhập
+    return car = document.getElementById("fname").value; // trả về giá trị car từ textbox nhập
 }
 
 function lstsearch() {
