@@ -48,10 +48,10 @@ function lsteach() {
 // function lstsearch() {
 //     var nhap = document.getElementById("fname").value;
 //     var nhapcar = nhap;
-//     var listcar = [];
 //     for (var i = 0; i < cars.length; i++) {
-//         listcar += cars[i];
-//         if (listcar === nhapcar) {
+//         cars[i]=== nhapcar;
+//           break;
+//         if (cars) {
 //             console.log("XE có trong bãi");
 //         }
 //         else {
