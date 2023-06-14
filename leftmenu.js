@@ -45,16 +45,16 @@ function lsteach() {
 
 
 
-// function lstsearch() {
-//     var nhap = document.getElementById("fname").value;
-//     var nhapcar = nhap;
-//     for (var i = 0; i < cars.length; i++) {
-//        if( cars[i]=== nhapcar;)
-//           break;
-//        console.log("XE có trong bãi");
-//         else {
-//             console.log("XE bán rồi");
-//         }
-//     }
+function lstsearch() {
+    var nhap = document.getElementById("fname").value;
+    var nhapcar = nhap;
+    for (var i = 0; i < cars.length; i++) {
+        if (cars[i] === nhapcar);
+        break;
+    }
+    console.log("XE có trong bãi");
 
-// }
+}
+function openform() {
+    window.location.href = "main.html";
+}
