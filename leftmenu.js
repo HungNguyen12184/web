@@ -49,11 +49,9 @@ function lsteach() {
 //     var nhap = document.getElementById("fname").value;
 //     var nhapcar = nhap;
 //     for (var i = 0; i < cars.length; i++) {
-//         cars[i]=== nhapcar;
+//        if( cars[i]=== nhapcar;)
 //           break;
-//         if (cars) {
-//             console.log("XE có trong bãi");
-//         }
+//        console.log("XE có trong bãi");
 //         else {
 //             console.log("XE bán rồi");
 //         }
