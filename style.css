@@ -13,12 +13,6 @@
 
 }
 
-#ndleft {
-    display: flex;
-    flex-direction: column;
-    width: 5%;
-    border-right: 1px solid;
-}
 
 .flex-sidebar>div.top {
     display: flex;
@@ -69,11 +63,11 @@
     flex-direction: column;
 }
 
-#ndcenter {
+.flex-control {
     display: flex;
-    flex: 95%;
-    height: 100%;
+    flex: 1 1 0%;
     flex-direction: column;
+    min-height: 0;
 }
 
 .flex-center>div.main-search> {
@@ -116,4 +110,72 @@
     align-items: center;
     height: 40%;
     width: 40%;
+}
+
+.fullND {
+    display: flex;
+    flex: 1 1 0%;
+    height: 100vh;
+}
+
+.leftND {
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    border-right: 1px solid;
+}
+
+.pannelbody {
+    display: flex;
+    flex: 95%;
+    height: 100vh;
+
+}
+
+.tabcontrol {
+    display: flex;
+    flex: 1 1 0%;
+    min-height: 0;
+    flex-direction: column;
+
+}
+
+.tabheaderwrap {
+    border-bottom: 2px solid;
+}
+
+.headercontrol {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5px;
+    box-sizing: border-box;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+}
+
+.tabtitle {
+    font-weight: 700;
+    border-right: 2px solid;
+    padding-right: 10px;
+
+
+}
+
+.tabcontrol>.tabheaderwrap>.headercontrol>.tabtitle>.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabcontent {
+    display: flex;
+    flex: 1 1 0%;
+    min-height: 0;
+    flex-direction: column;
+
+
 }
