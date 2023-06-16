@@ -175,7 +175,74 @@
     display: flex;
     flex: 1 1 0%;
     min-height: 0;
+}
+
+.tabcontentitem {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0%;
+}
+
+.cntinfo {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    flex: 8 1 0%;
+}
+
+.funtion {
+    display: flex;
     flex-direction: column;
 
+}
 
+.fntgroup {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.fntitem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+}
+
+.itemtitle {
+    display: flex;
+    flex: 1 1 0%;
+    writing-mode: horizontal-tb;
+    text-align: left;
+}
+
+.itemicon {
+    display: flex;
+    flex: 2 1 0%;
+    flex-direction: row;
+
+}
+
+input {
+    width: 100%;
+}
+
+
+.btnactive {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+}
+
+.cntmap {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 }
