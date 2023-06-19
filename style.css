@@ -1,3 +1,12 @@
+body {
+    display: block;
+    margin: 8px;
+}
+
+body:focus {
+    outline: none;
+}
+
 .fullscreen {
     display: flex;
     width: 100%;
@@ -14,12 +23,12 @@
 }
 
 
-.flex-sidebar>div.top {
+.top {
     display: flex;
-    height: 20%;
+    flex: 2 1 0%;
 }
 
-.flex-sidebar>div.top>div.logo {
+.logo {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -30,11 +39,69 @@
 }
 
 
-.flex-sidebar>div.main> {
+.featuresider {
+    flex: 5 1 0%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.selec_top {
+    display: flex;
+    flex: 2 1 0%;
+    flex-direction: column;
+}
+
+.main_item {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-around;
+}
+
+.item {
     display: flex;
 }
 
-.flex-sidebar>div.main>ul {
+.feature_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    text-align: inherit;
+    color: black;
+    position: relative;
+
+}
+
+.feature_item_logo {
+    font-size: 1.5rem;
+    margin: 0 4px;
+}
+
+
+
+.selec_bottom {
+    display: flex;
+    flex: 2 1 0%;
+}
+
+.selec_end {
+    display: flex;
+    flex: 1 3 0%;
+}
+
+/* .item_0 {
+    display: flex;
+    flex-direction: column;
+} */
+
+.selec_bottom {
+    display: flex;
+    flex: 2 1 0%;
+}
+
+/* .flex-sidebar>div.main>ul {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -43,9 +110,9 @@
     padding: 0;
     text-align: center;
     margin: auto;
-}
+} */
 
-.flex-sidebar>div.main>ul>li {
+/* .flex-sidebar>div.main>ul>li {
     padding: 5%;
     text-decoration: none;
     font-size: 18px;
@@ -54,7 +121,7 @@
     background-color: antiquewhite;
     border: 2px solid;
 
-}
+} */
 
 .flex-center {
     display: flex;
@@ -63,20 +130,20 @@
     flex-direction: column;
 }
 
+/* 
 .flex-control {
     display: flex;
     flex: 1 1 0%;
     flex-direction: column;
     min-height: 0;
-}
+} */
 
-.flex-center>div.main-search> {
+.main-search {
     display: flex;
     vertical-align: middle;
     white-space: nowrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 #search {
