@@ -74,11 +74,9 @@ body:focus {
 
 }
 
-.feature_item_logo {
-    font-size: 1.5rem;
-    margin: 0 4px;
+.fal {
+    font-family: 'Font Awesome 5 Pro';
 }
-
 
 
 .selec_bottom {
