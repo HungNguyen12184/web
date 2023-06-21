@@ -58,3 +58,8 @@ function lstsearch() {
 function openform() {
     window.location.href = "main.html";
 }
+
+function Theme() {
+    var elemnet = document.body;
+    elemnet.classList.toggle("dark-mode")
+}
