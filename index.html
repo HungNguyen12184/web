@@ -4,6 +4,7 @@
 <head>
    <title>CSS Template</title>
    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
    <script src="leftmenu.js"></script>
    <!-- <script src="https://kit.fontawesome.com/326609aa90.js" crossorigin="anonymous"></script> -->
@@ -76,13 +77,17 @@
                </div>
 
             </div>
-            <div class="selec_end"></div>
+            <button class="item_collapse" onclick="mycollapse()">
+               <div class="feature_item">
+                  <i class="fal fa-solid fa-angles-left"></i>
+                  <span class="feature_label">Thu gọn</span>
+               </div>
+            </button>
          </div>
       </div>
       <div class="flex-center">
          <div class="main-search">
-            <input type="text" id="fname" placeholder="Tìm kiếm">
-            <button onclick="lstsearch()">Tìm kiếm </button>
+            <input type="text" id="fname" placeholder="Tìm kiếm" oninput="lstsearch()">
          </div>
          <div class="main-fun">
             <div class="fun-top">

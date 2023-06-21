@@ -14,7 +14,10 @@ body {
     padding: 0;
 
 
+
 }
+
+@media screen and (min-width: 1024px) {}
 
 a,
 button {
@@ -45,6 +48,11 @@ button {
 
 }
 
+#flex-sidebar_collapse {
+    display: flex;
+    flex-direction: column;
+    width: 2%;
+}
 
 .top {
     display: flex;
@@ -85,12 +93,11 @@ button {
 
 }
 
-/* #bottom_item {
-    height: 100%;
+.item_collapse {
     display: flex;
-    justify-content: flex-end;
-    align-items: stretch;
-} */
+    justify-content: flex-start;
+    align-items: center;
+}
 
 
 .item {
@@ -98,6 +105,8 @@ button {
     background-color: transparent;
     border: none;
     border-radius: 4px;
+    justify-content: unset;
+    width: 100%;
 
 }
 

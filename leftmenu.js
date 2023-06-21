@@ -63,3 +63,11 @@ function Theme() {
     var elemnet = document.body;
     elemnet.classList.toggle("dark-mode")
 }
+
+function mycollapse() {
+
+    document.getElementById("item_collapse").addEventListener("click", function () {
+        document.getElementById("flex-sidebar_collapse").style.width = "2px"
+    })
+
+}
