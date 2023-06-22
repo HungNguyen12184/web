@@ -64,10 +64,8 @@ function Theme() {
     elemnet.classList.toggle("dark-mode")
 }
 
-function mycollapse() {
+function closesidebar() {
 
-    document.getElementById("item_collapse").addEventListener("click", function () {
-        document.getElementById("flex-sidebar_collapse").style.width = "2px"
-    })
+    document.getElementById("siderbar").style.width = "20px";
 
 }

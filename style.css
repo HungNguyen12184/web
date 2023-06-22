@@ -43,16 +43,12 @@ button {
 .flex-sidebar {
     display: flex;
     flex-direction: column;
-    /* width: 10%; */
+    width: 12rem;
     /* border-right: 1px solid; */
+    transition: 0, 5s;
 
 }
 
-#flex-sidebar_collapse {
-    display: flex;
-    flex-direction: column;
-    /* width: 2%; */
-}
 
 .top {
     display: flex;
@@ -228,41 +224,76 @@ button {
     white-space: nowrap;
     justify-content: center;
     align-items: center;
-    margin: 5px 3px;
+    margin: 6px 4px;
 }
 
 
 #search {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
+    margin: 2px 2px;
 
 }
 
-.main-fun {
+.scrollbar-container {
     height: 100%;
+}
+
+.section-feature {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.fun-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* text-align: left; */
+    height: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 1rem;
+}
+
+.body-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .fun-top {
     display: flex;
-    flex-direction: column;
+    flex: 1 1 0% !important;
+    flex-wrap: wrap !important;
+    padding-top: 1rem;
     height: 100%;
+    width: 100%;
+    max-width: 80rem;
 }
 
-.btn-logo {
+.portal-item {
+    width: 10rem;
+    height: 12rem;
+    text-decoration: none;
+    padding: 1, 25rem 1rem;
+}
+
+/* .btn-logo {
     height: 40%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-}
+} */
 
-.portal-item>#logo {
+.portal-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40%;
-    /* width: 40%; */
 }
 
 .fullND {
@@ -274,7 +305,7 @@ button {
 .leftND {
     display: flex;
     flex-direction: column;
-    width: 5%;
+    /* width: 5%; */
     border-right: 1px solid;
 }
 
@@ -339,7 +370,7 @@ button {
 .cntinfo {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    /* width: 30%; */
 
 }
 
@@ -384,7 +415,7 @@ button {
 }
 
 input {
-    width: 100%;
+    /* width: 100%; */
 }
 
 
@@ -397,5 +428,5 @@ input {
 .cntmap {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    /* width: 70%; */
 }

@@ -14,7 +14,7 @@
 
 <body>
    <div class="fullscreen">
-      <div class="flex-sidebar">
+      <div class="flex-sidebar" id="siderbar">
          <div class="top">
             <div class="logo">
                <img src="logo.png" alt="" style="height: 40px; width: 40px;">
@@ -78,7 +78,7 @@
                </div>
 
             </div>
-            <button class="item_collapse" onclick="mycollapse()">
+            <button class="item_collapse" onclick="closesidebar()">
                <div class="feature_item">
                   <i class="fal fa-solid fa-angles-left"></i>
                   <span class="feature_label">Thu gọn</span>
@@ -88,27 +88,76 @@
       </div>
       <div class="flex-center">
          <div class="main-search">
-            <input type="text" id="fname" placeholder="Tìm kiếm" oninput="lstsearch()">
+            <input type="text" id="search" placeholder="Tìm kiếm" oninput="lstsearch()">
          </div>
-         <div class="main-fun">
-            <div class="fun-top">
-               <div class="btn-logo">
-                  <a class="portal-item" href="ndbs.html">
-                     <img src="video.png" id="logo" alt="" style="height: 20px;width: 20px;">
-                     <div class="portal-label">Nhận dang biển số</div>
-                  </a>
-                  <a class="portal-item" href="">
-                     <img src="customer.png" id="logo" alt="" style="height: 20px;width: 20px;">
-                     <div class="portal-label">Dịch vu</div>
-                  </a>
-                  <a class="portal-item" href="">
-                     <img src="around-the-world.png" id="logo" alt="" style="height: 20px;width: 20px;">
-                     <div class="portal-label">Bản đồ</div>
-                  </a>
-                  <a class="portal-item" href="">
-                     <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
-                     <div class="portal-label">Tài liệu</div>
-                  </a>
+         <div class="scrollbar-container">
+            <div class="section-feature">
+               <div class="fun-header">
+                  <h4>Trung tâm điều hành</h4>
+               </div>
+               <div class="body-section">
+                  <div class="fun-top">
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="video.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Nhận dang biển số</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="customer.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Dịch vu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="around-the-world.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Bản đồ</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                     <a class="portal-item" href="">
+                        <div class="item-center">
+                           <img src="document.png" id="logo" alt="" style="height: 20px;width: 20px;">
+                           <div class="portal-label">Tài liệu</div>
+                        </div>
+                     </a>
+                  </div>
                </div>
             </div>
 
