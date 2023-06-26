@@ -69,3 +69,32 @@ function closesidebar() {
     document.getElementById("siderbar").style.width = "20px";
 
 }
+
+
+// function getlabel(){
+//     var itemlist = document.getElementsByClassName("portal-label").value;
+//     label = itemlist;
+
+// }
+var arrLabel = [];
+
+function searchLabel(){
+   var inputsearch = document.getElementById("search");
+   inputsearch.addEventListener("input", function(){
+   var searchtext = inputsearch.value;
+   var label = document.getElementsByClassName("portal-label").innerText;
+   var itemlable = label;
+    if (searchtext === itemlable) {
+     console.log(searchitem);
+    }
+    else{
+        console.log("sai");
+    }
+
+
+   });
+
+
+ 
+
+}  
