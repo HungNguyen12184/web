@@ -76,24 +76,34 @@ function closesidebar() {
 //     label = itemlist;
 
 // }
-var arrLabel = [];
+ 
+function loadmain(){
+    var portal = document.querySelector(".portal-item");
+    let portal_item  = document.createElement("a")
+    portal_item.className = "portal-item"
+    
+    document.getElementById("fun_top").appendChild(portal_item)
+
+}
 
 function searchLabel(){
    var inputsearch = document.getElementById("search");
-   inputsearch.addEventListener("input", function(){
-   var searchtext = inputsearch.value;
-   var label = document.getElementsByClassName("portal-label").innerText;
-   var itemlable = label;
-    if (searchtext === itemlable) {
-     console.log(searchitem);
-    }
-    else{
-        console.log("sai");
-    }
+   inputsearch.addEventListener('input', function(){
+   var searchtext = inputsearch.value.trim().toLowerCase();
+   var label = document.getElementsByClassName("portal-label");
+    for ( var i = 0; i < label.length; i++)
+    {
+         var itemlabel = label[i].innerText.toLowerCase();
+         if(itemlabel === searchtext){
+            
+         }
+        else{
+           document.getElementsByClassName("item-center").style.display = 'none';
+         }
+   }
+});
 
-
-   });
-
+   
 
  
 

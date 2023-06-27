@@ -283,7 +283,10 @@ button {
     padding: 1, 25rem 1rem;
     position: relative;
     border-radius: 0.5rem;
-    display:block;
+
+}
+.hide{
+    display: none;
 }
 
 .item-center {
