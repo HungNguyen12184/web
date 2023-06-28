@@ -14,7 +14,7 @@ function hlook() {
     }
 }
 var cars = ["BWM", "HONDA", "KIA", "FORD", "MITSU", "MITSU XPANDER"];
-
+var isClose=false
 function lstfilter() {
     var nhap = document.getElementById("fname").value;
     var nhapcar = nhap;
@@ -66,7 +66,11 @@ function Theme() {
 
 function closesidebar() {
 
-    document.getElementById("siderbar").style.width = "20px";
+    if(!isClose)
+        document.getElementById("siderbar").style.width = "50px";
+        else
+        document.getElementById("siderbar").style.width = "12rem";
+        isClose=!isClose
 
 }
 
@@ -102,6 +106,8 @@ function searchLabel(){
          }
    }
 });
+
+
 
    
 

@@ -125,6 +125,7 @@ button {
     text-align: center;
     position: relative;
     margin: 0.1rem;
+    overflow: hidden;
 
 }
 
@@ -294,6 +295,7 @@ button {
     display: flex;
     flex: 1 1 0%;
     align-items: center;
+    
 }
 
 .portal-item_image {
