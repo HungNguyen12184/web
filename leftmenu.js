@@ -1,4 +1,48 @@
 
+var loadportal_item = [
+    {
+        image:'/scr/around-the-world.png',
+        label:'Trung tâm điều hành'
+    },
+    {
+        image:'/scr/customer.png',
+        label:'Tổng quan hệ thống'
+    },
+    {
+        image:'/scr/document.png',
+        label:'Quản lý vụ việc'
+        
+    },
+    {
+        image:'/scr/logo.png',
+        label:'Sự kiện' 
+    },
+    {
+        image:'/scr/car-insurance.png',
+        label:'Nhận dạng biển số xe'
+    },
+    {
+        image:'/scr/face-id.png',
+        label: 'Nhận dạng gương mặt'
+    },
+    {
+        image:'/scr/algorithm.png',
+        label:'Nhận dạng tổng hợp'
+    },
+    {
+        image:'/scr/map.png',
+        label:'Khai thác bản đồ'
+    },
+    {
+        image:'/scr/spying.png',
+        label:'Giám sát hành trình'
+    },
+    {
+        image:'/scr/laptop.png',
+        label:'Kênh liên lạc'
+    }
+
+]
 function test_btn_click() {
     console.log("Test thử");
 }
@@ -14,7 +58,7 @@ function hlook() {
     }
 }
 var cars = ["BWM", "HONDA", "KIA", "FORD", "MITSU", "MITSU XPANDER"];
-var isClose=false
+
 function lstfilter() {
     var nhap = document.getElementById("fname").value;
     var nhapcar = nhap;
@@ -64,10 +108,11 @@ function Theme() {
     elemnet.classList.toggle("dark-mode")
 }
 
+var isClose=false
 function closesidebar() {
 
     if(!isClose)
-        document.getElementById("siderbar").style.width = "50px";
+        document.getElementById("siderbar").style.width = "1rem";
         else
         document.getElementById("siderbar").style.width = "12rem";
         isClose=!isClose
@@ -80,13 +125,23 @@ function closesidebar() {
 //     label = itemlist;
 
 // }
- 
+
 function loadmain(){
-    var portal = document.querySelector(".portal-item");
-    let portal_item  = document.createElement("a")
-    portal_item.className = "portal-item"
     
-    document.getElementById("fun_top").appendChild(portal_item)
+     for (let i in loadportal_item){
+        let portal_item  = document.createElement("a")
+        portal_item.classList.add('portal_item')
+        portal_item.setAttribute("hrel","")
+        portal_item.innerHTML= `
+        <div class="item-center">
+           <div class="image-container portal-item_image">
+            <img class="image-content" src ="${loadportal_item[i].image}" id="logo" alt="" style="object-fit: cover;">
+            </div>
+            <div class="portal-label">${loadportal_item[i].label}</div>
+           </div>
+        `
+        document.getElementById("fun_top").appendChild(portal_item)
+     } 
 
 }
 
@@ -94,15 +149,14 @@ function searchLabel(){
    var inputsearch = document.getElementById("search");
    inputsearch.addEventListener('input', function(){
    var searchtext = inputsearch.value.trim().toLowerCase();
-   var label = document.getElementsByClassName("portal-label");
-    for ( var i = 0; i < label.length; i++)
+    for ( var i = 0; i < loadportal_item.length; i++)
     {
-         var itemlabel = label[i].innerText.toLowerCase();
-         if(itemlabel === searchtext){
-            
+         var textlabel =loadportal_item[i].label;
+         if( textlabel === searchtext){
+            portal_item.classList.remove('hide')
          }
         else{
-           document.getElementsByClassName("item-center").style.display = 'none';
+           portal_item.classList.add('hide')
          }
    }
 });

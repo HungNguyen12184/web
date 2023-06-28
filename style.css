@@ -12,6 +12,7 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
+    font-size: 1.0rem;
 
 
 
@@ -19,10 +20,9 @@ body {
 
 @media screen and (min-width: 1024px) {}
 
-a,
-button {
-    color: var(--text-color);
-    font-size: 1.0rem;
+a {
+  
+    cursor: pointer;
 }
 
 
@@ -132,6 +132,8 @@ button {
 .fal {
 
     margin: 0 4px;
+    font-size: 25px;
+
 }
 
 
@@ -284,10 +286,11 @@ button {
     padding: 1, 25rem 1rem;
     position: relative;
     border-radius: 0.5rem;
+   
 
 }
 .hide{
-    display: none;
+    display: none ;
 }
 
 .item-center {
@@ -326,11 +329,11 @@ button {
 
 } */
 
-.portal-item {
+/* .portal-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 .fullND {
     display: flex;
