@@ -148,17 +148,14 @@ function loadmain(){
 function searchLabel(){
    var inputsearch = document.getElementById("search");
    inputsearch.addEventListener('input', function(){
-   var searchtext = inputsearch.value.trim().toLowerCase();
-    for ( var i = 0; i < loadportal_item.length; i++)
-    {
-         var textlabel =loadportal_item[i].label;
-         if( textlabel === searchtext){
-            portal_item.classList.remove('hide')
-         }
-        else{
-           portal_item.classList.add('hide')
-         }
-   }
+   var textsearch= inputsearch.value.trim().toLowerCase();
+   var label_item = document.querySelectorAll('.portal-item')
+   for( let i in loadportal_item){
+    if(loadportal_item[i].label.toLowerCase()=== textsearch)
+       {
+           
+       }
+    }  
 });
 
 
