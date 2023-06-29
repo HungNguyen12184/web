@@ -125,12 +125,12 @@ function closesidebar() {
 //     label = itemlist;
 
 // }
-
+ 
 function loadmain(){
     
      for (let i in loadportal_item){
         let portal_item  = document.createElement("a")
-        portal_item.classList.add('portal_item')
+        portal_item.className="portal-item"
         portal_item.setAttribute("hrel","")
         portal_item.innerHTML= `
         <div class="item-center">
@@ -142,7 +142,7 @@ function loadmain(){
         `
         document.getElementById("fun_top").appendChild(portal_item)
      } 
-
+     var portal = document.querySelector('.portal-item')
 }
 
 function searchLabel(){
