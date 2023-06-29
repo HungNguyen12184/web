@@ -130,7 +130,7 @@ function loadmain(){
     
      for (let i in loadportal_item){
         let portal_item  = document.createElement("a")
-        portal_item.className="portal-item"
+        portal_item.id="portal-item"
         portal_item.setAttribute("hrel","")
         portal_item.innerHTML= `
         <div class="item-center">
@@ -149,11 +149,14 @@ function searchLabel(){
    var inputsearch = document.getElementById("search");
    inputsearch.addEventListener('input', function(){
    var textsearch= inputsearch.value.trim().toLowerCase();
-   var label_item = document.querySelectorAll('.portal-item')
+   var label_item = document.getElementById("portal-item")
    for( let i in loadportal_item){
     if(loadportal_item[i].label.toLowerCase()=== textsearch)
        {
-           
+         label_item.style.visibility = "visible"
+       }
+       else{
+        label_item.style.visibility = "hidden"
        }
     }  
 });

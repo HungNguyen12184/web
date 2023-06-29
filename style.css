@@ -13,12 +13,10 @@ body {
     margin: 0;
     padding: 0;
     font-size: 1.0rem;
-
-
-
 }
 
-@media screen and (min-width: 1024px) {}
+
+
 
 a {
   
@@ -117,7 +115,24 @@ a {
     background-color: dimgray;
 
 }
+a{
+    color:black;
+    &:hover{
+        color: aqua;
+    }
 
+}
+/* @media screen and (min-width: 375px) {
+    a  
+    { color: yellow;
+      &:hover{
+        color:pink;
+    }
+}
+} */
+/* a:hover{
+    color: aqua;
+} */
 .feature_item {
     display: flex;
     align-items: center;
@@ -126,6 +141,8 @@ a {
     position: relative;
     margin: 0.1rem;
     overflow: hidden;
+    
+
 
 }
 
@@ -279,7 +296,7 @@ a {
     max-width: 80rem;
 }
 
-.portal-item {
+#portal-item {
     width: 10rem;
     height: 12rem;
     text-decoration: none;
