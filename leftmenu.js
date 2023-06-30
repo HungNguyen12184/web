@@ -1,44 +1,44 @@
 
 var loadportal_item = [
     {
-        image:'/scr/around-the-world.png',
+        image:'./scr/around-the-world.png',
         label:'Trung tâm điều hành'
     },
     {
-        image:'/scr/customer.png',
+        image:'./scr/customer.png',
         label:'Tổng quan hệ thống'
     },
     {
-        image:'/scr/document.png',
+        image:'./scr/document.png',
         label:'Quản lý vụ việc'
         
     },
     {
-        image:'/scr/logo.png',
+        image:'./scr/logo.png',
         label:'Sự kiện' 
     },
     {
-        image:'/scr/car-insurance.png',
+        image:'./scr/car-insurance.png',
         label:'Nhận dạng biển số xe'
     },
     {
-        image:'/scr/face-id.png',
+        image:'./scr/face-id.png',
         label: 'Nhận dạng gương mặt'
     },
     {
-        image:'/scr/algorithm.png',
+        image:'./scr/algorithm.png',
         label:'Nhận dạng tổng hợp'
     },
     {
-        image:'/scr/map.png',
+        image:'./scr/map.png',
         label:'Khai thác bản đồ'
     },
     {
-        image:'/scr/spying.png',
+        image:'./scr/spying.png',
         label:'Giám sát hành trình'
     },
     {
-        image:'/scr/laptop.png',
+        image:'./scr/laptop.png',
         label:'Kênh liên lạc'
     }
 
@@ -130,7 +130,7 @@ function loadmain(){
     
      for (let i in loadportal_item){
         let portal_item  = document.createElement("a")
-        portal_item.id="portal-item"
+        portal_item.className="portal-item"
         portal_item.setAttribute("hrel","")
         portal_item.innerHTML= `
         <div class="item-center">
@@ -149,22 +149,16 @@ function searchLabel(){
    var inputsearch = document.getElementById("search");
    inputsearch.addEventListener('input', function(){
    var textsearch= inputsearch.value.trim().toLowerCase();
-   var label_item = document.getElementById("portal-item")
+   var item = document.getElementsByClassName("portal-item");
+   var label_item = item;
    for( let i in loadportal_item){
     if(loadportal_item[i].label.toLowerCase()=== textsearch)
        {
-         label_item.style.visibility = "visible"
+         label_item.style.display ="block";
        }
        else{
-        label_item.style.visibility = "hidden"
+        label_item.style.display = "none";
        }
     }  
 });
-
-
-
-   
-
- 
-
 }  
