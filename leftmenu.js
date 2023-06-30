@@ -43,6 +43,11 @@ var loadportal_item = [
     }
 
 ]
+
+window.onload = function(){
+    loadmain(); 
+}
+
 function test_btn_click() {
     console.log("Test thử");
 }
@@ -108,6 +113,9 @@ function Theme() {
     elemnet.classList.toggle("dark-mode")
 }
 
+// document.getElementsByClassName().onclick = function(){
+//     closesidebar();
+// }
 var isClose=false
 function closesidebar() {
 
@@ -144,21 +152,24 @@ function loadmain(){
      } 
      var portal = document.querySelector('.portal-item')
 }
-
+window.oninput = function(){
+    searchLabel();
+}
 function searchLabel(){
    var inputsearch = document.getElementById("search");
    inputsearch.addEventListener('input', function(){
    var textsearch= inputsearch.value.trim().toLowerCase();
-   var item = document.getElementsByClassName("portal-item");
-   var label_item = item;
-   for( let i in loadportal_item){
-    if(loadportal_item[i].label.toLowerCase()=== textsearch)
+   var label_items = document.getElementsByClassName("portal-item");
+   for( var i = 0; i < label_items.length; i++ ){
+    var label = loadportal_item[i].label.toLowerCase();
+    if(label === textsearch)
        {
-         label_item.style.display ="block";
+         label_items[i].style.display = "block";
        }
        else{
-        label_item.style.display = "none";
+        label_items[i].style.display= "none";
        }
     }  
+     
 });
 }  
