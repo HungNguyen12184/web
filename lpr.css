@@ -346,3 +346,51 @@ canvas {
   border-radius: 0;
   padding: 0;
 }
+.tab-control .tab-content .tab-item-content.active {
+  display: flex;
+  flex-direction: column;
+}
+.tab-control .tab-content .tab-item-content {
+  flex: 1;
+  display: none;
+  overflow: hidden;
+}
+.resizable-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.ps.scrollbar-container {
+  --ps-rail-hover-color: rgba((255, 255, 255), 0.1);
+  --ps-thumb-color: rgba((255, 255, 255), 0.2);
+  --ps-thumb-hover-color: rgba((255, 255, 255), 035);
+}
+.ps--size-md {
+  --ps-size: 6px:
+}
+.scrollbar-container {
+  position: relative;
+  height: 100%;
+}
+.section-panel .section-header {
+  padding:  0.5rem 1rem;
+  margin-bottom: 0;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.form-group .form-group-column {
+  flex-direction: column;
+}
+.form-group {
+  display: flex;
+  padding: 1rem;
+  flex: 1;
+}
