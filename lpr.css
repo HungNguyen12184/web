@@ -1,348 +1,162 @@
 body {
-  background-color: dimgray;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    background-color: dimgray;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
 }
 .fullscreen {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
-a,
-button {
-  color: aliceblue;
+a{
+    color:black;
+
 }
 
-button,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ol,
-p,
-input,
-textarea,
-th,
-ul,
-div,
-span,
-i,
-canvas {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  list-style: none;
-  margin: 0;
-  outline: 0;
-  overflow: visible;
-  padding: 0;
-  text-align: inherit;
-  vertical-align: baseline;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, Helvetica, sans-serif sans-serif;
+button,h1,h2,h3,h4,h5,h6,ol,p,input,textarea,th,ul,div,span,i, canvas{
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    list-style: none;
+    margin: 0;
+    outline: 0;
+    overflow: visible;
+    padding: 0;
+    text-align: inherit;
+    vertical-align: baseline;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Helvetica,sans-serif sans-serif
 }
-.flex {
-  display: flex !important; /*  ưu tiên áp dụng thuộc tính */
+.flex{
+    display: flex !important; /*  ưu tiên áp dụng thuộc tính */
 }
-.flex-col {
-  flex-direction: column !important;
+.flex-col{
+    flex-direction: column !important;
 }
-.flex-basis-0 {
-  flex-basis: 0% !important;
+.flex-basis-0{
+    flex-basis: 0% !important;   
 }
-.flex-shrink {
-  flex-shrink: 1 !important;
+.flex-shrink{
+    flex-shrink: 1 !important;
 }
-.flex-grow {
-  flex-grow: 1 !important;
+.flex-grow{
+    flex-grow: 1 !important;
 }
 .order-0 {
-  order: 0 !important;
+    order: 0 !important;
 }
-.overflow-hidden {
-  overflow: hidden !important; /*nội dung sẽ ẩn nếu vượt quá kích thước của phần tử  */
+.overflow-hidden{
+    overflow: hidden !important;   /*nội dung sẽ ẩn nếu vượt quá kích thước của phần tử  */
+    
 }
-.justify-end {
-  justify-content: flex-end !important;
-}
-*::before,
-*::after {
-  box-sizing: border-box;
+.justify-end{
+    justify-content: flex-end !important;
 }
 .full-height {
-  height: 100vh;
+    height: 100vh;
 }
-.side-bar-wrapper {
-  transition: width 0.2s;
-  padding: 1.5rem 0 0.5rem;
-  background-color: rgba(40, 41, 43, 1);
-  color: rgba(255, 255, 255, 0.85);
+.side-bar-wrapper{
+    transition: width 0.2s;
+    padding: 1.5rem 0 0.5rem;
 }
 
 .mt-14 {
-  margin-top: 3.5rem;
+    margin-top: 3.5rem;
 }
 .mx-2 {
-  margin-left: 0.5rem !important;
-  margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
 }
 .order-3 {
-  order: 3 !important;
+    order:3 !important;
 }
 .w-56 {
-  width: 14rem !important;
+    width: 14rem !important;
 }
 
 .ps--size-md {
-  --ps-size: 6px; /*biến tuỳ chỉnh trong css */
+     --ps-size: 6px;  /*biến tuỳ chỉnh trong css */
 }
 .scrollbar-container {
-  position: relative;
-  height: 100%;
+    position: relative;
+    height: 100%;
 }
 .ps {
-  overflow-anchor: none;
-  touch-action: auto;
+    overflow-anchor: none;
+    touch-action: auto;
 }
 .w-full {
-  width: 100% !important;
+    width: 100% !important;
 }
 .px-2 {
-  padding-left: 0.5rem; /* tạo khoảng trống xung quanh nội dung bên trong 1 phần tử */
-  padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 .feature-item {
-  position: relative;
-  border-radius: 0.875rem;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+    position: relative;
+    border-radius: 0.875rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 .spacer-component {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .side-bar-wrapper .feature-bar-top .feature-item .tb {
-  white-space: nowrap;
+    white-space: nowrap;  
 }
 .side-bar-wrapper .feature-label {
-  opacity: 1; /* độ mờ phần tử */
-  transition: opacity 0.2s;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    opacity: 1;   /* độ mờ phần tử */
+    transition: opacity 0.2s;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .side-bar-wrapper .feature-bar-top .feature-item {
-  justify-content: unset;
-  margin: 0.25rem 0;
-  width: 100%;
+    justify-content: unset;
+    margin: 0.25rem 0;
+    width: 100%;
 }
 .side-bar-wrapper .feature-bar-top .feature-item i {
-  flex: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
 }
 .side-bar-wrapper .feature-bar-bottom {
-  flex-direction: column;
-  justify-content: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 .side-bar-wrapper .feature-bar-bottom .feature-item {
-  justify-content: unset;
-  margin: 0.25rem 0;
-  width: 100%;
+    justify-content: unset;
+    margin: 0.25rem 0;
+    width: 100%;
 }
 .side-bar-wrapper .feature-bar-bottom .feature-item i {
-  flex: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
 }
 .side-bar-wrapper .feature-bar-bottom .feature-item .tb {
-  white-space: nowrap;
-}
-.side-bar-wrapper .feature-bar-bottom .feature-item .feature-text {
-  flex: none;
-  width: 2.5rem !important;
-  height: 2.5rem !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: unset;
-  border: none;
-}
-.feature-text .text-container {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 1px solid;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.5rem;
-  text-transform: uppercase;
-}
-.side-bar-wrapper .collapse-button {
-  justify-content: unset !important;
-  margin: 0.25rem 0 !important;
-  width: 100%;
-}
-.side-bar-wrapper .collapse-button .active {
-  margin: 0.25rem 0 !important;
-  justify-content: unset;
-}
-.side-bar-wrapper .collapse-button i {
-  flex: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-}
-.side-bar-wrapper .collapse-button .tb {
-  white-space: nowrap;
-}
-.border-panel {
-  box-shadow: none;
-}
-.border-panel::before {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 3px;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  box-shadow: 0.5px 0 0 whitesmoke; /* hiệu ứng đổ bóng cửa phần tử*/
-}
-.flex-panel {
-  position: relative;
-  background-color: rgba(40, 41, 43, 1);
-  color: rgba(255, 255, 255, 0.85);
-}
-.layout-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.panel-body {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 0%;
-  overflow: hidden;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-}
-.tab-control {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
-}
-.tab-control .tab-header-wrap {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-.tab-control .tab-header-wrap .tab-header {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 0.5rem;
-  box-sizing: border-box;
-}
-
-.tab-control .tab-header-wrap .tab-header .tab-title {
-  padding: 0 2rem 0 1rem;
-  margin-right: 1 rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.tab-control .tab-header-wrap .tab-header .tab-item-header.active {
-  color: rgb(255, 255, 255);
-  border-bottom: 2px solid rgb(55, 114, 255);
-}
-.btn--empty .btn--default {
-  --color: rgba(255, 255, 255, 0.85);
-}
-.btn-md {
-  --button-height: calc(40 / 16 * 1em);
-}
-.btn--default {
-  --btn-color-rgb: 99, 99, 99;
-  --btn-color: rgba((99, 99, 99), (1));
-}
-.btn--empty {
-  --active-shadow-inner-rgb: 99, 99, 99;
-}
-.btn {
-  --button-height: 2.25rem;
-  --icon-ratio: 0;
-  --color: rgba(255, 255, 255, 0.95);
-  --btn-alpha: 1;
-  --btn-disabled-alpha: 0.5;
-  --hover-state: rgba((255, 255, 255), 0.1);
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.tab-control .tab-header-wrap .tab-header .tab-item-header.active span {
-  font-weight: 500;
-  opacity: 1;
-}
-.btn__content {
-  z-index: 1;
-}
-.relative {
-  position: relative !important;
-}
-.item-center {
-  align-items: center !important;
-}
-
-.justify-center {
-  justify-content: center !important;
-}
-.inline-flex {
-  display: inline-flex !important;
-}
-.tab-control .tab-header-wrap .tab-header .tab-item-header {
-  margin: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.25rem;
-  border-radius: 0;
-  padding: 0;
+    white-space: nowrap;
 }
