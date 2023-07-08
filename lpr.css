@@ -505,7 +505,7 @@ div.form-input-group .input-append {
   text-align: left;
   outline: none;
   width: 100%;
-  height: 100%;
+  height: 100%; 
 } */
 .dropdown-btn--hidden {
   display:none;
@@ -517,4 +517,151 @@ div.form-input-group .input-append {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.form-control-column {
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.form-control-column .form-label {
+  line-height:  2rem;
+}
+.w-max {
+  width: max-content !important;
+}
+.range-slider__labels-container {
+  margin-bottom:  4px;
+  position: relative;
+  z-index: 1;
+}
+.range-slider__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+.slider-mark-container {
+  height: inherit;
+}
+.slider-mark-container .slider-mark-dot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.range-slider__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slider-mark-container .slider-mark-dot .slider-mark {
+  position: absolute;
+  background-color: rgba(192, 192, 192, 0.3);
+  border: 2px solid;
+  box-sizing: content-box;
+}
+.track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 5px;
+}
+.slider__rail {
+  display: block;
+  position: absolute;
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 5px;
+  width: 100%;
+  height: inherit;
+  top: 0;
+}
+.slider-mark-label-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 14px;
+}
+.checkbox-form {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+.checkbox-form .checkbox-item {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  max-width: 100%;
+  vertical-align: top;
+  isolation: isolate; /* thuộc tính cách ly xác định liệu phần tử có phải tạo nd xếp chồng mới hay hok*/
+  padding: 0.25rem;
+} 
+.checkbox-form input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkbox-form .radio-input {
+  width: calc(1.25rem * 1);
+  height: calc(1.25rem * 1);
+  min-width: calc(1.25rem * 1);
+  min-height: calc(1.25rem * 1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(25, 26, 28);
+  border: 0.1rem solid rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+.radio-input {
+  border-radius: 50%;
+}
+.checkbox--icon-md {
+  --icon-radio: 1;
+}
+.checkbox-form .checkbox-label {
+  margin-left: 0.5rem;
+}
+.dtp-container {
+   position: relative;
+   flex: 1;
+}
+.dtp-control-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  outline: 0;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-sizing: border-box;
+  min-height: 2rem;
+}
+.border-0 {
+  border-width: 0px !important;
+}
+.dtp-control-container .calendar {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+}
+.dtp-control-container .calendar i {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+.form-control-container i {
+  border: none;
+  min-height: unset;
+  padding: 2px;
 }
