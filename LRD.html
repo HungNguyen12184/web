@@ -328,7 +328,7 @@
                                       <span class="checkbox-label">Khoảng thời gian</span>
                                     </label>
                                   </div>
-                                   <div class="form-group form-group-column">
+                                  <div class="form-group form-group-column">
                                     <div class="form-control-label form-control-row">
                                       <div class="form-label form-label-align-left" style="width: 3rem;">
                                        <div class="break-words"> Từ</div>
@@ -343,7 +343,6 @@
                                           </div>
                                         </div>
                                       </div>
-                                      
                                     </div>
                                     <div class="form-control-label form-control-row">
                                       <div class="form-label form-label-align-left" style="width: 3rem;">
@@ -360,14 +359,101 @@
                                         </div>
                                       </div>
                                     </div>
-                                   </div> 
+                                  </div>
+                                  <div class="layout-row overflow-hidden justify-space-between" style="flex: 1 1 0%;">
+                                    <div class="checkbox-form">
+                                      <label class="checkbox-item" for="">
+                                        <input class type="radio" data-autofocus="true">
+                                        <span class="radio-input checkbox--icon-md"></span>
+                                        <span class="checkbox-label">Cách đây</span>
+                                      </label>
+                                    </div>
+                                    <div class="advance-select--wrapper w28 h-max">
+                                      <div class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                        <div class="as-control-container">
+                                          <div class="dropdown-btn">
+                                            <div class="dropdown-btn-text"> 7 ngày</div>
+                                          </div>
+                                          <div class="arrow">
+                                             <i class="fa-solid fa-chevron-down" style="font: 1rem; color: inherit; background-color: transparent;"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <select hidden>
+                                        <option></option>
+                                        <option value="6">6 giờ</option>
+                                        <option value="12">12 giờ</option>
+                                        <option value="24">1 ngày</option>
+                                        <option value="168">7 ngày</option>
+                                        <option value="720">30 ngày</option>
+                                       </select> 
+                                    </div>
+                                  </div> 
                                 </div>
                               </div>                             
-                            </div>    
+                            </div>
+                           <div class="section-panel flex flex-col">
+                            <div class="section-header flex">
+                              <h3>Truy vấn không gian</h3>
+                            </div>
+                            <div class="section-panel-body">
+                              <div class="form-group form-group-column">
+                              <div class="checkbox-form">
+                                <label class="checkbox-item" for="">
+                                  <input class type="radio" data-autofocus="true">
+                                  <span class="radio-input checkbox--icon-md"></span>
+                                  <span class="checkbox-label">Truy vấn không gian </span>
+                                </label>
+                              </div>
+                              <span class="my-2 sub sub1"> Sử dụng công cụ Bản đồ tác chiến để vẽ điểm hoặc vùng tìm kiếm </span>
+                              </div>
+                            </div>
+                           </div>  
+                          </div>
+                        </div>
+                        <div class="panel-footer">
+                          <div class="panel-footer-actions">
+                            <button class="btn btn--primary btn--fill btn-sm">
+                              <span class="btn__content relative inline-flex justify-center item-center btn--icon-left">
+                                <span class="btn__text">Đặt lại</span>
+                              </span>
+                            </button>
+                            <button class="btn btn--primary btn--fill btn-sm">
+                              <span class="btn__content relative inline-flex justify-center item-center btn--icon-left">
+                                <span class="btn__text">Tìm kiếm</span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>  
+                      </div>
+                      <div class="draggable">
+                        <!--tabindex xác định thứ tự điều hướng khi dùng phím tab-->
+                        <div tabindex="1" class="line">
+                        </div>
+                      </div>
+                      <div class="flex flex-col overflow-hidden h-full" style="flex: 0 1 auto; width: 1780px;">
+                        <div class="map-layout-toolbar flex gap-4 w-full p-0">
+                          <div class="flex flex-grow flex-shrink flex-basis-0 justify-between overflow-hidden">
+                            <div class="flex gap-2">
+                              <button class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive ">
+                                <span class="btn__content relative inline-flex justify-center item-center">
+                                  <i class="fa-solid fa-list" style="font-size: 24px; color:inherit; background-color: transparent;"></i>
+                                </span>
+                              </button>
+                              <button class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive ">
+                                <span class="btn__content relative inline-flex justify-center item-center">
+                                  <i class="fa-solid fa-columns" style="font-size: 24px; color:inherit; background-color: transparent;"></i>
+                                </span>
+                              </button>
+                              <button class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive ">
+                                <span class="btn__content relative inline-flex justify-center item-center">
+                                  <i class="fa-solid fa-map" style="font-size: 24px; color:inherit; background-color: transparent;"></i>
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class="flex flex-col overflow-hidden h-full" style="flex: 0 1 auto; width: 1780px;"></div>
                     </div>
                   </div>
                 </div>

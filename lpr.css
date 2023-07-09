@@ -303,7 +303,7 @@ canvas {
 .btn--empty {
   --active-shadow-inner-rgb: 99, 99, 99;
 }
-.btn {
+/* .btn {
   --button-height: 2.25rem;
   --icon-ratio: 0;
   --color: rgba(255, 255, 255, 0.95);
@@ -316,7 +316,7 @@ canvas {
   justify-content: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
+} */
 .tab-control .tab-header-wrap .tab-header .tab-item-header.active span {
   font-weight: 500;
   opacity: 1;
@@ -664,4 +664,123 @@ div.form-input-group .input-append {
   border: none;
   min-height: unset;
   padding: 2px;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+.layout-row {
+  display: flex;
+}
+.w-28 {
+  width: 7rem !important;
+}
+.panel-footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  background-color: rgba(30,31,33,1);
+}
+.panel-footer .panel-footer-actions {
+  display: flex;
+}
+.panel-footer .panel-footer-actions button {
+  flex: 1;
+  margin: 0.25rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+.bt--sm {
+  --button-height: calc(32/16 *1em);
+}
+.btn--primary {
+  --btn-color--rgb:55,114,255;
+  --btn-color:rgba((55,114,255), 1);
+}
+.btn--fill {
+  --button-bg: rgba(55,114,255,1);
+  --hover-stroke: rgba (var(--btn-color),1);
+}
+.btn {
+  --button-height:2.25rem; /*Khai báo biến css*/
+  --icon-ratio:0;
+  --btn-alpha:1;
+  --btn-disabled-alpha:0.5;
+  --hover-state:rgba((255,255,255),0.1);
+  --active-state:rgba((0,0,0),0.1);
+  --active-shadow-inner-rgb: 0,0,0;
+  --active-shadow-inner-alpha:0.1;
+  --active-shadow-inner: rgba (var(--active-shadow-inner-rgb),var(--active-shadow-inner-alpha));
+  --border-color:rgba(55,114,255,1);
+  --transition-duration:300ms ;
+  --border-radius:0.25rem;
+  --border-width:1px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  min-height: var(--button-height);
+  color: rgba(255, 255, 255, 0.95);
+  background-color: var(--button-bg);
+  touch-action: manipulation;
+  transition: all var(--transition-duration) ease-in-out;
+  cursor: pointer;
+}
+.btn--sm .btn__text {
+  --text-size: calc (14/16 *1rem );
+}
+.btn__text {
+  font-size: var(--text-size);
+}
+.resizable-container .draggable {
+  position: relative;
+  display: flex;
+  z-index: 10; /* xác định vị trí sắp xếp các phần tử chồng lên nhau*/
+}
+.resizable-h .line {
+  flex: 1;
+  position: absolute;
+  padding: 0 3px;
+  left: -3px;
+  height: 100%;
+}
+ .resizable-h .line::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  transform: translate(-50%, -50% );
+  border-right: 2px solid rgba(255,255,255,0.15); /*đinh dạng và thiết lập các thuộc tính của viền phía bên phải phần tử*/
+  transition-duration: 0.15s;
+  transition-timing-function: ease; /*xác định cách thức thay đổi giá trị của 1 thuộc tính trong quá trinh chuyển tiếp*/
+  transition-delay: 0s;
+  /* transition-property: var(--border-color); */
+}
+.map-layout-toolbar {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.p-0 {
+  padding: 0;
+}
+
+.gap-4 {
+  gap: 1rem; /* Thiết lập khoảng cách giữa các phần tủ trong flex-box*/ 
+}
+.justify-between {
+  justify-content: space-between !important;
+}
+.gap-2 {
+  gap: 0.5rem !important;
+}
+.map-layout-view-mode--inactive {
+  color: rgb(99, 99, 99);
+}
+.btn--only-icon {
+  width: var(--button-height);
+  height: var(--button-height);
+  padding: 0.375rem;
+}
+.btn--icon-sm {
+  --icon-ratio:0.5s;
 }
