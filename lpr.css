@@ -784,3 +784,17 @@ div.form-input-group .input-append {
 .btn--icon-sm {
   --icon-ratio:0.5s;
 }
+                                      
+.dropdown_ht {
+  width: 200px;
+}
+.h-full {
+  height: 100% !important;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
