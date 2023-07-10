@@ -201,20 +201,27 @@
                                       <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
                                         <div class="as-control-container">
                                           <div class="dropdown-btn">
-                                            <div class="dropdown-btn-text">Tất cả</div>
+                                            <select>
+                                              <option value> ALL</option>
+                                              <option value="TruongSon">TruongSon</option>
+                                              <option value="CDM_new_20">CDM_new_20</option>
+                                              <option value="Lear_System">Lear_System</option>
+                                              <option value="Vig_TestSystem">Vig_TestSystem</option>
+                                             </select>  
+                                            <!-- <div class="dropdown-btn-text">Tất cả</div> -->
                                           </div>
-                                          <div class="arrow">
+                                          <!-- <div class="arrow">
                                             <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
-                                         </div>
+                                         </div> -->
                                         </div>
                                       </div>
-                                      <select hidden>
+                                      <!-- <select hidden>
                                         <option value> ALL</option>
                                         <option value="TruongSon">TruongSon</option>
                                         <option value="CDM_new_20">CDM_new_20</option>
                                         <option value="Lear_System">Lear_System</option>
                                         <option value="Vig_TestSystem">Vig_TestSystem</option>
-                                       </select>
+                                       </select> -->
                                      </div>
                                    </div>
                                 </div>
@@ -227,20 +234,27 @@
                                       <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
                                         <div class="as-control-container">
                                           <div class="dropdown-btn">
-                                            <div class="dropdown-btn-text">Tất cả</div>
+                                            <select>
+                                              <option value>Truong_son_PTZ</option>
+                                              <option value="Camera_lau_1">Camera_lau_1</option>
+                                              <option value="Camera_lau_2">Camera_lau_2</option>
+                                              <option value="Camera_lau_3">Camera_lau_3</option>
+                                              <option value="Camera_lau_4">Camera_lau_4</option>
+                                             </select>  
+                                            <!-- <div class="dropdown-btn-text">Tất cả</div> -->
                                           </div>
-                                          <div class="arrow">
+                                          <!-- <div class="arrow">
                                             <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
-                                         </div>
+                                         </div> -->
                                         </div>
-                                      </div>
-                                      <select hidden>
+                                       </div>
+                                       <!-- <select hidden>
                                         <option value> ALL</option>
                                         <option value="TruongSon">TruongSon</option>
                                         <option value="CDM_new_20">CDM_new_20</option>
                                         <option value="Lear_System">Lear_System</option>
                                         <option value="Vig_TestSystem">Vig_TestSystem</option>
-                                       </select>  
+                                       </select>   -->
                                      </div>
                                    </div>
                                 </div>
@@ -461,9 +475,60 @@
                               <div class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden">
                                 <div class="css-0">
                                   <div class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden ">
-                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg"></button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-double-left" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-left" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--primary btn--fill btn--xs active rounded-lg" style="min-width: 2.5rem;">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <span class="btn_text">1</span>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-right" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-double-right" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
                                   </div>
                                 </div>
+                                <div class="css-0">
+                                  <div class="advance-select--wrapper h-max ">
+                                    <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                      <div class="as-control-container">
+                                        <div class="dropdown-btn">
+                                          <div class="dropdown-btn-text">25 dòng</div>
+                                        </div>
+                                        <div class="arrow">
+                                          <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
+                                       </div>
+                                      </div>
+                                    </div>
+                                    <select hidden>
+                                      <option></option>
+                                      <option value="25"> 25 dòng</option>
+                                      <option value="50"> 50 dòng</option>
+                                      <option value="100">100 dòng</option>
+                                      <option value="250">250 dòng</option>
+                                     </select>
+                                   </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="data-grid-wrapper">
+                              <div class="data-grid-content divide-y divide-alpha-10">
+                                <div class="data-grid-container"></div>
+                                <div class="toolbar"></div>
                               </div>
                             </div>
                             </div>
