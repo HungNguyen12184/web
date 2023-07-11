@@ -509,9 +509,10 @@ div.form-input-group .input-append {
 } */
 .dropdown-btn select{
   background-color: rgb(25, 26, 28);
-  border: none  ;
+  border: none;
   color: rgba(255, 255, 255, 0.85);
-  cursor: pointer;
+  cursor: pointer;  
+  width: 100%;
 }
 .dropdown-btn--hidden {
   display:none;
@@ -866,4 +867,152 @@ div.form-input-group .input-append {
   width: 100%;
   flex: 1;
   position: relative;
+}
+
+.app-overlay.no-background {
+  pointer-events: none; /* xac dinh phan tu co phan ung voi su kien cua con tro hay hok*/
+}
+.dtp-overlay {
+  border: none;
+}
+.app-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color:rgba(255, 255, 255, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+.app-overlay.no-background .overlay-main {
+  pointer-events: none;
+}
+.app-overlay .overlay-popover .overlay-main {
+  position: absolute;
+}
+.app-overlay .overlay-main {
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  margin: 0 auto;
+}
+.dtp-overlay .m-input-moment {
+  margin-top: 1px;
+  background-color: rgb(50,51,53);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: none;
+  border-radius: 5px;
+}
+.m-input-moment {
+  padding: 1rem;
+}
+.m-input-moment .option {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.m-input-moment .footer {
+  margin-top: 10px;
+}
+.m-input-moment .option button.active {
+  color: white;
+  background-color: rgb(55, 114, 255);
+}
+.m-input-moment .option button:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.m-input-moment .option button {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 32px;
+  color: rgb(55, 114, 255);
+  border: 1px solid rgb(55, 114, 255);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.im-btn {
+  display: inline;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+.m-calender {
+  display: inline-block;
+}
+.m-calender .toolbar {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.m-calender .toolbar button {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: transparent;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  z-index: 5;
+  cursor: pointer;
+
+}
+.m-calender .prev-month , .m-calender .next-month {
+  color: rgba(255, 255, 255, 0.55);
+
+}
+.m-calender .toolbar .prev-month i, .m-calender .toolbar .next-month i {
+  font-size: 1.25rem !important;
+}
+.m-calender .toolbar .current-date button {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  text-transform: capitalize;
+  width: unset;
+  text-align: center;
+}
+.m-calender table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+
+}
+table {
+  border-spacing: 0;
+}
+.m-calender thead td {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+.m-calender td {
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+}
+.m-calender tbody td .day-content {
+  font-weight: 600;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  border-radius: 0.875rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
