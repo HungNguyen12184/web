@@ -173,3 +173,51 @@ function searchLabel(){
      
 });
 }  
+
+/*------------------LPR------------------------*/
+      let currentMonth = new Date().getMonth();
+      let currentYear = new Date().getFullYear(); 
+  
+    function displayInfo() {
+      var monthCL = document.querySelector('.month');
+      var yearCL = document.querySelector('.year');
+        var currentMonthName = new Date (
+            currentYear,
+            currentMonth
+        ).toLocaleString('vi-VN',{month:'long'}); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
+        monthCL.innerText = currentMonthName;
+        yearCL.innerText = currentYear;   
+        renderDate();
+    }
+    //lấy số ngày của tháng 
+        function getDaysInMonth() {
+            var lastdayofMonth = new Date(currentYear,currentMonth + 1,0);
+            console.log("ngày " + lastdayofMonth);   
+        }
+        // lấy ngày bắt đầu của tháng 
+        function getStartDayInMonth(){
+            var startday = new Date (currentYear,currentMonth,1);
+            console.log ("ngày bắt đầu" + startday)
+        }
+        
+        function activeCurrentDay(day){
+            var day1 = new Date().toDateString();
+            var day2 = new Date(currentYear,currentMonth,day).toDateString();
+            return day1 == day2 ?'active': '';
+        }
+        
+        function renderDate() {
+           var dateCL = document.querySelector('tbody');
+           var daysInMonth = getDaysInMonth();
+           var startDay = getStartDayInMonth();
+           dateCL.innerHTML='';
+          for (var i = 0; i < startDay; i++){
+          dateCL.innerHTML+= `<td class="prev-month"><div class="day-content">${i+1}</div></td>`
+         }
+         for (var i = 0; i < daysInMonth; i++)
+         { 
+         dateCL.innerHTML+= `<td class><div class="day-content${activeCurrentDay(i+1)}">${i+1}</div></td>`
+        }   
+    }
+    
+window.onload = displayInfo;
