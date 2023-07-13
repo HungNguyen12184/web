@@ -191,13 +191,13 @@ function searchLabel(){
     }
     //lấy số ngày của tháng 
         function getDaysInMonth() {
-            var lastdayofMonth = new Date(currentYear,currentMonth + 1,0);
-            console.log("ngày " + lastdayofMonth);   
+            var lastdayofMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            return lastdayofMonth;  
         }
         // lấy ngày bắt đầu của tháng 
         function getStartDayInMonth(){
-            var startday = new Date (currentYear,currentMonth,1);
-            console.log ("ngày bắt đầu" + startday)
+            var startday = new Date (currentYear, currentMonth, 1).getDay();
+            return startday;
         }
         
         function activeCurrentDay(day){
