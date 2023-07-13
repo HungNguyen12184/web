@@ -1,779 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel=" stylesheet" href="lpr.css" />
-    <link
-      rel="stylesheet"
-      href="assets/fontawesome-free-6.4.0-web/css/all.min.css"
-    />
-    <script src="leftmenu.js"></script>
-    <title>LPR</title>
-  </head>
 
-  <body>
-    <div class="fullscreen">
-      <div
-        class="full-height overflow-hidden flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
-      >
-        <div class="side-bar-wrapper flex flex-col justify-end w-56">
-          <div
-            class="feature-bar-top flex flex-grow flex-shrink flex-basis-0 order-0 overflow-hidden"
-          >
-            <div
-              class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col px-2"
-            >
-              <div class="css-0">
-                <a aria-current="page" class="feature-item active" href="/">
-                  <i
-                    class="fa-solid fa-house"
-                    style="font-size: 1.25rem; color: inherit"
-                  >
-                  </i>
-                  <span class="feature-label tb tb1"> Trang chủ </span>
-                </a>
-                <!-- /*chỉ định trang thái trang hiện tại-->
-              </div>
-              <div
-                class="spacer-component space-with-horizontal-divider"
-                style="width: 100%; height: 1rem"
-              ></div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-regular fa-map"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1"> Bản đồ</span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-chart-line"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1"> Thống kê</span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-bell"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1"> Sự kiện </span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-briefcase"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1"> Vụ việc</span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-location"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1">Giám sát hành trình</span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-user-friends"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1"> Nhận dạng gương mặt</span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-credit-card-alt"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1">Nhận dạng biển số xe</span>
-                </a>
-              </div>
-              <div class="css-0">
-                <a href="" class="feature-item">
-                  <i
-                    class="fa-solid fa-expand"
-                    style="font-size: 1.25rem; color: inherit"
-                  ></i>
-                  <span class="feature-label tb tb1">Nhận dạng tổng hợp</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="feature-bar-bottom flex mt-14">
-            <div
-              style="overflow-x: hidden"
-              class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col justify-end px-2"
-            >
-              <div class="css-0">
-                <a aria-current="page" class="feature-item" href="/">
-                  <i
-                    class="fa-solid fa-comment-alt"
-                    style="font-size: 1.25rem; color: inherit"
-                  >
-                  </i>
-                  <span class="feature-label tb tb1"> Kênh liên lạc</span>
-                </a>
-              </div>
-              <button class="feature-item css-0">
-                <div
-                  class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
-                >
-                  <div class="feature-item feature-text">
-                    <div class="text-container">vi</div>
-                  </div>
-                  <span class="feature-label tb tb1"> Chuyển đổi ngôn ngữ</span>
-                </div>
-              </button>
-              <button class="feature-item css-0">
-                <div
-                  class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
-                >
-                  <i
-                    class="fa-solid fa-sun"
-                    style="font-size: 1.25rem; color: inherit"
-                  >
-                  </i>
-                  <span class="feature-label tb tb1">Chủ đề</span>
-                </div>
-              </button>
-              <button class="feature-item css-0">
-                <div
-                  class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
-                >
-                  <i
-                    class="fa-solid fa-question-circle"
-                    style="font-size: 1.25rem; color: inherit"
-                  >
-                  </i>
-                  <span class="feature-label tb tb1">Hướng dẫn sử dụng</span>
-                </div>
-              </button>
-              <button class="feature-item css-0">
-                <div
-                  class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
-                >
-                  <i
-                    class="fa-solid fa-contact-card"
-                    style="font-size: 1.25rem; color: inherit"
-                  >
-                  </i>
-                  <span class="feature-label tb tb1">Thông tin cá nhân</span>
-                </div>
-              </button>
-            </div>
-          </div>
-          <div class="flex flex-col order-3 mx-2">
-            <div
-              class="spacer-component spacer-with-horizontal-divider"
-              style="width: 100%; height: 1rem"
-            ></div>
-            <button class="feature-item collapse-button">
-              <div
-                class="feature-item active flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
-              >
-                <i
-                  class="fa-solid fa-angle-double-left"
-                  style="font-size: 1.25rem; color: inherit"
-                >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel=" stylesheet" href="lpr.css" />
+  <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css" />
+  <script src="leftmenu.js"></script>
+  <title>LPR</title>
+</head>
+
+<body>
+  <div class="fullscreen">
+    <div class="full-height overflow-hidden flex flex-grow flex-shrink flex-basis-0 overflow-hidden">
+      <div class="side-bar-wrapper flex flex-col justify-end w-56">
+        <div class="feature-bar-top flex flex-grow flex-shrink flex-basis-0 order-0 overflow-hidden">
+          <div class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col px-2">
+            <div class="css-0">
+              <a aria-current="page" class="feature-item active" href="/">
+                <i class="fa-solid fa-house" style="font-size: 1.25rem; color: inherit">
                 </i>
-                <span class="feature-label tb tb1">Thu gọn</span>
+                <span class="feature-label tb tb1"> Trang chủ </span>
+              </a>
+              <!-- /*chỉ định trang thái trang hiện tại-->
+            </div>
+            <div class="spacer-component space-with-horizontal-divider" style="width: 100%; height: 1rem"></div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-regular fa-map" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1"> Bản đồ</span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-chart-line" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1"> Thống kê</span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-bell" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1"> Sự kiện </span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-briefcase" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1"> Vụ việc</span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-location" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1">Giám sát hành trình</span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-user-friends" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1"> Nhận dạng gương mặt</span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-credit-card-alt" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1">Nhận dạng biển số xe</span>
+              </a>
+            </div>
+            <div class="css-0">
+              <a href="" class="feature-item">
+                <i class="fa-solid fa-expand" style="font-size: 1.25rem; color: inherit"></i>
+                <span class="feature-label tb tb1">Nhận dạng tổng hợp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="feature-bar-bottom flex mt-14">
+          <div style="overflow-x: hidden"
+            class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col justify-end px-2">
+            <div class="css-0">
+              <a aria-current="page" class="feature-item" href="/">
+                <i class="fa-solid fa-comment-alt" style="font-size: 1.25rem; color: inherit">
+                </i>
+                <span class="feature-label tb tb1"> Kênh liên lạc</span>
+              </a>
+            </div>
+            <button class="feature-item css-0">
+              <div class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0">
+                <div class="feature-item feature-text">
+                  <div class="text-container">vi</div>
+                </div>
+                <span class="feature-label tb tb1"> Chuyển đổi ngôn ngữ</span>
+              </div>
+            </button>
+            <button class="feature-item css-0">
+              <div class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0">
+                <i class="fa-solid fa-sun" style="font-size: 1.25rem; color: inherit">
+                </i>
+                <span class="feature-label tb tb1">Chủ đề</span>
+              </div>
+            </button>
+            <button class="feature-item css-0">
+              <div class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0">
+                <i class="fa-solid fa-question-circle" style="font-size: 1.25rem; color: inherit">
+                </i>
+                <span class="feature-label tb tb1">Hướng dẫn sử dụng</span>
+              </div>
+            </button>
+            <button class="feature-item css-0">
+              <div class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0">
+                <i class="fa-solid fa-contact-card" style="font-size: 1.25rem; color: inherit">
+                </i>
+                <span class="feature-label tb tb1">Thông tin cá nhân</span>
               </div>
             </button>
           </div>
         </div>
-        <div
-          class="side-feature flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
-        >
-          <div
-            class="layout-column overflow-hidden flex-panel border-panel"
-            style="flex: 1 1 0%"
-          >
-            <div
-              class="layout-column overflow-hidden flex-panel plate-alert"
-              style="flex: 1 1 0%"
-            >
-              <div class="panel-body">
-                <div class="tab-control">
-                  <div class="tab-header-wrap">
-                    <div class="tab-header">
-                      <div class="tab-title">Nhận dạng biển số xe</div>
-                      <button
-                        class="btn btn--default btn--md btn--empty tab-item-header active"
-                      >
-                        <span
-                          class="btn__content relative inline-flex justify-center item-center"
-                        >
-                          <span class="btn__tex"> Phát hiện</span>
-                        </span>
-                      </button>
-                      <button
-                        class="btn btn--default btn--md btn--empty tab-item-header"
-                      >
-                        <span
-                          class="btn__content relative inline-flex justify-center item-center"
-                        >
-                          <span class="btn__tex">Thư viện</span>
-                        </span>
-                      </button>
-                      <button
-                        class="btn btn--default btn--md btn--empty tab-item-header"
-                      >
-                        <span
-                          class="btn__content relative inline-flex justify-center item-center"
-                        >
-                          <span class="btn__tex"> Nhập liệu</span>
-                        </span>
-                      </button>
-                      <button
-                        class="btn btn--default btn--md btn--empty tab-item-header"
-                      >
-                        <span
-                          class="btn__content relative inline-flex justify-center item-center"
-                        >
-                          <span class="btn__tex"> Cấu hình</span>
-                        </span>
-                      </button>
-                      <button
-                        class="btn btn--default btn--md btn--empty tab-item-header"
-                      >
-                        <span
-                          class="btn__content relative inline-flex justify-center item-center"
-                        >
-                          <span class="btn__tex">Đồng phạm</span>
-                        </span>
-                      </button>
-                      <button
-                        class="btn btn--default btn--md btn--empty tab-item-header"
-                      >
-                        <span
-                          class="btn__content relative inline-flex justify-center item-center"
-                        >
-                          <span class="btn__tex">Thống kê </span>
-                        </span>
-                      </button>
-                    </div>
+        <div class="flex flex-col order-3 mx-2">
+          <div class="spacer-component spacer-with-horizontal-divider" style="width: 100%; height: 1rem"></div>
+          <button class="feature-item collapse-button">
+            <div class="feature-item active flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0">
+              <i class="fa-solid fa-angle-double-left" style="font-size: 1.25rem; color: inherit">
+              </i>
+              <span class="feature-label tb tb1">Thu gọn</span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="side-feature flex flex-grow flex-shrink flex-basis-0 overflow-hidden">
+        <div class="layout-column overflow-hidden flex-panel border-panel" style="flex: 1 1 0%">
+          <div class="layout-column overflow-hidden flex-panel plate-alert" style="flex: 1 1 0%">
+            <div class="panel-body">
+              <div class="tab-control">
+                <div class="tab-header-wrap">
+                  <div class="tab-header">
+                    <div class="tab-title">Nhận dạng biển số xe</div>
+                    <button class="btn btn--default btn--md btn--empty tab-item-header active">
+                      <span class="btn__content relative inline-flex justify-center item-center">
+                        <span class="btn__tex"> Phát hiện</span>
+                      </span>
+                    </button>
+                    <button class="btn btn--default btn--md btn--empty tab-item-header">
+                      <span class="btn__content relative inline-flex justify-center item-center">
+                        <span class="btn__tex">Thư viện</span>
+                      </span>
+                    </button>
+                    <button class="btn btn--default btn--md btn--empty tab-item-header">
+                      <span class="btn__content relative inline-flex justify-center item-center">
+                        <span class="btn__tex"> Nhập liệu</span>
+                      </span>
+                    </button>
+                    <button class="btn btn--default btn--md btn--empty tab-item-header">
+                      <span class="btn__content relative inline-flex justify-center item-center">
+                        <span class="btn__tex"> Cấu hình</span>
+                      </span>
+                    </button>
+                    <button class="btn btn--default btn--md btn--empty tab-item-header">
+                      <span class="btn__content relative inline-flex justify-center item-center">
+                        <span class="btn__tex">Đồng phạm</span>
+                      </span>
+                    </button>
+                    <button class="btn btn--default btn--md btn--empty tab-item-header">
+                      <span class="btn__content relative inline-flex justify-center item-center">
+                        <span class="btn__tex">Thống kê </span>
+                      </span>
+                    </button>
+                  </div> 
                   </div>
-                  <div
-                    class="tab-content flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
-                  >
-                    <div class="tab-item-content active">
-                      <div class="map-layout resizable-container resizable-h">
-                        <div
-                          class="layout-column flex-panel"
-                          style="width: 20rem; flex: 1 1 auto"
-                        >
-                          <div class="panel-body">
-                            <div
-                              style="overflow-x: hidden"
-                              class="scrollbar-container ps--size-md overflow-x-hidden ps ps--active-y"
-                            >
-                              <div class="section-panel flex flex-col">
-                                <div class="section-header flex">
-                                  <h3>Tìm thông tin</h3>
-                                </div>
-                                <div class="section-panel-body flex flex-col">
-                                  <div class="form-group form-group-column">
-                                    <div
-                                      class="form-control-label form-control-row"
-                                    >
-                                      <div
-                                        class="form-label form-label-align-left"
-                                        style="width: 70px"
-                                      >
-                                        <div class="break-words">Biển số</div>
-                                      </div>
-                                      <div class="form-control-container">
-                                        <div
-                                          class="form-input-group form-control"
-                                        >
-                                          <input
-                                            class
-                                            placeholder="Nhập biển số xe"
-                                            data-autofocus="true"
-                                            value
-                                          />
-                                          <div class="input-append">
-                                            <span>?</span>
+                <div class="tab-content flex flex-grow flex-shrink flex-basis-0 overflow-hidden">
+                  <div class="tab-item-content active">
+                    <div class="map-layout resizable-container resizable-h">
+                      <div class="layout-column flex-panel" style="width: 20rem; flex: 1 1 auto;">
+                        <div class="panel-body">
+                          <div style="overflow-x: hidden" class="scrollbar-container ps--size-md overflow-x-hidden ps ps--active-y">
+                            <div class="section-panel flex flex-col">
+                              <div class="section-header flex"> 
+                                <h3>Tìm thông tin </h3>
+                              </div>
+                              <div class="section-panel-body flex flex-col">
+                               <div class="form-group form-group-column"> 
+                                <div class="form-control-label form-control-row">
+                                  <div class="form-label form-label-align-left" style="width: 70px;">
+                                   <div class="break-words"> Biển số</div>
+                                  </div>
+                                  <div class="form-control-container">
+                                   <div class="form-input-group form-control">
+                                     <input class placeholder="Nhập biển số xe" data-autofocus="true" value>
+                                     <div class="input-append">
+                                       <span>?</span>
+                                     </div>
+                                   </div>
+                                  </div>
+                                 </div>
+                                 <div class="form-control-label form-control-row">
+                                  <div class="form-label form-label-align-left" style="width: 70px;">
+                                    <div class="break-words">Hệ thống</div>
+                                  </div>
+                                   <div class="form-control-container">
+                                     <div class="advance-select--wrapper h-max ">
+                                      <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                        <div class="as-control-container">
+                                          <div class="dropdown-btn">
+                                            <select>
+                                              <option value> ALL</option>
+                                              <option value="TruongSon">TruongSon</option>
+                                              <option value="CDM_new_20">CDM_new_20</option>
+                                              <option value="Lear_System">Lear_System</option>
+                                              <option value="Vig_TestSystem">Vig_TestSystem</option>
+                                             </select>  
+                                            <!-- <div class="dropdown-btn-text">Tất cả</div> -->
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="form-control-label form-control-row"
-                                    >
-                                      <div
-                                        class="form-label form-label-align-left"
-                                        style="width: 70px"
-                                      >
-                                        <div class="break-words">Hệ thống</div>
-                                      </div>
-                                      <div class="form-control-container">
-                                        <div
-                                          class="advance-select--wrapper h-max"
-                                        >
-                                          <div
-                                            id=""
-                                            class="as-container"
-                                            tabindex="0"
-                                            aria-haspopup="menu"
-                                            aria-expanded="false"
-                                            data-autofocus="true"
-                                          >
-                                            <div class="as-control-container">
-                                              <div class="dropdown-btn">
-                                                <select>
-                                                  <option value>ALL</option>
-                                                  <option value="TruongSon">
-                                                    TruongSon
-                                                  </option>
-                                                  <option value="CDM_new_20">
-                                                    CDM_new_20
-                                                  </option>
-                                                  <option value="Lear_System">
-                                                    Lear_System
-                                                  </option>
-                                                  <option
-                                                    value="Vig_TestSystem"
-                                                  >
-                                                    Vig_TestSystem
-                                                  </option>
-                                                </select>
-                                                <!-- <div class="dropdown-btn-text">Tất cả</div> -->
-                                              </div>
-                                              <!-- <div class="arrow">
+                                          <!-- <div class="arrow">
                                             <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
                                          </div> -->
-                                            </div>
-                                          </div>
-                                          <!-- <select hidden>
+                                        </div>
+                                      </div>
+                                      <!-- <select hidden>
                                         <option value> ALL</option>
                                         <option value="TruongSon">TruongSon</option>
                                         <option value="CDM_new_20">CDM_new_20</option>
                                         <option value="Lear_System">Lear_System</option>
                                         <option value="Vig_TestSystem">Vig_TestSystem</option>
                                        </select> -->
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="form-control-label form-control-row"
-                                    >
-                                      <div
-                                        class="form-label form-label-align-left"
-                                        style="width: 70px"
-                                      >
-                                        <div class="break-words">Camera</div>
-                                      </div>
-                                      <div class="form-control-container">
-                                        <div
-                                          class="advance-select--wrapper h-max"
-                                        >
-                                          <div
-                                            id=""
-                                            class="as-container"
-                                            tabindex="0"
-                                            aria-haspopup="menu"
-                                            aria-expanded="false"
-                                            data-autofocus="true"
-                                          >
-                                            <div class="as-control-container">
-                                              <div class="dropdown-btn">
-                                                <select>
-                                                  <option value>
-                                                    Truong_son_PTZ
-                                                  </option>
-                                                  <option value="Camera_lau_1">
-                                                    Camera_lau_1
-                                                  </option>
-                                                  <option value="Camera_lau_2">
-                                                    Camera_lau_2
-                                                  </option>
-                                                  <option value="Camera_lau_3">
-                                                    Camera_lau_3
-                                                  </option>
-                                                  <option value="Camera_lau_4">
-                                                    Camera_lau_4
-                                                  </option>
-                                                </select>
-                                                <!-- <div class="dropdown-btn-text">Tất cả</div> -->
-                                              </div>
-                                              <!-- <div class="arrow">
+                                     </div>
+                                   </div>
+                                </div>
+                                <div class="form-control-label form-control-row">
+                                  <div class="form-label form-label-align-left" style="width: 70px;">
+                                    <div class="break-words">Camera</div>
+                                  </div>
+                                   <div class="form-control-container">
+                                     <div class="advance-select--wrapper h-max ">
+                                      <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                        <div class="as-control-container">
+                                          <div class="dropdown-btn">
+                                            <select>
+                                              <option value>Truong_son_PTZ</option>
+                                              <option value="Camera_lau_1">Camera_lau_1</option>
+                                              <option value="Camera_lau_2">Camera_lau_2</option>
+                                              <option value="Camera_lau_3">Camera_lau_3</option>
+                                              <option value="Camera_lau_4">Camera_lau_4</option>
+                                             </select>  
+                                            <!-- <div class="dropdown-btn-text">Tất cả</div> -->
+                                          </div>
+                                          <!-- <div class="arrow">
                                             <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
                                          </div> -->
-                                            </div>
-                                          </div>
-                                          <!-- <select hidden>
+                                        </div>
+                                       </div>
+                                       <!-- <select hidden>
                                         <option value> ALL</option>
                                         <option value="TruongSon">TruongSon</option>
                                         <option value="CDM_new_20">CDM_new_20</option>
                                         <option value="Lear_System">Lear_System</option>
                                         <option value="Vig_TestSystem">Vig_TestSystem</option>
                                        </select>   -->
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="form-control-label form-control-row"
-                                    >
-                                      <div
-                                        class="form-label form-label-align-left"
-                                        style="width: 70px"
-                                      >
-                                        <div class="break-words">Danh sách</div>
-                                      </div>
-                                      <div class="form-control-container">
-                                        <div
-                                          class="advance-select--wrapper h-max"
-                                        >
-                                          <div
-                                            id=""
-                                            class="as-container"
-                                            tabindex="0"
-                                            aria-haspopup="menu"
-                                            aria-expanded="false"
-                                            data-autofocus="true"
-                                          >
-                                            <div class="as-control-container">
-                                              <div class="dropdown-btn">
-                                                <select>
-                                                  <option value="no-whitelist">
-                                                    Không miễn trừ
-                                                  </option>
-                                                  <option value="whitelist">
-                                                    Miễn trừ
-                                                  </option>
-                                                </select>
-                                              </div>
-                                              <!-- <div class="arrow">
+                                     </div>
+                                   </div>
+                                </div>
+                                <div class="form-control-label form-control-row">
+                                  <div class="form-label form-label-align-left" style="width: 70px;">
+                                    <div class="break-words">Danh sách</div>
+                                  </div>
+                                   <div class="form-control-container">
+                                     <div class="advance-select--wrapper h-max ">
+                                      <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                        <div class="as-control-container">
+                                          <div class="dropdown-btn">
+                                            <select>
+                                              <option value="no-whitelist">Không miễn trừ</option>
+                                              <option value="whitelist">Miễn trừ</option>
+                                             </select> 
+                                          </div>
+                                          <!-- <div class="arrow">
                                             <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
                                          </div> -->
-                                            </div>
-                                          </div>
-                                          <!-- <select hidden>
+                                        </div>
+                                      </div>
+                                      <!-- <select hidden>
                                         <option value> ALL</option>
                                         <option value="TruongSon">TruongSon</option>
                                         <option value="CDM_new_20">CDM_new_20</option>
                                         <option value="Lear_System">Lear_System</option>
                                         <option value="Vig_TestSystem">Vig_TestSystem</option>
                                        </select>   -->
+                                     </div>
+                                   </div>
+                                </div>
+                               </div>
+                              </div>
+                            </div>
+                            <div class="section-panel flex flex-col">
+                              <div class="section-header flex"> 
+                                <h3>Độ chính xác</h3>
+                              </div>
+                              <div class="section-panel-body flex flex-col">
+                                <div class="form-group form-group-column">
+                                  <div class="form-control-label form-control-column">
+                                    <div class="form-label form-label-align-left">
+                                      <div class="w-max break-words"> Biển số</div>
+                                    </div>
+                                  </div>
+                                  <div class="form-control-container">
+                                    <div class="range-slider__labels-container">
+                                      <div class="range-slider__container" style="padding: calc(7px + 0.5rem) calc(7px);">
+                                       <div class="range-slider__content">
+                                        <div style="width: 100%; height: 5px;">
+                                          <div class="slider__rail"></div> 
+                                          <div class="track" style="left: 0%; width: 100%; background-color: rgb(55, 114,255);" ></div>
+                                          <div class="slider-mark-container">
+                                           <div class="slider-mark-dot">
+                                             <div class="slider-mark" style="left: 0%; width: 5px; height: 5px; transform: translateX(-50%); border-radius: 50%;"></div>
+                                             <div class="slider-mark" style="left: 60%; width: 5px; height: 5px; transform: translateX(-50%); border-radius: 50%;"></div>
+                                             <div class="slider-mark" style="left: 80%; width: 5px; height: 5px; transform: translateX(-50%); border-radius: 50%;"></div>
+                                             <div class="slider-mark" style="left: 100%; width: 5px; height: 5px; transform: translateX(-50%); border-radius: 50%;"></div>
+                                           </div>
+                                          </div>
+                                        </div>
                                         </div>
                                       </div>
+                                      <div class="slider-mark-label-container" style="margin: 0px calc(7px);">
+                                        <!--tranform là thuộc tính biến đổi áp dụng chuyển đổi 2d- 3d cho 1 phần tử-->
+                                        <!--position: absolute set vị trí: tuyệt đối: left: đặt cạnh trái của 1 phần tử thành 1 đv ở bên cạnh trái của gốc-->
+                                      <span class="slider-label tb tb1" style="position: absolute; left: 0%; transform: translateX(-50%);">0%</span> 
+                                      <span class="slider-label tb tb1" style="position: absolute; left: 60%; transform: translateX(-50%);">60%</span>
+                                      <span class="slider-label tb tb1" style="position: absolute; left: 80%; transform: translateX(-50%);">80%</span>
+                                      <span class="slider-label tb tb1" style="position: absolute; left: 100%; transform: translateX(-50%);">100%</span>
+                                    </div>                                     
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="section-panel flex flex-col">
-                                <div class="section-header flex">
-                                  <h3>Độ chính xác</h3>
-                                </div>
-                                <div class="section-panel-body flex flex-col">
+                            </div>
+                            <div class="section-panel flex flex-col">
+                              <div class="section-header flex"> 
+                                <h3>Dữ liệu</h3>
+                              </div>
+                              <div class="section-panel-body flex flex-col">
+                                <div class="form-group form-group-column">
+                                  <div class="checkbox-form">
+                                    <label class="checkbox-item" for="">
+                                      <input class type="radio" data-autofocus="true">
+                                      <span class="radio-input checkbox--icon-md"></span>
+                                      <span class="checkbox-label">Khoảng thời gian</span>
+                                    </label>
+                                  </div>
                                   <div class="form-group form-group-column">
-                                    <div
-                                      class="form-control-label form-control-column"
-                                    >
-                                      <div
-                                        class="form-label form-label-align-left"
-                                      >
-                                        <div class="w-max break-words">
-                                          Biển số
-                                        </div>
+                                    <div class="form-control-label form-control-row">
+                                      <div class="form-label form-label-align-left" style="width: 3rem;">
+                                       <div class="break-words"> Từ</div>
                                       </div>
-                                    </div>
-                                    <div class="form-control-container">
-                                      <div
-                                        class="range-slider__labels-container"
-                                      >
-                                        <div
-                                          class="range-slider__container"
-                                          style="
-                                            padding: calc(7px + 0.5rem)
-                                              calc(7px);
-                                          "
-                                        >
-                                          <div class="range-slider__content">
-                                            <div
-                                              style="width: 100%; height: 5px"
-                                            >
-                                              <div class="slider__rail"></div>
-                                              <div
-                                                class="track"
-                                                style="
-                                                  left: 0%;
-                                                  width: 100%;
-                                                  background-color: rgb(
-                                                    55,
-                                                    114,
-                                                    255
-                                                  );
-                                                "
-                                              ></div>
-                                              <div
-                                                class="slider-mark-container"
-                                              >
-                                                <div class="slider-mark-dot">
-                                                  <div
-                                                    class="slider-mark"
-                                                    style="
-                                                      left: 0%;
-                                                      width: 5px;
-                                                      height: 5px;
-                                                      transform: translateX(
-                                                        -50%
-                                                      );
-                                                      border-radius: 50%;
-                                                    "
-                                                  ></div>
-                                                  <div
-                                                    class="slider-mark"
-                                                    style="
-                                                      left: 60%;
-                                                      width: 5px;
-                                                      height: 5px;
-                                                      transform: translateX(
-                                                        -50%
-                                                      );
-                                                      border-radius: 50%;
-                                                    "
-                                                  ></div>
-                                                  <div
-                                                    class="slider-mark"
-                                                    style="
-                                                      left: 80%;
-                                                      width: 5px;
-                                                      height: 5px;
-                                                      transform: translateX(
-                                                        -50%
-                                                      );
-                                                      border-radius: 50%;
-                                                    "
-                                                  ></div>
-                                                  <div
-                                                    class="slider-mark"
-                                                    style="
-                                                      left: 100%;
-                                                      width: 5px;
-                                                      height: 5px;
-                                                      transform: translateX(
-                                                        -50%
-                                                      );
-                                                      border-radius: 50%;
-                                                    "
-                                                  ></div>
-                                                </div>
-                                              </div>
+                                      <div class="form-control-container">
+                                        <div class="dtp-container" style="width: 100%;">
+                                          <div class="dtp-control-container" tabindex="0">
+                                            <div class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2"></div>
+                                            <div class="calendar">
+                                              <i class="fa-solid fa-calendar-alt" style="font-size: 1rem; color: inherit; background-color: transparent;"></i>
                                             </div>
                                           </div>
                                         </div>
-                                        <div
-                                          class="slider-mark-label-container"
-                                          style="margin: 0px calc(7px)"
-                                        >
-                                          <!--tranform là thuộc tính biến đổi áp dụng chuyển đổi 2d- 3d cho 1 phần tử-->
-                                          <!--position: absolute set vị trí: tuyệt đối: left: đặt cạnh trái của 1 phần tử thành 1 đv ở bên cạnh trái của gốc-->
-                                          <span
-                                            class="slider-label tb tb1"
-                                            style="
-                                              position: absolute;
-                                              left: 0%;
-                                              transform: translateX(-50%);
-                                            "
-                                            >0%</span
-                                          >
-                                          <span
-                                            class="slider-label tb tb1"
-                                            style="
-                                              position: absolute;
-                                              left: 60%;
-                                              transform: translateX(-50%);
-                                            "
-                                            >60%</span
-                                          >
-                                          <span
-                                            class="slider-label tb tb1"
-                                            style="
-                                              position: absolute;
-                                              left: 80%;
-                                              transform: translateX(-50%);
-                                            "
-                                            >80%</span
-                                          >
-                                          <span
-                                            class="slider-label tb tb1"
-                                            style="
-                                              position: absolute;
-                                              left: 100%;
-                                              transform: translateX(-50%);
-                                            "
-                                            >100%</span
-                                          >
+                                      </div>
+                                    </div>
+                                    <div class="form-control-label form-control-row">
+                                      <div class="form-label form-label-align-left" style="width: 3rem;">
+                                       <div class="break-words">Đến</div>
+                                      </div>
+                                      <div class="form-control-container">
+                                        <div class="dtp-container" style="width: 100%;">
+                                          <div class="dtp-control-container" tabindex="0">
+                                            <div class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2"></div>
+                                            <div class="calendar">
+                                              <i class="fa-solid fa-calendar-alt" style="font-size: 1rem; color: inherit; background-color: transparent;"></i>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                              </div>
-                              <div class="section-panel flex flex-col">
-                                <div class="section-header flex">
-                                  <h3>Dữ liệu</h3>
-                                </div>
-                                <div class="section-panel-body flex flex-col">
-                                  <div class="form-group form-group-column">
+                                  <div class="layout-row overflow-hidden justify-space-between" style="flex: 1 1 0%;">
                                     <div class="checkbox-form">
                                       <label class="checkbox-item" for="">
-                                        <input
-                                          class
-                                          type="radio"
-                                          data-autofocus="true"
-                                        />
-                                        <span
-                                          class="radio-input checkbox--icon-md"
-                                        ></span>
-                                        <span class="checkbox-label"
-                                          >Khoảng thời gian</span
-                                        >
+                                        <input class type="radio" data-autofocus="true">
+                                        <span class="radio-input checkbox--icon-md"></span>
+                                        <span class="checkbox-label">Cách đây</span>
                                       </label>
                                     </div>
-                                    <div class="form-group form-group-column">
-                                      <div
-                                        class="form-control-label form-control-row"
-                                      >
-                                        <div
-                                          class="form-label form-label-align-left"
-                                          style="width: 3rem"
-                                        >
-                                          <div class="break-words">Từ</div>
-                                        </div>
-                                        <div class="form-control-container">
-                                          <div
-                                            class="dtp-container"
-                                            style="width: 100%"
-                                          >
-                                            <div
-                                              class="dtp-control-container"
-                                              tabindex="0"
-                                            >
-                                              <div
-                                                class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2"
-                                              ></div>
-                                              <div class="calendar">
-                                                <i
-                                                  class="fa-solid fa-calendar-alt"
-                                                  style="
-                                                    font-size: 1rem;
-                                                    color: inherit;
-                                                    background-color: transparent;
-                                                  "
-                                                ></i>
-                                              </div>
-                                            </div>
+                                    <div class="advance-select--wrapper w28 h-max">
+                                      <div class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                        <div class="as-control-container">
+                                          <div class="dropdown-btn">
+                                            <select>
+                                              <option>7 ngày</option>
+                                              <option value="6">6 giờ</option>
+                                              <option value="12">12 giờ</option>
+                                              <option value="24">1 ngày</option>
+                                              <option value="168">7 ngày</option>
+                                              <option value="720">30 ngày</option>
+                                            </select>
+                                            <!-- <div class="dropdown-btn-text"> 7 ngày</div> -->
                                           </div>
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="form-control-label form-control-row"
-                                      >
-                                        <div
-                                          class="form-label form-label-align-left"
-                                          style="width: 3rem"
-                                        >
-                                          <div class="break-words">Đến</div>
-                                        </div>
-                                        <div class="form-control-container">
-                                          <div
-                                            class="dtp-container"
-                                            style="width: 100%"
-                                          >
-                                            <div
-                                              class="dtp-control-container"
-                                              tabindex="0"
-                                            >
-                                              <div
-                                                class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2"
-                                              ></div>
-                                              <div class="calendar">
-                                                <i
-                                                  class="fa-solid fa-calendar-alt"
-                                                  style="
-                                                    font-size: 1rem;
-                                                    color: inherit;
-                                                    background-color: transparent;
-                                                  "
-                                                ></i>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="layout-row overflow-hidden justify-space-between"
-                                      style="flex: 1 1 0%"
-                                    >
-                                      <div class="checkbox-form">
-                                        <label class="checkbox-item" for="">
-                                          <input
-                                            class
-                                            type="radio"
-                                            data-autofocus="true"
-                                          />
-                                          <span
-                                            class="radio-input checkbox--icon-md"
-                                          ></span>
-                                          <span class="checkbox-label"
-                                            >Cách đây</span
-                                          >
-                                        </label>
-                                      </div>
-                                      <div
-                                        class="advance-select--wrapper w28 h-max"
-                                      >
-                                        <div
-                                          class="as-container"
-                                          tabindex="0"
-                                          aria-haspopup="menu"
-                                          aria-expanded="false"
-                                          data-autofocus="true"
-                                        >
-                                          <div class="as-control-container">
-                                            <div class="dropdown-btn">
-                                              <select>
-                                                <option>7 ngày</option>
-                                                <option value="6">6 giờ</option>
-                                                <option value="12">
-                                                  12 giờ
-                                                </option>
-                                                <option value="24">
-                                                  1 ngày
-                                                </option>
-                                                <option value="168">
-                                                  7 ngày
-                                                </option>
-                                                <option value="720">
-                                                  30 ngày
-                                                </option>
-                                              </select>
-                                              <!-- <div class="dropdown-btn-text"> 7 ngày</div> -->
-                                            </div>
-                                            <!-- <div class="arrow">
+                                          <!-- <div class="arrow">
                                              <i class="fa-solid fa-chevron-down" style="font: 1rem; color: inherit; background-color: transparent;"></i>
                                           </div> -->
-                                          </div>
                                         </div>
-                                        <!-- <select hidden>
+                                      </div>
+                                      <!-- <select hidden>
                                         <option></option>
                                         <option value="6">6 giờ</option>
                                         <option value="12">12 giờ</option>
@@ -781,545 +412,154 @@
                                         <option value="168">7 ngày</option>
                                         <option value="720">30 ngày</option>
                                        </select>  -->
-                                      </div>
                                     </div>
-                                  </div>
+                                  </div> 
                                 </div>
+                              </div>                             
+                            </div>
+                           <div class="section-panel flex flex-col">
+                            <div class="section-header flex">
+                              <h3>Truy vấn không gian</h3>
+                            </div>
+                            <div class="section-panel-body">
+                              <div class="form-group form-group-column">
+                              <div class="checkbox-form">
+                                <label class="checkbox-item" for="">
+                                  <input class type="radio" data-autofocus="true">
+                                  <span class="radio-input checkbox--icon-md"></span>
+                                  <span class="checkbox-label">Truy vấn không gian </span>
+                                </label>
                               </div>
-                              <div class="section-panel flex flex-col">
-                                <div class="section-header flex">
-                                  <h3>Truy vấn không gian</h3>
-                                </div>
-                                <div class="section-panel-body">
-                                  <div class="form-group form-group-column">
-                                    <div class="checkbox-form">
-                                      <label class="checkbox-item" for="">
-                                        <input
-                                          class
-                                          type="radio"
-                                          data-autofocus="true"
-                                        />
-                                        <span
-                                          class="radio-input checkbox--icon-md"
-                                        ></span>
-                                        <span class="checkbox-label"
-                                          >Truy vấn không gian
-                                        </span>
-                                      </label>
-                                    </div>
-                                    <span class="my-2 sub sub1">
-                                      Sử dụng công cụ Bản đồ tác chiến để vẽ
-                                      điểm hoặc vùng tìm kiếm
-                                    </span>
-                                  </div>
-                                </div>
+                              <span class="my-2 sub sub1"> Sử dụng công cụ Bản đồ tác chiến để vẽ điểm hoặc vùng tìm kiếm </span>
                               </div>
                             </div>
+                           </div>  
                           </div>
-                          <div class="panel-footer">
-                            <div class="panel-footer-actions">
-                              <button class="btn btn--primary btn--fill btn-sm">
-                                <span
-                                  class="btn__content relative inline-flex justify-center item-center btn--icon-left"
-                                >
-                                  <span class="btn__text">Đặt lại</span>
+                        </div>
+                        <div class="panel-footer">
+                          <div class="panel-footer-actions">
+                            <button class="btn btn--primary btn--fill btn-sm">
+                              <span class="btn__content relative inline-flex justify-center item-center btn--icon-left">
+                                <span class="btn__text">Đặt lại</span>
+                              </span>
+                            </button>
+                            <button class="btn btn--primary btn--fill btn-sm">
+                              <span class="btn__content relative inline-flex justify-center item-center btn--icon-left">
+                                <span class="btn__text">Tìm kiếm</span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>  
+                      </div>
+                      <div class="draggable">
+                        <!--tabindex xác định thứ tự điều hướng khi dùng phím tab-->
+                        <div tabindex="1" class="line">
+                        </div>
+                      </div>
+                      <div class="flex flex-col overflow-hidden h-full" style="flex: 0 1 auto; width: 1780px;">
+                        <div class="map-layout-toolbar flex gap-4 w-full p-0">
+                          <div class="flex flex-grow flex-shrink flex-basis-0 justify-between overflow-hidden">
+                            <div class="flex gap-2">
+                              <button class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive ">
+                                <span class="btn__content relative inline-flex justify-center item-center">
+                                  <i class="fa-solid fa-list" style="font-size: 24px; color:inherit; background-color: transparent;"></i>
                                 </span>
                               </button>
-                              <button class="btn btn--primary btn--fill btn-sm">
-                                <span
-                                  class="btn__content relative inline-flex justify-center item-center btn--icon-left"
-                                >
-                                  <span class="btn__text">Tìm kiếm</span>
+                              <button class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive ">
+                                <span class="btn__content relative inline-flex justify-center item-center">
+                                  <i class="fa-solid fa-columns" style="font-size: 24px; color:inherit; background-color: transparent;"></i>
+                                </span>
+                              </button>
+                              <button class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive ">
+                                <span class="btn__content relative inline-flex justify-center item-center">
+                                  <i class="fa-solid fa-map" style="font-size: 24px; color:inherit; background-color: transparent;"></i>
                                 </span>
                               </button>
                             </div>
                           </div>
                         </div>
-                        <div class="draggable">
-                          <!--tabindex xác định thứ tự điều hướng khi dùng phím tab-->
-                          <div tabindex="1" class="line"></div>
-                        </div>
-                        <div
-                          class="flex flex-col overflow-hidden h-full"
-                          style="flex: 0 1 auto; width: 1780px"
-                        >
-                          <div class="map-layout-toolbar flex gap-4 w-full p-0">
-                            <div
-                              class="flex flex-grow flex-shrink flex-basis-0 justify-between overflow-hidden"
-                            >
-                              <div class="flex gap-2">
-                                <button
-                                  class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive"
-                                >
-                                  <span
-                                    class="btn__content relative inline-flex justify-center item-center"
-                                  >
-                                    <i
-                                      class="fa-solid fa-list"
-                                      style="
-                                        font-size: 24px;
-                                        color: inherit;
-                                        background-color: transparent;
-                                      "
-                                    ></i>
-                                  </span>
-                                </button>
-                                <button
-                                  class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive"
-                                >
-                                  <span
-                                    class="btn__content relative inline-flex justify-center item-center"
-                                  >
-                                    <i
-                                      class="fa-solid fa-columns"
-                                      style="
-                                        font-size: 24px;
-                                        color: inherit;
-                                        background-color: transparent;
-                                      "
-                                    ></i>
-                                  </span>
-                                </button>
-                                <button
-                                  class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive"
-                                >
-                                  <span
-                                    class="btn__content relative inline-flex justify-center item-center"
-                                  >
-                                    <i
-                                      class="fa-solid fa-map"
-                                      style="
-                                        font-size: 24px;
-                                        color: inherit;
-                                        background-color: transparent;
-                                      "
-                                    ></i>
-                                  </span>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
-                          >
-                            <div
-                              class="flex flex-grow flex-shrink flex-basis-0 overflow-hidden h-full"
-                            >
-                              <div
-                                class="undefined resizable-container resizable-h"
-                              >
-                                <div
-                                  class="flex flex-col overflow-hidden"
-                                  style="width: 50%; flex: 0 1 auto"
-                                >
-                                  <div class="p-4">
-                                    <div
-                                      class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden"
-                                    >
-                                      <div class="css-0">
-                                        <div
-                                          class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden"
-                                        >
-                                          <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg"
-                                          >
-                                            <span
-                                              class="btn__content relative inline-flex justify-center item-center"
-                                            >
-                                              <i
-                                                class="fa-solid fa-angle-double-left"
-                                                style="
-                                                  font-size: 24px;
-                                                  color: inherit;
-                                                  background-color: transparent;
-                                                "
-                                              ></i>
-                                            </span>
-                                          </button>
-                                          <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg"
-                                          >
-                                            <span
-                                              class="btn__content relative inline-flex justify-center item-center"
-                                            >
-                                              <i
-                                                class="fa-solid fa-angle-left"
-                                                style="
-                                                  font-size: 24px;
-                                                  color: inherit;
-                                                  background-color: transparent;
-                                                "
-                                              ></i>
-                                            </span>
-                                          </button>
-                                          <button
-                                            class="btn btn--primary btn--fill btn--xs active rounded-lg"
-                                            style="min-width: 2.5rem"
-                                          >
-                                            <span
-                                              class="btn__content relative inline-flex justify-center item-center"
-                                            >
-                                              <span class="btn_text">1</span>
-                                            </span>
-                                          </button>
-                                          <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg"
-                                          >
-                                            <span
-                                              class="btn__content relative inline-flex justify-center item-center"
-                                            >
-                                              <i
-                                                class="fa-solid fa-angle-right"
-                                                style="
-                                                  font-size: 24px;
-                                                  color: inherit;
-                                                  background-color: transparent;
-                                                "
-                                              ></i>
-                                            </span>
-                                          </button>
-                                          <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg"
-                                          >
-                                            <span
-                                              class="btn__content relative inline-flex justify-center item-center"
-                                            >
-                                              <i
-                                                class="fa-solid fa-angle-double-right"
-                                                style="
-                                                  font-size: 24px;
-                                                  color: inherit;
-                                                  background-color: transparent;
-                                                "
-                                              ></i>
-                                            </span>
-                                          </button>
+                        <div class="flex flex-grow flex-shrink flex-basis-0 overflow-hidden">
+                          <div class="flex flex-grow flex-shrink flex-basis-0 overflow-hidden h-full">
+                           <div class="resizable-container resizable-h">
+                            <div class="flex flex-col overflow-hidden" style="width: 50%; flex: 0 1 auto;">
+                            <div class="p-4">
+                              <div class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden">
+                                <div class="css-0">
+                                  <div class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden ">
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-double-left" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-left" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--primary btn--fill btn--xs active rounded-lg" style="min-width: 2.5rem;">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <span class="btn_text">1</span>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-right" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                    <button class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                      <span class="btn__content relative inline-flex justify-center item-center">
+                                        <i class="fa-solid fa-angle-double-right" style="font-size: 24px; color: inherit; background-color: transparent;"></i>
+                                      </span>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="css-0">
+                                  <div class="advance-select--wrapper h-max ">
+                                    <div id="" class="as-container" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-autofocus="true">
+                                      <div class="as-control-container">
+                                        <div class="dropdown-btn">
+                                          <select >
+                                            <option value="25"> 25 dòng</option>
+                                            <option value="50"> 50 dòng</option>
+                                            <option value="100">100 dòng</option>
+                                            <option value="250">250 dòng</option>
+                                           </select>
+                                          <!-- <div class="dropdown-btn-text">25 dòng</div> -->
                                         </div>
-                                      </div>
-                                      <div class="css-0">
-                                        <div
-                                          class="advance-select--wrapper h-max"
-                                        >
-                                          <div
-                                            id=""
-                                            class="as-container"
-                                            tabindex="0"
-                                            aria-haspopup="menu"
-                                            aria-expanded="false"
-                                            data-autofocus="true"
-                                          >
-                                            <div class="as-control-container">
-                                              <div class="dropdown-btn">
-                                                <select>
-                                                  <option value="25">
-                                                    25 dòng
-                                                  </option>
-                                                  <option value="50">
-                                                    50 dòng
-                                                  </option>
-                                                  <option value="100">
-                                                    100 dòng
-                                                  </option>
-                                                  <option value="250">
-                                                    250 dòng
-                                                  </option>
-                                                </select>
-                                                <!-- <div class="dropdown-btn-text">25 dòng</div> -->
-                                              </div>
-                                              <!-- <div class="arrow">
+                                        <!-- <div class="arrow">
                                           <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
                                        </div> -->
-                                            </div>
-                                          </div>
-                                          <!-- <select hidden>
+                                      </div>
+                                    </div>
+                                    <!-- <select hidden>
                                       <option></option>
                                       <option value="25"> 25 dòng</option>
                                       <option value="50"> 50 dòng</option>
                                       <option value="100">100 dòng</option>
                                       <option value="250">250 dòng</option>
                                      </select> -->
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="data-grid-wrapper">
-                                    <div
-                                      class="data-grid-content divide-y divide-alpha-10"
-                                    >
-                                      <div class="data-grid-container"></div>
-                                      <div class="toolbar"></div>
-                                    </div>
-                                  </div>
+                                   </div>
                                 </div>
-                                <div class="draggable">
-                                  <!--tabindex xác định thứ tự điều hướng khi dùng phím tab-->
-                                  <div tabindex="1" class="line"></div>
-                                </div>
-                                <div
-                                  class="map-view"
-                                  style="width: 50%; flex: 1 1 auto"
-                                ></div>
                               </div>
                             </div>
+                            <div class="data-grid-wrapper">
+                              <div class="data-grid-content divide-y divide-alpha-10">
+                                <div class="data-grid-container"></div>
+                                <div class="toolbar"></div>
+                              </div>
+                            </div>
+                            </div>
+                            <div class="draggable">
+                              <!--tabindex xác định thứ tự điều hướng khi dùng phím tab-->
+                              <div tabindex="1" class="line">
+                              </div>
+                            </div>
+                            <div class="map-view" style="width: 50%; flex: 1 1 auto;"></div>
+                           </div> 
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="modal-root">
-        <div>
-          <div class="app-overlay over-popover no-background dtp-overlay">
-            <div
-              class="overlay-main"
-              style="
-                width: 20rem;
-                max-width: 90%;
-                height: auto;
-                max-height: 90%;
-                min-width: 20rem;
-                left: 250px;
-                top: 136.958px;
-              "
-              data-placement="top-left"
-            >
-              <div class="m-input-moment" tabindex="-1">
-                <div class="option">
-                  <button type="button" class="ion-calender im-btn active">
-                    Ngày
-                  </button>
-                  <button type="button" class="ion-clock im-btn">Giờ</button>
-                </div>
-                <div class="tabs">
-                  <div class="m-calender tab">
-                    <div class="toolbar">
-                      <div class="button-group">
-                        <button type="button" class="prev-month">
-                          <i
-                            class="fa-solid fa-angle-double-left"
-                            style="
-                              font-size: 24px;
-                              color: inherit;
-                              background-color: transparent;
-                            "
-                          ></i>
-                        </button>
-                        <button type="button" class="prev-month">
-                          <i
-                            class="fa-solid fa-angle-left"
-                            style="
-                              font-size: 24px;
-                              color: inherit;
-                              background-color: transparent;
-                            "
-                          ></i>
-                        </button>
-                      </div>
-                      <span class="current-date">
-                        <button class="month"></button>
-                        <button class="year"></button>
-                      </span>
-                      <div class="button-group">
-                        <button type="button" class="next-month">
-                          <i
-                            class="fa-solid fa-angle-double-right"
-                            style="
-                              font-size: 24px;
-                              color: inherit;
-                              background-color: transparent;
-                            "
-                          ></i>
-                        </button>
-                        <button type="button" class="next-month">
-                          <i
-                            class="fa-solid fa-angle-right"
-                            style="
-                              font-size: 24px;
-                              color: inherit;
-                              background-color: transparent;
-                            "
-                          ></i>
-                        </button>
-                      </div>
-                    </div>
-                    <table>
-                      <thead>
-                        <tr>
-                          <td>CN</td>
-                          <td>T2</td>
-                          <td>T3</td>
-                          <td>T4</td>
-                          <td>T5</td>
-                          <td>T6</td>
-                          <td>T7</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="prev-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="prev-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="prev-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="prev-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="prev-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="prev-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class>
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="next-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="next-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="next-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="next-month">
-                            <div class="day-content"></div>
-                          </td>
-                          <td class="next-month">
-                            <div class="day-content"></div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="footer">
-                  <div
-                    class="flex flex-grow flex-shrink flex-basis-0 justify-center gap-2 overflow-hidden"
-                  >
-                    <button class="btn btn--primary btn--fill btn-md">
-                      <span
-                        class="btn__content relative inline-flex justify-center item-center btn--icon-left"
-                      >
-                        <span class="btn__text">Hôm nay</span>
-                      </span>
-                    </button>
-                    <button class="btn btn--primary btn--outline btn-md">
-                      <span
-                        class="btn__content relative inline-flex justify-center item-center btn--icon-left"
-                      >
-                        <span class="btn__text">Xoá</span>
-                      </span>
-                    </button>
                   </div>
                 </div>
               </div>
@@ -1328,5 +568,214 @@
         </div>
       </div>
     </div>
-  </body>
+    <div id="modal-root">
+      <div>
+        <div class="app-overlay over-popover no-background dtp-overlay">
+          <div class="overlay-main" style="width: 20rem; max-width: 90%; height: auto; max-height: 90%; min-width: 20rem; left: 250px; top: 136.958px;" data-placement="top-left">
+          <div class="m-input-moment" tabindex="-1">
+            <div class="option">
+              <button type="button" class="ion-calender im-btn active">Ngày</button>
+               <button type="button" class="ion-clock im-btn">Giờ</button>
+            </div>
+            <div class="tabs">
+              <div class="m-calender tab">
+                <div class="toolbar">
+                 <div class="button-group">
+                  <button type="button" class="prev-month">
+                    <i class="fa-solid fa-angle-double-left" style="font-size: 24px;color: inherit;background-color: transparent;"></i>
+                  </button>
+                  <button type="button" class="prev-month">
+                    <i class="fa-solid fa-angle-left" style="font-size: 24px;color: inherit;background-color: transparent;"></i>
+                  </button>
+                 </div>
+                 <span class="current-date">
+                  <button class="month"></button>
+                  <button class="year"></button>
+                 </span>
+                 <div class="button-group">
+                  <button type="button" class="next-month">
+                    <i class="fa-solid fa-angle-double-right" style="font-size: 24px;color: inherit;background-color: transparent;"></i>
+                  </button>
+                  <button type="button" class="next-month">
+                    <i class="fa-solid fa-angle-right" style="font-size: 24px;color: inherit;background-color: transparent;"></i>
+                  </button>
+                 </div>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>CN</td>
+                      <td>T2</td>
+                      <td>T3</td>
+                      <td>T4</td>
+                      <td>T5</td>
+                      <td>T6</td>
+                      <td>T7</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr>
+                      <td class="prev-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="prev-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="prev-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="prev-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="prev-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="prev-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td> 
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td> 
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td> 
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td> 
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class>
+                        <div class="day-content"></div>
+                      </td> 
+                      <td class>
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="next-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="next-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="next-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="next-month">
+                        <div class="day-content"></div>
+                      </td>
+                      <td class="next-month">
+                        <div class="day-content"></div>
+                      </td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="footer">
+              <div class="flex flex-grow flex-shrink flex-basis-0 justify-center gap-2 overflow-hidden">
+                <button class="btn btn--primary btn--fill btn-md">
+                  <span class="btn__content relative inline-flex justify-center item-center btn--icon-left">
+                    <span class="btn__text">Hôm nay</span>
+                  </span>
+                </button>
+                <button class="btn btn--primary btn--outline btn-md">
+                  <span class="btn__content relative inline-flex justify-center item-center btn--icon-left">
+                    <span class="btn__text">Xoá</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

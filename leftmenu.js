@@ -121,37 +121,38 @@ function closesidebar() {
 // }
 
 function loadmain() {
-  for (let i in loadportal_item) {
-    let portal_item = document.createElement("a");
-    portal_item.className = "portal-item";
-    portal_item.setAttribute("hrel", "");
-    portal_item.innerHTML = `
-        <div class="item-center">
-           <div class="image-container portal-item_image">
-            <img class="image-content" src ="${loadportal_item[i].image}" id="logo" alt="" style="object-fit: cover;">
-            </div>
-            <div class="portal-label">${loadportal_item[i].label}</div>
-           </div>
-        `;
-    document.getElementById("fun_top").appendChild(portal_item);
+    for (let i in loadportal_item) {
+      let portal_item = document.createElement("a");
+      portal_item.className = "portal-item";
+      portal_item.setAttribute("hrel", "");
+      portal_item.innerHTML = `
+          <div class="item-center">
+             <div class="image-container portal-item_image">
+              <img class="image-content" src ="${loadportal_item[i].image}" id="logo" alt="" style="object-fit: cover;">
+              </div>
+              <div class="portal-label">${loadportal_item[i].label}</div>
+             </div>
+          `;
+      document.getElementById("fun_top").appendChild(portal_item);
+    }
+    var portal = document.querySelector(".portal-item");
   }
-  var portal = document.querySelector(".portal-item");
-}
 window.oninput = function () {
   searchLabel();
 };
 function searchLabel() {
   var inputsearch = document.getElementById("search");
   inputsearch.addEventListener("input", function () {
-    var textsearch = inputsearch.value.trim().toLowerCase();
-    var label_items = document.getElementsByClassName("portal-item");
+  var textsearch = inputsearch.value.trim().toLowerCase();
+  var label_items = document.getElementsByClassName("portal-item");
     for (var i = 0; i < label_items.length; i++) {
       var label = loadportal_item[i].label.toLowerCase();
       if (label === textsearch) {
         label_items[i].style.display = "block";
-      } else {
+        }
+     else {
         label_items[i].style.display = "none";
-      }
+         }
     }
   });
 }
@@ -192,17 +193,38 @@ function renderDate() {
   var dateCL = document.querySelector("tbody");
   var daysInMonth = getDaysInMonth();
   var startDay = getStartDayInMonth();
-  dateCL.innerHTML = "";
+  dateCL.innerHTML = '';
+
   for (var i = 0; i < startDay; i++) {
-    dateCL.innerHTML += `<td class="prev-month"><div class="day-content">${
-      i + 1
-    }</div></td>`;
+    if (i === 0 || i % 7 === 0) 
+    {
+     var row = document.createElement("tr");
+     dateCL.appendChild(row);
+    }
+    var td = document.createElement("td");
+    td.className = "prev-month";
+    var div = document.createElement("div");
+    div.className = "day-content";
+    div.textContent = i + 1;
+    td.appendChild(div);
+    dateCL.appendChild(td);
   }
+
   for (var i = 0; i < daysInMonth; i++) {
-    dateCL.innerHTML += `<td class><div class="day-content${activeCurrentDay(
-      i + 1
-    )}">${i + 1}</div></td>`;
+   var td = document.createElement("td");
+   var div = document.createElement("div");
+   div.classList.add("day-content");
+   div.textContent = i + 1;
+   td.appendChild(div);
+   dateCL.appendChild(td);
+   if (i === 0 || i % 7 === 0) 
+   {
+    var row = document.createElement("tr");
+    dateCL.appendChild(row);
+   }
   }
+  
 }
+
 
 window.onload = displayInfo;
