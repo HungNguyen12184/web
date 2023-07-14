@@ -1016,3 +1016,10 @@ table {
   align-items: center;
   margin: auto;
 }
+
+.m-calender .current-value .day-content {
+  background-color: rgb(55, 114, 255);
+  color: rgba(255,255,255,0.85);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
