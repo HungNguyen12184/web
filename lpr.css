@@ -872,7 +872,7 @@ div.form-input-group .input-append {
 .app-overlay.no-background {
   pointer-events: none; /* xac dinh phan tu co phan ung voi su kien cua con tro hay hok*/
 }
-.dtp-overlay {
+.app-overlay.dtp-overlay {
   border: none;
 }
 .app-overlay {
@@ -888,9 +888,9 @@ div.form-input-group .input-append {
   z-index: 1001;
 }
 .app-overlay.no-background .overlay-main {
-  pointer-events: none;
+  pointer-events: auto; 
 }
-.app-overlay .overlay-popover .overlay-main {
+.app-overlay.over-popover .overlay-main {
   position: absolute;
 }
 .app-overlay .overlay-main {
@@ -971,7 +971,10 @@ div.form-input-group .input-append {
   color: rgba(255, 255, 255, 0.55);
 
 }
-.m-calender .toolbar .prev-month i, .m-calender .toolbar .next-month i {
+.m-calender .toolbar .prev-month-double i, .m-calender .toolbar .next-month-double i {
+  font-size: 1.25rem !important;
+}
+.m-calender .toolbar .prev-month-left i, .m-calender .toolbar .next-month-right i {
   font-size: 1.25rem !important;
 }
 .m-calender .toolbar .current-date button {
