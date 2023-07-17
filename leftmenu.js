@@ -41,9 +41,9 @@ var loadportal_item = [
     },
 ];
 
-window.onload = function () {
-    loadmain();
-};
+// window.onload = function () {
+//     loadmain();
+// };
 
 function test_btn_click() {
     console.log('Test thử');
@@ -120,23 +120,23 @@ function closesidebar() {
 
 // }
 
-function loadmain() {
-    for (let i in loadportal_item) {
-        let portal_item = document.createElement('a');
-        portal_item.className = 'portal-item';
-        portal_item.setAttribute('hrel', '');
-        portal_item.innerHTML = `
-          <div class="item-center">
-             <div class="image-container portal-item_image">
-              <img class="image-content" src ="${loadportal_item[i].image}" id="logo" alt="" style="object-fit: cover;">
-              </div>
-              <div class="portal-label">${loadportal_item[i].label}</div>
-             </div>
-          `;
-        document.getElementById('fun_top').appendChild(portal_item);
-    }
-    var portal = document.querySelector('.portal-item');
-}
+// function loadmain() {
+//     for (let i in loadportal_item) {
+//         let portal_item = document.createElement('a');
+//         portal_item.className = 'portal-item';
+//         portal_item.setAttribute('hrel', '');
+//         portal_item.innerHTML = `
+//           <div class="item-center">
+//              <div class="image-container portal-item_image">
+//               <img class="image-content" src ="${loadportal_item[i].image}" id="logo" alt="" style="object-fit: cover;">
+//               </div>
+//               <div class="portal-label">${loadportal_item[i].label}</div>
+//              </div>
+//           `;
+//         document.getElementById('fun_top').appendChild(portal_item);
+//     }
+//     var portal = document.querySelector('.portal-item');
+// }
 window.oninput = function () {
     searchLabel();
 };
@@ -171,7 +171,7 @@ function hideModalWhenFullHeightVisible() {
     }
 }
 
-// window.onload = hideModalWhenFullHeightVisible;
+window.onload = hideModalWhenFullHeightVisible;
 // let currentMonth = new Date().getMonth();
 // let currentYear = new Date().getFullYear();
 

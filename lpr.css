@@ -67,6 +67,9 @@ canvas {
 .flex-shrink {
   flex-shrink: 1 !important;
 }
+.flex-shrink-0 {
+  flex-shrink: 1 !important;
+}
 .flex-grow {
   flex-grow: 1 !important;
 }
@@ -869,6 +872,125 @@ div.form-input-group .input-append {
   position: relative;
 }
 
+.data-grid {
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.data-grid .dg-header {
+  overflow: hidden;
+  top: 0;
+  font-size: 0.75rem;
+}
+
+.dg-header {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: sticky;
+  z-index: 3;
+
+}
+
+.dg-freeze {
+ z-index: 2;
+ position: sticky !important;
+}
+
+.dg-freeze ::after {
+  content: "";
+  position:absolute;
+  top:0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+}
+.dg-header-item {
+  position: relative;
+  background-color: rgba(40, 41, 43, 1);
+}
+.dg-header-item .dg-cell div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ 
+}
+.dg-header-item .dg-cell {
+  height: 100%;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.05);
+  word-break: break-word; /*kiểm soát ngắt từ*/
+  white-space: nowrap;
+  padding: 0.5rem 0.625rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.data-grid-container .scrollbar-container {
+  overscroll-behavior-x:  contain;
+  overscroll-behavior-y: contain;
+}
+.ps.scrollbar-container {
+  --ps-rail-hover-color: rgba((255,255,255),0.1);
+  --ps-thumb-color:rgba((255,255,255),0.2);
+  --ps-thumb-hover-color:rgba((255,255,255),035);
+}
+
+.scrollbar-container {
+  position: relative;
+  height: 100%;
+}
+.dg-body {
+  flex:1
+}
+.dg-row{
+  display: flex;
+  flex-direction: row;
+}
+.dg-row .selectable-row {
+  cursor: pointer;
+}
+.dg-row-item .row--horizontal-border{
+  border-top: 1px solid rgba(192, 192, 192, 0.1);
+}
+.dg-row .dg-row-item {
+  position: relative;
+  background-color: rgba(40, 41, 43, 1);
+  display: flex;
+}
+.image-container {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  line-height: 0;
+}
+
+.hd {
+  margin-bottom: 0.35em;
+  display: block;
+}
+.hd6{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.m-0 {
+  margin: 0;
+}
 .app-overlay.no-background {
   pointer-events: none; /* xac dinh phan tu co phan ung voi su kien cua con tro hay hok*/
 }
