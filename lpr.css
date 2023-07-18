@@ -898,7 +898,7 @@ div.form-input-group .input-append {
 
 }
 
-.dg-freeze {
+.dg-freeze, .dg-freeze-end{
  z-index: 2;
  position: sticky !important;
 }
@@ -959,16 +959,27 @@ div.form-input-group .input-append {
   display: flex;
   flex-direction: row;
 }
-.dg-row .selectable-row {
+.dg-row.selectable-row {
   cursor: pointer;
 }
-.dg-row-item .row--horizontal-border{
+.dg-row-item.row--horizontal-border{
   border-top: 1px solid rgba(192, 192, 192, 0.1);
 }
 .dg-row .dg-row-item {
   position: relative;
   background-color: rgba(40, 41, 43, 1);
   display: flex;
+}
+.dg-row .dg-cell {
+  padding: 0.5rem 0.625rem;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.85);
+  text-overflow: ellipsis;
+  word-break: break-word;
+  border: 1px solid transparent;
+}
+.dg-freeze-end {
+  right: 0;
 }
 .image-container {
   display: inline-block;

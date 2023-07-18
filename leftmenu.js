@@ -172,89 +172,93 @@ function hideModalWhenFullHeightVisible() {
 }
 
 window.onload = hideModalWhenFullHeightVisible;
-// let currentMonth = new Date().getMonth();
-// let currentYear = new Date().getFullYear();
 
-// var btnPrevMonth = document.querySelector("button.prev-month-left")
-// btnPrevMonth.addEventListener("click", function() {
-//   if (currentMonth === 0) {
-//     currentMonth = 11;
-//     currentYear--;
-//   } else {
-//     currentMonth--;
-//   }
-//   displayInfo();
-// });
 
-//   function displayInfo() {
-//     var monthCL = document.querySelector(".month");
-//     var yearCL = document.querySelector(".year");
-//     var currentMonthName = new Date(currentYear, currentMonth).toLocaleString(
-//       "vi-VN",
-//       { month: "long" }
-//     ); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
-//     monthCL.innerText = currentMonthName;
-//   yearCL.innerText = currentYear;
-//   renderDate();
-// }
-//lấy số ngày của tháng
-// function getDaysInMonth() {
-//   var lastdayofMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-//   return lastdayofMonth;
-// }
-//lấy ngày bắt đầu của tháng
-// function getStartDayInMonth() {
-//   var startday = new Date(currentYear, currentMonth, 1).getDay();
-//   return startday;
-// }
 
-// function activeCurrentDay(day) {
-//   var day1 = new Date().toDateString();
-//   var day2 = new Date(currentYear, currentMonth, day).toDateString();
-//   return day1 == day2 ? "current-value" : "";
-// }
-
-// function renderDate() {
-//   var dateCL = document.querySelector("tbody");
-//   var daysInMonth = getDaysInMonth();
-//   var startDay = getStartDayInMonth();
-// var daysFirstDate = getFirstDayMonth();
-// dateCL.innerHTML = '';
-
-// for (var i = 0; i < startDay; i++) {
-//   var tr = document.createElement("tr");
-//   var td = document.createElement("td");
-//   td.className = "prev-month";
-//   if (i === 0 || i % 7 === 0)
+// var dtpControl = document.querySelector("dtp-control-container");
+// var mInput = document.querySelector("m-input-moment");  
+// var modalElement = document.getElementById('modal-root');  
+ 
+// dtpControl = addEventListener("click", function()
 //   {
-//     tr.appendChild(td);
-//     dateCL.appendChild(tr);
+//     modalElement.style.display = "block";
 //   }
-//   var div = document.createElement("div");
-//   div.className = "day-content";
-//   div.textContent = i + 1;
-//   td.appendChild(div);
-//   dateCL.appendChild(td);
-// }
+// )
 
-//   for (var i = 0; i < daysInMonth; i++) {
-//     var td = document.createElement("td");
-//     var div = document.createElement("div");
-//     div.className ="day-content";
-//     div.textContent = i + 1;
-//     td.appendChild(div);
-//     dateCL.appendChild(td);
-//     if (i === 0 || i % 7 === 0)
-//     {
-//       var tr = document.createElement("tr");
-//       dateCL.appendChild(tr);
-//     }
-//     if (activeCurrentDay(i + 1))
-//     {
-//       td.className += ("current-value");
-//     }
-//   }
-// }
+
+
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+  function displayInfo() {
+    var monthCL = document.querySelector(".month");
+    var yearCL = document.querySelector(".year");
+    var currentMonthName = new Date(currentYear, currentMonth).toLocaleString(
+      "vi-VN",
+      { month: "long" }
+    ); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
+    monthCL.innerText = currentMonthName;
+  yearCL.innerText = currentYear;
+  renderDate();
+}
+//lấy số ngày của tháng
+function getDaysInMonth() {
+  var lastdayofMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  return lastdayofMonth;
+}
+//lấy ngày bắt đầu của tháng
+function getStartDayInMonth() {
+  var startday = new Date(currentYear, currentMonth, 1).getDay();
+  return startday;
+}
+
+function activeCurrentDay(day) {
+  var day1 = new Date().toDateString();
+  var day2 = new Date(currentYear, currentMonth, day).toDateString();
+  return day1 == day2 ? "current-value" : "";
+}
+
+function renderDate() {
+  var dateCL = document.querySelector("tbody");
+  var daysInMonth = getDaysInMonth();
+  var startDay = getStartDayInMonth();
+var daysFirstDate = getFirstDayMonth();
+dateCL.innerHTML = '';
+
+for (var i = 0; i < startDay; i++) {
+  var tr = document.createElement("tr");
+  var td = document.createElement("td");
+  td.className = "prev-month";
+  if (i === 0 || i % 7 === 0)
+  {
+    tr.appendChild(td);
+    dateCL.appendChild(tr);
+  }
+  var div = document.createElement("div");
+  div.className = "day-content";
+  div.textContent = i + 1;
+  td.appendChild(div);
+  dateCL.appendChild(td);
+}
+
+  for (var i = 0; i < daysInMonth; i++) {
+    var td = document.createElement("td");
+    var div = document.createElement("div");
+    div.className ="day-content";
+    div.textContent = i + 1;
+    td.appendChild(div);
+    dateCL.appendChild(td);
+    if (i === 0 || i % 7 === 0)
+    {
+      var tr = document.createElement("tr");
+      dateCL.appendChild(tr);
+    }
+    if (activeCurrentDay(i + 1))
+    {
+      td.className += ("current-value");
+    }
+  }
+}
 // var btnPrevMonth = document.getElementsByClassName("prev-month-left");
 // btnPrevMonth.addEventListener("click", function() {
 //   if (currentMonth === 0) {
