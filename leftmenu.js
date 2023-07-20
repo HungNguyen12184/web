@@ -157,24 +157,30 @@ function searchLabel() {
     });
 }
 /*------------------LPR------------------------*/
-// function hideModalWhenFullHeightVisible() {
-//     var fullHeightElement = document.querySelector('.full-height');
-//     var modalElement = document.getElementById('modal-root');
+ function hideModalWhenFullHeightVisible() {
+    var fullHeightElement = document.querySelector('.full-height');
+    var modalElement = document.getElementById('modal-root');
+    if (fullHeightElement && modalElement) {
+        var fullHeightVisible = window.getComputedStyle(fullHeightElement).display !== 'none';
+        var modalVisible = window.getComputedStyle(modalElement).display !== 'none';
+        if (fullHeightVisible && modalVisible) {
+        modalElement.style.display = 'none';
+        }
+    }
+}
 
-//     if (fullHeightElement && modalElement) {
-//         var fullHeightVisible = window.getComputedStyle(fullHeightElement).display !== 'none';
-//         var modalVisible = window.getComputedStyle(modalElement).display !== 'none';
-
-//         if (fullHeightVisible && modalVisible) {
-//             modalElement.style.display = 'none';
-//         }
-//     }
-// }
-
-// window.onload = hideModalWhenFullHeightVisible;
+ window.onload = hideModalWhenFullHeightVisible;
 
 
-
+function showCalendar() {
+    var controlCald = document.querySelector(".dtp-container");
+    var modalElement = document.getElementById('modal-root');
+    controlCald.addEventListener ("click",function(){
+    modalElement.style.display = 'block';
+    displayInfo();
+    })
+}
+window.addEventListener("click",showCalendar);
 
 
 
@@ -294,48 +300,68 @@ function renderDate() {
     var daysInMonth = getDaysInMonth();
     var startDay = getStartDayInMonth();
     dateCL.innerHTML = '';
+    var dayCount = 1;
 
-    for (var i = 0; i < startDay; i++) {
+    for (var i = 0; i < 6; i++) {
         var tr = document.createElement("tr");
-        var td = document.createElement("td");
-        td.className = "prev-month";
-        if (i === 0 || i % 7 === 0) {
+        for (var j = 0; j < 7; j++) {
+            var td = document.createElement("td");
+            var div = document.createElement("div");
+            div.className = "day-content";
+
+            if (i === 0 && j < startDay) {
+                td.className = "prev-month";
+                var prevDay = daysInMonth - (startDay - j);
+                div.textContent = prevDay;
+            } else if (dayCount > daysInMonth) {
+                td.className = "next-month"; 
+                div.textContent = dayCount - daysInMonth;
+                dayCount++;
+            } else {
+                div.textContent = dayCount;
+                if (activeCurrentDay(dayCount)) {
+                    td.className += (" current-value");
+                }
+                dayCount++;
+            }
+            td.appendChild(div);
             tr.appendChild(td);
-            dateCL.appendChild(tr);
         }
-        var div = document.createElement("div");
-        div.className = "day-content";
-        div.textContent = i + 1;
-        td.appendChild(div);
-        dateCL.appendChild(td);
-    }
 
-    for (var i = 0; i < daysInMonth; i++) {
-        var td = document.createElement("td");
-        var div = document.createElement("div");
-        div.className = "day-content";
-        div.textContent = i + 1;
-        td.appendChild(div);
-        dateCL.appendChild(td);
-        if (i === 0 || i % 7 === 0) {
-            var tr = document.createElement("tr");
-            dateCL.appendChild(tr);
-        }
-        if (activeCurrentDay(i + 1)) {
-            td.className += ("current-value");
-        }
+        dateCL.appendChild(tr);
     }
-    
 }
-// var btnPrevMonth = document.getElementsByClassName("prev-month-left");
-// btnPrevMonth.addEventListener("click", function() {
-//   if (currentMonth === 0) {
-//     currentMonth = 11;
-//     currentYear--;
-//   } else {
-//     currentMonth--;
-//   }
-//   displayInfo();
-// });
+// window.onload = displayInfo;
 
-window.onload = displayInfo;
+function prevMonthLeft() {
+    var prevLeft = document.querySelector(".prev-month-left");
+    prevLeft.addEventListener("click", function () {
+        currentMonth -= 1;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear -= 1;
+        }
+        displayInfo(); 
+        renderDate(); 
+    });
+} 
+
+window.addEventListener("click", prevMonthLeft);
+
+
+function nextMonthRight() {
+    var nextRight = document.querySelector(".next-month-right");
+    nextRight.addEventListener("click", function () {
+        currentMonth += 1;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear += 1;
+        }
+        displayInfo(); 
+        renderDate();      
+    });
+} 
+window.addEventListener("click", nextMonthRight);
+
+
+
