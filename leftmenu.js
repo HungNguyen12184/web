@@ -173,13 +173,19 @@ function searchLabel() {
 
 
 function showCalendar() {
-    var controlCald = document.querySelector(".dtp-container");
+    var controlCalds = document.querySelectorAll(".dtp-container");
     var modalElement = document.getElementById('modal-root');
-    controlCald.addEventListener ("click",function(){
-    modalElement.style.display = 'block';
-    displayInfo();
-    })
+    controlCalds.forEach(function(controlCald) {
+        controlCald.addEventListener("click", function () {
+            modalElement.style.display = 'block';
+            displayInfo();
+            buttonGroup();
+        });
+    }); 
 }
+
+
+
 window.addEventListener("click",showCalendar);
 
 
@@ -333,35 +339,39 @@ function renderDate() {
 }
 // window.onload = displayInfo;
 
-function prevMonthLeft() {
-    var prevLeft = document.querySelector(".prev-month-left");
-    prevLeft.addEventListener("click", function () {
-        currentMonth -= 1;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear -= 1;
-        }
-        displayInfo(); 
-        renderDate(); 
+
+function buttonGroup() {
+    var buttonGroups = document.querySelectorAll(".button-group"); // trả về 1 nodelist 
+    buttonGroups.forEach(function(buttonGroup) {
+        buttonGroup.addEventListener("click", function(event) {
+            changeMonth(event);
+        });
     });
-} 
-
-window.addEventListener("click", prevMonthLeft);
+}
 
 
-function nextMonthRight() {
-    var nextRight = document.querySelector(".next-month-right");
-    nextRight.addEventListener("click", function () {
+
+function changeMonth(event) {
+    var target = event.target;// currentTarget trả về phần tử xảy ra xự kiện click class cha
+    if (target.classList.contains("fa-angle-left")) { 
+    currentMonth -= 1;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear -= 1;
+    }
+    } else if (target.classList.contains("fa-angle-double-left")) {
+    currentYear -= 1;
+    } else if (target.classList.contains("fa-angle-right")) {
         currentMonth += 1;
         if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear += 1;
+        currentMonth = 0;
+        currentYear += 1;
         }
-        displayInfo(); 
-        renderDate();      
-    });
-} 
-window.addEventListener("click", nextMonthRight);
-
-
+    } else if (target.classList.contains("fa-angle-double-right")) {
+        currentYear += 1;
+    }
+    
+    displayInfo();
+    renderDate();
+}
 

@@ -1104,12 +1104,12 @@ div.form-input-group .input-append {
   color: rgba(255, 255, 255, 0.55);
 
 }
-.m-calender .toolbar .prev-month-double i, .m-calender .toolbar .next-month-double i {
+.m-calender .toolbar .prev-month i, .m-calender .toolbar .next-month i {
   font-size: 1.25rem !important;
 }
-.m-calender .toolbar .prev-month-left i, .m-calender .toolbar .next-month-right i {
+/* .m-calender .toolbar .prev-month-left i, .m-calender .toolbar .next-month-right i {
   font-size: 1.25rem !important;
-}
+} */
 .m-calender .toolbar .current-date button {
   color: rgb(255, 255, 255);
   font-weight: 500;
