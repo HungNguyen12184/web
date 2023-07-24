@@ -447,8 +447,8 @@
                                         <div class="form-control-container">
                                           <div class="dtp-container" style="width: 100%">
                                             <div class="dtp-control-container" tabindex="0">
-                                              <div
-                                                class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2">
+                                              <div class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2" id="fromDate">
+                                              
                                               </div>
                                               <div class="calendar">
                                                 <i class="fa-solid fa-calendar-alt" style="
@@ -468,8 +468,8 @@
                                         <div class="form-control-container">
                                           <div class="dtp-container" style="width: 100%">
                                             <div class="dtp-control-container" tabindex="0">
-                                              <div
-                                                class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2">
+                                              <div class="form-control flex flex-grow flex-shrink flex-basis-0 item-center overflow-hidden border-0 px-2" id = "toDate">
+                                               
                                               </div>
                                               <div class="calendar">
                                                 <i class="fa-solid fa-calendar-alt" style="
@@ -620,13 +620,11 @@
                               <div class="resizable-container resizable-h">
                                 <div class="flex flex-col overflow-hidden" style="width: 50%; flex: 1 1 auto">
                                   <div class="p-4">
-                                    <div
-                                      class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden">
+                                    <div class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden">
                                       <div class="css-0">
-                                        <div
-                                          class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden">
+                                        <div class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden">
                                           <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg"  id="firstPageBtn">
                                             <span class="btn__content relative inline-flex justify-center item-center">
                                               <i class="fa-solid fa-angle-double-left" style="
                                                     font-size: 24px;
@@ -636,7 +634,7 @@
                                             </span>
                                           </button>
                                           <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg" id="prevPageBtn">
                                             <span class="btn__content relative inline-flex justify-center item-center">
                                               <i class="fa-solid fa-angle-left" style="
                                                     font-size: 24px;
@@ -652,7 +650,7 @@
                                             </span>
                                           </button>
                                           <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg" id="nextPageBtn">
                                             <span class="btn__content relative inline-flex justify-center item-center">
                                               <i class="fa-solid fa-angle-right" style="
                                                     font-size: 24px;
@@ -662,7 +660,7 @@
                                             </span>
                                           </button>
                                           <button
-                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg">
+                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg" id="lastPageBtn">
                                             <span class="btn__content relative inline-flex justify-center item-center">
                                               <i class="fa-solid fa-angle-double-right" style="
                                                     font-size: 24px;
@@ -753,7 +751,7 @@
                                               </div>
                                             </div>
                                             <div class="dg-header-item dg-freeze"
-                                              style="flex: 1 1 0%; min-width: 200px;">
+                                              style="flex: 1 1 0%; min-width:646px;">
                                               <div class="dg-cell dg-cell--align-left">
                                                 <div
                                                   class="flex flex-grow flex-shrink flex-basis-0 item-baseline gap-1 overflow-hidden">
@@ -771,9 +769,9 @@
                                             </div>
                                           </div>
                                           <div class="scrollbar-container ps--size-md ps">
-                                            <div style="width: 992px;">
+                                            <div style="width: 1638px;">
                                               <div class="dg-body">
-                                                <div class="dg-row selectable-row">
+                                                <!-- <div class="dg-row selectable-row">
                                                   <div class="dg-row-item row--horizontal-border dg-freeze"
                                                     style="flex: 0 0 50px; width: 50px; left: 0px;">
                                                     <div class="dg-cell">
@@ -839,7 +837,7 @@
                                                   <div class="dg-row-item row--horizontal-border dg-freeze"
                                                     style="flex: 0 0 50px; width: 50px; left: 0px;">
                                                     <div class="dg-cell">
-                                                      <span class="auto-number">1</span>
+                                                      <span class="auto-number">2</span>
                                                     </div>
                                                   </div>
                                                   <div class="dg-row-item row--horizontal-border"
@@ -901,7 +899,7 @@
                                                   <div class="dg-row-item row--horizontal-border dg-freeze"
                                                     style="flex: 0 0 50px; width: 50px; left: 0px;">
                                                     <div class="dg-cell">
-                                                      <span class="auto-number">1</span>
+                                                      <span class="auto-number">3</span>
                                                     </div>
                                                   </div>
                                                   <div class="dg-row-item row--horizontal-border"
@@ -963,7 +961,7 @@
                                                   <div class="dg-row-item row--horizontal-border dg-freeze"
                                                     style="flex: 0 0 50px; width: 50px; left: 0px;">
                                                     <div class="dg-cell">
-                                                      <span class="auto-number">1</span>
+                                                      <span class="auto-number">4</span>
                                                     </div>
                                                   </div>
                                                   <div class="dg-row-item row--horizontal-border"
@@ -1025,7 +1023,7 @@
                                                   <div class="dg-row-item row--horizontal-border dg-freeze"
                                                     style="flex: 0 0 50px; width: 50px; left: 0px;">
                                                     <div class="dg-cell">
-                                                      <span class="auto-number">1</span>
+                                                      <span class="auto-number">5</span>
                                                     </div>
                                                   </div>
                                                   <div class="dg-row-item row--horizontal-border"
@@ -1087,7 +1085,7 @@
                                                   <div class="dg-row-item row--horizontal-border dg-freeze"
                                                     style="flex: 0 0 50px; width: 50px; left: 0px;">
                                                     <div class="dg-cell">
-                                                      <span class="auto-number">1</span>
+                                                      <span class="auto-number">6</span>
                                                     </div>
                                                   </div>
                                                   <div class="dg-row-item row--horizontal-border"
@@ -1145,12 +1143,84 @@
                                                    </div>
                                                   </div>
                                                 </div>
+                                                <div class="dg-row selectable-row">
+                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
+                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
+                                                    <div class="dg-cell">
+                                                      <span class="auto-number">7</span>
+                                                    </div>
+                                                  </div>
+                                                  <div class="dg-row-item row--horizontal-border"
+                                                    style="flex: 0 0 270px; width: 270px;">
+                                                    <div class="dg-cell dg-cell--align-left">
+                                                      <div class=" css-0">
+                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+                                                        <div class="image-contaniner"></div>
+                                                      </div>
+                                                      </div>
+                                                      <div class="flex flex-shrink-0"></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="dg-row-item row--horizontal-border"
+                                                    style="flex: 0 0 290px;width: 290px;">
+                                                    <div class="dg-cell dg-cell--align-left">
+                                                      <div
+                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+                                                        <div class="image-contaniner"></div>
+                                                      </div>
+                                                      <div class="flex flex-shrink-0"></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="dg-row-item row--horizontal-border"
+                                                    style="flex: 0 0 112px;width: 112px;">
+                                                    <div class="dg-cell dg-cell--align-left">
+                                                      <div
+                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
+                                                        <span class="tb tb1">
+                                                          "%"
+                                                        </span>
+                                                      </div>
+                                                      <div class="flex flex-shrink-0"></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="dg-row-item row--horizontal-border"
+                                                    style="flex: 1 1 0%; min-width: 646px;">
+                                                      <div class="dg-cell dg-cell--align-left">
+                                                        <div class=" css-0">
+                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
+                                                          <span class="m-0 hd hd-6"></span>
+                                                          <span class="tb tb1"></span>
+                                                          <span class="tb tb1">TruongSon</span>
+                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
+                                                          <span class="tb tb1"></span>
+                                                        </div>
+                                                        </div> 
+                                                      </div>
+                                                  </div>
+                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
+                                                   <div class="dg-cell">
+                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
+                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
+                                                    </div>
+                                                   </div>
+                                                  </div>
+                                                </div> -->
                                               </div>
                                             </div>
+                                          <div class="ps__rail-x" style="left: 0px; bottom: 0px; width: 1638;">
+                                            <div class="ps_thumb-x" tabindex="0" style="left: 0px; width:1638;"></div> 
+                                          </div>
+                                          <div class="ps__rail-y" style="top:385px; right: 0px; height: 720px;">
+                                             <div class="ps_thumb-y" tabindex="0" style="top: 133px; height: 281px;"></div>
+                                          </div>
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="toolbar"></div>
+                                      <div class="toolbar">
+                                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-end item-center gap-2 overflow-hidden p-2">
+                                          <div class="paging-count">1-25</div>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>

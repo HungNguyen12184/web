@@ -157,19 +157,19 @@ function searchLabel() {
     });
 }
 /*------------------LPR------------------------*/
- function hideModalWhenFullHeightVisible() {
-    var fullHeightElement = document.querySelector('.full-height');
-    var modalElement = document.getElementById('modal-root');
-    if (fullHeightElement && modalElement) {
-        var fullHeightVisible = window.getComputedStyle(fullHeightElement).display !== 'none';
-        var modalVisible = window.getComputedStyle(modalElement).display !== 'none';
-        if (fullHeightVisible && modalVisible) {
-        modalElement.style.display = 'none';
-        }
-    }
-}
+//  function hideModalWhenFullHeightVisible() {
+//     var fullHeightElement = document.querySelector('.full-height');
+//     var modalElement = document.getElementById('modal-root');
+//     if (fullHeightElement && modalElement) {
+//         var fullHeightVisible = window.getComputedStyle(fullHeightElement).display !== 'none';
+//         var modalVisible = window.getComputedStyle(modalElement).display !== 'none';
+//         if (fullHeightVisible && modalVisible) {
+//         modalElement.style.display = 'none';
+//         }
+//     }
+// }
 
- window.onload = hideModalWhenFullHeightVisible;
+//  hideModalWhenFullHeightVisible();
 
 
 function showCalendar() {
@@ -179,7 +179,7 @@ function showCalendar() {
         controlCald.addEventListener("click", function () {
             modalElement.style.display = 'block';
             displayInfo();
-            buttonGroup();
+           // buttonGroup();
         });
     }); 
 }
@@ -337,17 +337,7 @@ function renderDate() {
         dateCL.appendChild(tr);
     }
 }
-// window.onload = displayInfo;
 
-
-function buttonGroup() {
-    var buttonGroups = document.querySelectorAll(".button-group"); // trả về 1 nodelist 
-    buttonGroups.forEach(function(buttonGroup) {
-        buttonGroup.addEventListener("click", function(event) {
-            changeMonth(event);
-        });
-    });
-}
 
 
 
@@ -374,4 +364,111 @@ function changeMonth(event) {
     displayInfo();
     renderDate();
 }
+function getCurrentDate() {
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    var formattedDate = day + "/" + month + "/" + year;
+    return formattedDate;
+}
 
+function fillCurrentDate() {
+    var fromDateContainer = document.getElementById("fromDate");
+    var toDateContainer = document.getElementById("toDate");
+    if (fromDateContainer && toDateContainer) {
+        var currentDate = getCurrentDate();
+        fromDateContainer.textContent = currentDate;
+        toDateContainer.textContent = currentDate;
+    } 
+}
+document.addEventListener("DOMContentLoaded", fillCurrentDate);
+
+
+const tableData = [
+    { stt: 1, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "90%", chi_tiet: "TruongSon_KOMOTA_2" },
+    { stt: 2, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "80%", chi_tiet: "TruongSon_KOMOTA_3" },
+    { stt: 3, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "70%", chi_tiet: "TruongSon_KOMOTA_4" },
+    { stt: 4, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "60%", chi_tiet: "TruongSon_KOMOTA_5" },
+    { stt: 5, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "50%", chi_tiet: "TruongSon_KOMOTA_6" },
+    { stt: 6, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "40%", chi_tiet: "TruongSon_KOMOTA_7" },
+    { stt: 7, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "30%", chi_tiet: "TruongSon_KOMOTA_8" },
+    { stt: 8, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "20%", chi_tiet: "TruongSon_KOMOTA_9" },
+    { stt: 9, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "10%", chi_tiet: "TruongSon_KOMOTA_10" },
+    { stt: 10, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "25%", chi_tiet: "TruongSon_KOMOTA_11" },
+    { stt: 11, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "35%", chi_tiet: "TruongSon_KOMOTA_12" },
+    { stt: 12, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "86%", chi_tiet: "TruongSon_KOMOTA_13" },
+    { stt: 13, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "96%", chi_tiet: "TruongSon_KOMOTA_14" },
+    { stt: 14, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "69%", chi_tiet: "TruongSon_KOMOTA_15" },
+];
+
+    var itemsPerPage = 7;
+    var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
+    var currentPage = 1;
+
+function showCurrentPageData(page) {
+    currentPage = page;
+    var startIndex = (page - 1) * itemsPerPage;
+    var endIndex = Math.min(startIndex + itemsPerPage, tableData.length);
+    var dataBody = document.querySelector(".dg-body");
+    dataBody.innerHTML = "";
+
+  // Hiển thị dữ liệu mới vào bảng
+    for (var i = startIndex; i < endIndex; i++) {
+    var row = document.createElement('div');
+    row.className = 'dg-row selectable-row';
+    row.innerHTML = `
+    <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
+        <div class="dg-cell">
+        <span class="auto-number">${tableData[i].stt}</span>
+        </div>
+    </div>
+    <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
+        <div class="dg-cell dg-cell--align-left">
+        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+        <div class="image-container">${tableData[i].hinh_toan_canh}</div>
+        </div>
+        <div class="flex flex-shrink-0"></div>
+        </div>
+    </div>
+    <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
+        <div class="dg-cell dg-cell--align-left">
+        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+        <div class="image-container">${tableData[i].hinh_bien_so}</div>
+        </div>
+        <div class="flex flex-shrink-0"></div>
+        </div>
+    </div>
+    <div class="dg-row-item row--horizontal-border" style="flex: 0 0 112px; width: 112px;">
+        <div class="dg-cell dg-cell--align-left">
+        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
+        <span class="tb tb1">${tableData[i].do_chinh_xac}</span>
+        </div>
+        <div class="flex flex-shrink-0"></div>
+        </div>
+    </div>
+    <div class="dg-row-item row--horizontal-border" style="flex: 1 1 0%; min-width: 646px;">
+        <div class="dg-cell dg-cell--align-left">
+        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
+            <span class="m-0 hd hd-6"></span>
+            <span class="tb tb1"></span>
+            <span class="tb tb1">${tableData[i].chi_tiet}</span>
+            <span class="tb tb1"></span>
+        </div>
+        <div class="flex flex-shrink-0"></div>
+        </div>
+    </div>
+    <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
+        <div class="dg-cell">
+        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
+            <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
+        </div>
+        </div>
+    </div>
+    `;
+
+dataBody.appendChild(row);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", showCurrentPageData);

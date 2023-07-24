@@ -670,6 +670,17 @@ div.form-input-group .input-append {
   color: rgba(255, 255, 255, 0.85) !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
 }
+.dtp-control-container .input-text-from, .dtp-control-container .input-text-to {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+  line-height: 2rem;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .form-control-container i {
   border: none;
   min-height: unset;
@@ -912,6 +923,16 @@ div.form-input-group .input-append {
   height: 100%;
   background-color: rgba(255,255,255,0.1);
 }
+
+.dg-freeze-end ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+}
 .dg-header-item {
   position: relative;
   background-color: rgba(40, 41, 43, 1);
@@ -935,6 +956,7 @@ div.form-input-group .input-append {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 600;
 
 }
 
@@ -1158,4 +1180,66 @@ table {
   color: rgba(255,255,255,0.85);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
   font-weight: bold;
+}
+#modal-root {
+  display: none;
+}
+
+.ps.scrollbar-container .ps__rail-y {
+  z-index: 1;
+  width: 6px;
+}
+.ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: transparent;
+}
+
+.ps__rail-y {
+  display: none;
+  opacity: 0;
+  transition-duration:  0.2s, 0.2s;
+  transition-timing-function: linear,linear;
+  transition-delay: 0s, 0s;
+  width: 15px;
+  right: 0;
+  position:absolute;
+
+}
+.ps.scrollbar-container .ps__rail-y .ps_thumb-y {
+  width: 100% !important;
+}
+
+.ps.scrollbar-container .ps_thumb-y {
+  right: 0;
+}
+.ps_thumb-y {
+  background-color: #aaa;
+  border-radius: 6px;
+  transition-duration: 0.2s, 0.2s;
+  transition-timing-function: linear, linear;
+  transition-delay: 0s, 0s;
+  width: 6px;
+  right: 2px;
+  position: absolute;
+}
+
+.toolbar {
+  border-top: 1px solid;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+ 
+.paging-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  box-shadow: none;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0.9;
 }
