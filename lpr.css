@@ -1099,15 +1099,15 @@ div.form-input-group .input-append {
   cursor: pointer;
   line-height: 1;
 }
-.m-calender {
+.m-calendar {
   display: inline-block;
 }
-.m-calender .toolbar {
+.m-calendar .toolbar {
   display: flex;
   align-items: center;
   justify-content:space-between;
 }
-.m-calender .toolbar button {
+.m-calendar .toolbar button {
   position: relative;
   width: 2rem;
   height: 2rem;
@@ -1122,24 +1122,24 @@ div.form-input-group .input-append {
   cursor: pointer;
 
 }
-.m-calender .prev-month , .m-calender .next-month {
+.m-calendar .prev-month , .m-calendar .next-month {
   color: rgba(255, 255, 255, 0.55);
 
 }
-.m-calender .toolbar .prev-month i, .m-calender .toolbar .next-month i {
+.m-calendar .toolbar .prev-month i, .m-calendar .toolbar .next-month i {
   font-size: 1.25rem !important;
 }
 /* .m-calender .toolbar .prev-month-left i, .m-calender .toolbar .next-month-right i {
   font-size: 1.25rem !important;
 } */
-.m-calender .toolbar .current-date button {
+.m-calendar .toolbar .current-date button {
   color: rgb(255, 255, 255);
   font-weight: 500;
   text-transform: capitalize;
   width: unset;
   text-align: center;
 }
-.m-calender table {
+.m-calendar table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -1149,11 +1149,11 @@ div.form-input-group .input-append {
 table {
   border-spacing: 0;
 }
-.m-calender thead td {
+.m-calendar thead td {
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
 }
-.m-calender td {
+.m-calendar td {
   padding: 0;
   width: 2rem;
   height: 2rem;
@@ -1161,7 +1161,7 @@ table {
   cursor: pointer;
   color: rgba(255, 255, 255, 0.85);
 }
-.m-calender tbody td .day-content {
+.m-calendar tbody td .day-content {
   font-weight: 600;
   transition-duration: 0.3s;
   transition-timing-function: ease;
@@ -1175,7 +1175,7 @@ table {
   margin: auto;
 }
 
-.m-calender .current-value .day-content {
+.m-calendar .current-value .day-content {
   background-color: rgb(55, 114, 255);
   color: rgba(255,255,255,0.85);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -1242,4 +1242,101 @@ table {
   line-height: 1.25;
   color: rgba(255, 255, 255, 0.85);
   opacity: 0.9;
+}
+
+.m-time {
+  margin: 1rem 0 2rem;
+}
+.m-time .showtime {
+  text-align: center;
+}
+.m-time .time {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  color: rgb(255,162,61);
+  background-color: rgba(255,162,61,0.1);
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
+}
+.m-time .separater {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgb(255,162,61);
+  width: 2rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+.m-time .sliders {
+  padding: 0 10px;
+}
+.m-time .time-text {
+  position: relative;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.range-slider__labels-container {
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+.range-slider__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+.range-slider__labels-container * {
+  box-sizing: content-box;
+}
+.range-slider__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slider__rail {
+  display: block;
+  position: absolute;
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 5px;
+  width: 100%;
+  height: inherit;
+  top: 0;
+}
+.track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 5px;
+  height: 5px;
+}
+.slider-mark-container {
+  height: inherit;
+}
+.slider__range-thumb {
+  width: min-content;
+  height: min-content;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(98, 0, 283, 0.1);
+  bottom: 0;
+  background: transparent;
+  cursor: pointer;
 }

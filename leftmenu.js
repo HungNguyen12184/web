@@ -171,7 +171,7 @@ function searchLabel() {
 
 //  hideModalWhenFullHeightVisible();
 
-function showCalendar() {
+function showCalendarTable() {
     var controlCalds = document.querySelectorAll('.dtp-container');
     var modalElement = document.getElementById('modal-root');
     controlCalds.forEach(function (controlCald) {
@@ -179,11 +179,34 @@ function showCalendar() {
             modalElement.style.display = 'block';
             displayInfo();
             buttonGroup();
+            showTime();
         });
     });
 }
 
-window.addEventListener('click', showCalendar);
+window.addEventListener('click', showCalendarTable);
+
+function showCalendar() {
+    var mCalendar = document.querySelector(".m-calendar");
+    mCalendar.style.display = "none";
+}
+
+function showTime() {
+    var mTime = document.querySelector(".m-time");
+    var btn_Time = document.querySelector(".ion-clock")
+     btn_Time = document.addEventListener("click", function(){
+        mTime.style.display = "block";
+    })
+    showCalendar();
+      // Call the updateTime function initially to set the initial time
+updateTime();
+  
+// Update the time every second (1000 milliseconds)
+setInterval(updateTime, 1000);
+
+}
+
+
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
@@ -391,7 +414,32 @@ function fillCurrentDate() {
     }
 }
 document.addEventListener('DOMContentLoaded', fillCurrentDate);
+// hiển thi bảng ngày hoặc giờ 
 
+
+
+//get Giờ Phút 
+function updateTime() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours().toString().padStart(2, "0");
+    var minutes = currentTime.getMinutes().toString().padStart(2, "0");
+
+    var timeSpans = document.querySelectorAll(".showtime .time");
+    timeSpans[0].textContent = hours;
+    timeSpans[1].textContent = minutes;
+}
+  
+
+  
+
+
+
+
+
+
+
+
+//tạo bảng dữ liệu động 
 const tableData = [
     { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
     { stt: 2, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '80%', chi_tiet: 'TruongSon_KOMOTA_3' },
@@ -407,9 +455,13 @@ const tableData = [
     { stt: 12, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '86%', chi_tiet: 'TruongSon_KOMOTA_13' },
     { stt: 13, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '96%', chi_tiet: 'TruongSon_KOMOTA_14' },
     { stt: 14, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '69%', chi_tiet: 'TruongSon_KOMOTA_15' },
+    { stt: 15, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '79%', chi_tiet: 'TruongSon_KOMOTA_16' },
+    { stt: 16, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '59%', chi_tiet: 'TruongSon_KOMOTA_17' },
 ];
 
-var itemsPerPage = 7;
+
+
+var itemsPerPage = 8;
 var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
 var currentPage = 1;
 
@@ -475,6 +527,56 @@ function showCurrentPageData(page) {
 
         dataBody.appendChild(row);
     }
+    paginGroup();
 }
 
-document.addEventListener('DOMContentLoaded', showCurrentPageData(1));
+function paginGroup() {
+    var buttonGroups = document.querySelectorAll(".pagination"); // trả về 1 nodelist
+    buttonGroups.forEach(function (buttonGroup) {
+        buttonGroup.addEventListener('click', function (event) {
+            changePage(event);
+        });
+    });
+}
+
+function updateCurrentPage(){
+    var currentPageSpan = document.querySelector(".pagination .btn_text")
+    if (currentPageSpan) {
+        currentPageSpan.textContent = currentPage.toString();
+    }
+}   
+
+function changePage(event){
+    var target = event.target;
+    if(target.classList.contains("fa-angle-left")) {
+        if (currentPage > 1) {
+            currentPage--;
+            updateCurrentPage();
+            showCurrentPageData(currentPage);
+            } 
+    } else if (target.classList.contains("fa-angle-double-left"))
+            {
+                updateCurrentPage();
+                showCurrentPageData(1);
+            }
+    else if (target.classList.contains("fa-angle-right"))
+            {
+                if (currentPage < totalPage) {
+                    currentPage++;
+                    updateCurrentPage();
+                    showCurrentPageData(currentPage);
+                }
+            }
+    else  if (target.classList.contains('fa-angle-double-right')) {
+            updateCurrentPage();
+            showCurrentPageData(totalPage);
+        }      
+}
+
+document.addEventListener('DOMContentLoaded', function()
+{
+    showCurrentPageData(1)
+});
+
+
+  
