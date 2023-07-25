@@ -171,110 +171,111 @@ function searchLabel() {
 
 //  hideModalWhenFullHeightVisible();
 
-
 function showCalendar() {
-    var controlCalds = document.querySelectorAll(".dtp-container");
+    var controlCalds = document.querySelectorAll('.dtp-container');
     var modalElement = document.getElementById('modal-root');
-    controlCalds.forEach(function(controlCald) {
-        controlCald.addEventListener("click", function () {
+    controlCalds.forEach(function (controlCald) {
+        controlCald.addEventListener('click', function () {
             modalElement.style.display = 'block';
             displayInfo();
-           // buttonGroup();
+            buttonGroup();
         });
-    }); 
+    });
 }
 
-
-
-window.addEventListener("click",showCalendar);
-
-
+window.addEventListener('click', showCalendar);
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
 function displayInfo() {
-    var monthCL = document.querySelector(".month");
-    var yearCL = document.querySelector(".year");
-    var currentMonthName = new Date(currentYear, currentMonth).toLocaleString(
-        "vi-VN",
-        { month: "long" }
-    ); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
+    var monthCL = document.querySelector('.month');
+    var yearCL = document.querySelector('.year');
+    var currentMonthName = new Date(currentYear, currentMonth).toLocaleString('vi-VN', {
+        month: 'long',
+    }); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
     monthCL.innerText = currentMonthName;
     yearCL.innerText = currentYear;
     renderDate();
 
-    monthCL.addEventListener("click", function () {
+    monthCL.addEventListener('click', function () {
         showMonthTable();
     });
 
-    yearCL.addEventListener("click", function () {
+    yearCL.addEventListener('click', function () {
         showYearTable();
     });
 }
 
-
 function showMonthTable() {
+    var monthTable = document.createElement('div');
+    monthTable.className = 'm-calendar';
+    monthTable.innerHTML = '<table><tbody></tbody></table>';
 
-    var monthTable = document.createElement("div");
-    monthTable.className = "m-calendar";
-    monthTable.innerHTML = "<table><tbody></tbody></table>";
-
-    var tableBody = monthTable.querySelector("tbody");
+    var tableBody = monthTable.querySelector('tbody');
     var months = new Array(
-        "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6",
-        "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"
+        'Tháng 1',
+        'Tháng 2',
+        'Tháng 3',
+        'Tháng 4',
+        'Tháng 5',
+        'Tháng 6',
+        'Tháng 7',
+        'Tháng 8',
+        'Tháng 9',
+        'Tháng 10',
+        'Tháng 11',
+        'Tháng 12',
     );
 
     for (var i = 0; i < months.length; i++) {
         if (i % 3 === 0) {
-            var row = document.createElement("tr");
+            var row = document.createElement('tr');
             tableBody.appendChild(row);
         }
         // var monthCal = document.querySelector("tbody");
-        var cell = document.createElement("td");
-        var div = document.createElement("div");
-        cell.className = "month-item";
-        div.className = "month-content"
+        var cell = document.createElement('td');
+        var div = document.createElement('div');
+        cell.className = 'month-item';
+        div.className = 'month-content';
         div.textContent = months[i];
         cell.appendChild(div);
         row.appendChild(cell);
     }
-    
-    var monthYearElement = document.querySelector(".tab");
-    monthYearElement.innerHTML = "";
+
+    var monthYearElement = document.querySelector('.tab');
+    monthYearElement.innerHTML = '';
     monthYearElement.appendChild(monthTable);
 }
 
 function showYearTable() {
-    var yearTable = document.createElement("div");
-    yearTable.className = "year-table";
-    yearTable.innerHTML = "<table><tbody></tbody></table>";
-    var tableBody = yearTable.querySelector("tbody");
+    var yearTable = document.createElement('div');
+    yearTable.className = 'year-table';
+    yearTable.innerHTML = '<table><tbody></tbody></table>';
+    var tableBody = yearTable.querySelector('tbody');
     var startYear = currentYear - 7; // lấy năm trước năm hiện tại
     var endYear = currentYear + 7;
     var yearCount = 0;
-    var row = document.createElement("tr");
+    var row = document.createElement('tr');
     tableBody.appendChild(row);
 
-    for (var i = startYear ; i <= endYear; i++) {
-        if (yearCount % 3 === 0 &&  yearCount !== 0) 
-        {
-            row = document.createElement("tr");
+    for (var i = startYear; i <= endYear; i++) {
+        if (yearCount % 3 === 0 && yearCount !== 0) {
+            row = document.createElement('tr');
             tableBody.appendChild(row);
         }
-        var cell = document.createElement("td");
-        var div = document.createElement ("div");
-        cell.className = "year-item";
-        div.className = "year-content";
+        var cell = document.createElement('td');
+        var div = document.createElement('div');
+        cell.className = 'year-item';
+        div.className = 'year-content';
         div.textContent = i;
         cell.appendChild(div);
         row.appendChild(cell);
         yearCount++;
     }
 
-    var monthYearElement = document.querySelector(".tab");
-    monthYearElement.innerHTML = "";
+    var monthYearElement = document.querySelector('.tab');
+    monthYearElement.innerHTML = '';
     monthYearElement.appendChild(yearTable);
 }
 //lấy số ngày của tháng
@@ -288,45 +289,46 @@ function getStartDayInMonth() {
     return startday;
 }
 
-
-var monthYearElement = document.getElementsByClassName("current-date");
+var monthYearElement = document.getElementsByClassName('current-date');
 for (var i = 0; i < monthYearElement.length; i++) {
-  monthYearElement[i].textContent = new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long', year: 'numeric' });
+    monthYearElement[i].textContent = new Date(currentYear, currentMonth).toLocaleString('default', {
+        month: 'long',
+        year: 'numeric',
+    });
 }
-
 
 function activeCurrentDay(day) {
     var day1 = new Date().toDateString();
     var day2 = new Date(currentYear, currentMonth, day).toDateString();
-    return day1 == day2 ? "current-value" : "";
+    return day1 == day2 ? 'current-value' : '';
 }
 
 function renderDate() {
-    var dateCL = document.querySelector("tbody");
+    var dateCL = document.querySelector('tbody');
     var daysInMonth = getDaysInMonth();
     var startDay = getStartDayInMonth();
     dateCL.innerHTML = '';
     var dayCount = 1;
 
     for (var i = 0; i < 6; i++) {
-        var tr = document.createElement("tr");
+        var tr = document.createElement('tr');
         for (var j = 0; j < 7; j++) {
-            var td = document.createElement("td");
-            var div = document.createElement("div");
-            div.className = "day-content";
+            var td = document.createElement('td');
+            var div = document.createElement('div');
+            div.className = 'day-content';
 
             if (i === 0 && j < startDay) {
-                td.className = "prev-month";
+                td.className = 'prev-month';
                 var prevDay = daysInMonth - (startDay - j);
                 div.textContent = prevDay;
             } else if (dayCount > daysInMonth) {
-                td.className = "next-month"; 
+                td.className = 'next-month';
                 div.textContent = dayCount - daysInMonth;
                 dayCount++;
             } else {
                 div.textContent = dayCount;
                 if (activeCurrentDay(dayCount)) {
-                    td.className += (" current-value");
+                    td.className += ' current-value';
                 }
                 dayCount++;
             }
@@ -338,29 +340,35 @@ function renderDate() {
     }
 }
 
-
-
+function buttonGroup() {
+    var buttonGroups = document.querySelectorAll('.button-group'); // trả về 1 nodelist
+    buttonGroups.forEach(function (buttonGroup) {
+        buttonGroup.addEventListener('click', function (event) {
+            changeMonth(event);
+        });
+    });
+}
 
 function changeMonth(event) {
-    var target = event.target;// currentTarget trả về phần tử xảy ra xự kiện click class cha
-    if (target.classList.contains("fa-angle-left")) { 
-    currentMonth -= 1;
-    if (currentMonth < 0) {
-        currentMonth = 11;
+    var target = event.target; // currentTarget trả về phần tử xảy ra xự kiện click class cha
+    if (target.classList.contains('fa-angle-left')) {
+        currentMonth -= 1;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear -= 1;
+        }
+    } else if (target.classList.contains('fa-angle-double-left')) {
         currentYear -= 1;
-    }
-    } else if (target.classList.contains("fa-angle-double-left")) {
-    currentYear -= 1;
-    } else if (target.classList.contains("fa-angle-right")) {
+    } else if (target.classList.contains('fa-angle-right')) {
         currentMonth += 1;
         if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear += 1;
+            currentMonth = 0;
+            currentYear += 1;
         }
-    } else if (target.classList.contains("fa-angle-double-right")) {
+    } else if (target.classList.contains('fa-angle-double-right')) {
         currentYear += 1;
     }
-    
+
     displayInfo();
     renderDate();
 }
@@ -369,55 +377,53 @@ function getCurrentDate() {
     var day = currentDate.getDate();
     var month = currentDate.getMonth() + 1;
     var year = currentDate.getFullYear();
-    var formattedDate = day + "/" + month + "/" + year;
+    var formattedDate = day + '/' + month + '/' + year;
     return formattedDate;
 }
 
 function fillCurrentDate() {
-    var fromDateContainer = document.getElementById("fromDate");
-    var toDateContainer = document.getElementById("toDate");
+    var fromDateContainer = document.getElementById('fromDate');
+    var toDateContainer = document.getElementById('toDate');
     if (fromDateContainer && toDateContainer) {
         var currentDate = getCurrentDate();
         fromDateContainer.textContent = currentDate;
         toDateContainer.textContent = currentDate;
-    } 
+    }
 }
-document.addEventListener("DOMContentLoaded", fillCurrentDate);
-
+document.addEventListener('DOMContentLoaded', fillCurrentDate);
 
 const tableData = [
-    { stt: 1, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "90%", chi_tiet: "TruongSon_KOMOTA_2" },
-    { stt: 2, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "80%", chi_tiet: "TruongSon_KOMOTA_3" },
-    { stt: 3, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "70%", chi_tiet: "TruongSon_KOMOTA_4" },
-    { stt: 4, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "60%", chi_tiet: "TruongSon_KOMOTA_5" },
-    { stt: 5, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "50%", chi_tiet: "TruongSon_KOMOTA_6" },
-    { stt: 6, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "40%", chi_tiet: "TruongSon_KOMOTA_7" },
-    { stt: 7, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "30%", chi_tiet: "TruongSon_KOMOTA_8" },
-    { stt: 8, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "20%", chi_tiet: "TruongSon_KOMOTA_9" },
-    { stt: 9, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "10%", chi_tiet: "TruongSon_KOMOTA_10" },
-    { stt: 10, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "25%", chi_tiet: "TruongSon_KOMOTA_11" },
-    { stt: 11, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "35%", chi_tiet: "TruongSon_KOMOTA_12" },
-    { stt: 12, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "86%", chi_tiet: "TruongSon_KOMOTA_13" },
-    { stt: 13, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "96%", chi_tiet: "TruongSon_KOMOTA_14" },
-    { stt: 14, hinh_toan_canh: "", hinh_bien_so: "", do_chinh_xac: "69%", chi_tiet: "TruongSon_KOMOTA_15" },
+    { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
+    { stt: 2, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '80%', chi_tiet: 'TruongSon_KOMOTA_3' },
+    { stt: 3, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '70%', chi_tiet: 'TruongSon_KOMOTA_4' },
+    { stt: 4, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '60%', chi_tiet: 'TruongSon_KOMOTA_5' },
+    { stt: 5, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '50%', chi_tiet: 'TruongSon_KOMOTA_6' },
+    { stt: 6, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '40%', chi_tiet: 'TruongSon_KOMOTA_7' },
+    { stt: 7, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '30%', chi_tiet: 'TruongSon_KOMOTA_8' },
+    { stt: 8, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '20%', chi_tiet: 'TruongSon_KOMOTA_9' },
+    { stt: 9, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '10%', chi_tiet: 'TruongSon_KOMOTA_10' },
+    { stt: 10, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '25%', chi_tiet: 'TruongSon_KOMOTA_11' },
+    { stt: 11, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '35%', chi_tiet: 'TruongSon_KOMOTA_12' },
+    { stt: 12, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '86%', chi_tiet: 'TruongSon_KOMOTA_13' },
+    { stt: 13, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '96%', chi_tiet: 'TruongSon_KOMOTA_14' },
+    { stt: 14, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '69%', chi_tiet: 'TruongSon_KOMOTA_15' },
 ];
 
-    var itemsPerPage = 7;
-    var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
-    var currentPage = 1;
+var itemsPerPage = 7;
+var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
+var currentPage = 1;
 
 function showCurrentPageData(page) {
     currentPage = page;
     var startIndex = (page - 1) * itemsPerPage;
-    var endIndex = Math.min(startIndex + itemsPerPage, tableData.length);
-    var dataBody = document.querySelector(".dg-body");
-    dataBody.innerHTML = "";
-
-  // Hiển thị dữ liệu mới vào bảng
+    var endIndex = currentPage * itemsPerPage;
+    var dataBody = document.querySelector('.dg-body');
+    dataBody.innerHTML = '';
+    // Hiển thị dữ liệu mới vào bảng
     for (var i = startIndex; i < endIndex; i++) {
-    var row = document.createElement('div');
-    row.className = 'dg-row selectable-row';
-    row.innerHTML = `
+        var row = document.createElement('div');
+        row.className = 'dg-row selectable-row';
+        row.innerHTML = `
     <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
         <div class="dg-cell">
         <span class="auto-number">${tableData[i].stt}</span>
@@ -467,8 +473,8 @@ function showCurrentPageData(page) {
     </div>
     `;
 
-dataBody.appendChild(row);
+        dataBody.appendChild(row);
     }
 }
 
-document.addEventListener("DOMContentLoaded", showCurrentPageData);
+document.addEventListener('DOMContentLoaded', showCurrentPageData(1));
