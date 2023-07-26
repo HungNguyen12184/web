@@ -398,7 +398,10 @@ canvas {
  .form-group-column {
   flex-direction: column;
 }
-
+.form-group .form-group {
+  padding-right: 0;
+  background: none;
+}
 .form-control-row {
   flex-direction: row;
   align-items: center;
@@ -862,7 +865,7 @@ div.form-input-group .input-append {
   overflow: auto;
   display: flex;
   flex-direction: column;
-  border: 1px solid;
+
   
 }
 .data-grid-content {
@@ -1259,7 +1262,7 @@ table {
   display: inline-block;
   font-size: 2rem;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 4rem;
   text-align: center;
 }
 .m-time .separater {

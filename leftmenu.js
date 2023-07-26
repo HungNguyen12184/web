@@ -179,7 +179,7 @@ function showCalendarTable() {
             modalElement.style.display = 'block';
             displayInfo();
             buttonGroup();
-            showTime();
+            optionGroup();
         });
     });
 }
@@ -187,26 +187,9 @@ function showCalendarTable() {
 window.addEventListener('click', showCalendarTable);
 
 function showCalendar() {
-    var mCalendar = document.querySelector(".m-calendar");
-    mCalendar.style.display = "none";
+    var mCalendar = document.querySelector('.m-calendar');
+    mCalendar.style.display = 'none';
 }
-
-function showTime() {
-    var mTime = document.querySelector(".m-time");
-    var btn_Time = document.querySelector(".ion-clock")
-     btn_Time = document.addEventListener("click", function(){
-        mTime.style.display = "block";
-    })
-    showCalendar();
-      // Call the updateTime function initially to set the initial time
-updateTime();
-  
-// Update the time every second (1000 milliseconds)
-setInterval(updateTime, 1000);
-
-}
-
-
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
@@ -409,37 +392,79 @@ function fillCurrentDate() {
     var toDateContainer = document.getElementById('toDate');
     if (fromDateContainer && toDateContainer) {
         var currentDate = getCurrentDate();
-        fromDateContainer.textContent = currentDate;
-        toDateContainer.textContent = currentDate;
+        var currentTime = updateTime();
+        fromDateContainer.textContent = currentDate + ' ' + currentTime;
+        toDateContainer.textContent = currentDate + ' ' + currentTime;
     }
 }
 document.addEventListener('DOMContentLoaded', fillCurrentDate);
-// hiển thi bảng ngày hoặc giờ 
+// hiển thi bảng ngày hoặc giờ
 
-
-
-//get Giờ Phút 
+//get Giờ Phút
 function updateTime() {
     var currentTime = new Date();
-    var hours = currentTime.getHours().toString().padStart(2, "0");
-    var minutes = currentTime.getMinutes().toString().padStart(2, "0");
+    var hours = currentTime.getHours().toString().padStart(2, '0');
+    var minutes = currentTime.getMinutes().toString().padStart(2, '0');
 
-    var timeSpans = document.querySelectorAll(".showtime .time");
+    var timeSpans = document.querySelectorAll('.showtime .time');
     timeSpans[0].textContent = hours;
     timeSpans[1].textContent = minutes;
+    var formattedTime = hours + ':' + minutes;
+    return formattedTime;
 }
-  
+function optionGroup() {
+    var buttonGroups = document.querySelectorAll('.option'); // trả về 1 nodelist
+    buttonGroups.forEach(function (buttonGroup) {
+        buttonGroup.addEventListener('click', function (event) {
+            changeDayTime(event);
+        });
+    });
+}
+function changeDayTime(event) {
+    var target = event.target;
+    var calendarTab = document.querySelector('.tabs .m-calendar');
+    var timeTab = document.querySelector('.tabs .m-time');
+    var calendarButton = document.querySelector('.ion-calendar');
+    var timeButton = document.querySelector('.ion-clock');
 
-  
+    if (target.classList.contains('ion-clock')) {
+        calendarButton.classList.remove('active');
+        timeButton.classList.add('active');
+        calendarTab.style.display = 'none';
+        timeTab.style.display = 'block';
+        updateTime(); // Update time immediately
+        setInterval(updateTime, 1000); // Update time every second
+    } else if (target.classList.contains('ion-calendar')) {
+        calendarButton.classList.add('active');
+        timeButton.classList.remove('active');
+        calendarTab.style.display = 'block';
+        timeTab.style.display = 'none';
+    }
+}
+// lay ngay dien vào form
 
+// function inputDateTime() {
+//     var fromDateElement = document.getElementById('fromDate');
+//     var toDateElement = document.getElementById('toDate');
+//     var calendarIcon = document.querySelector('table');
+//     calendarIcon.addEventListener('click', function () {
+//         // Lấy ngày/tháng/năm từ bảng lịch và điền vào ô fromDate
+//         var selectedDate = document.querySelector('.m-calendar .current-date .month').textContent;
+//         var selectedMonth = document.querySelector('.m-calendar .current-date .year').textContent;
+//         var selectedYear = new Date().getFullYear();
 
+//         fromDateElement.textContent = selectedDate + '/' + selectedMonth + '/' + selectedYear;
 
+//         // Ứng với việc điền vào fromDate, ta cũng điền cùng giá trị vào toDate
+//         toDateElement.textContent = selectedDate + '/' + selectedMonth + '/' + selectedYear;
 
+//         // Sau khi điền giá trị, ẩn bảng lịch
+//         var calendarTab = document.querySelector('.tabs .m-calendar');
+//         calendarTab.style.display = 'none';
+//     });
+// }
 
-
-
-
-//tạo bảng dữ liệu động 
+//tạo bảng dữ liệu động
 const tableData = [
     { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
     { stt: 2, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '80%', chi_tiet: 'TruongSon_KOMOTA_3' },
@@ -458,8 +483,6 @@ const tableData = [
     { stt: 15, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '79%', chi_tiet: 'TruongSon_KOMOTA_16' },
     { stt: 16, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '59%', chi_tiet: 'TruongSon_KOMOTA_17' },
 ];
-
-
 
 var itemsPerPage = 8;
 var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
@@ -531,7 +554,7 @@ function showCurrentPageData(page) {
 }
 
 function paginGroup() {
-    var buttonGroups = document.querySelectorAll(".pagination"); // trả về 1 nodelist
+    var buttonGroups = document.querySelectorAll('.pagination'); // trả về 1 nodelist
     buttonGroups.forEach(function (buttonGroup) {
         buttonGroup.addEventListener('click', function (event) {
             changePage(event);
@@ -539,44 +562,36 @@ function paginGroup() {
     });
 }
 
-function updateCurrentPage(){
-    var currentPageSpan = document.querySelector(".pagination .btn_text")
+function updateCurrentPage() {
+    var currentPageSpan = document.querySelector('.pagination .btn_text');
     if (currentPageSpan) {
         currentPageSpan.textContent = currentPage.toString();
     }
-}   
+}
 
-function changePage(event){
+function changePage(event) {
     var target = event.target;
-    if(target.classList.contains("fa-angle-left")) {
+    if (target.classList.contains('fa-angle-left')) {
         if (currentPage > 1) {
             currentPage--;
             updateCurrentPage();
             showCurrentPageData(currentPage);
-            } 
-    } else if (target.classList.contains("fa-angle-double-left"))
-            {
-                updateCurrentPage();
-                showCurrentPageData(1);
-            }
-    else if (target.classList.contains("fa-angle-right"))
-            {
-                if (currentPage < totalPage) {
-                    currentPage++;
-                    updateCurrentPage();
-                    showCurrentPageData(currentPage);
-                }
-            }
-    else  if (target.classList.contains('fa-angle-double-right')) {
+        }
+    } else if (target.classList.contains('fa-angle-double-left')) {
+        updateCurrentPage();
+        showCurrentPageData(1);
+    } else if (target.classList.contains('fa-angle-right')) {
+        if (currentPage < totalPage) {
+            currentPage++;
             updateCurrentPage();
-            showCurrentPageData(totalPage);
-        }      
+            showCurrentPageData(currentPage);
+        }
+    } else if (target.classList.contains('fa-angle-double-right')) {
+        updateCurrentPage();
+        showCurrentPageData(totalPage);
+    }
 }
 
-document.addEventListener('DOMContentLoaded', function()
-{
-    showCurrentPageData(1)
+document.addEventListener('DOMContentLoaded', function () {
+    showCurrentPageData(1);
 });
-
-
-  
