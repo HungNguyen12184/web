@@ -171,20 +171,77 @@ function searchLabel() {
 
 //  hideModalWhenFullHeightVisible();
 
-function showCalendarTable() {
-    var controlCalds = document.querySelectorAll('.dtp-container');
+// function showCalendarTable() {
+//     var controlCalds = document.querySelectorAll('.dtp-container');
+//     var modalElement = document.getElementById('modal-root');
+//     controlCalds.forEach(function (controlCald) {
+//         controlCald.addEventListener('click', function () {
+//             modalElement.style.display = 'block';
+//             displayInfo();
+//             buttonGroup();
+//             optionGroup();
+//         });
+//     });
+// }
+function fromDate() {
     var modalElement = document.getElementById('modal-root');
-    controlCalds.forEach(function (controlCald) {
-        controlCald.addEventListener('click', function () {
+
+    var fromDateElement = document.getElementById('fromDate');
+    fromDateElement.addEventListener('click', function () {
+        if (modalElement.style.display === 'block') {
+            modalElement.style.display = 'none';
+        } else {
             modalElement.style.display = 'block';
             displayInfo();
             buttonGroup();
             optionGroup();
-        });
+            inputDateTime();
+        }
+    });
+}
+function toDate() {
+    var modalElement = document.getElementById('modal-root');
+    var toDateElement = document.getElementById('toDate');
+    toDateElement.addEventListener('click', function () {
+        if (modalElement.style.display === 'block') {
+            modalElement.style.display = 'none';
+        } else {
+            modalElement.style.display = 'block';
+            displayInfo();
+            buttonGroup();
+            optionGroup();
+            inputDateTime();
+        }
     });
 }
 
-window.addEventListener('click', showCalendarTable);
+window.addEventListener('click', fromDate);
+window.addEventListener('click', toDate);
+
+// function clickFormTo(event) {
+//     var target = event.target;
+//     var fromDateElement = document.getElementById('fromDate');
+//     var toDateElement = document.getElementById('toDate');
+//     if (target.classList.contains('#fromDate')) {
+//         fromDateElement.textContent = inputDateTime();
+//     } else if (target.classList.contains('#toDate')) {
+//         toDateElement.textContent = inputDateTime();
+//     }
+// }
+
+// function clickFormTo(event) {
+//     var target = event.target;
+//     var fromDateElement = document.getElementById('dtp-control-1');
+//     var toDateElement = document.getElementById('dtp-control-2');
+//     if (target.id === 'fromDate' || target.id === 'dtp-control-1') {
+//         fromDateElement.textContent = inputDateTime();
+//     } else if (target.id === 'toDate' || target.id === 'dtp-control-2') {
+//         displayInfo();
+//         buttonGroup();
+//         optionGroup();
+//         toDateElement.textContent = inputDateTime();
+//     }
+// }
 
 function showCalendar() {
     var mCalendar = document.querySelector('.m-calendar');
@@ -378,6 +435,8 @@ function changeMonth(event) {
     displayInfo();
     renderDate();
 }
+
+// GET NGAY HIEN TAI DIEN VAO FROM
 function getCurrentDate() {
     var currentDate = new Date();
     var day = currentDate.getDate();
@@ -398,9 +457,8 @@ function fillCurrentDate() {
     }
 }
 document.addEventListener('DOMContentLoaded', fillCurrentDate);
-// hiển thi bảng ngày hoặc giờ
 
-//get Giờ Phút
+//GET GIO PHUT
 function updateTime() {
     var currentTime = new Date();
     var hours = currentTime.getHours().toString().padStart(2, '0');
@@ -412,6 +470,7 @@ function updateTime() {
     var formattedTime = hours + ':' + minutes;
     return formattedTime;
 }
+// CHUYEN DOI TAB NGAY VA GIO
 function optionGroup() {
     var buttonGroups = document.querySelectorAll('.option'); // trả về 1 nodelist
     buttonGroups.forEach(function (buttonGroup) {
@@ -426,7 +485,6 @@ function changeDayTime(event) {
     var timeTab = document.querySelector('.tabs .m-time');
     var calendarButton = document.querySelector('.ion-calendar');
     var timeButton = document.querySelector('.ion-clock');
-
     if (target.classList.contains('ion-clock')) {
         calendarButton.classList.remove('active');
         timeButton.classList.add('active');
@@ -441,30 +499,28 @@ function changeDayTime(event) {
         timeTab.style.display = 'none';
     }
 }
-// lay ngay dien vào form
+//DIEN NGAY CHON VAO FROM
 
-// function inputDateTime() {
-//     var fromDateElement = document.getElementById('fromDate');
-//     var toDateElement = document.getElementById('toDate');
-//     var calendarIcon = document.querySelector('table');
-//     calendarIcon.addEventListener('click', function () {
-//         // Lấy ngày/tháng/năm từ bảng lịch và điền vào ô fromDate
-//         var selectedDate = document.querySelector('.m-calendar .current-date .month').textContent;
-//         var selectedMonth = document.querySelector('.m-calendar .current-date .year').textContent;
-//         var selectedYear = new Date().getFullYear();
+// GET NGAY THANG CHON TRONG BANG
 
-//         fromDateElement.textContent = selectedDate + '/' + selectedMonth + '/' + selectedYear;
+function inputDateTime() {
+    var tdElements = document.querySelectorAll('.m-calendar tbody td');
+    tdElements.forEach(function (tdElement) {
+        tdElement.addEventListener('click', function () {
+            var clickedDayContent = tdElement.querySelector('div').textContent;
+            var currentDate = new Date();
+            var month = currentDate.getMonth() + 1;
+            var year = currentDate.getFullYear();
+            var formattedDate = clickedDayContent + '/' + month + '/' + year + ' ' + updateTime();
+            var fromDateElement = document.getElementById('fromDate');
+            var toDateElement = document.getElementById('toDate');
+            fromDateElement.textContent = formattedDate;
+            toDateElement.textContent = formattedDate;
+        });
+    });
+}
 
-//         // Ứng với việc điền vào fromDate, ta cũng điền cùng giá trị vào toDate
-//         toDateElement.textContent = selectedDate + '/' + selectedMonth + '/' + selectedYear;
-
-//         // Sau khi điền giá trị, ẩn bảng lịch
-//         var calendarTab = document.querySelector('.tabs .m-calendar');
-//         calendarTab.style.display = 'none';
-//     });
-// }
-
-//tạo bảng dữ liệu động
+//TAO BANG DU LIEU
 const tableData = [
     { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
     { stt: 2, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '80%', chi_tiet: 'TruongSon_KOMOTA_3' },
