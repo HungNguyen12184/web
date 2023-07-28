@@ -171,6 +171,10 @@ function searchLabel() {
 
 //  hideModalWhenFullHeightVisible();
 
+//
+
+// Add the event listener to the window
+
 // function showCalendarTable() {
 //     var controlCalds = document.querySelectorAll('.dtp-container');
 //     var modalElement = document.getElementById('modal-root');
@@ -180,68 +184,57 @@ function searchLabel() {
 //             displayInfo();
 //             buttonGroup();
 //             optionGroup();
+//             inputDateTime();
 //         });
 //     });
 // }
+// window.addEventListener('click', showCalendarTable);
 function fromDate() {
     var modalElement = document.getElementById('modal-root');
-
-    var fromDateElement = document.getElementById('fromDate');
+    var fromDateElement = document.getElementById('dtp-control-1');
     fromDateElement.addEventListener('click', function () {
-        if (modalElement.style.display === 'block') {
-            modalElement.style.display = 'none';
-        } else {
-            modalElement.style.display = 'block';
-            displayInfo();
-            buttonGroup();
-            optionGroup();
-            inputDateTime();
-        }
+        modalElement.style.display = 'block';
+        displayInfo();
+        buttonGroup();
+        optionGroup();
+        inputDateTime();
     });
 }
+window.addEventListener('click', fromDate);
+
 function toDate() {
     var modalElement = document.getElementById('modal-root');
-    var toDateElement = document.getElementById('toDate');
+    var toDateElement = document.getElementById('dtp-control-2');
     toDateElement.addEventListener('click', function () {
-        if (modalElement.style.display === 'block') {
-            modalElement.style.display = 'none';
-        } else {
-            modalElement.style.display = 'block';
-            displayInfo();
-            buttonGroup();
-            optionGroup();
-            inputDateTime();
-        }
+        modalElement.style.display = 'block';
+        displayInfo();
+        buttonGroup();
+        optionGroup();
+        inputDateTime();
+        resizeModal();
     });
 }
-
-window.addEventListener('click', fromDate);
 window.addEventListener('click', toDate);
 
-// function clickFormTo(event) {
-//     var target = event.target;
-//     var fromDateElement = document.getElementById('fromDate');
-//     var toDateElement = document.getElementById('toDate');
-//     if (target.classList.contains('#fromDate')) {
-//         fromDateElement.textContent = inputDateTime();
-//     } else if (target.classList.contains('#toDate')) {
-//         toDateElement.textContent = inputDateTime();
-//     }
-// }
+function hideModal() {
+    var modalElement = document.getElementById('modal-root');
+    modalElement.style.display = 'none';
+}
+function resizeModal() {
+    var modalMainElement = document.querySelector('.overlay-main');
+    if (modalMainElement) {
+        modalMainElement.style.width = '20rem';
+        modalMainElement.style.maxWidth = '90%';
+        modalMainElement.style.height = 'auto';
+        modalMainElement.style.maxHeight = '90%';
+        modalMainElement.style.minWidth = '20rem';
+        modalMainElement.style.left = '271px';
+        modalMainElement.style.top = '616px';
+    }
+}
 
-// function clickFormTo(event) {
-//     var target = event.target;
-//     var fromDateElement = document.getElementById('dtp-control-1');
-//     var toDateElement = document.getElementById('dtp-control-2');
-//     if (target.id === 'fromDate' || target.id === 'dtp-control-1') {
-//         fromDateElement.textContent = inputDateTime();
-//     } else if (target.id === 'toDate' || target.id === 'dtp-control-2') {
-//         displayInfo();
-//         buttonGroup();
-//         optionGroup();
-//         toDateElement.textContent = inputDateTime();
-//     }
-// }
+// window.addEventListener('click', fromDate);
+// window.addEventListener('click', toDate);
 
 function showCalendar() {
     var mCalendar = document.querySelector('.m-calendar');
@@ -445,19 +438,18 @@ function getCurrentDate() {
     var formattedDate = day + '/' + month + '/' + year;
     return formattedDate;
 }
-
 function fillCurrentDate() {
-    var fromDateContainer = document.getElementById('fromDate');
-    var toDateContainer = document.getElementById('toDate');
-    if (fromDateContainer && toDateContainer) {
+    var inputElements = document.querySelectorAll('.input-text');
+    if (inputElements) {
         var currentDate = getCurrentDate();
         var currentTime = updateTime();
-        fromDateContainer.textContent = currentDate + ' ' + currentTime;
-        toDateContainer.textContent = currentDate + ' ' + currentTime;
+        inputElements.forEach(function (inputElement) {
+            inputElement.value = currentDate + ' ' + currentTime;
+        });
     }
 }
-document.addEventListener('DOMContentLoaded', fillCurrentDate);
 
+document.addEventListener('DOMContentLoaded', fillCurrentDate);
 //GET GIO PHUT
 function updateTime() {
     var currentTime = new Date();
@@ -499,7 +491,6 @@ function changeDayTime(event) {
         timeTab.style.display = 'none';
     }
 }
-//DIEN NGAY CHON VAO FROM
 
 // GET NGAY THANG CHON TRONG BANG
 
@@ -512,10 +503,13 @@ function inputDateTime() {
             var month = currentDate.getMonth() + 1;
             var year = currentDate.getFullYear();
             var formattedDate = clickedDayContent + '/' + month + '/' + year + ' ' + updateTime();
-            var fromDateElement = document.getElementById('fromDate');
-            var toDateElement = document.getElementById('toDate');
-            fromDateElement.textContent = formattedDate;
-            toDateElement.textContent = formattedDate;
+            var inputElements = document.querySelectorAll('.input-text');
+            if (inputElements) {
+                inputElements.forEach(function (inputElement) {
+                    inputElement.value = formattedDate;
+                });
+            }
+            hideModal();
         });
     });
 }
