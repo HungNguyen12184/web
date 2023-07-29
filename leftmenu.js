@@ -195,9 +195,9 @@ function fromDate() {
     fromDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
         displayInfo();
-        buttonGroup();
         optionGroup();
-        inputDateTime();
+        buttonGroup();
+        // inputDateTime();
     });
 }
 window.addEventListener('click', fromDate);
@@ -208,9 +208,9 @@ function toDate() {
     toDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
         displayInfo();
-        buttonGroup();
         optionGroup();
-        inputDateTime();
+        buttonGroup();
+        //inputDateTime();
         resizeModal();
     });
 }
@@ -426,7 +426,7 @@ function changeMonth(event) {
     }
 
     displayInfo();
-    renderDate();
+    inputDateTime();
 }
 
 // GET NGAY HIEN TAI DIEN VAO FROM
