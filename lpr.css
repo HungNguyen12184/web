@@ -645,8 +645,8 @@ div.form-input-group .input-append {
   margin-left: 0.5rem;
 }
 .dtp-container {
-   position: relative;
-   flex: 1;
+  position: relative;
+  flex: 1;
 }
 .dtp-control-container {
   position: relative;
@@ -657,6 +657,19 @@ div.form-input-group .input-append {
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-sizing: border-box;
   min-height: 2rem;
+}
+
+.dtp-control-container .input-text {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 0.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+  line-height: 2rem;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+
 }
 .border-0 {
   border-width: 0px !important;
