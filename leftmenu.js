@@ -194,27 +194,20 @@ function fromDate() {
     var fromDateElement = document.getElementById('dtp-control-1');
     fromDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
-        displayInfo();
-        optionGroup();
-        buttonGroup();
+        resizeModal();
         // inputDateTime();
     });
 }
-window.addEventListener('click', fromDate);
 
 function toDate() {
     var modalElement = document.getElementById('modal-root');
     var toDateElement = document.getElementById('dtp-control-2');
     toDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
-        displayInfo();
-        optionGroup();
-        buttonGroup();
         //inputDateTime();
         resizeModal();
     });
 }
-window.addEventListener('click', toDate);
 
 function hideModal() {
     var modalElement = document.getElementById('modal-root');
@@ -644,3 +637,12 @@ function changePage(event) {
 document.addEventListener('DOMContentLoaded', function () {
     showCurrentPageData(1);
 });
+
+window.onload = function () {
+    fromDate();
+    toDate();
+    displayInfo();
+    buttonGroup();
+    optionGroup();
+    inputDateTime();
+};
