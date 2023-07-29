@@ -499,9 +499,8 @@ function inputDateTime() {
     tdElements.forEach(function (tdElement) {
         tdElement.addEventListener('click', function () {
             var clickedDayContent = tdElement.querySelector('div').textContent;
-            var currentDate = new Date();
-            var month = currentDate.getMonth() + 1;
-            var year = currentDate.getFullYear();
+            var month = currentMonth + 1;
+            var year = currentYear;
             var formattedDate = clickedDayContent + '/' + month + '/' + year + ' ' + updateTime();
             var inputElements = document.querySelectorAll('.input-text');
             if (inputElements) {
