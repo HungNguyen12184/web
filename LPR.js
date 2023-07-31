@@ -35,106 +35,19 @@ function resizeModal() {
     }
 }
 
-// window.addEventListener('click', fromDate);
-// window.addEventListener('click', toDate);
-
-function showCalendar() {
-    var mCalendar = document.querySelector('.m-calendar');
-    mCalendar.style.display = 'none';
-}
-
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-
-function displayInfo() {
-    var monthCL = document.querySelector('.month');
-    var yearCL = document.querySelector('.year');
-    var currentMonthName = new Date(currentYear, currentMonth).toLocaleString('vi-VN', {
-        month: 'long',
-    }); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
-    monthCL.innerText = currentMonthName;
-    yearCL.innerText = currentYear;
-
-    monthCL.addEventListener('click', function () {
-        showMonthTable();
-    });
-
-    yearCL.addEventListener('click', function () {
-        showYearTable();
-    });
-}
-
-function showMonthTable() {
-    var monthTable = document.createElement('div');
-    monthTable.className = 'm-calendar';
-    monthTable.innerHTML = '<table><tbody></tbody></table>';
-
-    var tableBody = monthTable.querySelector('tbody');
-    var months = new Array(
-        'Tháng 1',
-        'Tháng 2',
-        'Tháng 3',
-        'Tháng 4',
-        'Tháng 5',
-        'Tháng 6',
-        'Tháng 7',
-        'Tháng 8',
-        'Tháng 9',
-        'Tháng 10',
-        'Tháng 11',
-        'Tháng 12',
-    );
-
-    for (var i = 0; i < months.length; i++) {
-        if (i % 3 === 0) {
-            var row = document.createElement('tr');
-            tableBody.appendChild(row);
-        }
-        // var monthCal = document.querySelector("tbody");
-        var cell = document.createElement('td');
-        var div = document.createElement('div');
-        cell.className = 'month-item';
-        div.className = 'month-content';
-        div.textContent = months[i];
-        cell.appendChild(div);
-        row.appendChild(cell);
-    }
-
-    var monthYearElement = document.querySelector('.tab');
-    monthYearElement.innerHTML = '';
-    monthYearElement.appendChild(monthTable);
-}
-
 function showYearTable() {
-    var yearTable = document.createElement('div');
-    yearTable.className = 'year-table';
-    yearTable.innerHTML = '<table><tbody></tbody></table>';
-    var tableBody = yearTable.querySelector('tbody');
-    var startYear = currentYear - 7; // lấy năm trước năm hiện tại
-    var endYear = currentYear + 7;
-    var yearCount = 0;
-    var row = document.createElement('tr');
-    tableBody.appendChild(row);
+    var yearTable = document.querySelector('.m-calendar.year');
+    var years = Array.from(yearTable.querySelectorAll('.year-content')).map((div) => parseInt(div.textContent));
 
-    for (var i = startYear; i <= endYear; i++) {
-        if (yearCount % 3 === 0 && yearCount !== 0) {
-            row = document.createElement('tr');
-            tableBody.appendChild(row);
-        }
-        var cell = document.createElement('td');
-        var div = document.createElement('div');
-        cell.className = 'year-item';
-        div.className = 'year-content';
-        div.textContent = i;
-        cell.appendChild(div);
-        row.appendChild(cell);
-        yearCount++;
-    }
-
-    var monthYearElement = document.querySelector('.tab');
-    monthYearElement.innerHTML = '';
-    monthYearElement.appendChild(yearTable);
+    var yearContents = yearTable.querySelectorAll('.year-content');
+    yearContents.forEach(function (div) {
+        div.addEventListener('click', function (event) {
+            var selectedYear = parseInt(event.target.textContent);
+            currentYear = selectedYear;
+        });
+    });
 }
+
 //lấy số ngày của tháng
 function getDaysInMonth() {
     var lastdayofMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -160,47 +73,22 @@ function activeCurrentDay(day) {
     return day1 == day2 ? 'current-value' : '';
 }
 
-// function renderDate() {
-//     var daysInMonth = getDaysInMonth();
-//     var startDay = getStartDayInMonth();
-//     dateCL.innerHTML = '';
-//     var dayCount = 1;
-
-//     for (var i = 0; i < 6; i++) {
-//         var tr = document.createElement('tr');
-//         for (var j = 0; j < 7; j++) {
-//             var td = document.createElement('td');
-//             var div = document.createElement('div');
-//             div.className = 'day-content';
-//             if (i === 0 && j < startDay) {
-//                 td.className = 'prev-month';
-//                 var prevDay = daysInMonth - (startDay - j);
-//                 div.textContent = prevDay;
-//             } else if (dayCount > daysInMonth) {
-//                 td.className = 'next-month';
-//                 div.textContent = dayCount - daysInMonth;
-//                 dayCount++;
-//             } else {
-//                 div.textContent = dayCount;
-//                 if (activeCurrentDay(dayCount)) {
-//                     td.className += ' current-value';
-//                 }
-//                 dayCount++;
-//             }
-//             td.appendChild(div);
-//             tr.appendChild(td);
-//         }
-
-//         dateCL.appendChild(tr);
-//     }
-// }
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
 
 function updateDate() {
+    var monthCL = document.querySelector('.month');
+    var yearCL = document.querySelector('.year');
+    var currentMonthName = new Date(currentYear, currentMonth).toLocaleString('vi-VN', {
+        month: 'long',
+    }); /* chuyển đổi 1 dối tượng date thành 1 chuoi bieu dien ngôn ngữ theo cấu hình vùng*/
     var daysInMonth = getDaysInMonth();
     var startDay = getStartDayInMonth();
     var dateCL = document.getElementById('tbody-calendar');
     var dayCount = 1;
     var rows = dateCL.getElementsByTagName('tr');
+    monthCL.innerText = currentMonthName;
+    yearCL.innerText = currentYear;
     for (var i = 0; i < rows.length; i++) {
         var cells = rows[i].getElementsByTagName('td');
         for (var j = 0; j < cells.length; j++) {
@@ -229,6 +117,8 @@ function updateDate() {
         }
     }
 }
+
+// Function to show the year calendar and hide the other calendars
 
 function buttonGroup() {
     var buttonGroups = document.querySelectorAll('.button-group'); // trả về 1 nodelist
@@ -259,7 +149,6 @@ function changeMonth(event) {
     } else if (target.classList.contains('fa-angle-double-right')) {
         currentYear += 1;
     }
-    displayInfo();
     inputDateTime();
 }
 
@@ -296,6 +185,63 @@ function updateTime() {
     var formattedTime = hours + ':' + minutes;
     return formattedTime;
 }
+
+function showCalendarTab() {
+    var calendar = document.querySelector('.tabs .m-calendar.month');
+    var calendarYear = document.querySelector('.tabs .m-calendar.year');
+    var timeTab = document.querySelector('.tabs .m-time');
+    calendar.style.display = 'none';
+    calendarYear.style.display = 'none';
+    timeTab.style.display = 'none';
+    var monthButton = document.querySelector('.current-date .month');
+    var yearButton = document.querySelector('.current-date .year');
+
+    monthButton.addEventListener('click', function () {
+        showMonthCalendar();
+        var monthItems = document.querySelectorAll('.m-calendar.month .month-item');
+
+        // Add click event listener to each month item
+        monthItems.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                var selectedMonthContent = event.target.textContent;
+                var calendarTab = document.querySelector('.m-calendar.tab');
+                calendarTab.style.display = 'inline-block';
+                var tabMonthContent = calendarTab.querySelector('.month');
+                tabMonthContent.textContent = selectedMonthContent;
+                var selectedMonthIndex = Array.from(monthItems).indexOf(event.currentTarget);
+                currentMonth = selectedMonthIndex;
+                updateDate();
+                var calendarMonth = document.querySelector('.m-calendar.month');
+                calendarMonth.style.display = 'none';
+            });
+        });
+    });
+    yearButton.addEventListener('click', function () {
+        showYearCalendar();
+    });
+}
+function showMonthCalendar() {
+    var calendarTab = document.querySelector('.tabs .m-calendar.tab');
+    var calendar = document.querySelector('.tabs .m-calendar.month');
+    var calendarYear = document.querySelector('.tabs .m-calendar.year');
+    var timeTab = document.querySelector('.tabs .m-time');
+    calendarTab.style.display = 'none';
+    calendar.style.display = 'inline-block';
+    calendarYear.style.display = 'none';
+    timeTab.style.display = 'none';
+}
+
+function showYearCalendar() {
+    var calendarTab = document.querySelector('.tabs .m-calendar.tab');
+    var calendar = document.querySelector('.tabs .m-calendar.month');
+    var calendarYear = document.querySelector('.tabs .m-calendar.year');
+    var timeTab = document.querySelector('.tabs .m-time');
+    calendarTab.style.display = 'none';
+    calendar.style.display = 'none';
+    calendarYear.style.display = 'inline-block';
+    timeTab.style.display = 'none';
+}
+
 // CHUYEN DOI TAB NGAY VA GIO
 function optionGroup() {
     var buttonGroups = document.querySelectorAll('.option'); // trả về 1 nodelist
@@ -307,7 +253,9 @@ function optionGroup() {
 }
 function changeDayTime(event) {
     var target = event.target;
-    var calendarTab = document.querySelector('.tabs .m-calendar');
+    var calendarMonth = document.querySelector('.tabs .m-calendar.month');
+    var calendarYear = document.querySelector('.tabs .m-calendar.year');
+    var calendarTab = document.querySelector('.tabs .m-calendar.tab');
     var timeTab = document.querySelector('.tabs .m-time');
     var calendarButton = document.querySelector('.ion-calendar');
     var timeButton = document.querySelector('.ion-clock');
@@ -315,6 +263,8 @@ function changeDayTime(event) {
         calendarButton.classList.remove('active');
         timeButton.classList.add('active');
         calendarTab.style.display = 'none';
+        calendarMonth.style.display = 'none';
+        calendarYear.style.display = 'none';
         timeTab.style.display = 'block';
         updateTime(); // Update time immediately
         setInterval(updateTime, 1000); // Update time every second
@@ -323,13 +273,15 @@ function changeDayTime(event) {
         timeButton.classList.remove('active');
         calendarTab.style.display = 'block';
         timeTab.style.display = 'none';
+        calendarMonth.style.display = 'none';
+        calendarYear.style.display = 'none';
     }
 }
 
 // GET NGAY THANG CHON TRONG BANG
 
 function inputDateTime() {
-    var tdElements = document.querySelectorAll('.m-calendar tbody td');
+    var tdElements = document.querySelectorAll('.m-calendar.tab tbody td');
     tdElements.forEach(function (tdElement) {
         tdElement.addEventListener('click', function () {
             var clickedDayContent = tdElement.querySelector('div').textContent;
@@ -480,11 +432,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 window.onload = function () {
+    showCalendarTab();
     fromDate();
     toDate();
-    displayInfo();
-    updateDate();
     buttonGroup();
+    updateDate();
     optionGroup();
     inputDateTime();
 };
