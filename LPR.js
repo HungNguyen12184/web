@@ -10,18 +10,6 @@ function fromDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
-        var inputTo = document.getElementById('input-text-2');
-        if (inputTo) {
-            inputTo.removeEventListener('click', inputDateTime);
-        }
-
-        // Thêm sự kiện click vào inputFrom để cập nhật ngày khi chọn ngày trong lịch
-        var inputFrom = document.getElementById('input-text-1');
-        if (inputFrom) {
-            inputFrom.addEventListener('click', function () {
-                inputDateTime(inputFrom);
-            });
-        }
     });
 }
 
@@ -50,6 +38,7 @@ function toDate() {
                 inputDateTime(inputTo);
             });
         }
+
     });
 }
 
@@ -83,25 +72,16 @@ function showYearTable() {
     });
 }
 
-function getDaysInMonth(year, month) {
-    var lastdayofMonth = new Date(year, month + 1, 0).getDate();
-    return lastdayofMonth;
-}
 
-function getStartDayInMonth(year, month) {
-    var startday = new Date(year, month, 1).getDay();
-    return startday;
-}
 
 function activeCurrentDay(day) {
     var day1 = new Date().toDateString();
     var day2 = new Date(currentYear, currentMonth, day).toDateString();
     return day1 == day2 ? 'current-value' : '';
 }
-
+// tao ngay thang
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
-
 function updateDate() {
     var monthCL = document.querySelector('.month');
     var yearCL = document.querySelector('.year');
@@ -148,7 +128,11 @@ function updateDate() {
             }
         }
     }
-}
+    var monthButton = document.querySelector('.current-date .month');
+    var yearButton = document.querySelector('.current-date .year');
+
+    monthButton.textContent = currentMonthName;
+    yearButton.textContent = currentYear;
 
 function buttonGroup() {
     var buttonGroups = document.querySelectorAll('.button-group'); // trả về 1 nodelist
@@ -200,6 +184,12 @@ function fillCurrentDate() {
         inputFrom.value = currentDate + ' ' + currentTime;
     }
     if (inputTo) {
+
+        updateDate();
+        inputFrom.value = currentDate + ' ' + currentTime;
+    }
+    if (inputTo) {
+        updateDate();
         inputTo.value = currentDate + ' ' + '23:59';
     }
 }
@@ -314,9 +304,18 @@ function inputDateTime(inputElement) {
     tdElements.forEach(function (tdElement) {
         tdElement.addEventListener('click', function () {
             var clickedDayContent = tdElement.querySelector('div').textContent;
-            var month = currentMonth + 1;
-            var year = currentYear;
+            currentMonth = month - 1;
+            currentYear = year;
             var formattedDate = clickedDayContent + '/' + month + '/' + year + ' ' + updateTime();
+
+            var inputElements = document.querySelectorAll('.input-text');
+            if (inputElements) {
+                inputElements.forEach(function (inputElement) {
+                    inputElement.value = formattedDate;
+                });
+            }
+            updateDate();
+
             hideModal();
             inputElement.value = formattedDate;
         });
@@ -457,6 +456,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.onload = function () {
     showCalendarTab();
+    fillCurrentDate();
     fromDate();
     toDate();
     buttonGroup();
