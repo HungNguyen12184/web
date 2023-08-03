@@ -38,7 +38,6 @@ function toDate() {
                 inputDateTime(inputTo);
             });
         }
-
     });
 }
 
@@ -71,68 +70,80 @@ function showYearTable() {
         });
     });
 }
-
-
-
-function activeCurrentDay(day) {
-    var day1 = new Date().toDateString();
-    var day2 = new Date(currentYear, currentMonth, day).toDateString();
-    return day1 == day2 ? 'current-value' : '';
+function getDaysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
 }
-// tao ngay thang
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
-function updateDate() {
+
+function updateDate(currentYear, currentMonth) {
     var monthCL = document.querySelector('.month');
     var yearCL = document.querySelector('.year');
-    var currentMonthDate = new Date(currentYear, currentMonth, 1);
-    var currentMonthName = currentMonthDate.toLocaleString('vi-VN', {
-        month: 'long',
-    });
-
     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
-    var startDay = currentMonthDate.getDay();
-
-    var dateCL = document.getElementById('tbody-calendar');
-    var dayCount = 1;
-    var rows = dateCL.getElementsByTagName('tr');
+    var currentMonthName = new Date(currentYear, currentMonth, 1).toLocaleString('vi-VN', { month: 'long' });
 
     monthCL.textContent = currentMonthName;
     yearCL.textContent = currentYear;
 
-    for (var i = 0; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName('td');
-        for (var j = 0; j < cells.length; j++) {
-            var td = cells[j];
-            var div = td.querySelector('.day-content');
-            td.classList.remove('prev-month', 'next-month');
+    var a = [];
 
-            if (i === 0 && j < startDay) {
-                td.classList.add('prev-month');
-                var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
-                var prevDay = prevMonthDays - (startDay - j) + 1;
-                div.textContent = prevDay;
-            } else if (dayCount > daysInMonth) {
-                td.classList.add('next-month');
-                var nextDay = dayCount - daysInMonth;
-                div.textContent = nextDay;
-                dayCount++;
+    // Calculate the days of the previous month to be displayed
+    var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
+    var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
+    var prevMonthStartDay = prevMonthDays - firstDayOfWeek + 1;
+
+    for (var i = prevMonthStartDay; i <= prevMonthDays; i++) {
+        a.push(i);
+    }
+
+    // Calculate the days of the current month
+    for (var i = 1; i <= daysInMonth; i++) {
+        a.push(i);
+    }
+
+    // Calculate the days of the next month to fill the remaining cells
+    var remainingDays = 42 - a.length;
+    for (var i = 1; i <= remainingDays; i++) {
+        a.push(i);
+    }
+
+    var dateCL = document.getElementById('tbody-calendar');
+    var rows = dateCL.getElementsByTagName('tr');
+
+    var rowLength = 6; // Số dòng trong lịch
+    var cellLength = 7; // Số cột trong mỗi dòng
+
+    for (var i = 0; i < rowLength; i++) {
+        var row = rows[i];
+        for (var j = 0; j < cellLength; j++) {
+            var cell = row.cells[j];
+            var div = cell.querySelector('.day-content');
+            var value = a[i * cellLength + j];
+            div.textContent = value;
+            cell.classList.remove('prev-month', 'next-month');
+            if (value <= 0 || value > daysInMonth) {
+                cell.classList.add(value < 0 ? 'prev-month' : 'next-month');
             } else {
-                div.textContent = dayCount;
-                if (activeCurrentDay(dayCount)) {
-                    td.classList.add('current-value');
+                var today = new Date();
+                var currentDay =
+                    currentMonth === today.getMonth() && currentYear === today.getFullYear() ? today.getDate() : -1;
+                if (value === currentDay) {
+                    cell.classList.add('current-value');
                 } else {
-                    td.classList.remove('current-value');
+                    cell.classList.remove('current-value');
                 }
-                dayCount++;
             }
         }
     }
-    var monthButton = document.querySelector('.current-date .month');
-    var yearButton = document.querySelector('.current-date .year');
+}
 
-    monthButton.textContent = currentMonthName;
-    yearButton.textContent = currentYear;
+// Example function to check if a day is the current day
+function activeCurrentDay(day) {
+    let currentDay = new Date().getDate();
+    return day === currentDay;
+}
+
+// tao ngay thang
 
 function buttonGroup() {
     var buttonGroups = document.querySelectorAll('.button-group'); // trả về 1 nodelist
@@ -144,8 +155,8 @@ function buttonGroup() {
     });
 }
 
-function changeMonth(event) {
-    var target = event.target; // currentTarget trả về phần tử xảy ra xự kiện click class cha
+function changeMonth(event, currentMonth, currentYear) {
+    var target = event.target;
     if (target.classList.contains('fa-angle-left')) {
         currentMonth -= 1;
         if (currentMonth < 0) {
@@ -160,10 +171,11 @@ function changeMonth(event) {
             currentMonth = 0;
             currentYear += 1;
         }
-        console.log(currentMonth);
     } else if (target.classList.contains('fa-angle-double-right')) {
         currentYear += 1;
     }
+    // Call the updateDate function to update the calendar with the new month and year
+    updateDate(currentMonth, currentYear);
 }
 
 // GET NGAY HIEN TAI DIEN VAO FROM
@@ -184,7 +196,6 @@ function fillCurrentDate() {
         inputFrom.value = currentDate + ' ' + currentTime;
     }
     if (inputTo) {
-
         updateDate();
         inputFrom.value = currentDate + ' ' + currentTime;
     }
