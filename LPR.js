@@ -152,26 +152,21 @@ function updateDate() {
     monthCL.textContent = currentMonthName;
     yearCL.textContent = currentYear;
     var a = [];
-
     // Tính toán ngày của tháng trước
     var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
     var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
     for (var i = 0; i < firstDayOfWeek; i++) {
         a.push(prevMonthDays - firstDayOfWeek + i + 1);
     }
-
     // Tính toán ngày của tháng hiện tại
     for (var i = 1; i <= daysInMonth; i++) {
         a.push(i);
     }
-
     // Tính toán ngày của tháng sau
     var remainingDays = 42 - a.length;
     for (var i = 1; i <= remainingDays; i++) {
         a.push(i);
     }
-
-    a;
     for (var i = 0; i < rows.length; i++) {
         var cells = rows[i].querySelectorAll('.day-content');
         for (var j = 0; j < cells.length; j++) {
