@@ -72,10 +72,14 @@ function getDaysInMonth(year, month) {
 // }
 
 function activeCurrentDay(day) {
-    var day1 = new Date().toDateString();
-    var day2 = new Date(currentYear, currentMonth, day).toDateString();
-    return day1 == day2 ? 'current-value' : '';
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+    var currentDay = currentDate.getDate();
+
+    return currentYear === currentYear && currentMonth === currentMonth && day === currentDay;
 }
+
 // tao ngay thang
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
@@ -141,7 +145,6 @@ function updateDate() {
     });
 
     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
-    var startDay = currentMonthDate.getDay();
 
     var dateCL = document.getElementById('tbody-calendar');
     var rows = dateCL.getElementsByTagName('tr');
@@ -152,8 +155,9 @@ function updateDate() {
 
     // Tính toán ngày của tháng trước
     var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
-    for (var i = 0; i < startDay; i++) {
-        a.push(prevMonthDays - startDay + i + 1);
+    var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
+    for (var i = 0; i < firstDayOfWeek; i++) {
+        a.push(prevMonthDays - firstDayOfWeek + i + 1);
     }
 
     // Tính toán ngày của tháng hiện tại
@@ -167,27 +171,21 @@ function updateDate() {
         a.push(i);
     }
 
-    // Điền giá trị vào từng div trong bảng lịch dựa vào mảng a
+    a;
     for (var i = 0; i < rows.length; i++) {
-        // Lấy danh sách các ô (td) trong từng dòng
-        var cells = rows[i].getElementsByTagName('td');
+        var cells = rows[i].querySelectorAll('.day-content');
         for (var j = 0; j < cells.length; j++) {
-            var td = cells[j];
-            var div = td.querySelector('.day-content');
-            td.classList.remove('prev-month', 'next-month');
-
-            // Lấy giá trị từ mảng a theo chỉ số i * 7 + j
+            var div = cells[j];
+            div.classList.remove('prev-month', 'next-month');
             var value = a[i * 7 + j];
-
-            // Hiển thị giá trị trong div
             div.textContent = value;
             if (value <= 0 || value > daysInMonth) {
-                td.classList.add(value < 0 ? 'prev-month' : 'next-month');
+                div.classList.add(value < 0 ? 'prev-month' : 'next-month');
             } else {
                 if (activeCurrentDay(value)) {
-                    td.classList.add('current-value');
+                    div.classList.add('current-value');
                 } else {
-                    td.classList.remove('current-value');
+                    div.classList.remove('current-value');
                 }
             }
         }
