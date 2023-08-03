@@ -11,8 +11,8 @@ function fromDate() {
             isOpen = false;
         }
     });
+    inputDateTime();
 }
-
 function toDate() {
     var modalElement = document.getElementById('modal-root');
     var toDateElement = document.getElementById('dtp-control-2');
@@ -25,18 +25,6 @@ function toDate() {
         } else {
             modalElement.style.display = 'none';
             isOpen = false;
-        }
-        var inputFrom = document.getElementById('input-text-1');
-        if (inputFrom) {
-            inputFrom.removeEventListener('click', inputDateTime);
-        }
-
-        // Thêm sự kiện click vào inputTo để cập nhật ngày khi chọn ngày trong lịch
-        var inputTo = document.getElementById('input-text-2');
-        if (inputTo) {
-            inputTo.addEventListener('click', function () {
-                inputDateTime(inputTo);
-            });
         }
     });
 }
@@ -76,80 +64,77 @@ function getDaysInMonth(year, month) {
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
-function updateDate(currentYear, currentMonth) {
+function updateDate() {
     var monthCL = document.querySelector('.month');
     var yearCL = document.querySelector('.year');
+    var currentMonthDate = new Date(currentYear, currentMonth, 1);
+    var currentMonthName = currentMonthDate.toLocaleString('vi-VN', {
+        month: 'long',
+    });
+
     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
-    var currentMonthName = new Date(currentYear, currentMonth, 1).toLocaleString('vi-VN', { month: 'long' });
-
-    monthCL.textContent = currentMonthName;
-    yearCL.textContent = currentYear;
-
-    var a = [];
-
-    // Calculate the days of the previous month to be displayed
-    var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
-    var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
-    var prevMonthStartDay = prevMonthDays - firstDayOfWeek + 1;
-
-    for (var i = prevMonthStartDay; i <= prevMonthDays; i++) {
-        a.push(i);
-    }
-
-    // Calculate the days of the current month
-    for (var i = 1; i <= daysInMonth; i++) {
-        a.push(i);
-    }
-
-    // Calculate the days of the next month to fill the remaining cells
-    var remainingDays = 42 - a.length;
-    for (var i = 1; i <= remainingDays; i++) {
-        a.push(i);
-    }
 
     var dateCL = document.getElementById('tbody-calendar');
     var rows = dateCL.getElementsByTagName('tr');
 
-    var rowLength = 6; // Số dòng trong lịch
-    var cellLength = 7; // Số cột trong mỗi dòng
+    monthCL.textContent = currentMonthName;
+    yearCL.textContent = currentYear;
+    var a = [];
 
-    for (var i = 0; i < rowLength; i++) {
-        var row = rows[i];
-        for (var j = 0; j < cellLength; j++) {
-            var cell = row.cells[j];
-            var div = cell.querySelector('.day-content');
-            var value = a[i * cellLength + j];
+    // Tính toán ngày của tháng trước
+    var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
+    var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
+    for (var i = 0; i < firstDayOfWeek; i++) {
+        a.push(prevMonthDays - firstDayOfWeek + i + 1);
+    }
+    // Tính toán ngày của tháng hiện tại
+    for (var i = 1; i <= daysInMonth; i++) {
+        a.push(i);
+    }
+    // Tính toán ngày của tháng sau
+    var remainingDays = 42 - a.length;
+    for (var i = 1; i <= remainingDays; i++) {
+        a.push(i);
+    }
+    // Điền giá trị vào từng div trong bảng lịch dựa vào mảng a
+    for (var i = 0; i < rows.length; i++) {
+        // Lấy danh sách các ô (td) trong từng dòng
+        var cells = rows[i].querySelectorAll('.day-content');
+        for (var j = 0; j < cells.length; j++) {
+            var div = cells[j];
+            div.classList.remove('prev-month', 'next-month');
+            // Lấy giá trị từ mảng a theo chỉ số i * 7 + j
+            var value = a[i * 7 + j];
+            // Hiển thị giá trị trong div
             div.textContent = value;
-            cell.classList.remove('prev-month', 'next-month');
             if (value <= 0 || value > daysInMonth) {
-                cell.classList.add(value < 0 ? 'prev-month' : 'next-month');
+                div.classList.add(value < 0 ? 'prev-month' : 'next-month');
             } else {
-                var today = new Date();
-                var currentDay =
-                    currentMonth === today.getMonth() && currentYear === today.getFullYear() ? today.getDate() : -1;
-                if (value === currentDay) {
-                    cell.classList.add('current-value');
+                if (activeCurrentDay(value)) {
+                    div.classList.add('current-value');
                 } else {
-                    cell.classList.remove('current-value');
+                    div.classList.remove('current-value');
                 }
             }
         }
     }
 }
 
-// Example function to check if a day is the current day
 function activeCurrentDay(day) {
-    let currentDay = new Date().getDate();
-    return day === currentDay;
+    var day1 = new Date().toDateString();
+    var day2 = new Date(currentYear, currentMonth, day).toDateString();
+    return day1 == day2 ? 'current-value' : '';
 }
 
 // tao ngay thang
 
 function buttonGroup() {
-    var buttonGroups = document.querySelectorAll('.button-group'); // trả về 1 nodelist
+    var buttonGroups = document.querySelectorAll('.button-group');
     buttonGroups.forEach(function (buttonGroup) {
         buttonGroup.addEventListener('click', function (event) {
-            changeMonth(event);
+            var updatedDate = changeMonth(event, currentMonth, currentYear);
+            currentMonth = updatedDate.currentMonth;
+            currentYear = updatedDate.currentYear;
             updateDate();
         });
     });
@@ -174,8 +159,7 @@ function changeMonth(event, currentMonth, currentYear) {
     } else if (target.classList.contains('fa-angle-double-right')) {
         currentYear += 1;
     }
-    // Call the updateDate function to update the calendar with the new month and year
-    updateDate(currentMonth, currentYear);
+    return { currentMonth, currentYear };
 }
 
 // GET NGAY HIEN TAI DIEN VAO FROM
@@ -193,10 +177,6 @@ function fillCurrentDate() {
     var currentDate = getCurrentDate();
     var currentTime = updateTime();
     if (inputFrom) {
-        inputFrom.value = currentDate + ' ' + currentTime;
-    }
-    if (inputTo) {
-        updateDate();
         inputFrom.value = currentDate + ' ' + currentTime;
     }
     if (inputTo) {
@@ -227,7 +207,6 @@ function showCalendarTab() {
     timeTab.style.display = 'none';
     var monthButton = document.querySelector('.current-date .month');
     var yearButton = document.querySelector('.current-date .year');
-
     monthButton.addEventListener('click', function () {
         showMonthCalendar();
         var monthItems = document.querySelectorAll('.m-calendar.month .month-item');
@@ -248,6 +227,21 @@ function showCalendarTab() {
     });
     yearButton.addEventListener('click', function () {
         showYearCalendar();
+        var yearItems = document.querySelectorAll('.m-calendar.year .year-item');
+        yearItems.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                var selectedYearContent = event.target.textContent;
+                var calendarTab = document.querySelector('.m-calendar.tab');
+                calendarTab.style.display = 'inline-block';
+                var tabYearContent = calendarTab.querySelector('.year');
+                tabYearContent.textContent = selectedYearContent;
+                var selectedYear = parseInt(selectedYearContent);
+                currentYear = selectedYear;
+                updateDate();
+                var calendarYear = document.querySelector('.m-calendar.year');
+                calendarYear.style.display = 'none';
+            });
+        });
     });
 }
 function showMonthCalendar() {
@@ -310,29 +304,23 @@ function changeDayTime(event) {
 
 // GET NGAY THANG CHON TRONG BANG
 
-function inputDateTime(inputElement) {
+function inputDateTime() {
     var tdElements = document.querySelectorAll('.m-calendar.tab tbody td');
     tdElements.forEach(function (tdElement) {
-        tdElement.addEventListener('click', function () {
+        tdElement.addEventListener('click', function (event) {
             var clickedDayContent = tdElement.querySelector('div').textContent;
-            currentMonth = month - 1;
-            currentYear = year;
-            var formattedDate = clickedDayContent + '/' + month + '/' + year + ' ' + updateTime();
+            var updatedDate = changeMonth(event, currentMonth, currentYear);
+            currentMonth = updatedDate.currentMonth;
+            currentYear = updatedDate.currentYear;
+            var formattedDate = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateTime();
 
-            var inputElements = document.querySelectorAll('.input-text');
-            if (inputElements) {
-                inputElements.forEach(function (inputElement) {
-                    inputElement.value = formattedDate;
-                });
-            }
+            var inputForm = document.getElementById('input-text-1');
+            inputForm.value = formattedDate;
             updateDate();
-
             hideModal();
-            inputElement.value = formattedDate;
         });
     });
 }
-
 //TAO BANG DU LIEU
 const tableData = [
     { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
@@ -474,5 +462,4 @@ window.onload = function () {
     fillCurrentDate();
     updateDate();
     optionGroup();
-    inputDateTime();
 };
