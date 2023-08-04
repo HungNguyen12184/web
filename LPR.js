@@ -11,8 +11,8 @@ function fromDate() {
             isOpen = false;
         }
     });
+    inputDateTime();
 }
-
 function toDate() {
     var modalElement = document.getElementById('modal-root');
     var toDateElement = document.getElementById('dtp-control-2');
@@ -46,23 +46,8 @@ function resizeModal() {
     }
 }
 
-function showYearTable() {
-    var yearTable = document.querySelector('.m-calendar.year');
-    var years = Array.from(yearTable.querySelectorAll('.year-content')).map((div) => parseInt(div.textContent));
-
-    var yearContents = yearTable.querySelectorAll('.year-content');
-    yearContents.forEach(function (div) {
-        div.addEventListener('click', function (event) {
-            var selectedYear = parseInt(event.target.textContent);
-            currentYear = selectedYear;
-        });
-    });
-}
-
-//lấy số ngày của tháng
 function getDaysInMonth(year, month) {
-    var lastdayofMonth = new Date(year, month + 1, 0).getDate();
-    return lastdayofMonth;
+    return new Date(year, month + 1, 0).getDate();
 }
 
 //lấy thứ bắt đầu của tháng
@@ -81,8 +66,6 @@ function activeCurrentDay(day) {
 }
 
 // tao ngay thang
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
 // function updateDate() {
 //     var monthCL = document.querySelector('.month');
 //     var yearCL = document.querySelector('.year');
@@ -136,6 +119,9 @@ let currentYear = new Date().getFullYear();
 //     yearButton.textContent = currentYear;
 // }
 
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
 function updateDate() {
     var monthCL = document.querySelector('.month');
     var yearCL = document.querySelector('.year');
@@ -143,12 +129,9 @@ function updateDate() {
     var currentMonthName = currentMonthDate.toLocaleString('vi-VN', {
         month: 'long',
     });
-
     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
-
     var dateCL = document.getElementById('tbody-calendar');
     var rows = dateCL.getElementsByTagName('tr');
-
     monthCL.textContent = currentMonthName;
     yearCL.textContent = currentYear;
     var a = [];
@@ -168,37 +151,53 @@ function updateDate() {
         a.push(i);
     }
     for (var i = 0; i < rows.length; i++) {
-        var cells = rows[i].querySelectorAll('.day-content');
-        for (var j = 0; j < cells.length; j++) {
-            var div = cells[j];
-            div.classList.remove('prev-month', 'next-month');
-            var value = a[i * 7 + j];
-            div.textContent = value;
-            if (value <= 0 || value > daysInMonth) {
-                div.classList.add(value < 0 ? 'prev-month' : 'next-month');
-            } else {
-                if (activeCurrentDay(value)) {
-                    div.classList.add('current-value');
+        // Điền giá trị vào từng div trong bảng lịch dựa vào mảng a
+        for (var i = 0; i < rows.length; i++) {
+            // Lấy danh sách các ô (td) trong từng dòng
+            var cells = rows[i].querySelectorAll('.day-content');
+            for (var j = 0; j < cells.length; j++) {
+                var div = cells[j];
+                div.classList.remove('prev-month', 'next-month');
+                var value = a[i * 7 + j];
+                // Lấy giá trị từ mảng a theo chỉ số i * 7 + j
+                var value = a[i * 7 + j];
+                div.textContent = value;
+                if (value <= 0 || value > daysInMonth) {
+                    div.classList.add(value < 0 ? 'prev-month' : 'next-month');
                 } else {
-                    div.classList.remove('current-value');
+                    if (activeCurrentDay(value)) {
+                        div.classList.add('current-value');
+                    } else {
+                        div.classList.remove('current-value');
+                    }
                 }
             }
         }
     }
 }
 
+function activeCurrentDay(day) {
+    var day1 = new Date().toDateString();
+    var day2 = new Date(currentYear, currentMonth, day).toDateString();
+    return day1 == day2 ? 'current-value' : '';
+}
+
+// tao ngay thang
+
 function buttonGroup() {
-    var buttonGroups = document.querySelectorAll('.button-group'); // trả về 1 nodelist
+    var buttonGroups = document.querySelectorAll('.button-group');
     buttonGroups.forEach(function (buttonGroup) {
         buttonGroup.addEventListener('click', function (event) {
-            changeMonth(event);
+            var updatedDate = changeMonth(event, currentMonth, currentYear);
+            currentMonth = updatedDate.currentMonth;
+            currentYear = updatedDate.currentYear;
             updateDate();
         });
     });
 }
 
-function changeMonth(event) {
-    var target = event.target; // currentTarget trả về phần tử xảy ra xự kiện click class cha
+function changeMonth(event, currentMonth, currentYear) {
+    var target = event.target;
     if (target.classList.contains('fa-angle-left')) {
         currentMonth -= 1;
         if (currentMonth < 0) {
@@ -216,6 +215,7 @@ function changeMonth(event) {
     } else if (target.classList.contains('fa-angle-double-right')) {
         currentYear += 1;
     }
+    return { currentMonth, currentYear };
 }
 
 // GET NGAY HIEN TAI DIEN VAO FROM
@@ -233,7 +233,6 @@ function fillCurrentDate() {
     var currentDate = getCurrentDate();
     var currentTime = updateTime();
     if (inputFrom) {
-        updateDate();
         inputFrom.value = currentDate + ' ' + currentTime;
     }
     if (inputTo) {
@@ -264,7 +263,6 @@ function showCalendarTab() {
     timeTab.style.display = 'none';
     var monthButton = document.querySelector('.current-date .month');
     var yearButton = document.querySelector('.current-date .year');
-
     monthButton.addEventListener('click', function () {
         showMonthCalendar();
         var monthItems = document.querySelectorAll('.m-calendar.month .month-item');
@@ -285,6 +283,21 @@ function showCalendarTab() {
     });
     yearButton.addEventListener('click', function () {
         showYearCalendar();
+        var yearItems = document.querySelectorAll('.m-calendar.year .year-item');
+        yearItems.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                var selectedYearContent = event.target.textContent;
+                var calendarTab = document.querySelector('.m-calendar.tab');
+                calendarTab.style.display = 'inline-block';
+                var tabYearContent = calendarTab.querySelector('.year');
+                tabYearContent.textContent = selectedYearContent;
+                var selectedYear = parseInt(selectedYearContent);
+                currentYear = selectedYear;
+                updateDate();
+                var calendarYear = document.querySelector('.m-calendar.year');
+                calendarYear.style.display = 'none';
+            });
+        });
     });
 }
 function showMonthCalendar() {
@@ -350,23 +363,20 @@ function changeDayTime(event) {
 function inputDateTime() {
     var tdElements = document.querySelectorAll('.m-calendar.tab tbody td');
     tdElements.forEach(function (tdElement) {
-        tdElement.addEventListener('click', function () {
+        tdElement.addEventListener('click', function (event) {
             var clickedDayContent = tdElement.querySelector('div').textContent;
-            currentMonth = month - 1;
-            currentYear = year;
-            var formattedDate = clickedDayContent + '/' + month + '/' + year + ' ' + updateTime();
-            var inputElements = document.querySelectorAll('.input-text');
-            if (inputElements) {
-                inputElements.forEach(function (inputElement) {
-                    inputElement.value = formattedDate;
-                });
-            }
+            var updatedDate = changeMonth(event, currentMonth, currentYear);
+            currentMonth = updatedDate.currentMonth;
+            currentYear = updatedDate.currentYear;
+            var formattedDate = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateTime();
+
+            var inputForm = document.getElementById('input-text-1');
+            inputForm.value = formattedDate;
             updateDate();
             hideModal();
         });
     });
 }
-
 //TAO BANG DU LIEU
 const tableData = [
     { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
@@ -505,7 +515,7 @@ window.onload = function () {
     fromDate();
     toDate();
     buttonGroup();
+    fillCurrentDate();
     updateDate();
     optionGroup();
-    inputDateTime();
 };
