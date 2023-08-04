@@ -369,9 +369,11 @@ function inputDateTime() {
             currentMonth = updatedDate.currentMonth;
             currentYear = updatedDate.currentYear;
             var formattedDate = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateTime();
-
+            var formattedDateTo = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + '23:59';
             var inputForm = document.getElementById('input-text-1');
             inputForm.value = formattedDate;
+            var inputTo = document.getElementById('input-text-2');
+            inputTo.value = formattedDateTo;
             updateDate();
             hideModal();
         });
