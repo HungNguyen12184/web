@@ -1,8 +1,45 @@
-function fromDate() {
+// function fromDate() {
+//     var modalElement = document.getElementById('modal-root');
+//     var fromDateElement = document.getElementById('dtp-control-1');
+//     var isOpen = false;
+//     fromDateElement.addEventListener('click', function () {
+// if (!isOpen) {
+//     modalElement.style.display = 'block';
+//     isOpen = true;
+// } else {
+//     modalElement.style.display = 'none';
+//     isOpen = false;
+// }
+//     });
+//     inputDateTime(fromDateElement, false);
+// }
+// function toDate() {
+//     var modalElement = document.getElementById('modal-root');
+//     var toDateElement = document.getElementById('dtp-control-2');
+//     var isOpen = false;
+//     toDateElement.addEventListener('click', function () {
+// if (!isOpen) {
+//     modalElement.style.display = 'block';
+//     resizeModal();
+//     isOpen = true;
+// } else {
+//     modalElement.style.display = 'none';
+//     isOpen = false;
+// }
+//     });
+//     inputDateTime(toDateElement, true);
+// }
+
+function toDate() {
     var modalElement = document.getElementById('modal-root');
     var fromDateElement = document.getElementById('dtp-control-1');
+    var toDateElement = document.getElementById('dtp-control-2');
+    var fromDateInputElement = document.getElementById('input-text-1');
+    var toDateInputElement = document.getElementById('input-text-2');
     var isOpen = false;
     fromDateElement.addEventListener('click', function () {
+        modalElement.style.display = 'block';
+        selectedInput = fromDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
             isOpen = true;
@@ -10,14 +47,12 @@ function fromDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
+        inputDateTime();
     });
-    inputDateTime();
-}
-function toDate() {
-    var modalElement = document.getElementById('modal-root');
-    var toDateElement = document.getElementById('dtp-control-2');
-    var isOpen = false;
+
     toDateElement.addEventListener('click', function () {
+        modalElement.style.display = 'block';
+        selectedInput = toDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
             resizeModal();
@@ -26,6 +61,8 @@ function toDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
+        inputDateTime();
+        resizeModal();
     });
 }
 
@@ -236,7 +273,6 @@ function fillCurrentDate() {
         inputFrom.value = currentDate + ' ' + currentTime;
     }
     if (inputTo) {
-        updateDate();
         inputTo.value = currentDate + ' ' + '23:59';
     }
 }
@@ -325,9 +361,13 @@ function showYearCalendar() {
 // CHUYEN DOI TAB NGAY VA GIO
 function optionGroup() {
     var buttonGroups = document.querySelectorAll('.option'); // trả về 1 nodelist
+    var timeTab = document.querySelector('.tabs .m-time');
     buttonGroups.forEach(function (buttonGroup) {
         buttonGroup.addEventListener('click', function (event) {
             changeDayTime(event);
+            if (document.getElementById('modal-root').style.display === 'block' && timeTab.style.display === 'block') {
+                sliderTime();
+            }
         });
     });
 }
@@ -346,8 +386,8 @@ function changeDayTime(event) {
         calendarMonth.style.display = 'none';
         calendarYear.style.display = 'none';
         timeTab.style.display = 'block';
-        updateTime(); // Update time immediately
-        setInterval(updateTime, 1000); // Update time every second
+        updateTime();
+        setInterval(updateTime, 1000);
     } else if (target.classList.contains('ion-calendar')) {
         calendarButton.classList.add('active');
         timeButton.classList.remove('active');
@@ -369,11 +409,9 @@ function inputDateTime() {
             currentMonth = updatedDate.currentMonth;
             currentYear = updatedDate.currentYear;
             var formattedDate = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateTime();
-            var formattedDateTo = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + '23:59';
-            var inputForm = document.getElementById('input-text-1');
-            inputForm.value = formattedDate;
-            var inputTo = document.getElementById('input-text-2');
-            inputTo.value = formattedDateTo;
+            if (selectedInput) {
+                selectedInput.value = formattedDate;
+            }
             updateDate();
             hideModal();
         });
@@ -513,11 +551,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.onload = function () {
     showCalendarTab();
-    fillCurrentDate();
-    fromDate();
+    // fromDate();
     toDate();
     buttonGroup();
     fillCurrentDate();
     updateDate();
     optionGroup();
 };
+
+// JavaScript
