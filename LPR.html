@@ -1082,7 +1082,7 @@
                                                                                     <div class="data-grid">
                                                                                         <div class="dg-header w-full">
                                                                                             <div
-                                                                                                class="dg-header-item row-horizontal-border dg-freeze"
+                                                                                                class="dg-header-item row--horizontal-border dg-freeze"
                                                                                                 style="
                                                                                                     flex: 0 0 50px;
                                                                                                     width: 50px;
@@ -1096,10 +1096,11 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div
-                                                                                                class="dg-header-item dg-freeze"
+                                                                                                class="dg-header-item react-resizable"
                                                                                                 style="
                                                                                                     flex: 0 0 270px;
                                                                                                     width: 270px;
+                                                                                                    height: 60px;
                                                                                                 "
                                                                                             >
                                                                                                 <div
@@ -1119,7 +1120,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div
-                                                                                                class="dg-header-item dg-freeze"
+                                                                                                class="dg-header-item react-resizable"
                                                                                                 style="
                                                                                                     flex: 0 0 290px;
                                                                                                     width: 290px;
@@ -1141,7 +1142,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div
-                                                                                                class="dg-header-item dg-freeze"
+                                                                                                class="dg-header-item react-resizable"
                                                                                                 style="
                                                                                                     flex: 0 0 112px;
                                                                                                     width: 112px;
@@ -1163,7 +1164,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div
-                                                                                                class="dg-header-item dg-freeze"
+                                                                                                class="dg-header-item react-resizable"
                                                                                                 style="
                                                                                                     flex: 1 1 0%;
                                                                                                     min-width: 646px;
@@ -2024,9 +2025,9 @@
                                                 <span class="separater">:</span>
                                                 <span class="time"></span>
                                             </div>
-                                            <div class="sliders">
+                                            <div id="slidersContainer" class="sliders">
                                                 <div class="time-text">Giờ:</div>
-                                                <div class="range-slider__labels-container">
+                                                <div class="range-slider__labels-container" id="slider-hour">
                                                     <div
                                                         class="range-slider__container"
                                                         style="padding: calc(7px + 0.5rem) 0px"
@@ -2070,7 +2071,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="time-text">Phút:</div>
-                                                <div class="range-slider__labels-container">
+                                                <div class="range-slider__labels-container" id="slider_minute">
                                                     <div
                                                         class="range-slider__container"
                                                         style="padding: calc(7px + 0.5rem) 0px"

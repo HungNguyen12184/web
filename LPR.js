@@ -365,9 +365,6 @@ function optionGroup() {
     buttonGroups.forEach(function (buttonGroup) {
         buttonGroup.addEventListener('click', function (event) {
             changeDayTime(event);
-            if (document.getElementById('modal-root').style.display === 'block' && timeTab.style.display === 'block') {
-                sliderTime();
-            }
         });
     });
 }
@@ -398,6 +395,8 @@ function changeDayTime(event) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', optionGroup);
+
 // GET NGAY THANG CHON TRONG BANG
 
 function inputDateTime() {
@@ -419,16 +418,76 @@ function inputDateTime() {
 }
 //TAO BANG DU LIEU
 const tableData = [
-    { stt: 1, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '90%', chi_tiet: 'TruongSon_KOMOTA_2' },
-    { stt: 2, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '80%', chi_tiet: 'TruongSon_KOMOTA_3' },
-    { stt: 3, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '70%', chi_tiet: 'TruongSon_KOMOTA_4' },
-    { stt: 4, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '60%', chi_tiet: 'TruongSon_KOMOTA_5' },
-    { stt: 5, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '50%', chi_tiet: 'TruongSon_KOMOTA_6' },
-    { stt: 6, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '40%', chi_tiet: 'TruongSon_KOMOTA_7' },
-    { stt: 7, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '30%', chi_tiet: 'TruongSon_KOMOTA_8' },
-    { stt: 8, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '20%', chi_tiet: 'TruongSon_KOMOTA_9' },
-    { stt: 9, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '10%', chi_tiet: 'TruongSon_KOMOTA_10' },
-    { stt: 10, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '25%', chi_tiet: 'TruongSon_KOMOTA_11' },
+    {
+        stt: 1,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        do_chinh_xac: '90%',
+        chi_tiet: 'TruongSon_KOMOTA_2',
+    },
+    {
+        stt: 2,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_29.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_23.png',
+        do_chinh_xac: '80%',
+        chi_tiet: 'TruongSon_KOMOTA_3',
+    },
+    {
+        stt: 3,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        do_chinh_xac: '70%',
+        chi_tiet: 'TruongSon_KOMOTA_4',
+    },
+    {
+        stt: 4,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_56.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_51.png',
+        do_chinh_xac: '60%',
+        chi_tiet: 'TruongSon_KOMOTA_5',
+    },
+    {
+        stt: 5,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_08.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_02.png',
+        do_chinh_xac: '50%',
+        chi_tiet: 'TruongSon_KOMOTA_6',
+    },
+    {
+        stt: 6,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_15.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_11.png',
+        do_chinh_xac: '40%',
+        chi_tiet: 'TruongSon_KOMOTA_7',
+    },
+    {
+        stt: 7,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_27.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_19.png',
+        do_chinh_xac: '30%',
+        chi_tiet: 'TruongSon_KOMOTA_8',
+    },
+    {
+        stt: 8,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_37.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_32.png',
+        do_chinh_xac: '20%',
+        chi_tiet: 'TruongSon_KOMOTA_9',
+    },
+    {
+        stt: 9,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        do_chinh_xac: '10%',
+        chi_tiet: 'TruongSon_KOMOTA_10',
+    },
+    {
+        stt: 10,
+        hinh_toan_canh: 'scr/2023-07-28T16_55_00.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_49.png',
+        do_chinh_xac: '25%',
+        chi_tiet: 'TruongSon_KOMOTA_11',
+    },
     { stt: 11, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '35%', chi_tiet: 'TruongSon_KOMOTA_12' },
     { stt: 12, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '86%', chi_tiet: 'TruongSon_KOMOTA_13' },
     { stt: 13, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '96%', chi_tiet: 'TruongSon_KOMOTA_14' },
@@ -460,7 +519,9 @@ function showCurrentPageData(page) {
     <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
         <div class="dg-cell dg-cell--align-left">
         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-        <div class="image-container">${tableData[i].hinh_toan_canh}</div>
+        <div class="image-container">
+        <img crossorigin="anonymous" class="image-content" src="${tableData[i].hinh_toan_canh}" alt="" style="height: 5rem; object-fit: cover;">
+        </div>
         </div>
         <div class="flex flex-shrink-0"></div>
         </div>
@@ -468,7 +529,8 @@ function showCurrentPageData(page) {
     <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
         <div class="dg-cell dg-cell--align-left">
         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-        <div class="image-container">${tableData[i].hinh_bien_so}</div>
+        <div class="image-container">
+        <img crossorigin="anonymous" class="image-content" src="${tableData[i].hinh_bien_so}" alt="" style="height: 5rem; object-fit: cover;"></div>
         </div>
         <div class="flex flex-shrink-0"></div>
         </div>
@@ -549,6 +611,43 @@ document.addEventListener('DOMContentLoaded', function () {
     showCurrentPageData(1);
 });
 
+function percentageToValue(percentage, maxValue) {
+    return Math.round((percentage * maxValue) / 100);
+}
+
+function updateIndicatorText(sliderContainer, value) {
+    var indicator = sliderContainer.querySelector('.slider__indicator-text');
+    indicator.textContent = value;
+}
+
+function handleSliderMove(sliderContainer, event, maxValue) {
+    var slider = sliderContainer.querySelector('.slider__range-thumb');
+    var sliderRect = slider.getBoundingClientRect();
+    var offsetX = event.clientX - sliderRect.left;
+    var percentage = (offsetX / sliderRect.width) * 100;
+    var selectedValue = percentageToValue(percentage, maxValue);
+    updateIndicatorText(sliderContainer, selectedValue);
+}
+
+function sliderTime(sliderContainer, maxValue) {
+    var slider = sliderContainer.querySelector('.slider__range-thumb');
+    if (slider) {
+        slider.addEventListener('mousedown', function (event) {
+            document.addEventListener('mousemove', function (event) {
+                handleSliderMove(sliderContainer, event, maxValue);
+            });
+        });
+        document.addEventListener('mouseup', function () {
+            document.removeEventListener('mousemove', handleSliderMove);
+        });
+    }
+}
+document.addEventListener('DOMContentLoaded', function () {
+    var sliderHour = document.getElementById('slider-hour');
+    var sliderMinute = document.getElementById('slider_minute');
+    sliderTime(sliderHour, 24);
+    sliderTime(sliderMinute, 60);
+});
 window.onload = function () {
     showCalendarTab();
     // fromDate();
@@ -558,5 +657,3 @@ window.onload = function () {
     updateDate();
     optionGroup();
 };
-
-// JavaScript

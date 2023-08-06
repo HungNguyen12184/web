@@ -113,10 +113,10 @@ canvas {
 .ps--size-md {
   --ps-size: 6px; /*biến tuỳ chỉnh trong css */
 }
-.scrollbar-container {
+/* .scrollbar-container {
   position: relative;
   height: 100%;
-}
+} */
 .ps {
   overflow-anchor: none;
   touch-action: auto;
@@ -333,7 +333,9 @@ canvas {
 .item-center {
   align-items: center !important;
 }
-
+.item-baseline {
+  align-items: baseline !important;
+}
 .justify-center {
   justify-content: center !important;
 }
@@ -871,6 +873,25 @@ div.form-input-group .input-append {
   --button-height:calc(24/16 *1em);
 }
 
+.data-grid-wrapper:not(.dg---height-contain) .data-grid-content .data-grid-container .data-grid .data-header {
+  overflow: hidden;
+}
+.data-grid-wrapper:not(.dg--height-contain) .data-grid-content .data-grid-container .data-grid {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.data-grid-wrapper:not(.dg--height-contain) .data-grid-content .data-grid-container .data-grid .scrollbar-container{
+  overflow: hidden;
+}
+.data-grid-wrapper:not(.dg--height-contain) .data-grid-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 .data-grid-wrapper {
   position: relative;
   width: 100%;
@@ -882,18 +903,13 @@ div.form-input-group .input-append {
   
 }
 .data-grid-content {
-  position: absolute;
-  top:0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   
 }
+
 .data-grid-container {
-  overflow: hidden;
   width: 100%;
   flex: 1;
   position: relative;
@@ -903,13 +919,10 @@ div.form-input-group .input-append {
   display: flex;
   flex-direction: column;
   border-collapse: collapse;
-  height: 100%;
   width: 100%;
-  position: absolute;
 }
-.data-grid .dg-header {
+ .dg-header {
   overflow: hidden;
-  top: 0;
   font-size: 0.75rem;
 }
 
@@ -920,7 +933,6 @@ div.form-input-group .input-append {
   margin: 0;
   padding: 0;
   border: 0;
-  position: sticky;
   z-index: 3;
 
 }
@@ -960,7 +972,7 @@ div.form-input-group .input-append {
  
 }
 .dg-header-item .dg-cell {
-  height: 100%;
+  height: 60px;
   vertical-align: middle;
   color: rgba(255, 255, 255, 0.85);
   background-color: rgba(255, 255, 255, 0.05);
@@ -980,16 +992,16 @@ div.form-input-group .input-append {
   overscroll-behavior-x:  contain;
   overscroll-behavior-y: contain;
 }
-.ps.scrollbar-container {
+/* .ps.scrollbar-container {
   --ps-rail-hover-color: rgba((255,255,255),0.1);
   --ps-thumb-color:rgba((255,255,255),0.2);
   --ps-thumb-hover-color:rgba((255,255,255),035);
-}
+} */
 
-.scrollbar-container {
+/* .scrollbar-container {
   position: relative;
   height: 100%;
-}
+} */
 .dg-body {
   flex:1
 }
