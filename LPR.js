@@ -49,7 +49,6 @@ function toDate() {
         }
         inputDateTime();
     });
-
     toDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
         selectedInput = toDateInputElement;
@@ -606,47 +605,54 @@ function changePage(event) {
         showCurrentPageData(totalPage);
     }
 }
-
 document.addEventListener('DOMContentLoaded', function () {
-    showCurrentPageData(1);
-});
-
-function percentageToValue(percentage, maxValue) {
-    return Math.round((percentage * maxValue) / 100);
-}
-
-function updateIndicatorText(sliderContainer, value) {
-    var indicator = sliderContainer.querySelector('.slider__indicator-text');
-    indicator.textContent = value;
-}
-
-function handleSliderMove(sliderContainer, event, maxValue) {
-    var slider = sliderContainer.querySelector('.slider__range-thumb');
-    var sliderRect = slider.getBoundingClientRect();
-    var offsetX = event.clientX - sliderRect.left;
-    var percentage = (offsetX / sliderRect.width) * 100;
-    var selectedValue = percentageToValue(percentage, maxValue);
-    updateIndicatorText(sliderContainer, selectedValue);
-}
-
-function sliderTime(sliderContainer, maxValue) {
-    var slider = sliderContainer.querySelector('.slider__range-thumb');
-    if (slider) {
-        slider.addEventListener('mousedown', function (event) {
-            document.addEventListener('mousemove', function (event) {
-                handleSliderMove(sliderContainer, event, maxValue);
-            });
-        });
-        document.addEventListener('mouseup', function () {
-            document.removeEventListener('mousemove', handleSliderMove);
-        });
+    function percentageToValue(percentage, maxValue) {
+        return Math.round((percentage * maxValue) / 100);
     }
-}
-document.addEventListener('DOMContentLoaded', function () {
-    var sliderHour = document.getElementById('slider-hour');
-    var sliderMinute = document.getElementById('slider_minute');
-    sliderTime(sliderHour, 24);
-    sliderTime(sliderMinute, 60);
+
+    function handleSliderMove(sliderContainer, event, maxValue) {
+        var slider = sliderContainer.querySelector('.slider__range-thumb');
+        var sliderRect = sliderContainer.getBoundingClientRect(); //getBoundingClientRect là một phương thức trong JavaScript Object Model (DOM) giúp lấy ra thông tin về kích thước và vị trí của một phần tử trên trang web. Phương thức này trả về một DOMRect object chứa các thuộc tính như width, height, top, bottom, left, và right. Bạn có thể sử dụng getBoundingClientRect để thao tác với phần tử này trong JavaScript."
+        var offsetX = event.clientX - sliderRect.left;
+        var percentage = (offsetX / sliderRect.width) * 100;
+        percentage = Math.min(Math.max(percentage, 0), 100);
+        var hourPercentage = percentage;
+        var minutePercentage = percentage;
+        var maxValueHour = 24;
+        var maxValueMinute = 60;
+        var selectedHourValue = percentageToValue(hourPercentage, maxValueHour);
+        var selectedMinuteValue = percentageToValue(minutePercentage, maxValueMinute);
+        slider.style.left = percentage + '%';
+        var showtime = document.querySelector('.showtime');
+        var hourElement = showtime.querySelector('#hour');
+        var minuteElement = showtime.querySelector('#minute');
+        hourElement.textContent = selectedHourValue;
+        minuteElement.textContent = selectedMinuteValue;
+    }
+
+    function sliderTime(sliderContainer, maxValue) {
+        var slider = sliderContainer.querySelector('.slider__range-thumb');
+        if (slider) {
+            slider.addEventListener('mousedown', function (event) {
+                // Khi di chuyển thanh trượt, gọi hàm handleSliderMove để xử lý
+                document.addEventListener('mousemove', function (event) {
+                    handleSliderMove(sliderContainer, event, maxValue);
+                });
+            });
+
+            // Khi thả chuột ra, ngừng theo dõi sự kiện di chuyển của chuột
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', handleSliderMove);
+            });
+        }
+    }
+
+    // Gọi hàm sliderTime cho mỗi thanh trượt bạn có
+    var hourSliderContainer = document.getElementById('slider-hour');
+    sliderTime(hourSliderContainer, 24);
+
+    var minuteSliderContainer = document.getElementById('slider_minute');
+    sliderTime(minuteSliderContainer, 60);
 });
 window.onload = function () {
     showCalendarTab();
