@@ -6,6 +6,11 @@
         <script src="LPR.js"></script>
         <link rel=" stylesheet" href="lpr.css" />
         <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/css/perfect-scrollbar.min.css"
+        />
+
         <title>LPR</title>
     </head>
 
@@ -867,7 +872,7 @@
                                                             <div
                                                                 class="flex flex-grow flex-shrink flex-basis-0 justify-between overflow-hidden"
                                                             >
-                                                                <div class="flex gap-2">
+                                                                <div class="flex gap-2 buttonView">
                                                                     <button
                                                                         class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive"
                                                                     >
@@ -929,6 +934,7 @@
                                                                     <div
                                                                         class="flex flex-col overflow-hidden"
                                                                         style="width: 50%; flex: 1 1 auto"
+                                                                        id="tablelist"
                                                                     >
                                                                         <div class="p-4">
                                                                             <div
@@ -1207,442 +1213,9 @@
                                                                                             class="scrollbar-container ps--size-md ps"
                                                                                         >
                                                                                             <div style="width: 1638px">
-                                                                                                <div class="dg-body">
-                                                                                                    <!-- <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">1</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div>
-                                                <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">2</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div>
-                                                <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">3</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div>
-                                                <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">4</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div>
-                                                <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">5</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div>
-                                                <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">6</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div>
-                                                <div class="dg-row selectable-row">
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze"
-                                                    style="flex: 0 0 50px; width: 50px; left: 0px;">
-                                                    <div class="dg-cell">
-                                                      <span class="auto-number">7</span>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 270px; width: 270px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div class=" css-0">
-                                                       <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 290px;width: 290px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-                                                        <div class="image-contaniner"></div>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 0 0 112px;width: 112px;">
-                                                    <div class="dg-cell dg-cell--align-left">
-                                                      <div
-                                                        class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-                                                        <span class="tb tb1">
-                                                          "%"
-                                                        </span>
-                                                      </div>
-                                                      <div class="flex flex-shrink-0"></div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border"
-                                                    style="flex: 1 1 0%; min-width: 646px;">
-                                                      <div class="dg-cell dg-cell--align-left">
-                                                        <div class=" css-0">
-                                                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-                                                          <span class="m-0 hd hd-6"></span>
-                                                          <span class="tb tb1"></span>
-                                                          <span class="tb tb1">TruongSon</span>
-                                                          <span class="tb tb1">TruongSon_KOMOTA_2</span>
-                                                          <span class="tb tb1"></span>
-                                                        </div>
-                                                        </div> 
-                                                      </div>
-                                                  </div>
-                                                  <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-                                                   <div class="dg-cell">
-                                                    <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-                                                      <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                </div> -->
-                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="dg-body"
+                                                                                                ></div>
                                                                                             </div>
                                                                                             <div
                                                                                                 class="ps__rail-x"
@@ -1693,11 +1266,13 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <!-- <div class="draggable">
-                                  //tabindex xác định thứ tự điều hướng khi dùng phím tab
-                                  <div tabindex="1" class="line"></div>
-                                </div> -->
-                                                                    <!-- <div class="map-view" style="width: 50%; flex: 1 1 auto"></div> -->
+                                                                    <div class="draggable">
+                                                                        <div tabindex="1" class="line"></div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="map-view"
+                                                                        style="width: 50%; flex: 1 1 auto"
+                                                                    ></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2141,5 +1716,6 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/perfect-scrollbar.min.js"></script>
     </body>
 </html>

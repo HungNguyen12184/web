@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var sliderRect = sliderContainer.getBoundingClientRect(); //getBoundingClientRect là một phương thức trong JavaScript Object Model (DOM) giúp lấy ra thông tin về kích thước và vị trí của một phần tử trên trang web. Phương thức này trả về một DOMRect object chứa các thuộc tính như width, height, top, bottom, left, và right. Bạn có thể sử dụng getBoundingClientRect để thao tác với phần tử này trong JavaScript."
         var offsetX = event.clientX - sliderRect.left;
         var percentage = (offsetX / sliderRect.width) * 100;
-        percentage = Math.min(Math.max(percentage, 0), 100);
+        percentage = Math.min(Math.max(percentage, 0), 100); // Math.min(a, b) trả về giá trị nhỏ nhất giữa a và b, và hàm Math.max(a, b) trả về giá trị lớn nhất giữa a và b.
         var hourPercentage = percentage;
         var minutePercentage = percentage;
         var maxValueHour = 24;
@@ -634,26 +634,59 @@ document.addEventListener('DOMContentLoaded', function () {
         var slider = sliderContainer.querySelector('.slider__range-thumb');
         if (slider) {
             slider.addEventListener('mousedown', function (event) {
-                // Khi di chuyển thanh trượt, gọi hàm handleSliderMove để xử lý
                 document.addEventListener('mousemove', function (event) {
                     handleSliderMove(sliderContainer, event, maxValue);
                 });
             });
-
-            // Khi thả chuột ra, ngừng theo dõi sự kiện di chuyển của chuột
             document.addEventListener('mouseup', function () {
                 document.removeEventListener('mousemove', handleSliderMove);
             });
         }
     }
 
-    // Gọi hàm sliderTime cho mỗi thanh trượt bạn có
     var hourSliderContainer = document.getElementById('slider-hour');
     sliderTime(hourSliderContainer, 24);
 
     var minuteSliderContainer = document.getElementById('slider_minute');
     sliderTime(minuteSliderContainer, 60);
 });
+
+// collasp
+function buttonView() {
+    var buttonGroups = document.querySelectorAll('.buttonView'); // trả về 1 nodelist
+    buttonGroups.forEach(function (buttonGroup) {
+        buttonGroup.addEventListener('click', function (event) {
+            changeWidth(event);
+        });
+    });
+}
+
+function changeWidth(event) {
+    var tableList = document.getElementById('tablelist');
+    var mapView = document.querySelector('.map-view');
+    var target = event.target;
+    if (target.classList.contains('fa-list')) {
+        if (tableList.style.width === '100%') {
+            tableList.style.width = '50%';
+            mapView.style.width = '50%';
+        } else {
+            tableList.style.width = '100%';
+            mapView.style.width = '0%';
+        }
+    } else if (target.classList.contains('fa-columns')) {
+        tableList.style.width = '50%';
+        mapView.style.width = '50%';
+    } else if (target.classList.contains('fa-map')) {
+        if (mapView.style.width === '100%') {
+            mapView.style.width = '50%';
+            tableList.style.width = '50%';
+        } else {
+            mapView.style.width = '100%';
+            tableList.style.width = '0%';
+        }
+    }
+}
+
 window.onload = function () {
     showCalendarTab();
     // fromDate();
@@ -662,4 +695,6 @@ window.onload = function () {
     fillCurrentDate();
     updateDate();
     optionGroup();
+    showCurrentPageData(1);
+    buttonView();
 };
