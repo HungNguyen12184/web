@@ -382,8 +382,6 @@ function changeDayTime(event) {
         calendarMonth.style.display = 'none';
         calendarYear.style.display = 'none';
         timeTab.style.display = 'block';
-        updateTime();
-        setInterval(updateTime, 1000);
     } else if (target.classList.contains('ion-calendar')) {
         calendarButton.classList.add('active');
         timeButton.classList.remove('active');
@@ -606,6 +604,7 @@ function changePage(event) {
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
+    //chuyển đổi một giá trị phần trăm thành một giá trị số dựa trên giá trị tối đa đã cho.
     function percentageToValue(percentage, maxValue) {
         return Math.round((percentage * maxValue) / 100);
     }
@@ -613,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSliderMove(sliderContainer, event, maxValue) {
         var slider = sliderContainer.querySelector('.slider__range-thumb');
         var sliderRect = sliderContainer.getBoundingClientRect(); //getBoundingClientRect là một phương thức trong JavaScript Object Model (DOM) giúp lấy ra thông tin về kích thước và vị trí của một phần tử trên trang web. Phương thức này trả về một DOMRect object chứa các thuộc tính như width, height, top, bottom, left, và right. Bạn có thể sử dụng getBoundingClientRect để thao tác với phần tử này trong JavaScript."
-        var offsetX = event.clientX - sliderRect.left;
+        var offsetX = event.clientX - sliderRect.left; // event.clientX: thuộc tính trả về tọa độ ngang của con trỏ chuột khi xảy ra sự kiện chuột.
         var percentage = (offsetX / sliderRect.width) * 100;
         percentage = Math.min(Math.max(percentage, 0), 100); // Math.min(a, b) trả về giá trị nhỏ nhất giữa a và b, và hàm Math.max(a, b) trả về giá trị lớn nhất giữa a và b.
         var hourPercentage = percentage;
@@ -628,6 +627,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var minuteElement = showtime.querySelector('#minute');
         hourElement.textContent = selectedHourValue;
         minuteElement.textContent = selectedMinuteValue;
+        updateShowTime(selectedHourValue, selectedMinuteValue);
     }
 
     function sliderTime(sliderContainer, maxValue) {
@@ -638,6 +638,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     handleSliderMove(sliderContainer, event, maxValue);
                 });
             });
+        } else {
             document.addEventListener('mouseup', function () {
                 document.removeEventListener('mousemove', handleSliderMove);
             });
@@ -647,9 +648,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var hourSliderContainer = document.getElementById('slider-hour');
     sliderTime(hourSliderContainer, 24);
 
-    var minuteSliderContainer = document.getElementById('slider_minute');
+    var minuteSliderContainer = document.getElementById('slider-minute');
     sliderTime(minuteSliderContainer, 60);
 });
+
+function updateShowTime(selectedHour, selectedMinute) {
+    var showtime = document.querySelector('.showtime');
+    var hourElement = showtime.querySelector('#hour');
+    var minuteElement = showtime.querySelector('#minute');
+    hourElement.textContent = selectedHour.toString().padStart(2, '0');
+    minuteElement.textContent = selectedMinute.toString().padStart(2, '0');
+}
 
 // collasp
 function buttonView() {
@@ -689,7 +698,6 @@ function changeWidth(event) {
 
 window.onload = function () {
     showCalendarTab();
-    // fromDate();
     toDate();
     buttonGroup();
     fillCurrentDate();
@@ -697,4 +705,6 @@ window.onload = function () {
     optionGroup();
     showCurrentPageData(1);
     buttonView();
+    updateTime();
+    setInterval(updateTime, 1000);
 };

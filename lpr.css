@@ -990,7 +990,7 @@ div.form-input-group .input-append {
 
 .data-grid-container .scrollbar-container {
   overscroll-behavior-x:  contain;
-  overscroll-behavior-y: contain;
+  overscroll-behavior-y: auto;
 }
 /* .ps.scrollbar-container {
   --ps-rail-hover-color: rgba((255,255,255),0.1);
@@ -1003,7 +1003,8 @@ div.form-input-group .input-append {
   height: 100%;
 } */
 .dg-body {
-  flex:1
+  flex:1;
+
 }
 .dg-row{
   display: flex;
