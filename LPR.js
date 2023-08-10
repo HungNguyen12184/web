@@ -267,7 +267,7 @@ function fillCurrentDate() {
     var inputFrom = document.getElementById('input-text-1');
     var inputTo = document.getElementById('input-text-2');
     var currentDate = getCurrentDate();
-    var currentTime = updateTime();
+    var currentTime = updateTimeDefaul();
     if (inputFrom) {
         inputFrom.value = currentDate + ' ' + currentTime;
     }
@@ -277,7 +277,7 @@ function fillCurrentDate() {
 }
 
 //GET GIO PHUT
-function updateTime() {
+function updateTimeDefaul() {
     var currentTime = new Date();
     var hours = currentTime.getHours().toString().padStart(2, '0');
     var minutes = currentTime.getMinutes().toString().padStart(2, '0');
@@ -404,7 +404,8 @@ function inputDateTime() {
             var updatedDate = changeMonth(event, currentMonth, currentYear);
             currentMonth = updatedDate.currentMonth;
             currentYear = updatedDate.currentYear;
-            var formattedDate = clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateTime();
+            var formattedDate =
+                clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateShowTime();
             if (selectedInput) {
                 selectedInput.value = formattedDate;
             }
@@ -485,12 +486,48 @@ const tableData = [
         do_chinh_xac: '25%',
         chi_tiet: 'TruongSon_KOMOTA_11',
     },
-    { stt: 11, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '35%', chi_tiet: 'TruongSon_KOMOTA_12' },
-    { stt: 12, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '86%', chi_tiet: 'TruongSon_KOMOTA_13' },
-    { stt: 13, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '96%', chi_tiet: 'TruongSon_KOMOTA_14' },
-    { stt: 14, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '69%', chi_tiet: 'TruongSon_KOMOTA_15' },
-    { stt: 15, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '79%', chi_tiet: 'TruongSon_KOMOTA_16' },
-    { stt: 16, hinh_toan_canh: '', hinh_bien_so: '', do_chinh_xac: '59%', chi_tiet: 'TruongSon_KOMOTA_17' },
+    {
+        stt: 11,
+        hinh_toan_canh: 'scr/2023-07-28T16_55_00.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_49.png',
+        do_chinh_xac: '35%',
+        chi_tiet: 'TruongSon_KOMOTA_12',
+    },
+    {
+        stt: 12,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        do_chinh_xac: '86%',
+        chi_tiet: 'TruongSon_KOMOTA_13',
+    },
+    {
+        stt: 13,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        do_chinh_xac: '96%',
+        chi_tiet: 'TruongSon_KOMOTA_14',
+    },
+    {
+        stt: 14,
+        hinh_toan_canh: 'scr/2023-07-28T16_54_37.png',
+        hinh_bien_so: 'scr/2023-07-28T16_54_32.png',
+        do_chinh_xac: '69%',
+        chi_tiet: 'TruongSon_KOMOTA_15',
+    },
+    {
+        stt: 15,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        do_chinh_xac: '79%',
+        chi_tiet: 'TruongSon_KOMOTA_16',
+    },
+    {
+        stt: 16,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        do_chinh_xac: '59%',
+        chi_tiet: 'TruongSon_KOMOTA_17',
+    },
 ];
 
 var itemsPerPage = 8;
@@ -553,9 +590,14 @@ function showCurrentPageData(page) {
     </div>
     <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
         <div class="dg-cell">
-        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden">
-            <button class="btn btn--default btn--fill btn--rount bt--sm btn--only-icon btn--icon-sm"></button>
-        </div>
+        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden">
+        <button class="btn btn--default btn-fill btn--round btn--sm btn--only-icon btn--icon-sm">
+            <span class="btn__content relative justify-center items-center">
+            <i class="fas fa-info" style="font-size: 20px; color: inherit; background-color: transparent;"></i>
+            </span>
+        </button>
+    </div>
+    
         </div>
     </div>
     `;
@@ -603,22 +645,36 @@ function changePage(event) {
         showCurrentPageData(totalPage);
     }
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     //chuyển đổi một giá trị phần trăm thành một giá trị số dựa trên giá trị tối đa đã cho.
     function percentageToValue(percentage, maxValue) {
         return Math.round((percentage * maxValue) / 100);
     }
 
-    function handleSliderMove(sliderContainer, event, maxValue) {
+    function handleSliderMove(sliderContainer, event) {
         var slider = sliderContainer.querySelector('.slider__range-thumb');
         var sliderRect = sliderContainer.getBoundingClientRect(); //getBoundingClientRect là một phương thức trong JavaScript Object Model (DOM) giúp lấy ra thông tin về kích thước và vị trí của một phần tử trên trang web. Phương thức này trả về một DOMRect object chứa các thuộc tính như width, height, top, bottom, left, và right. Bạn có thể sử dụng getBoundingClientRect để thao tác với phần tử này trong JavaScript."
-        var offsetX = event.clientX - sliderRect.left; // event.clientX: thuộc tính trả về tọa độ ngang của con trỏ chuột khi xảy ra sự kiện chuột.
+        var offsetX = event.clientX - sliderRect.left;
         var percentage = (offsetX / sliderRect.width) * 100;
-        percentage = Math.min(Math.max(percentage, 0), 100); // Math.min(a, b) trả về giá trị nhỏ nhất giữa a và b, và hàm Math.max(a, b) trả về giá trị lớn nhất giữa a và b.
-        var hourPercentage = percentage;
-        var minutePercentage = percentage;
+        percentage = Math.min(Math.max(percentage, 0), 100);
+
         var maxValueHour = 24;
         var maxValueMinute = 60;
+        var sliderType = sliderContainer.id;
+        var hourPercentage;
+        var minutePercentage;
+        var now = new Date();
+        var currentHour = now.getHours();
+        var currentMinute = now.getMinutes();
+
+        if (sliderType === 'slider-hour') {
+            hourPercentage = percentage;
+            minutePercentage = (currentMinute / 60) * 100;
+        } else if (sliderType === 'slider-minute') {
+            hourPercentage = (currentHour / 24) * 100;
+            minutePercentage = percentage;
+        }
         var selectedHourValue = percentageToValue(hourPercentage, maxValueHour);
         var selectedMinuteValue = percentageToValue(minutePercentage, maxValueMinute);
         slider.style.left = percentage + '%';
@@ -632,15 +688,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function sliderTime(sliderContainer, maxValue) {
         var slider = sliderContainer.querySelector('.slider__range-thumb');
+        var isMouseDown = false;
         if (slider) {
             slider.addEventListener('mousedown', function (event) {
+                isMouseDown = true;
                 document.addEventListener('mousemove', function (event) {
-                    handleSliderMove(sliderContainer, event, maxValue);
+                    if (isMouseDown) {
+                        handleSliderMove(sliderContainer, event, maxValue);
+                    }
                 });
-            });
-        } else {
-            document.addEventListener('mouseup', function () {
-                document.removeEventListener('mousemove', handleSliderMove);
+                document.addEventListener('mouseup', function () {
+                    isMouseDown = false;
+                });
             });
         }
     }
@@ -650,7 +709,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var minuteSliderContainer = document.getElementById('slider-minute');
     sliderTime(minuteSliderContainer, 60);
+    updateTime();
 });
+
+function updateTime() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var hourSliderContainer = document.getElementById('slider-hour');
+    var minuteSliderContainer = document.getElementById('slider-minute');
+    var hourSliderThumb = hourSliderContainer.querySelector('.slider__range-thumb');
+    var minuteSliderThumb = minuteSliderContainer.querySelector('.slider__range-thumb');
+    var hourPercentage = (hours / 24) * 100;
+    var minutePercentage = (minutes / 60) * 100;
+    hourSliderThumb.style.left = hourPercentage + '%';
+    minuteSliderThumb.style.left = minutePercentage + '%';
+    updateShowTime(hours, minutes);
+}
 
 function updateShowTime(selectedHour, selectedMinute) {
     var showtime = document.querySelector('.showtime');
@@ -705,6 +780,4 @@ window.onload = function () {
     optionGroup();
     showCurrentPageData(1);
     buttonView();
-    updateTime();
-    setInterval(updateTime, 1000);
 };
