@@ -4,27 +4,52 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="LPR.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel=" stylesheet" href="lpr.css" />
-        <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css" />
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/css/perfect-scrollbar.min.css"
+            href="assets/fontawesome-free-6.4.0-web/css/all.min.css"
         />
-
+        <script
+            src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"
+        ></script>
         <title>LPR</title>
     </head>
 
     <body>
         <div class="fullscreen">
             <div class="css-0" id="appContainer">
-                <div class="full-height overflow-hidden flex flex-grow flex-shrink flex-basis-0 overflow-hidden">
-                    <div class="side-bar-wrapper flex flex-col justify-end w-56">
-                        <div class="feature-bar-top flex flex-grow flex-shrink flex-basis-0 order-0 overflow-hidden">
-                            <div class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col px-2">
+                <div
+                    class="full-height overflow-hidden flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
+                >
+                    <div
+                        class="side-bar-wrapper flex flex-col justify-end w-56"
+                    >
+                        <div
+                            class="feature-bar-top flex flex-grow flex-shrink flex-basis-0 order-0 overflow-hidden"
+                        >
+                            <div
+                                class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col px-2"
+                            >
                                 <div class="css-0">
-                                    <a aria-current="page" class="feature-item active" href="/">
-                                        <i class="fa-solid fa-house" style="font-size: 1.25rem; color: inherit"> </i>
-                                        <span class="feature-label tb tb1"> Trang chủ </span>
+                                    <a
+                                        aria-current="page"
+                                        class="feature-item active"
+                                        href="/"
+                                    >
+                                        <i
+                                            class="fa-solid fa-house"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        >
+                                        </i>
+                                        <span class="feature-label tb tb1">
+                                            Trang chủ
+                                        </span>
                                     </a>
                                     <!-- /*chỉ định trang thái trang hiện tại-->
                                 </div>
@@ -34,59 +59,114 @@
                                 ></div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
-                                        <i class="fa-regular fa-map" style="font-size: 1.25rem; color: inherit"></i>
-                                        <span class="feature-label tb tb1"> Bản đồ</span>
+                                        <i
+                                            class="fa-regular fa-map"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        ></i>
+                                        <span class="feature-label tb tb1">
+                                            Bản đồ</span
+                                        >
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
                                         <i
                                             class="fa-solid fa-chart-line"
-                                            style="font-size: 1.25rem; color: inherit"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
                                         ></i>
-                                        <span class="feature-label tb tb1"> Thống kê</span>
+                                        <span class="feature-label tb tb1">
+                                            Thống kê</span
+                                        >
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
-                                        <i class="fa-solid fa-bell" style="font-size: 1.25rem; color: inherit"></i>
-                                        <span class="feature-label tb tb1"> Sự kiện </span>
+                                        <i
+                                            class="fa-solid fa-bell"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        ></i>
+                                        <span class="feature-label tb tb1">
+                                            Sự kiện
+                                        </span>
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
-                                        <i class="fa-solid fa-briefcase" style="font-size: 1.25rem; color: inherit"></i>
-                                        <span class="feature-label tb tb1"> Vụ việc</span>
+                                        <i
+                                            class="fa-solid fa-briefcase"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        ></i>
+                                        <span class="feature-label tb tb1">
+                                            Vụ việc</span
+                                        >
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
-                                        <i class="fa-solid fa-location" style="font-size: 1.25rem; color: inherit"></i>
-                                        <span class="feature-label tb tb1">Giám sát hành trình</span>
+                                        <i
+                                            class="fa-solid fa-location"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        ></i>
+                                        <span class="feature-label tb tb1"
+                                            >Giám sát hành trình</span
+                                        >
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
                                         <i
                                             class="fa-solid fa-user-friends"
-                                            style="font-size: 1.25rem; color: inherit"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
                                         ></i>
-                                        <span class="feature-label tb tb1"> Nhận dạng gương mặt</span>
+                                        <span class="feature-label tb tb1">
+                                            Nhận dạng gương mặt</span
+                                        >
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
                                         <i
                                             class="fa-solid fa-credit-card-alt"
-                                            style="font-size: 1.25rem; color: inherit"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
                                         ></i>
-                                        <span class="feature-label tb tb1">Nhận dạng biển số xe</span>
+                                        <span class="feature-label tb tb1"
+                                            >Nhận dạng biển số xe</span
+                                        >
                                     </a>
                                 </div>
                                 <div class="css-0">
                                     <a href="" class="feature-item">
-                                        <i class="fa-solid fa-expand" style="font-size: 1.25rem; color: inherit"></i>
-                                        <span class="feature-label tb tb1">Nhận dạng tổng hợp</span>
+                                        <i
+                                            class="fa-solid fa-expand"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        ></i>
+                                        <span class="feature-label tb tb1"
+                                            >Nhận dạng tổng hợp</span
+                                        >
                                     </a>
                                 </div>
                             </div>
@@ -97,10 +177,22 @@
                                 class="scrollbar-container ps--size-md flex flex-scroll-inner w-full flex-col justify-end px-2"
                             >
                                 <div class="css-0">
-                                    <a aria-current="page" class="feature-item" href="/">
-                                        <i class="fa-solid fa-comment-alt" style="font-size: 1.25rem; color: inherit">
+                                    <a
+                                        aria-current="page"
+                                        class="feature-item"
+                                        href="/"
+                                    >
+                                        <i
+                                            class="fa-solid fa-comment-alt"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        >
                                         </i>
-                                        <span class="feature-label tb tb1"> Kênh liên lạc</span>
+                                        <span class="feature-label tb tb1">
+                                            Kênh liên lạc</span
+                                        >
                                     </a>
                                 </div>
                                 <button class="feature-item css-0">
@@ -110,15 +202,26 @@
                                         <div class="feature-item feature-text">
                                             <div class="text-container">vi</div>
                                         </div>
-                                        <span class="feature-label tb tb1"> Chuyển đổi ngôn ngữ</span>
+                                        <span class="feature-label tb tb1">
+                                            Chuyển đổi ngôn ngữ</span
+                                        >
                                     </div>
                                 </button>
                                 <button class="feature-item css-0">
                                     <div
                                         class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
                                     >
-                                        <i class="fa-solid fa-sun" style="font-size: 1.25rem; color: inherit"> </i>
-                                        <span class="feature-label tb tb1">Chủ đề</span>
+                                        <i
+                                            class="fa-solid fa-sun"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        >
+                                        </i>
+                                        <span class="feature-label tb tb1"
+                                            >Chủ đề</span
+                                        >
                                     </div>
                                 </button>
                                 <button class="feature-item css-0">
@@ -127,19 +230,32 @@
                                     >
                                         <i
                                             class="fa-solid fa-question-circle"
-                                            style="font-size: 1.25rem; color: inherit"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
                                         >
                                         </i>
-                                        <span class="feature-label tb tb1">Hướng dẫn sử dụng</span>
+                                        <span class="feature-label tb tb1"
+                                            >Hướng dẫn sử dụng</span
+                                        >
                                     </div>
                                 </button>
                                 <button class="feature-item css-0">
                                     <div
                                         class="feature-item flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
                                     >
-                                        <i class="fa-solid fa-contact-card" style="font-size: 1.25rem; color: inherit">
+                                        <i
+                                            class="fa-solid fa-contact-card"
+                                            style="
+                                                font-size: 1.25rem;
+                                                color: inherit;
+                                            "
+                                        >
                                         </i>
-                                        <span class="feature-label tb tb1">Thông tin cá nhân</span>
+                                        <span class="feature-label tb tb1"
+                                            >Thông tin cá nhân</span
+                                        >
                                     </div>
                                 </button>
                             </div>
@@ -153,63 +269,103 @@
                                 <div
                                     class="feature-item active flex flex-grow flex-shrink flex-basis-0 overflow-hidden css-0"
                                 >
-                                    <i class="fa-solid fa-angle-double-left" style="font-size: 1.25rem; color: inherit">
+                                    <i
+                                        class="fa-solid fa-angle-double-left"
+                                        style="
+                                            font-size: 1.25rem;
+                                            color: inherit;
+                                        "
+                                    >
                                     </i>
-                                    <span class="feature-label tb tb1">Thu gọn</span>
+                                    <span class="feature-label tb tb1"
+                                        >Thu gọn</span
+                                    >
                                 </div>
                             </button>
                         </div>
                     </div>
-                    <div class="side-feature flex flex-grow flex-shrink flex-basis-0 overflow-hidden">
-                        <div class="layout-column overflow-hidden flex-panel border-panel" style="flex: 1 1 0%">
-                            <div class="layout-column overflow-hidden flex-panel plate-alert" style="flex: 1 1 0%">
+                    <div
+                        class="side-feature flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
+                    >
+                        <div
+                            class="layout-column overflow-hidden flex-panel border-panel"
+                            style="flex: 1 1 0%"
+                        >
+                            <div
+                                class="layout-column overflow-hidden flex-panel plate-alert"
+                                style="flex: 1 1 0%"
+                            >
                                 <div class="panel-body">
                                     <div class="tab-control">
                                         <div class="tab-header-wrap">
                                             <div class="tab-header">
-                                                <div class="tab-title">Nhận dạng biển số xe</div>
+                                                <div class="tab-title">
+                                                    Nhận dạng biển số xe
+                                                </div>
                                                 <button
                                                     class="btn btn--default btn--md btn--empty tab-item-header active"
                                                 >
                                                     <span
                                                         class="btn__content relative inline-flex justify-center item-center"
                                                     >
-                                                        <span class="btn__tex"> Phát hiện</span>
+                                                        <span class="btn__tex">
+                                                            Phát hiện</span
+                                                        >
                                                     </span>
                                                 </button>
-                                                <button class="btn btn--default btn--md btn--empty tab-item-header">
+                                                <button
+                                                    class="btn btn--default btn--md btn--empty tab-item-header"
+                                                >
                                                     <span
                                                         class="btn__content relative inline-flex justify-center item-center"
                                                     >
-                                                        <span class="btn__tex">Thư viện</span>
+                                                        <span class="btn__tex"
+                                                            >Thư viện</span
+                                                        >
                                                     </span>
                                                 </button>
-                                                <button class="btn btn--default btn--md btn--empty tab-item-header">
+                                                <button
+                                                    class="btn btn--default btn--md btn--empty tab-item-header"
+                                                >
                                                     <span
                                                         class="btn__content relative inline-flex justify-center item-center"
                                                     >
-                                                        <span class="btn__tex"> Nhập liệu</span>
+                                                        <span class="btn__tex">
+                                                            Nhập liệu</span
+                                                        >
                                                     </span>
                                                 </button>
-                                                <button class="btn btn--default btn--md btn--empty tab-item-header">
+                                                <button
+                                                    class="btn btn--default btn--md btn--empty tab-item-header"
+                                                >
                                                     <span
                                                         class="btn__content relative inline-flex justify-center item-center"
                                                     >
-                                                        <span class="btn__tex"> Cấu hình</span>
+                                                        <span class="btn__tex">
+                                                            Cấu hình</span
+                                                        >
                                                     </span>
                                                 </button>
-                                                <button class="btn btn--default btn--md btn--empty tab-item-header">
+                                                <button
+                                                    class="btn btn--default btn--md btn--empty tab-item-header"
+                                                >
                                                     <span
                                                         class="btn__content relative inline-flex justify-center item-center"
                                                     >
-                                                        <span class="btn__tex">Đồng phạm</span>
+                                                        <span class="btn__tex"
+                                                            >Đồng phạm</span
+                                                        >
                                                     </span>
                                                 </button>
-                                                <button class="btn btn--default btn--md btn--empty tab-item-header">
+                                                <button
+                                                    class="btn btn--default btn--md btn--empty tab-item-header"
+                                                >
                                                     <span
                                                         class="btn__content relative inline-flex justify-center item-center"
                                                     >
-                                                        <span class="btn__tex">Thống kê </span>
+                                                        <span class="btn__tex"
+                                                            >Thống kê
+                                                        </span>
                                                     </span>
                                                 </button>
                                             </div>
@@ -217,35 +373,63 @@
                                         <div
                                             class="tab-content flex flex-grow flex-shrink flex-basis-0 overflow-hidden"
                                         >
-                                            <div class="tab-item-content active">
-                                                <div class="map-layout resizable-container resizable-h">
+                                            <div
+                                                class="tab-item-content active"
+                                            >
+                                                <div
+                                                    class="map-layout resizable-container resizable-h"
+                                                >
                                                     <div
                                                         class="layout-column flex-panel"
-                                                        style="width: 20rem; flex: 1 1 auto"
+                                                        style="
+                                                            width: 20rem;
+                                                            flex: 1 1 auto;
+                                                        "
                                                     >
                                                         <div class="panel-body">
                                                             <div
-                                                                style="overflow-x: hidden"
+                                                                style="
+                                                                    overflow-x: hidden;
+                                                                "
                                                                 class="scrollbar-container ps--size-md overflow-x-hidden ps ps--active-y"
                                                             >
-                                                                <div class="section-panel flex flex-col">
-                                                                    <div class="section-header flex">
-                                                                        <h3>Tìm thông tin</h3>
+                                                                <div
+                                                                    class="section-panel flex flex-col"
+                                                                >
+                                                                    <div
+                                                                        class="section-header flex"
+                                                                    >
+                                                                        <h3>
+                                                                            Tìm
+                                                                            thông
+                                                                            tin
+                                                                        </h3>
                                                                     </div>
-                                                                    <div class="section-panel-body flex flex-col">
-                                                                        <div class="form-group form-group-column">
+                                                                    <div
+                                                                        class="section-panel-body flex flex-col"
+                                                                    >
+                                                                        <div
+                                                                            class="form-group form-group-column"
+                                                                        >
                                                                             <div
                                                                                 class="form-control-label form-control-row"
                                                                             >
                                                                                 <div
                                                                                     class="form-label form-label-align-left"
-                                                                                    style="width: 70px"
+                                                                                    style="
+                                                                                        width: 70px;
+                                                                                    "
                                                                                 >
-                                                                                    <div class="break-words">
-                                                                                        Biển số
+                                                                                    <div
+                                                                                        class="break-words"
+                                                                                    >
+                                                                                        Biển
+                                                                                        số
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="form-control-container">
+                                                                                <div
+                                                                                    class="form-control-container"
+                                                                                >
                                                                                     <div
                                                                                         class="form-input-group form-control"
                                                                                     >
@@ -255,8 +439,12 @@
                                                                                             data-autofocus="true"
                                                                                             value
                                                                                         />
-                                                                                        <div class="input-append">
-                                                                                            <span>?</span>
+                                                                                        <div
+                                                                                            class="input-append"
+                                                                                        >
+                                                                                            <span
+                                                                                                >?</span
+                                                                                            >
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -266,18 +454,25 @@
                                                                             >
                                                                                 <div
                                                                                     class="form-label form-label-align-left"
-                                                                                    style="width: 70px"
+                                                                                    style="
+                                                                                        width: 70px;
+                                                                                    "
                                                                                 >
-                                                                                    <div class="break-words">
-                                                                                        Hệ thống
+                                                                                    <div
+                                                                                        class="break-words"
+                                                                                    >
+                                                                                        Hệ
+                                                                                        thống
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="form-control-container">
+                                                                                <div
+                                                                                    class="form-control-container"
+                                                                                >
                                                                                     <div
                                                                                         class="advance-select--wrapper h-max"
                                                                                     >
                                                                                         <div
-                                                                                            id=""
+                                                                                            id="list-system"
                                                                                             class="as-container"
                                                                                             tabindex="0"
                                                                                             aria-haspopup="menu"
@@ -290,36 +485,26 @@
                                                                                                 <div
                                                                                                     class="dropdown-btn"
                                                                                                 >
-                                                                                                    <select>
-                                                                                                        <option value>
-                                                                                                            ALL
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="TruongSon"
-                                                                                                        >
-                                                                                                            TruongSon
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="CDM_new_20"
-                                                                                                        >
-                                                                                                            CDM_new_20
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="Lear_System"
-                                                                                                        >
-                                                                                                            Lear_System
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="Vig_TestSystem"
-                                                                                                        >
-                                                                                                            Vig_TestSystem
-                                                                                                        </option>
-                                                                                                    </select>
-                                                                                                    <!-- <div class="dropdown-btn-text">Tất cả</div> -->
+                                                                                                    <div
+                                                                                                        class="dropdown-btn-text"
+                                                                                                    >
+                                                                                                        Tất
+                                                                                                        cả
+                                                                                                    </div>
                                                                                                 </div>
-                                                                                                <!-- <div class="arrow">
-                                              <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
-                                           </div> -->
+                                                                                                <div
+                                                                                                    class="arrow"
+                                                                                                >
+                                                                                                    <i
+                                                                                                        class="fa-solid fa-chevron-down"
+                                                                                                        style="
+                                                                                                            font-size: 1rem;
+                                                                                                            color: inherit;
+                                                                                                            background-color: transparent;
+                                                                                                            cursor: pointer;
+                                                                                                        "
+                                                                                                    ></i>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                         <!-- <select hidden>
@@ -337,13 +522,19 @@
                                                                             >
                                                                                 <div
                                                                                     class="form-label form-label-align-left"
-                                                                                    style="width: 70px"
+                                                                                    style="
+                                                                                        width: 70px;
+                                                                                    "
                                                                                 >
-                                                                                    <div class="break-words">
+                                                                                    <div
+                                                                                        class="break-words"
+                                                                                    >
                                                                                         Camera
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="form-control-container">
+                                                                                <div
+                                                                                    class="form-control-container"
+                                                                                >
                                                                                     <div
                                                                                         class="advance-select--wrapper h-max"
                                                                                     >
@@ -362,7 +553,9 @@
                                                                                                     class="dropdown-btn"
                                                                                                 >
                                                                                                     <select>
-                                                                                                        <option value>
+                                                                                                        <option
+                                                                                                            value
+                                                                                                        >
                                                                                                             Truong_son_PTZ
                                                                                                         </option>
                                                                                                         <option
@@ -408,13 +601,20 @@
                                                                             >
                                                                                 <div
                                                                                     class="form-label form-label-align-left"
-                                                                                    style="width: 70px"
+                                                                                    style="
+                                                                                        width: 70px;
+                                                                                    "
                                                                                 >
-                                                                                    <div class="break-words">
-                                                                                        Danh sách
+                                                                                    <div
+                                                                                        class="break-words"
+                                                                                    >
+                                                                                        Danh
+                                                                                        sách
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="form-control-container">
+                                                                                <div
+                                                                                    class="form-control-container"
+                                                                                >
                                                                                     <div
                                                                                         class="advance-select--wrapper h-max"
                                                                                     >
@@ -436,13 +636,15 @@
                                                                                                         <option
                                                                                                             value="no-whitelist"
                                                                                                         >
-                                                                                                            Không miễn
+                                                                                                            Không
+                                                                                                            miễn
                                                                                                             trừ
                                                                                                         </option>
                                                                                                         <option
                                                                                                             value="whitelist"
                                                                                                         >
-                                                                                                            Miễn trừ
+                                                                                                            Miễn
+                                                                                                            trừ
                                                                                                         </option>
                                                                                                     </select>
                                                                                                 </div>
@@ -464,32 +666,54 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="section-panel flex flex-col">
-                                                                    <div class="section-header flex">
-                                                                        <h3>Độ chính xác</h3>
+                                                                <div
+                                                                    class="section-panel flex flex-col"
+                                                                >
+                                                                    <div
+                                                                        class="section-header flex"
+                                                                    >
+                                                                        <h3>
+                                                                            Độ
+                                                                            chính
+                                                                            xác
+                                                                        </h3>
                                                                     </div>
-                                                                    <div class="section-panel-body flex flex-col">
-                                                                        <div class="form-group form-group-column">
+                                                                    <div
+                                                                        class="section-panel-body flex flex-col"
+                                                                    >
+                                                                        <div
+                                                                            class="form-group form-group-column"
+                                                                        >
                                                                             <div
                                                                                 class="form-control-label form-control-column"
                                                                             >
                                                                                 <div
                                                                                     class="form-label form-label-align-left"
                                                                                 >
-                                                                                    <div class="w-max break-words">
-                                                                                        Biển số
+                                                                                    <div
+                                                                                        class="w-max break-words"
+                                                                                    >
+                                                                                        Biển
+                                                                                        số
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="form-control-container">
+                                                                            <div
+                                                                                class="form-control-container"
+                                                                            >
                                                                                 <div
                                                                                     class="range-slider__labels-container"
                                                                                 >
                                                                                     <div
                                                                                         class="range-slider__container"
                                                                                         style="
-                                                                                            padding: calc(7px + 0.5rem)
-                                                                                                calc(7px);
+                                                                                            padding: calc(
+                                                                                                    7px +
+                                                                                                        0.5rem
+                                                                                                )
+                                                                                                calc(
+                                                                                                    7px
+                                                                                                );
                                                                                         "
                                                                                     >
                                                                                         <div
@@ -577,7 +801,12 @@
                                                                                     </div>
                                                                                     <div
                                                                                         class="slider-mark-label-container"
-                                                                                        style="margin: 0px calc(7px)"
+                                                                                        style="
+                                                                                            margin: 0px
+                                                                                                calc(
+                                                                                                    7px
+                                                                                                );
+                                                                                        "
                                                                                     >
                                                                                         <!--tranform là thuộc tính biến đổi áp dụng chuyển đổi 2d- 3d cho 1 phần tử-->
                                                                                         <!--position: absolute set vị trí: tuyệt đối: left: đặt cạnh trái của 1 phần tử thành 1 đv ở bên cạnh trái của gốc-->
@@ -631,14 +860,30 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="section-panel flex flex-col">
-                                                                    <div class="section-header flex">
-                                                                        <h3>Dữ liệu</h3>
+                                                                <div
+                                                                    class="section-panel flex flex-col"
+                                                                >
+                                                                    <div
+                                                                        class="section-header flex"
+                                                                    >
+                                                                        <h3>
+                                                                            Dữ
+                                                                            liệu
+                                                                        </h3>
                                                                     </div>
-                                                                    <div class="section-panel-body flex flex-col">
-                                                                        <div class="form-group form-group-column">
-                                                                            <div class="checkbox-form">
-                                                                                <label class="checkbox-item" for="">
+                                                                    <div
+                                                                        class="section-panel-body flex flex-col"
+                                                                    >
+                                                                        <div
+                                                                            class="form-group form-group-column"
+                                                                        >
+                                                                            <div
+                                                                                class="checkbox-form"
+                                                                            >
+                                                                                <label
+                                                                                    class="checkbox-item"
+                                                                                    for=""
+                                                                                >
                                                                                     <input
                                                                                         class
                                                                                         type="radio"
@@ -647,27 +892,40 @@
                                                                                     <span
                                                                                         class="radio-input checkbox--icon-md"
                                                                                     ></span>
-                                                                                    <span class="checkbox-label"
-                                                                                        >Khoảng thời gian</span
+                                                                                    <span
+                                                                                        class="checkbox-label"
+                                                                                        >Khoảng
+                                                                                        thời
+                                                                                        gian</span
                                                                                     >
                                                                                 </label>
                                                                             </div>
-                                                                            <div class="form-group form-group-column">
+                                                                            <div
+                                                                                class="form-group form-group-column"
+                                                                            >
                                                                                 <div
                                                                                     class="form-control-label form-control-row"
                                                                                 >
                                                                                     <div
                                                                                         class="form-label form-label-align-left"
-                                                                                        style="width: 3rem"
+                                                                                        style="
+                                                                                            width: 3rem;
+                                                                                        "
                                                                                     >
-                                                                                        <div class="break-words">
+                                                                                        <div
+                                                                                            class="break-words"
+                                                                                        >
                                                                                             Từ
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-control-container">
+                                                                                    <div
+                                                                                        class="form-control-container"
+                                                                                    >
                                                                                         <div
                                                                                             class="dtp-container"
-                                                                                            style="width: 100%"
+                                                                                            style="
+                                                                                                width: 100%;
+                                                                                            "
                                                                                         >
                                                                                             <div
                                                                                                 class="dtp-control-container"
@@ -677,11 +935,13 @@
                                                                                                 <input
                                                                                                     autocomplete="off"
                                                                                                     data-autofocus="true"
-                                                                                                    class="input-text form-control"
+                                                                                                    class="input-text"
                                                                                                     id="input-text-1"
                                                                                                     type="text"
                                                                                                 />
-                                                                                                <div class="calendar">
+                                                                                                <div
+                                                                                                    class="calendar"
+                                                                                                >
                                                                                                     <i
                                                                                                         class="fa-solid fa-calendar-alt"
                                                                                                         style="
@@ -700,16 +960,24 @@
                                                                                 >
                                                                                     <div
                                                                                         class="form-label form-label-align-left"
-                                                                                        style="width: 3rem"
+                                                                                        style="
+                                                                                            width: 3rem;
+                                                                                        "
                                                                                     >
-                                                                                        <div class="break-words">
+                                                                                        <div
+                                                                                            class="break-words"
+                                                                                        >
                                                                                             Đến
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-control-container">
+                                                                                    <div
+                                                                                        class="form-control-container"
+                                                                                    >
                                                                                         <div
                                                                                             class="dtp-container"
-                                                                                            style="width: 100%"
+                                                                                            style="
+                                                                                                width: 100%;
+                                                                                            "
                                                                                         >
                                                                                             <div
                                                                                                 class="dtp-control-container"
@@ -719,11 +987,13 @@
                                                                                                 <input
                                                                                                     autocomplete="off"
                                                                                                     data-autofocus="true"
-                                                                                                    class="input-text form-control"
+                                                                                                    class="input-text"
                                                                                                     id="input-text-2"
                                                                                                     type="text"
                                                                                                 />
-                                                                                                <div class="calendar">
+                                                                                                <div
+                                                                                                    class="calendar"
+                                                                                                >
                                                                                                     <i
                                                                                                         class="fa-solid fa-calendar-alt"
                                                                                                         style="
@@ -740,10 +1010,19 @@
                                                                             </div>
                                                                             <div
                                                                                 class="layout-row overflow-hidden justify-space-between"
-                                                                                style="flex: 1 1 0%"
+                                                                                style="
+                                                                                    flex: 1
+                                                                                        1
+                                                                                        0%;
+                                                                                "
                                                                             >
-                                                                                <div class="checkbox-form">
-                                                                                    <label class="checkbox-item" for="">
+                                                                                <div
+                                                                                    class="checkbox-form"
+                                                                                >
+                                                                                    <label
+                                                                                        class="checkbox-item"
+                                                                                        for=""
+                                                                                    >
                                                                                         <input
                                                                                             class
                                                                                             type="radio"
@@ -752,8 +1031,10 @@
                                                                                         <span
                                                                                             class="radio-input checkbox--icon-md"
                                                                                         ></span>
-                                                                                        <span class="checkbox-label"
-                                                                                            >Cách đây</span
+                                                                                        <span
+                                                                                            class="checkbox-label"
+                                                                                            >Cách
+                                                                                            đây</span
                                                                                         >
                                                                                     </label>
                                                                                 </div>
@@ -770,25 +1051,43 @@
                                                                                         <div
                                                                                             class="as-control-container"
                                                                                         >
-                                                                                            <div class="dropdown-btn">
+                                                                                            <div
+                                                                                                class="dropdown-btn"
+                                                                                            >
                                                                                                 <select>
                                                                                                     <option>
-                                                                                                        7 ngày
+                                                                                                        7
+                                                                                                        ngày
                                                                                                     </option>
-                                                                                                    <option value="6">
-                                                                                                        6 giờ
+                                                                                                    <option
+                                                                                                        value="6"
+                                                                                                    >
+                                                                                                        6
+                                                                                                        giờ
                                                                                                     </option>
-                                                                                                    <option value="12">
-                                                                                                        12 giờ
+                                                                                                    <option
+                                                                                                        value="12"
+                                                                                                    >
+                                                                                                        12
+                                                                                                        giờ
                                                                                                     </option>
-                                                                                                    <option value="24">
-                                                                                                        1 ngày
+                                                                                                    <option
+                                                                                                        value="24"
+                                                                                                    >
+                                                                                                        1
+                                                                                                        ngày
                                                                                                     </option>
-                                                                                                    <option value="168">
-                                                                                                        7 ngày
+                                                                                                    <option
+                                                                                                        value="168"
+                                                                                                    >
+                                                                                                        7
+                                                                                                        ngày
                                                                                                     </option>
-                                                                                                    <option value="720">
-                                                                                                        30 ngày
+                                                                                                    <option
+                                                                                                        value="720"
+                                                                                                    >
+                                                                                                        30
+                                                                                                        ngày
                                                                                                     </option>
                                                                                                 </select>
                                                                                                 <!-- <div class="dropdown-btn-text"> 7 ngày</div> -->
@@ -811,14 +1110,32 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="section-panel flex flex-col">
-                                                                    <div class="section-header flex">
-                                                                        <h3>Truy vấn không gian</h3>
+                                                                <div
+                                                                    class="section-panel flex flex-col"
+                                                                >
+                                                                    <div
+                                                                        class="section-header flex"
+                                                                    >
+                                                                        <h3>
+                                                                            Truy
+                                                                            vấn
+                                                                            không
+                                                                            gian
+                                                                        </h3>
                                                                     </div>
-                                                                    <div class="section-panel-body">
-                                                                        <div class="form-group form-group-column">
-                                                                            <div class="checkbox-form">
-                                                                                <label class="checkbox-item" for="">
+                                                                    <div
+                                                                        class="section-panel-body"
+                                                                    >
+                                                                        <div
+                                                                            class="form-group form-group-column"
+                                                                        >
+                                                                            <div
+                                                                                class="checkbox-form"
+                                                                            >
+                                                                                <label
+                                                                                    class="checkbox-item"
+                                                                                    for=""
+                                                                                >
                                                                                     <input
                                                                                         class
                                                                                         type="radio"
@@ -827,34 +1144,69 @@
                                                                                     <span
                                                                                         class="radio-input checkbox--icon-md"
                                                                                     ></span>
-                                                                                    <span class="checkbox-label"
-                                                                                        >Truy vấn không gian
+                                                                                    <span
+                                                                                        class="checkbox-label"
+                                                                                        >Truy
+                                                                                        vấn
+                                                                                        không
+                                                                                        gian
                                                                                     </span>
                                                                                 </label>
                                                                             </div>
-                                                                            <span class="my-2 sub sub1">
-                                                                                Sử dụng công cụ Bản đồ tác chiến để vẽ
-                                                                                điểm hoặc vùng tìm kiếm
+                                                                            <span
+                                                                                class="my-2 sub sub1"
+                                                                            >
+                                                                                Sử
+                                                                                dụng
+                                                                                công
+                                                                                cụ
+                                                                                Bản
+                                                                                đồ
+                                                                                tác
+                                                                                chiến
+                                                                                để
+                                                                                vẽ
+                                                                                điểm
+                                                                                hoặc
+                                                                                vùng
+                                                                                tìm
+                                                                                kiếm
                                                                             </span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="panel-footer">
-                                                            <div class="panel-footer-actions">
-                                                                <button class="btn btn--primary btn--fill btn-sm">
+                                                        <div
+                                                            class="panel-footer"
+                                                        >
+                                                            <div
+                                                                class="panel-footer-actions"
+                                                            >
+                                                                <button
+                                                                    class="btn btn--primary btn--fill btn-sm"
+                                                                >
                                                                     <span
                                                                         class="btn__content relative inline-flex justify-center item-center btn--icon-left"
                                                                     >
-                                                                        <span class="btn__text">Đặt lại</span>
+                                                                        <span
+                                                                            class="btn__text"
+                                                                            >Đặt
+                                                                            lại</span
+                                                                        >
                                                                     </span>
                                                                 </button>
-                                                                <button class="btn btn--primary btn--fill btn-sm">
+                                                                <button
+                                                                    class="btn btn--primary btn--fill btn-sm"
+                                                                >
                                                                     <span
                                                                         class="btn__content relative inline-flex justify-center item-center btn--icon-left"
                                                                     >
-                                                                        <span class="btn__text">Tìm kiếm</span>
+                                                                        <span
+                                                                            class="btn__text"
+                                                                            >Tìm
+                                                                            kiếm</span
+                                                                        >
                                                                     </span>
                                                                 </button>
                                                             </div>
@@ -862,17 +1214,27 @@
                                                     </div>
                                                     <div class="draggable">
                                                         <!--tabindex xác định thứ tự điều hướng khi dùng phím tab-->
-                                                        <div tabindex="1" class="line"></div>
+                                                        <div
+                                                            tabindex="1"
+                                                            class="line"
+                                                        ></div>
                                                     </div>
                                                     <div
                                                         class="flex flex-col overflow-hidden h-full"
-                                                        style="flex: 0 1 auto; width: 1780px"
+                                                        style="
+                                                            flex: 0 1 auto;
+                                                            width: 1780px;
+                                                        "
                                                     >
-                                                        <div class="map-layout-toolbar flex gap-4 w-full p-0">
+                                                        <div
+                                                            class="map-layout-toolbar flex gap-4 w-full p-0"
+                                                        >
                                                             <div
                                                                 class="flex flex-grow flex-shrink flex-basis-0 justify-between overflow-hidden"
                                                             >
-                                                                <div class="flex gap-2 buttonView">
+                                                                <div
+                                                                    class="flex gap-2 buttonView"
+                                                                >
                                                                     <button
                                                                         class="btn btn--default btn-md btn--only-icon btn--icon-sm btn--empty map-layout-view-mode-inactive"
                                                                     >
@@ -930,17 +1292,28 @@
                                                             <div
                                                                 class="flex flex-grow flex-shrink flex-basis-0 overflow-hidden h-full"
                                                             >
-                                                                <div class="resizable-container resizable-h">
+                                                                <div
+                                                                    class="resizable-container resizable-h"
+                                                                >
                                                                     <div
                                                                         class="flex flex-col overflow-hidden"
-                                                                        style="width: 50%; flex: 1 1 auto"
+                                                                        style="
+                                                                            width: 50%;
+                                                                            flex: 1
+                                                                                1
+                                                                                auto;
+                                                                        "
                                                                         id="tablelist"
                                                                     >
-                                                                        <div class="p-4">
+                                                                        <div
+                                                                            class="p-4"
+                                                                        >
                                                                             <div
                                                                                 class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden"
                                                                             >
-                                                                                <div class="css-0">
+                                                                                <div
+                                                                                    class="css-0"
+                                                                                >
                                                                                     <div
                                                                                         class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden"
                                                                                     >
@@ -986,7 +1359,8 @@
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center item-center"
                                                                                             >
-                                                                                                <span class="btn_text"
+                                                                                                <span
+                                                                                                    class="btn_text"
                                                                                                     >1</span
                                                                                                 >
                                                                                             </span>
@@ -1025,7 +1399,9 @@
                                                                                         </button>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="css-0">
+                                                                                <div
+                                                                                    class="css-0"
+                                                                                >
                                                                                     <div
                                                                                         class="advance-select--wrapper h-max"
                                                                                     >
@@ -1047,22 +1423,26 @@
                                                                                                         <option
                                                                                                             value="25"
                                                                                                         >
-                                                                                                            25 dòng
+                                                                                                            25
+                                                                                                            dòng
                                                                                                         </option>
                                                                                                         <option
                                                                                                             value="50"
                                                                                                         >
-                                                                                                            50 dòng
+                                                                                                            50
+                                                                                                            dòng
                                                                                                         </option>
                                                                                                         <option
                                                                                                             value="100"
                                                                                                         >
-                                                                                                            100 dòng
+                                                                                                            100
+                                                                                                            dòng
                                                                                                         </option>
                                                                                                         <option
                                                                                                             value="250"
                                                                                                         >
-                                                                                                            250 dòng
+                                                                                                            250
+                                                                                                            dòng
                                                                                                         </option>
                                                                                                     </select>
                                                                                                     <!-- <div class="dropdown-btn-text">25 dòng</div> -->
@@ -1083,23 +1463,37 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="data-grid-wrapper">
+                                                                        <div
+                                                                            class="data-grid-wrapper"
+                                                                        >
                                                                             <div
                                                                                 class="data-grid-content divide-y divide-alpha-10"
                                                                             >
-                                                                                <div class="data-grid-container">
-                                                                                    <div class="data-grid">
-                                                                                        <div class="dg-header w-full">
+                                                                                <div
+                                                                                    class="data-grid-container"
+                                                                                >
+                                                                                    <div
+                                                                                        class="data-grid"
+                                                                                    >
+                                                                                        <div
+                                                                                            class="dg-header w-full"
+                                                                                        >
                                                                                             <div
                                                                                                 class="dg-header-item row--horizontal-border dg-freeze"
                                                                                                 style="
-                                                                                                    flex: 0 0 50px;
+                                                                                                    flex: 0
+                                                                                                        0
+                                                                                                        50px;
                                                                                                     width: 50px;
                                                                                                     left: 0px;
                                                                                                 "
                                                                                             >
-                                                                                                <div class="dg-cell">
-                                                                                                    <div class="css-0">
+                                                                                                <div
+                                                                                                    class="dg-cell"
+                                                                                                >
+                                                                                                    <div
+                                                                                                        class="css-0"
+                                                                                                    >
                                                                                                         STT
                                                                                                     </div>
                                                                                                 </div>
@@ -1107,7 +1501,9 @@
                                                                                             <div
                                                                                                 class="dg-header-item react-resizable"
                                                                                                 style="
-                                                                                                    flex: 0 0 270px;
+                                                                                                    flex: 0
+                                                                                                        0
+                                                                                                        270px;
                                                                                                     width: 270px;
                                                                                                     height: 60px;
                                                                                                 "
@@ -1119,7 +1515,8 @@
                                                                                                         class="flex flex-grow flex-shrink flex-basis-0 item-baseline gap-1 overflow-hidden"
                                                                                                     >
                                                                                                         <div>
-                                                                                                            Hình toàn
+                                                                                                            Hình
+                                                                                                            toàn
                                                                                                             cảnh
                                                                                                         </div>
                                                                                                     </div>
@@ -1131,7 +1528,9 @@
                                                                                             <div
                                                                                                 class="dg-header-item react-resizable"
                                                                                                 style="
-                                                                                                    flex: 0 0 290px;
+                                                                                                    flex: 0
+                                                                                                        0
+                                                                                                        290px;
                                                                                                     width: 290px;
                                                                                                 "
                                                                                             >
@@ -1142,7 +1541,9 @@
                                                                                                         class="flex flex-grow flex-shrink flex-basis-0 item-baseline gap-1 overflow-hidden"
                                                                                                     >
                                                                                                         <div>
-                                                                                                            Hình biển số
+                                                                                                            Hình
+                                                                                                            biển
+                                                                                                            số
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div
@@ -1153,7 +1554,9 @@
                                                                                             <div
                                                                                                 class="dg-header-item react-resizable"
                                                                                                 style="
-                                                                                                    flex: 0 0 112px;
+                                                                                                    flex: 0
+                                                                                                        0
+                                                                                                        112px;
                                                                                                     width: 112px;
                                                                                                 "
                                                                                             >
@@ -1164,7 +1567,9 @@
                                                                                                         class="flex flex-grow flex-shrink flex-basis-0 item-baseline gap-1 overflow-hidden"
                                                                                                     >
                                                                                                         <div>
-                                                                                                            Độ chính xác
+                                                                                                            Độ
+                                                                                                            chính
+                                                                                                            xác
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div
@@ -1175,7 +1580,9 @@
                                                                                             <div
                                                                                                 class="dg-header-item react-resizable"
                                                                                                 style="
-                                                                                                    flex: 1 1 0%;
+                                                                                                    flex: 1
+                                                                                                        1
+                                                                                                        0%;
                                                                                                     min-width: 646px;
                                                                                                 "
                                                                                             >
@@ -1186,7 +1593,8 @@
                                                                                                         class="flex flex-grow flex-shrink flex-basis-0 item-baseline gap-1 overflow-hidden"
                                                                                                     >
                                                                                                         <div>
-                                                                                                            Chi tiết
+                                                                                                            Chi
+                                                                                                            tiết
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div
@@ -1197,12 +1605,18 @@
                                                                                             <div
                                                                                                 class="dg-header-item dg-freeze-end"
                                                                                                 style="
-                                                                                                    flex: 0 0 70px;
+                                                                                                    flex: 0
+                                                                                                        0
+                                                                                                        70px;
                                                                                                     width: 70px;
                                                                                                 "
                                                                                             >
-                                                                                                <div class="dg-cell">
-                                                                                                    <div class="css-0">
+                                                                                                <div
+                                                                                                    class="dg-cell"
+                                                                                                >
+                                                                                                    <div
+                                                                                                        class="css-0"
+                                                                                                    >
                                                                                                         <span
                                                                                                             class="tb tb1"
                                                                                                             >Thao
@@ -1266,11 +1680,15 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="toolbar">
+                                                                                <div
+                                                                                    class="toolbar"
+                                                                                >
                                                                                     <div
                                                                                         class="flex flex-grow flex-shrink flex-basis-0 justify-end item-center gap-2 overflow-hidden p-2"
                                                                                     >
-                                                                                        <div class="paging-count">
+                                                                                        <div
+                                                                                            class="paging-count"
+                                                                                        >
                                                                                             1-25
                                                                                         </div>
                                                                                     </div>
@@ -1278,12 +1696,22 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="draggable">
-                                                                        <div tabindex="1" class="line"></div>
+                                                                    <div
+                                                                        class="draggable"
+                                                                    >
+                                                                        <div
+                                                                            tabindex="1"
+                                                                            class="line"
+                                                                        ></div>
                                                                     </div>
                                                                     <div
                                                                         class="map-view"
-                                                                        style="width: 50%; flex: 1 1 auto"
+                                                                        style="
+                                                                            width: 50%;
+                                                                            flex: 1
+                                                                                1
+                                                                                auto;
+                                                                        "
                                                                     ></div>
                                                                 </div>
                                                             </div>
@@ -1300,7 +1728,167 @@
                 </div>
                 <div id="modal-root">
                     <div>
-                        <div class="app-overlay over-popover no-background dtp-overlay">
+                        <div
+                            class="app-overlay over-popover no-background dtp-overlay"
+                        >
+                            <!-- hệ thống -->
+                            <div
+                                class="overlay-main"
+                                style="
+                                    width: 218px;
+                                    max-width: 90%;
+                                    height: auto;
+                                    max-height: 90%;
+                                    min-width: 158px;
+                                    left: 312px;
+                                    top: 179px;
+                                "
+                                data-placement="bottom-left"
+                            >
+                                <div
+                                    id="advance-select-popup"
+                                    class="as-dropdown-container dropdown-popup visible"
+                                    tabindex="-1"
+                                >
+                                    <div
+                                        style="overscroll-behavior-y: contain"
+                                        class="scrollbar-container ps--size-md ps"
+                                    >
+                                        <ul
+                                            class="as-dropdown-list"
+                                            role="menu"
+                                        >
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="true"
+                                                    optionid
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        Tất cả
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="CDM_new_20"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        CDM_new_20
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="Lear_System"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        Lear_System
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="TruongSon"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        TruongSon
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="Vig_TestSystem"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        Vig_TestSystem
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- calendar -->
                             <div
                                 class="overlay-main"
                                 style="
@@ -1314,16 +1902,32 @@
                                 "
                                 data-placement="top-left"
                             >
-                                <div class="m-input-moment" tabindex="-1">
+                                <div
+                                    class="m-input-moment visible"
+                                    tabindex="-1"
+                                >
                                     <div class="option">
-                                        <button type="button" class="ion-calendar im-btn active">Ngày</button>
-                                        <button type="button" class="ion-clock im-btn">Giờ</button>
+                                        <button
+                                            type="button"
+                                            class="ion-calendar im-btn active"
+                                        >
+                                            Ngày
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="ion-clock im-btn"
+                                        >
+                                            Giờ
+                                        </button>
                                     </div>
                                     <div class="tabs">
                                         <div class="m-calendar tab">
                                             <div class="toolbar">
                                                 <div class="button-group">
-                                                    <button type="button" class="prev-month">
+                                                    <button
+                                                        type="button"
+                                                        class="prev-month"
+                                                    >
                                                         <i
                                                             class="fa-solid fa-angle-double-left"
                                                             style="
@@ -1333,7 +1937,10 @@
                                                             "
                                                         ></i>
                                                     </button>
-                                                    <button type="button" class="prev-month">
+                                                    <button
+                                                        type="button"
+                                                        class="prev-month"
+                                                    >
                                                         <i
                                                             class="fa-solid fa-angle-left"
                                                             style="
@@ -1345,11 +1952,18 @@
                                                     </button>
                                                 </div>
                                                 <span class="current-date">
-                                                    <button class="month"></button>
-                                                    <button class="year"></button>
+                                                    <button
+                                                        class="month"
+                                                    ></button>
+                                                    <button
+                                                        class="year"
+                                                    ></button>
                                                 </span>
                                                 <div class="button-group">
-                                                    <button type="button" class="next-month">
+                                                    <button
+                                                        type="button"
+                                                        class="next-month"
+                                                    >
                                                         <i
                                                             class="fa-solid fa-angle-right"
                                                             style="
@@ -1359,7 +1973,10 @@
                                                             "
                                                         ></i>
                                                     </button>
-                                                    <button type="button" class="next-month">
+                                                    <button
+                                                        type="button"
+                                                        class="next-month"
+                                                    >
                                                         <i
                                                             class="fa-solid fa-angle-double-right"
                                                             style="
@@ -1386,140 +2003,224 @@
                                                 <tbody id="tbody-calendar">
                                                     <tr>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                         <td class>
-                                                            <div class="day-content"></div>
+                                                            <div
+                                                                class="day-content"
+                                                            ></div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -1530,46 +2231,94 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="month-item">
-                                                            <div class="month-content">Tháng 1</div>
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 1
+                                                            </div>
                                                         </td>
                                                         <td class="month-item">
-                                                            <div class="month-content">Tháng 2</div>
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 2
+                                                            </div>
                                                         </td>
                                                         <td class="month-item">
-                                                            <div class="month-content">Tháng 3</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="month-item">
-                                                            <div class="month-content">Tháng 4</div>
-                                                        </td>
-                                                        <td class="month-item">
-                                                            <div class="month-content">Tháng 5</div>
-                                                        </td>
-                                                        <td class="month-item">
-                                                            <div class="month-content">Tháng 6</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="month-item">
-                                                            <div class="month-content">Tháng 7</div>
-                                                        </td>
-                                                        <td class="month-item">
-                                                            <div class="month-content">Tháng 8</div>
-                                                        </td>
-                                                        <td class="month-item">
-                                                            <div class="month-content">Tháng 9</div>
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 3
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="month-item">
-                                                            <div class="month-content">Tháng 10</div>
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 4
+                                                            </div>
                                                         </td>
                                                         <td class="month-item">
-                                                            <div class="month-content">Tháng 11</div>
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 5
+                                                            </div>
                                                         </td>
                                                         <td class="month-item">
-                                                            <div class="month-content">Tháng 12</div>
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 6
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="month-item">
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 7
+                                                            </div>
+                                                        </td>
+                                                        <td class="month-item">
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 8
+                                                            </div>
+                                                        </td>
+                                                        <td class="month-item">
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 9
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="month-item">
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 10
+                                                            </div>
+                                                        </td>
+                                                        <td class="month-item">
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 11
+                                                            </div>
+                                                        </td>
+                                                        <td class="month-item">
+                                                            <div
+                                                                class="month-content"
+                                                            >
+                                                                Tháng 12
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -1579,67 +2328,201 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td class="year-item"><div class="year-content">2016</div></td>
-                                                        <td class="year-item"><div class="year-content">2017</div></td>
-                                                        <td class="year-item"><div class="year-content">2018</div></td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2016
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2017
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2018
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="year-item"><div class="year-content">2019</div></td>
-                                                        <td class="year-item"><div class="year-content">2020</div></td>
-                                                        <td class="year-item"><div class="year-content">2021</div></td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2019
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2020
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2021
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="year-item"><div class="year-content">2022</div></td>
-                                                        <td class="year-item"><div class="year-content">2023</div></td>
-                                                        <td class="year-item"><div class="year-content">2024</div></td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2022
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2023
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2024
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="year-item"><div class="year-content">2025</div></td>
-                                                        <td class="year-item"><div class="year-content">2026</div></td>
-                                                        <td class="year-item"><div class="year-content">2027</div></td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2025
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2026
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2027
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="year-item"><div class="year-content">2028</div></td>
-                                                        <td class="year-item"><div class="year-content">2029</div></td>
-                                                        <td class="year-item"><div class="year-content">2030</div></td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2028
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2029
+                                                            </div>
+                                                        </td>
+                                                        <td class="year-item">
+                                                            <div
+                                                                class="year-content"
+                                                            >
+                                                                2030
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div class="m-time tab">
                                             <div class="showtime">
-                                                <span class="time" id="hour"></span>
+                                                <span
+                                                    class="time"
+                                                    id="hour"
+                                                ></span>
                                                 <span class="separater">:</span>
-                                                <span class="time" id="minute"></span>
+                                                <span
+                                                    class="time"
+                                                    id="minute"
+                                                ></span>
                                             </div>
                                             <div class="sliders">
-                                                <div class="time-text">Giờ:</div>
-                                                <div class="range-slider__labels-container" id="slider-hour">
+                                                <div class="time-text">
+                                                    Giờ:
+                                                </div>
+                                                <div
+                                                    class="range-slider__labels-container"
+                                                    id="slider-hour"
+                                                >
                                                     <div
                                                         class="range-slider__container"
-                                                        style="padding: calc(7px + 0.5rem) 0px"
+                                                        style="
+                                                            padding: calc(
+                                                                    7px + 0.5rem
+                                                                )
+                                                                0px;
+                                                        "
                                                     >
-                                                        <div class="range-slider__content">
-                                                            <div style="width: 100%; height: 5px">
-                                                                <div class="slider__rail"></div>
+                                                        <div
+                                                            class="range-slider__content"
+                                                        >
+                                                            <div
+                                                                style="
+                                                                    width: 100%;
+                                                                    height: 5px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="slider__rail"
+                                                                ></div>
                                                                 <div
                                                                     class="track"
                                                                     style="
                                                                         left: 0%;
                                                                         width: 91.3043%;
-                                                                        background-color: rgb(55, 114, 255);
+                                                                        background-color: rgb(
+                                                                            55,
+                                                                            114,
+                                                                            255
+                                                                        );
                                                                     "
                                                                 ></div>
-                                                                <div class="slider-mark-container">
-                                                                    <div class="slider-mark-dot"></div>
+                                                                <div
+                                                                    class="slider-mark-container"
+                                                                >
+                                                                    <div
+                                                                        class="slider-mark-dot"
+                                                                    ></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="slider__range-thumb" style="left: 91.3043%">
+                                                            <div
+                                                                class="slider__range-thumb"
+                                                                style="
+                                                                    left: 91.3043%;
+                                                                "
+                                                            >
                                                                 <div
                                                                     style="
                                                                         width: 14px;
                                                                         height: 14px;
-                                                                        border: 2px solid rgb(55, 114, 255);
+                                                                        border: 2px
+                                                                            solid
+                                                                            rgb(
+                                                                                55,
+                                                                                114,
+                                                                                255
+                                                                            );
                                                                         border-radius: 50%;
                                                                         background-color: white;
                                                                     "
@@ -1647,40 +2530,86 @@
                                                             </div>
                                                             <div
                                                                 class="slider__thumb-indicator"
-                                                                style="left: 21%; transform: translate(-19%, 4.5px)"
+                                                                style="
+                                                                    left: 21%;
+                                                                    transform: translate(
+                                                                        -19%,
+                                                                        4.5px
+                                                                    );
+                                                                "
                                                             >
-                                                                <div class="slider__indicator-text"></div>
+                                                                <div
+                                                                    class="slider__indicator-text"
+                                                                ></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="time-text">Phút:</div>
-                                                <div class="range-slider__labels-container" id="slider-minute">
+                                                <div class="time-text">
+                                                    Phút:
+                                                </div>
+                                                <div
+                                                    class="range-slider__labels-container"
+                                                    id="slider-minute"
+                                                >
                                                     <div
                                                         class="range-slider__container"
-                                                        style="padding: calc(7px + 0.5rem) 0px"
+                                                        style="
+                                                            padding: calc(
+                                                                    7px + 0.5rem
+                                                                )
+                                                                0px;
+                                                        "
                                                     >
-                                                        <div class="range-slider__content">
-                                                            <div style="width: 100%; height: 5px">
-                                                                <div class="slider__rail"></div>
+                                                        <div
+                                                            class="range-slider__content"
+                                                        >
+                                                            <div
+                                                                style="
+                                                                    width: 100%;
+                                                                    height: 5px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="slider__rail"
+                                                                ></div>
                                                                 <div
                                                                     class="track"
                                                                     style="
                                                                         left: 0%;
                                                                         width: 91.3043%;
-                                                                        background-color: rgb(55, 114, 255);
+                                                                        background-color: rgb(
+                                                                            55,
+                                                                            114,
+                                                                            255
+                                                                        );
                                                                     "
                                                                 ></div>
-                                                                <div class="slider-mark-container">
-                                                                    <div class="slider-mark-dot"></div>
+                                                                <div
+                                                                    class="slider-mark-container"
+                                                                >
+                                                                    <div
+                                                                        class="slider-mark-dot"
+                                                                    ></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="slider__range-thumb" style="left: 91.3043%">
+                                                            <div
+                                                                class="slider__range-thumb"
+                                                                style="
+                                                                    left: 91.3043%;
+                                                                "
+                                                            >
                                                                 <div
                                                                     style="
                                                                         width: 14px;
                                                                         height: 14px;
-                                                                        border: 2px solid rgb(55, 114, 255);
+                                                                        border: 2px
+                                                                            solid
+                                                                            rgb(
+                                                                                55,
+                                                                                114,
+                                                                                255
+                                                                            );
                                                                         border-radius: 50%;
                                                                         background-color: white;
                                                                     "
@@ -1690,10 +2619,15 @@
                                                                 class="slider__thumb-indicator"
                                                                 style="
                                                                     width: 91.3034%;
-                                                                    transform: translate(-89.3034%, 4.5px);
+                                                                    transform: translate(
+                                                                        -89.3034%,
+                                                                        4.5px
+                                                                    );
                                                                 "
                                                             >
-                                                                <div class="slider__indicator-text"></div>
+                                                                <div
+                                                                    class="slider__indicator-text"
+                                                                ></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1705,18 +2639,26 @@
                                         <div
                                             class="flex flex-grow flex-shrink flex-basis-0 justify-center gap-2 overflow-hidden"
                                         >
-                                            <button class="btn btn--primary btn--fill btn--md css-0 w-25">
+                                            <button
+                                                class="btn btn--primary btn--fill btn--md css-0 w-25"
+                                            >
                                                 <span
                                                     class="btn__content relative inline-flex justify-center items-center btn--icon-left"
                                                 >
-                                                    <span class="btn__text">Hôm nay</span>
+                                                    <span class="btn__text"
+                                                        >Hôm nay</span
+                                                    >
                                                 </span>
                                             </button>
-                                            <button class="btn btn--primary btn--outline btn--md w-25">
+                                            <button
+                                                class="btn btn--primary btn--outline btn--md w-25"
+                                            >
                                                 <span
                                                     class="btn__content relative inline-flex justify-center item-center btn--icon-left"
                                                 >
-                                                    <span class="btn__text">Xoá</span>
+                                                    <span class="btn__text"
+                                                        >Xoá</span
+                                                    >
                                                 </span>
                                             </button>
                                         </div>
@@ -1728,6 +2670,6 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/perfect-scrollbar.min.js"></script>
+        <script src="/js/bootstrap.js"></script>
     </body>
 </html>

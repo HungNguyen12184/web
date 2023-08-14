@@ -32,6 +32,7 @@
 
 function toDate() {
     var modalElement = document.getElementById('modal-root');
+    var selectForm = document.getElementById('advance-select-popup');
     var fromDateElement = document.getElementById('dtp-control-1');
     var toDateElement = document.getElementById('dtp-control-2');
     var fromDateInputElement = document.getElementById('input-text-1');
@@ -39,6 +40,7 @@ function toDate() {
     var isOpen = false;
     fromDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
+        selectForm.style.display = 'none';
         selectedInput = fromDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
@@ -47,10 +49,13 @@ function toDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
+        showCalendarTab();
+        buttonGroup();
         inputDateTime();
     });
     toDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
+        selectForm.style.display = 'none';
         selectedInput = toDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
@@ -60,6 +65,8 @@ function toDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
+        showCalendarTab();
+        buttonGroup();
         inputDateTime();
         resizeModal();
     });
@@ -98,7 +105,11 @@ function activeCurrentDay(day) {
     var currentMonth = currentDate.getMonth();
     var currentDay = currentDate.getDate();
 
-    return currentYear === currentYear && currentMonth === currentMonth && day === currentDay;
+    return (
+        currentYear === currentYear &&
+        currentMonth === currentMonth &&
+        day === currentDay
+    );
 }
 
 // tao ngay thang
@@ -300,7 +311,9 @@ function showCalendarTab() {
     var yearButton = document.querySelector('.current-date .year');
     monthButton.addEventListener('click', function () {
         showMonthCalendar();
-        var monthItems = document.querySelectorAll('.m-calendar.month .month-item');
+        var monthItems = document.querySelectorAll(
+            '.m-calendar.month .month-item',
+        );
         monthItems.forEach(function (item) {
             item.addEventListener('click', function (event) {
                 var selectedMonthContent = event.target.textContent;
@@ -308,7 +321,9 @@ function showCalendarTab() {
                 calendarTab.style.display = 'inline-block';
                 var tabMonthContent = calendarTab.querySelector('.month');
                 tabMonthContent.textContent = selectedMonthContent;
-                var selectedMonthIndex = Array.from(monthItems).indexOf(event.currentTarget);
+                var selectedMonthIndex = Array.from(monthItems).indexOf(
+                    event.currentTarget,
+                );
                 currentMonth = selectedMonthIndex;
                 updateDate();
                 var calendarMonth = document.querySelector('.m-calendar.month');
@@ -318,7 +333,9 @@ function showCalendarTab() {
     });
     yearButton.addEventListener('click', function () {
         showYearCalendar();
-        var yearItems = document.querySelectorAll('.m-calendar.year .year-item');
+        var yearItems = document.querySelectorAll(
+            '.m-calendar.year .year-item',
+        );
         yearItems.forEach(function (item) {
             item.addEventListener('click', function (event) {
                 var selectedYearContent = event.target.textContent;
@@ -405,7 +422,13 @@ function inputDateTime() {
             currentMonth = updatedDate.currentMonth;
             currentYear = updatedDate.currentYear;
             var formattedDate =
-                clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateShowTime();
+                clickedDayContent +
+                '/' +
+                (currentMonth + 1) +
+                '/' +
+                currentYear +
+                ' ' +
+                updateShowTime();
             if (selectedInput) {
                 selectedInput.value = formattedDate;
             }
@@ -676,7 +699,10 @@ document.addEventListener('DOMContentLoaded', function () {
             minutePercentage = percentage;
         }
         var selectedHourValue = percentageToValue(hourPercentage, maxValueHour);
-        var selectedMinuteValue = percentageToValue(minutePercentage, maxValueMinute);
+        var selectedMinuteValue = percentageToValue(
+            minutePercentage,
+            maxValueMinute,
+        );
         slider.style.left = percentage + '%';
         var showtime = document.querySelector('.showtime');
         var hourElement = showtime.querySelector('#hour');
@@ -718,8 +744,12 @@ function updateTime() {
     var minutes = currentTime.getMinutes();
     var hourSliderContainer = document.getElementById('slider-hour');
     var minuteSliderContainer = document.getElementById('slider-minute');
-    var hourSliderThumb = hourSliderContainer.querySelector('.slider__range-thumb');
-    var minuteSliderThumb = minuteSliderContainer.querySelector('.slider__range-thumb');
+    var hourSliderThumb = hourSliderContainer.querySelector(
+        '.slider__range-thumb',
+    );
+    var minuteSliderThumb = minuteSliderContainer.querySelector(
+        '.slider__range-thumb',
+    );
     var hourPercentage = (hours / 24) * 100;
     var minutePercentage = (minutes / 60) * 100;
     hourSliderThumb.style.left = hourPercentage + '%';
@@ -771,13 +801,23 @@ function changeWidth(event) {
     }
 }
 
+//Selectec
+
+function selectSystem() {
+    var modalElement = $('#modal-root');
+    var selectForm = $('#list-system');
+    var selectPopup = $('#advance-select-popup');
+    selectForm.on('click', function () {
+        modalElement.css('display', 'block');
+        selectPopup.css('display', 'block');
+    });
+}
 window.onload = function () {
-    showCalendarTab();
     toDate();
-    buttonGroup();
     fillCurrentDate();
     updateDate();
     optionGroup();
     showCurrentPageData(1);
     buttonView();
+    selectSystem();
 };
