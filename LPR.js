@@ -32,7 +32,7 @@
 
 function toDate() {
     var modalElement = document.getElementById('modal-root');
-    var selectForm = document.getElementById('advance-select-popup');
+    var inputCalendar = document.getElementById('calendar');
     var fromDateElement = document.getElementById('dtp-control-1');
     var toDateElement = document.getElementById('dtp-control-2');
     var fromDateInputElement = document.getElementById('input-text-1');
@@ -40,7 +40,7 @@ function toDate() {
     var isOpen = false;
     fromDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
-        selectForm.style.display = 'none';
+        inputCalendar.style.display = 'block';
         selectedInput = fromDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
@@ -55,7 +55,7 @@ function toDate() {
     });
     toDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
-        selectForm.style.display = 'none';
+        inputCalendar.style.display = 'block';
         selectedInput = toDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
@@ -802,16 +802,59 @@ function changeWidth(event) {
 }
 
 //Selectec
-
 function selectSystem() {
     var modalElement = $('#modal-root');
     var selectForm = $('#list-system');
-    var selectPopup = $('#advance-select-popup');
+    var selectPopup = $('#system');
+    var selectCamera = $('#list-camera');
+    var listCamera = $('#camera');
+    var selectList = $('#listwhitle');
+    var listPopup = $('#list-list');
+    var nonCalendar = $('#calendar');
+    var isOpenSystem = false;
+    var isOpenCamera = false;
+    var isOpenList = false;
+
     selectForm.on('click', function () {
         modalElement.css('display', 'block');
-        selectPopup.css('display', 'block');
+        if (!isOpenSystem) {
+            selectPopup.css('display', 'block');
+            listCamera.css('display', 'none');
+            isOpenSystem = true;
+        } else {
+            selectPopup.css('display', 'none');
+            isOpenSystem = false;
+        }
+        nonCalendar.css('display', 'none');
+    });
+
+    selectCamera.on('click', function () {
+        modalElement.css('display', 'block');
+        if (!isOpenCamera) {
+            listCamera.css('display', 'block');
+            selectPopup.css('display', 'none');
+            isOpenCamera = true;
+        } else {
+            listCamera.css('display', 'none');
+            isOpenCamera = false;
+        }
+        nonCalendar.css('display', 'none');
+    });
+    selectList.on('click', function () {
+        modalElement.css('display', 'block');
+        if (!isOpenList) {
+            listPopup.css('display', 'block');
+            listCamera.css('display', 'none');
+            selectPopup.css('display', 'none');
+            isOpenList = true;
+        } else {
+            listPopup.css('display', 'none');
+            isOpenList = false;
+        }
+        nonCalendar.css('display', 'none');
     });
 }
+
 window.onload = function () {
     toDate();
     fillCurrentDate();
