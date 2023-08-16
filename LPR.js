@@ -814,46 +814,84 @@ function selectSystem() {
     var isOpenSystem = false;
     var isOpenCamera = false;
     var isOpenList = false;
+    var switcherItemSelect = selectPopup.find('.switcher-item');
+    var switcherItemList = listPopup.find('.switcher-item');
+    var switcherItemCamera = listCamera.find('.switcher-item');
+
+    function fillValue(target, optionText) {
+        target.find('.dropdown-btn-text').text(optionText);
+    }
 
     selectForm.on('click', function () {
         modalElement.css('display', 'block');
+        listCamera.css('display', 'none');
+        listPopup.css('display', 'none');
+        nonCalendar.css('display', 'none');
+
         if (!isOpenSystem) {
             selectPopup.css('display', 'block');
-            listCamera.css('display', 'none');
             isOpenSystem = true;
         } else {
             selectPopup.css('display', 'none');
             isOpenSystem = false;
         }
-        nonCalendar.css('display', 'none');
     });
 
     selectCamera.on('click', function () {
         modalElement.css('display', 'block');
+        selectPopup.css('display', 'none');
+        listPopup.css('display', 'none');
+        nonCalendar.css('display', 'none');
+
         if (!isOpenCamera) {
             listCamera.css('display', 'block');
-            selectPopup.css('display', 'none');
             isOpenCamera = true;
         } else {
             listCamera.css('display', 'none');
             isOpenCamera = false;
         }
-        nonCalendar.css('display', 'none');
     });
+
     selectList.on('click', function () {
         modalElement.css('display', 'block');
+        listCamera.css('display', 'none');
+        selectPopup.css('display', 'none');
+        nonCalendar.css('display', 'none');
         if (!isOpenList) {
             listPopup.css('display', 'block');
-            listCamera.css('display', 'none');
-            selectPopup.css('display', 'none');
             isOpenList = true;
         } else {
             listPopup.css('display', 'none');
             isOpenList = false;
         }
-        nonCalendar.css('display', 'none');
+    });
+
+    switcherItemSelect.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(selectForm, optionText);
+        selectPopup.css('display', 'none');
+    });
+
+    switcherItemCamera.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(selectCamera, optionText);
+        listCamera.css('display', 'none');
+    });
+
+    switcherItemList.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(selectList, optionText);
+        listPopup.css('display', 'none');
     });
 }
+
+// function clickSwitcher() {
+//     $('.switcher-item').on('click', function () {
+//         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+//         $('.dropdown-btn-text').text(optionText);
+//         $('.as-dropdown-container').css('display', 'none');
+//     });
+// }
 
 window.onload = function () {
     toDate();
