@@ -441,28 +441,29 @@ function inputDateTime() {
 const tableData = [
     {
         stt: 1,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
         hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
         do_chinh_xac: '90%',
         chi_tiet: 'TruongSon_KOMOTA_2',
     },
     {
         stt: 2,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_29.png',
+        hinh_toan_canh: '',
         hinh_bien_so: 'scr/2023-07-28T16_53_23.png',
         do_chinh_xac: '80%',
         chi_tiet: 'TruongSon_KOMOTA_3',
     },
     {
         stt: 3,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
+        hinh_toan_canh: '',
         hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
         do_chinh_xac: '70%',
         chi_tiet: 'TruongSon_KOMOTA_4',
     },
     {
         stt: 4,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_56.png',
+        hinh_toan_canh: '',
         hinh_bien_so: 'scr/2023-07-28T16_53_51.png',
         do_chinh_xac: '60%',
         chi_tiet: 'TruongSon_KOMOTA_5',
