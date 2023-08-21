@@ -443,112 +443,127 @@ const tableData = [
         stt: 1,
         hinh_toan_canh:
             'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
         do_chinh_xac: '90%',
         chi_tiet: 'TruongSon_KOMOTA_2',
     },
     {
         stt: 2,
-        hinh_toan_canh: '',
-        hinh_bien_so: 'scr/2023-07-28T16_53_23.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_29.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_23.png',
         do_chinh_xac: '80%',
         chi_tiet: 'TruongSon_KOMOTA_3',
     },
     {
         stt: 3,
-        hinh_toan_canh: '',
-        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
         do_chinh_xac: '70%',
         chi_tiet: 'TruongSon_KOMOTA_4',
     },
     {
         stt: 4,
-        hinh_toan_canh: '',
-        hinh_bien_so: 'scr/2023-07-28T16_53_51.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_56.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_51.png',
         do_chinh_xac: '60%',
         chi_tiet: 'TruongSon_KOMOTA_5',
     },
     {
         stt: 5,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_08.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_02.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_08.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_02.png',
         do_chinh_xac: '50%',
         chi_tiet: 'TruongSon_KOMOTA_6',
     },
     {
         stt: 6,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_15.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_11.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_15.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_11.png',
         do_chinh_xac: '40%',
         chi_tiet: 'TruongSon_KOMOTA_7',
     },
     {
         stt: 7,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_27.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_19.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_27.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_19.png',
         do_chinh_xac: '30%',
         chi_tiet: 'TruongSon_KOMOTA_8',
     },
     {
         stt: 8,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_37.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_37.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
         do_chinh_xac: '20%',
         chi_tiet: 'TruongSon_KOMOTA_9',
     },
     {
         stt: 9,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
         do_chinh_xac: '10%',
         chi_tiet: 'TruongSon_KOMOTA_10',
     },
     {
         stt: 10,
-        hinh_toan_canh: 'scr/2023-07-28T16_55_00.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_49.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_55_00.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
         do_chinh_xac: '25%',
         chi_tiet: 'TruongSon_KOMOTA_11',
     },
     {
         stt: 11,
-        hinh_toan_canh: 'scr/2023-07-28T16_55_00.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_49.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_55_00.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
         do_chinh_xac: '35%',
         chi_tiet: 'TruongSon_KOMOTA_12',
     },
     {
         stt: 12,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
         do_chinh_xac: '86%',
         chi_tiet: 'TruongSon_KOMOTA_13',
     },
     {
         stt: 13,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
         do_chinh_xac: '96%',
         chi_tiet: 'TruongSon_KOMOTA_14',
     },
     {
         stt: 14,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_37.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_37.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
         do_chinh_xac: '69%',
         chi_tiet: 'TruongSon_KOMOTA_15',
     },
     {
         stt: 15,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
         do_chinh_xac: '79%',
         chi_tiet: 'TruongSon_KOMOTA_16',
     },
     {
         stt: 16,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
         do_chinh_xac: '59%',
         chi_tiet: 'TruongSon_KOMOTA_17',
     },
@@ -726,6 +741,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 document.addEventListener('mouseup', function () {
                     isMouseDown = false;
+                    $(document).off('mousemove');
                 });
             });
         }
@@ -800,6 +816,44 @@ function changeWidth(event) {
             tableList.style.width = '0%';
         }
     }
+}
+//slier%
+function setupPercent() {
+    var rangeThumb = $('#slider__range-thumb-1');
+    var track = $('.track');
+    var rangeContainer = $('.range-slider__container');
+    var isDragging = false;
+
+    rangeThumb.on('mousedown', function (e) {
+        isDragging = true;
+
+        $(document).on('mousemove', function (e) {
+            if (isDragging) {
+                var containerWidth = rangeContainer.width();
+                var mouseX = e.clientX - rangeContainer.offset().left;
+                var percentage = (mouseX / containerWidth) * 100;
+                // Giới hạn phần trăm trong khoảng từ 0 đến 100
+                percentage = Math.min(Math.max(percentage, 0), 100);
+                // Cập nhật vị trí left của slider__range-thumb
+                rangeThumb.css('left', percentage + '%');
+                // Cập nhật màu nền của track
+                var trackWidth = 100 - percentage;
+                // Cập nhật width và left của track
+                track.css({
+                    width: trackWidth + '%',
+                    left: percentage + '%',
+                });
+            }
+        });
+
+        $(document).on('mouseup', function () {
+            isDragging = false;
+            $(document).off('mousemove');
+            $(document).off('mouseup');
+        });
+        // Ngừng sự kiện mousedown để tránh xung đột
+        e.preventDefault();
+    });
 }
 
 //Selectec
@@ -886,14 +940,6 @@ function selectSystem() {
     });
 }
 
-// function clickSwitcher() {
-//     $('.switcher-item').on('click', function () {
-//         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
-//         $('.dropdown-btn-text').text(optionText);
-//         $('.as-dropdown-container').css('display', 'none');
-//     });
-// }
-
 window.onload = function () {
     toDate();
     fillCurrentDate();
@@ -902,4 +948,5 @@ window.onload = function () {
     showCurrentPageData(1);
     buttonView();
     selectSystem();
+    setupPercent();
 };
