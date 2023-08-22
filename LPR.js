@@ -528,9 +528,23 @@ const tableData = [
         do_chinh_xac: '59%',
         chi_tiet: 'TruongSon_KOMOTA_17',
     },
+    {
+        stt: 17,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        do_chinh_xac: '59%',
+        chi_tiet: 'TruongSon_KOMOTA_17',
+    },
+    {
+        stt: 18,
+        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        do_chinh_xac: '79%',
+        chi_tiet: 'TruongSon_KOMOTA_16',
+    },
 ];
 
-var itemsPerPage = 8;
+var itemsPerPage = 9;
 var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
 var currentPage = 1;
 
