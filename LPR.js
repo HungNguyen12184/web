@@ -629,12 +629,12 @@ function showCurrentPageData(page) {
     </div>
     <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
         <div class="dg-cell">
-        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden">
-        <button class="btn btn--default btn-fill btn--round btn--sm btn--only-icon btn--icon-sm">
-            <span class="btn__content relative justify-center items-center">
-            <i class="fas fa-info" style="font-size: 20px; color: inherit; background-color: transparent;"></i>
-            </span>
-        </button>
+        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden"                                                                               >
+       <button type="button" class="btn btn-secondary"  style="min-height: 2.5rem;">
+        <span class="btn-content relative">
+            i
+        </span>
+        </button> 
     </div>
     
         </div>
@@ -866,12 +866,17 @@ function selectSystem() {
     var selectList = $('#listwhitle');
     var listPopup = $('#list-list');
     var nonCalendar = $('#calendar');
+    var listTime = $('#list-time');
+    var selectTime = $('#time');
+    var checkTime = $('#radio2');
     var isOpenSystem = false;
     var isOpenCamera = false;
     var isOpenList = false;
+    var isOpenTime = false;
     var switcherItemSelect = selectPopup.find('.switcher-item');
     var switcherItemList = listPopup.find('.switcher-item');
     var switcherItemCamera = listCamera.find('.switcher-item');
+    var switcherItemTime = selectTime.find('.switcher-item');
 
     function fillValue(target, optionText) {
         target.find('.dropdown-btn-text').text(optionText);
@@ -921,6 +926,23 @@ function selectSystem() {
         }
     });
 
+    listTime.on('click', function () {
+        if (checkTime.prop('checked') === true) {
+            modalElement.css('display', 'block');
+            listCamera.css('display', 'none');
+            selectPopup.css('display', 'none');
+            nonCalendar.css('display', 'none');
+            selectList.css('display', 'none');
+            if (!isOpenTime) {
+                selectTime.css('display', 'block');
+                isOpenTime = true;
+            } else {
+                selectTime.css('display', 'none');
+                isOpenTime = false;
+            }
+        }
+    });
+
     switcherItemSelect.on('click', function () {
         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
         fillValue(selectForm, optionText);
@@ -937,6 +959,11 @@ function selectSystem() {
         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
         fillValue(selectList, optionText);
         listPopup.css('display', 'none');
+    });
+    switcherItemTime.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(listTime, optionText);
+        selectTime.css('display', 'none');
     });
 }
 

@@ -307,7 +307,7 @@ canvas {
 .btn--empty {
   --active-shadow-inner-rgb: 99, 99, 99;
 }
-  .btn {
+  /* .btn {
     --button-height: 2.25rem;
     --icon-ratio: 0;
     --color: rgba(255, 255, 255, 0.95);
@@ -321,13 +321,20 @@ canvas {
     justify-content: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
+  } */
 .tab-control .tab-header-wrap .tab-header .tab-item-header.active span {
   font-weight: 500;
   opacity: 1;
 }
+
 .btn__content {
   z-index: 1;
+
+}
+span.btn-content{
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center;
 }
 .relative {
   position: relative !important;
@@ -343,6 +350,9 @@ canvas {
 }
 .inline-flex {
   display: inline-flex !important;
+}
+.inline-block {
+  display: inline-block;
 }
 .tab-control .tab-header-wrap .tab-header .tab-item-header {
   margin: 0 1rem;
@@ -743,8 +753,8 @@ div.form-input-group .input-append {
   --button-bg: rgba(55,114,255,1);
   --hover-stroke: rgba (var(--btn-color),1);
 }
-.btn {
-  --button-height:2.25rem; /*Khai báo biến css*/
+/* .btn {
+  --button-height:2.25rem; 
   --icon-ratio:0;
   --btn-alpha:1;
   --btn-disabled-alpha:0.5;
@@ -770,7 +780,7 @@ div.form-input-group .input-append {
   transition: all var(--transition-duration) ease-in-out;
   cursor: pointer;
   border: var(--border-width) solid transparent;
-}
+} */
 .btn--sm .btn__text {
   --text-size: calc (14/16 *1rem );
 }
@@ -1394,7 +1404,8 @@ table {
   --button-bg:rgba(99,99,99,1);
   --hover-stroke:rgba((99,99,99),1);
 }
-.btn {
+
+/* .btn {
   --button-height: 2.25rem;
   --icon-ratio: 0;
   --color: rgba(255, 255, 255, 0.95);
@@ -1415,7 +1426,7 @@ table {
   border: 1px solid transparent;
   touch-action: manipulation;
 
-}
+} */
 .rounded-full {
   border-radius: 50%;
 }

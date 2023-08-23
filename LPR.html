@@ -1117,10 +1117,11 @@
                                                                                     ></label>
                                                                                 </div>
                                                                                 <div
-                                                                                    class="advance-select--wrapper w28 h-max"
+                                                                                    class="advance-select--wrapper w-28 h-max"
                                                                                 >
                                                                                     <div
                                                                                         class="as-container"
+                                                                                        id ="list-time"
                                                                                         tabindex="0"
                                                                                         aria-haspopup="menu"
                                                                                         aria-expanded="false"
@@ -1252,31 +1253,31 @@
                                                             <div
                                                                 class="panel-footer-actions"
                                                             >
-                                                                <button
-                                                                    class="btn btn--primary btn--fill btn-sm"
-                                                                >
-                                                                    <span
+                                                            <button type="button" class="btn btn-primary btn-lg">
+                                                                    <!-- <span
                                                                         class="btn__content relative inline-flex justify-center item-center btn--icon-left"
                                                                     >
                                                                         <span
                                                                             class="btn__text"
-                                                                            >Đặt
-                                                                            lại</span
+                                                                            ></span
                                                                         >
-                                                                    </span>
+                                                                    </span> -->
+                                                                    Đặt
+                                                                    lại
                                                                 </button>
                                                                 <button
-                                                                    class="btn btn--primary btn--fill btn-sm"
+                                                                type="button" class="btn btn-primary btn-lg"
                                                                 >
-                                                                    <span
+                                                                    <!-- <span
                                                                         class="btn__content relative inline-flex justify-center item-center btn--icon-left"
                                                                     >
                                                                         <span
                                                                             class="btn__text"
-                                                                            >Tìm
-                                                                            kiếm</span
+                                                                            ></span
                                                                         >
-                                                                    </span>
+                                                                    </span> -->
+                                                                    Tìm
+                                                                    kiếm
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -1386,7 +1387,7 @@
                                                                                     <div
                                                                                         class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden"
                                                                                     >
-                                                                                        <button
+                                                                                        <!-- <button
                                                                                             class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg custom-button"
                                                                                         >
                                                                                             <span
@@ -1401,12 +1402,23 @@
                                                                                                     "
                                                                                                 ></i>
                                                                                             </span>
-                                                                                        </button>
-                                                                                        <button
-                                                                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg custom-button"
-                                                                                        >
+                                                                                        </button> -->
+                                                                                        <button type="button" class="btn btn-outline-secondary">
                                                                                             <span
-                                                                                                class="btn__content relative inline-flex justify-center item-center"
+                                                                                            class="btn__content relative inline-flex justify-center items-center"
+                                                                                        >
+                                                                                            <i
+                                                                                                class="fa-solid fa-angle-double-left"
+                                                                                                style="
+                                                                                                    font-size: 24px;
+                                                                                                    color: inherit;
+                                                                                                    background-color: transparent;
+                                                                                                "
+                                                                                            ></i>
+                                                                                        </button>
+                                                                                        <button type="button" class="btn btn-outline-secondary">
+                                                                                            <span
+                                                                                                class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
                                                                                                 <i
                                                                                                     class="fa-solid fa-angle-left"
@@ -1418,15 +1430,13 @@
                                                                                                 ></i>
                                                                                             </span>
                                                                                         </button>
+                                                                                        
                                                                                         <button
-                                                                                            class="btn btn--primary btn--fill btn--xs active rounded-lg"
-                                                                                            style="
-                                                                                                min-width: 2rem;
-                                                                                                height: 1.8rem;
-                                                                                            "
+                                                                                        type="button" class="btn btn-primary"
+                                                                                        style="min-width: 2.5rem;"
                                                                                         >
                                                                                             <span
-                                                                                                class="btn__content relative inline-flex justify-center item-center"
+                                                                                                class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
                                                                                                 <span
                                                                                                     class="btn_text"
@@ -1434,11 +1444,9 @@
                                                                                                 >
                                                                                             </span>
                                                                                         </button>
-                                                                                        <button
-                                                                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg custom-button"
-                                                                                        >
+                                                                                        <button type="button" class="btn btn-outline-secondary">
                                                                                             <span
-                                                                                                class="btn__content relative inline-flex justify-center item-center"
+                                                                                                class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
                                                                                                 <i
                                                                                                     class="fa-solid fa-angle-right"
@@ -1450,11 +1458,9 @@
                                                                                                 ></i>
                                                                                             </span>
                                                                                         </button>
-                                                                                        <button
-                                                                                            class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg custom-button"
-                                                                                        >
+                                                                                        <button type="button" class="btn btn-outline-secondary">
                                                                                             <span
-                                                                                                class="btn__content relative inline-flex justify-center item-center"
+                                                                                                class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
                                                                                                 <i
                                                                                                     class="fa-solid fa-angle-double-right"
@@ -1797,7 +1803,7 @@
                 </div>
                 <div id="modal-root">
                     <div>
-                        <div
+                        <di
                             class="app-overlay over-popover no-background dtp-overlay"
                         >
                             <!-- hệ thống -->
@@ -2189,6 +2195,163 @@
                                                             ></i>
                                                         </div>
                                                         Miễn trừ
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Time -->
+                            <div
+                                class="overlay-main"
+                                style="
+                                    width: 119px;
+                                    max-width: 90%;
+                                    height: auto;
+                                    max-height: 90%;
+                                    min-width: 18px;
+                                    left: 414px;
+                                    top: 690px;
+                                "
+                                data-placement="bottom-left"
+                            >
+                                <div
+                                    id="time"
+                                    class="as-dropdown-container dropdown-popup visible"
+                                    tabindex="-1"
+                                    style="display: none"
+                                >
+                                    <div
+                                        style="overscroll-behavior-y: contain"
+                                        class="scrollbar-container ps--size-md ps"
+                                    >
+                                        <ul
+                                            class="as-dropdown-list"
+                                            role="menu"
+                                        >
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="true"
+                                                    optionid="6"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        6 giờ
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="12"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        12 giờ
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="1"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        1 ngày
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="7"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        7 ngày
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li
+                                                    class="as-dropdown-item as-dropdown-item--active"
+                                                    role="menuitem"
+                                                    aria-selected="false"
+                                                    optionid="30"
+                                                >
+                                                    <div
+                                                        class="as-dropdown-item-button"
+                                                    >
+                                                        <div
+                                                            class="active--icon"
+                                                        >
+                                                            <i
+                                                                class="fal fa-check"
+                                                                style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "
+                                                            ></i>
+                                                        </div>
+                                                        30 ngày
                                                     </div>
                                                 </li>
                                             </div>
