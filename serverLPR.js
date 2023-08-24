@@ -2,10 +2,11 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 const path = require('path');
-const cors = require('cors');
 const port = 3000;
-app.use(cors());
-const imageDir = '/Users/lieunguyen/Documents/image';
+const process = require('process');
+process.cwd();
+
+const imageDir = '..//web/scr';
 
 app.get('/api/image/:imageName', (req, res) => {
     const imageName = req.params.imageName;
