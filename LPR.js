@@ -630,7 +630,7 @@ function showCurrentPageData(page) {
     <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
         <div class="dg-cell">
         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden"                                                                               >
-       <button type="button" class="btn btn-secondary"  style="min-height: 2.5rem;">
+       <button type="button" class="btn btn-secondary   "  style="min-height: 2.5rem;">
         <span class="btn-content relative">
             i
         </span>

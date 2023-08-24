@@ -10,7 +10,6 @@ const imageDir = path.join(__dirname, 'src', 'public');
 app.get('/api/image/:imageName', (req, res) => {
     const imageName = req.params.imageName;
     const imagePath = path.join(imageDir, imageName);
-    console.log(imagePath);
     fs.readFile(imagePath, (err, data) => {
         if (err) {
             res.status(404).json({ error: 'Image not found.' });
