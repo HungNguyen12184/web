@@ -22,7 +22,7 @@ body {
 }
 a,
 button {
-  color: aliceblue;
+ color: rgb(255, 255, 255) !important;
 }
 
 button,
@@ -43,6 +43,7 @@ span,
 i,
 canvas {
   background: transparent;
+  font-size: 1rem !important;
   border: 0;
   border-radius: 0;
   list-style: none;
@@ -110,9 +111,9 @@ canvas {
   width: 14rem !important;
 }
 
-.ps--size-md {
-  --ps-size: 6px; /*biến tuỳ chỉnh trong css */
-}
+/* .ps--size-md {
+  --ps-size: 6px; 
+} */
 /* .scrollbar-container {
   position: relative;
   height: 100%;
@@ -448,7 +449,7 @@ div.form-control {
   text-overflow: ellipsis;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.85);
-  background: rgb(25, 26, 28);
+  background: rgb(25, 26, 28) !important;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius:  0.25rem;
   width: 100%;
@@ -836,7 +837,7 @@ div.form-input-group .input-append {
   height: 100% !important;
 }
 .gap-1 {
-  gap: 0.25rem;
+  gap: 0.25rem !important;
 }
 
 .p-4 {
@@ -1429,4 +1430,57 @@ font-size: calc(calc(32/16*1em) * 0.5) !important;
 .custom-button {
   border: 1px solid slategray;
   padding: 4px; /* Khoảng cách giữa viền và nội dung nút */
+}
+
+/* dung bootstarp*/
+.as-dropdown-container{
+  min-height: 130px;
+  min-width: 2.2rem;
+  border-radius:0.25rem ;
+  box-sizing: border-box;
+  z-index: 20;
+  padding: 0.25rem 0;
+  margin: 2px 0;
+  user-select: none;
+}
+.dropdown-popup {
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgb(50,51,53);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+.visible {
+  visibility: inherit !important;
+}
+.as-dropdown-list {
+  max-width: 250px;
+}
+.as-dropdown-item--active {
+  position: relative;
+}
+.as-dropdown-item{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  transition-duration:0.2s ;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: padding-left;
+}
+.as-dropdown-item .as-dropdown-item-button .active--icon{
+  opacity: 0;
+  position: absolute;
+  left: 0.75rem;
+  top:50%;
+  transform: translateY(-50%);
+  color:rgba((55,114,225),1);
+}
+.justify-start {
+  justify-content: flex-start !important;
+}
+.form-check-input{
+  --bs-form-check-bg: var(--bs-body-color);
 }

@@ -32,6 +32,7 @@
 
 function toDate() {
     var modalElement = document.getElementById('modal-root');
+    var inputCalendar = document.getElementById('calendar');
     var fromDateElement = document.getElementById('dtp-control-1');
     var toDateElement = document.getElementById('dtp-control-2');
     var fromDateInputElement = document.getElementById('input-text-1');
@@ -39,6 +40,7 @@ function toDate() {
     var isOpen = false;
     fromDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
+        inputCalendar.style.display = 'block';
         selectedInput = fromDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
@@ -47,10 +49,13 @@ function toDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
+        showCalendarTab();
+        buttonGroup();
         inputDateTime();
     });
     toDateElement.addEventListener('click', function () {
         modalElement.style.display = 'block';
+        inputCalendar.style.display = 'block';
         selectedInput = toDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
@@ -60,6 +65,8 @@ function toDate() {
             modalElement.style.display = 'none';
             isOpen = false;
         }
+        showCalendarTab();
+        buttonGroup();
         inputDateTime();
         resizeModal();
     });
@@ -98,7 +105,11 @@ function activeCurrentDay(day) {
     var currentMonth = currentDate.getMonth();
     var currentDay = currentDate.getDate();
 
-    return currentYear === currentYear && currentMonth === currentMonth && day === currentDay;
+    return (
+        currentYear === currentYear &&
+        currentMonth === currentMonth &&
+        day === currentDay
+    );
 }
 
 // tao ngay thang
@@ -300,7 +311,9 @@ function showCalendarTab() {
     var yearButton = document.querySelector('.current-date .year');
     monthButton.addEventListener('click', function () {
         showMonthCalendar();
-        var monthItems = document.querySelectorAll('.m-calendar.month .month-item');
+        var monthItems = document.querySelectorAll(
+            '.m-calendar.month .month-item',
+        );
         monthItems.forEach(function (item) {
             item.addEventListener('click', function (event) {
                 var selectedMonthContent = event.target.textContent;
@@ -308,7 +321,9 @@ function showCalendarTab() {
                 calendarTab.style.display = 'inline-block';
                 var tabMonthContent = calendarTab.querySelector('.month');
                 tabMonthContent.textContent = selectedMonthContent;
-                var selectedMonthIndex = Array.from(monthItems).indexOf(event.currentTarget);
+                var selectedMonthIndex = Array.from(monthItems).indexOf(
+                    event.currentTarget,
+                );
                 currentMonth = selectedMonthIndex;
                 updateDate();
                 var calendarMonth = document.querySelector('.m-calendar.month');
@@ -318,7 +333,9 @@ function showCalendarTab() {
     });
     yearButton.addEventListener('click', function () {
         showYearCalendar();
-        var yearItems = document.querySelectorAll('.m-calendar.year .year-item');
+        var yearItems = document.querySelectorAll(
+            '.m-calendar.year .year-item',
+        );
         yearItems.forEach(function (item) {
             item.addEventListener('click', function (event) {
                 var selectedYearContent = event.target.textContent;
@@ -405,7 +422,13 @@ function inputDateTime() {
             currentMonth = updatedDate.currentMonth;
             currentYear = updatedDate.currentYear;
             var formattedDate =
-                clickedDayContent + '/' + (currentMonth + 1) + '/' + currentYear + ' ' + updateShowTime();
+                clickedDayContent +
+                '/' +
+                (currentMonth + 1) +
+                '/' +
+                currentYear +
+                ' ' +
+                updateShowTime();
             if (selectedInput) {
                 selectedInput.value = formattedDate;
             }
@@ -418,113 +441,129 @@ function inputDateTime() {
 const tableData = [
     {
         stt: 1,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
         do_chinh_xac: '90%',
         chi_tiet: 'TruongSon_KOMOTA_2',
     },
     {
         stt: 2,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_29.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_23.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_29.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_23.png',
         do_chinh_xac: '80%',
         chi_tiet: 'TruongSon_KOMOTA_3',
     },
     {
         stt: 3,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
         do_chinh_xac: '70%',
         chi_tiet: 'TruongSon_KOMOTA_4',
     },
     {
         stt: 4,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_56.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_51.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_56.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_51.png',
         do_chinh_xac: '60%',
         chi_tiet: 'TruongSon_KOMOTA_5',
     },
     {
         stt: 5,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_08.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_02.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_08.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_02.png',
         do_chinh_xac: '50%',
         chi_tiet: 'TruongSon_KOMOTA_6',
     },
     {
         stt: 6,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_15.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_11.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_15.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_11.png',
         do_chinh_xac: '40%',
         chi_tiet: 'TruongSon_KOMOTA_7',
     },
     {
         stt: 7,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_27.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_19.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_27.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_19.png',
         do_chinh_xac: '30%',
         chi_tiet: 'TruongSon_KOMOTA_8',
     },
     {
         stt: 8,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_37.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_37.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
         do_chinh_xac: '20%',
         chi_tiet: 'TruongSon_KOMOTA_9',
     },
     {
         stt: 9,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
         do_chinh_xac: '10%',
         chi_tiet: 'TruongSon_KOMOTA_10',
     },
     {
         stt: 10,
-        hinh_toan_canh: 'scr/2023-07-28T16_55_00.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_49.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_55_00.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
         do_chinh_xac: '25%',
         chi_tiet: 'TruongSon_KOMOTA_11',
     },
     {
         stt: 11,
-        hinh_toan_canh: 'scr/2023-07-28T16_55_00.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_49.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_55_00.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
         do_chinh_xac: '35%',
         chi_tiet: 'TruongSon_KOMOTA_12',
     },
     {
         stt: 12,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
         do_chinh_xac: '86%',
         chi_tiet: 'TruongSon_KOMOTA_13',
     },
     {
         stt: 13,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_41.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
         do_chinh_xac: '96%',
         chi_tiet: 'TruongSon_KOMOTA_14',
     },
     {
         stt: 14,
-        hinh_toan_canh: 'scr/2023-07-28T16_54_37.png',
-        hinh_bien_so: 'scr/2023-07-28T16_54_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_54_37.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
         do_chinh_xac: '69%',
         chi_tiet: 'TruongSon_KOMOTA_15',
     },
     {
         stt: 15,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_36.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
         do_chinh_xac: '79%',
         chi_tiet: 'TruongSon_KOMOTA_16',
     },
     {
         stt: 16,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
+        hinh_toan_canh:
+            'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
+        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
         do_chinh_xac: '59%',
         chi_tiet: 'TruongSon_KOMOTA_17',
     },
@@ -690,7 +729,10 @@ document.addEventListener('DOMContentLoaded', function () {
             minutePercentage = percentage;
         }
         var selectedHourValue = percentageToValue(hourPercentage, maxValueHour);
-        var selectedMinuteValue = percentageToValue(minutePercentage, maxValueMinute);
+        var selectedMinuteValue = percentageToValue(
+            minutePercentage,
+            maxValueMinute,
+        );
         slider.style.left = percentage + '%';
         var showtime = document.querySelector('.showtime');
         var hourElement = showtime.querySelector('#hour');
@@ -713,6 +755,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 document.addEventListener('mouseup', function () {
                     isMouseDown = false;
+                    $(document).off('mousemove');
                 });
             });
         }
@@ -732,8 +775,12 @@ function updateTime() {
     var minutes = currentTime.getMinutes();
     var hourSliderContainer = document.getElementById('slider-hour');
     var minuteSliderContainer = document.getElementById('slider-minute');
-    var hourSliderThumb = hourSliderContainer.querySelector('.slider__range-thumb');
-    var minuteSliderThumb = minuteSliderContainer.querySelector('.slider__range-thumb');
+    var hourSliderThumb = hourSliderContainer.querySelector(
+        '.slider__range-thumb',
+    );
+    var minuteSliderThumb = minuteSliderContainer.querySelector(
+        '.slider__range-thumb',
+    );
     var hourPercentage = (hours / 24) * 100;
     var minutePercentage = (minutes / 60) * 100;
     hourSliderThumb.style.left = hourPercentage + '%';
@@ -784,14 +831,136 @@ function changeWidth(event) {
         }
     }
 }
+//slier%
+function setupPercent() {
+    var rangeThumb = $('#slider__range-thumb-1');
+    var track = $('.track');
+    var rangeContainer = $('.range-slider__container');
+    var isDragging = false;
+
+    rangeThumb.on('mousedown', function (e) {
+        isDragging = true;
+
+        $(document).on('mousemove', function (e) {
+            if (isDragging) {
+                var containerWidth = rangeContainer.width();
+                var mouseX = e.clientX - rangeContainer.offset().left;
+                var percentage = (mouseX / containerWidth) * 100;
+                // Giới hạn phần trăm trong khoảng từ 0 đến 100
+                percentage = Math.min(Math.max(percentage, 0), 100);
+                // Cập nhật vị trí left của slider__range-thumb
+                rangeThumb.css('left', percentage + '%');
+                // Cập nhật màu nền của track
+                var trackWidth = 100 - percentage;
+                // Cập nhật width và left của track
+                track.css({
+                    width: trackWidth + '%',
+                    left: percentage + '%',
+                });
+            }
+        });
+
+        $(document).on('mouseup', function () {
+            isDragging = false;
+            $(document).off('mousemove');
+            $(document).off('mouseup');
+        });
+        // Ngừng sự kiện mousedown để tránh xung đột
+        e.preventDefault();
+    });
+}
+
+//Selectec
+function selectSystem() {
+    var modalElement = $('#modal-root');
+    var selectForm = $('#list-system');
+    var selectPopup = $('#system');
+    var selectCamera = $('#list-camera');
+    var listCamera = $('#camera');
+    var selectList = $('#listwhitle');
+    var listPopup = $('#list-list');
+    var nonCalendar = $('#calendar');
+    var isOpenSystem = false;
+    var isOpenCamera = false;
+    var isOpenList = false;
+    var switcherItemSelect = selectPopup.find('.switcher-item');
+    var switcherItemList = listPopup.find('.switcher-item');
+    var switcherItemCamera = listCamera.find('.switcher-item');
+
+    function fillValue(target, optionText) {
+        target.find('.dropdown-btn-text').text(optionText);
+    }
+
+    selectForm.on('click', function () {
+        modalElement.css('display', 'block');
+        listCamera.css('display', 'none');
+        listPopup.css('display', 'none');
+        nonCalendar.css('display', 'none');
+
+        if (!isOpenSystem) {
+            selectPopup.css('display', 'block');
+            isOpenSystem = true;
+        } else {
+            selectPopup.css('display', 'none');
+            isOpenSystem = false;
+        }
+    });
+
+    selectCamera.on('click', function () {
+        modalElement.css('display', 'block');
+        selectPopup.css('display', 'none');
+        listPopup.css('display', 'none');
+        nonCalendar.css('display', 'none');
+
+        if (!isOpenCamera) {
+            listCamera.css('display', 'block');
+            isOpenCamera = true;
+        } else {
+            listCamera.css('display', 'none');
+            isOpenCamera = false;
+        }
+    });
+
+    selectList.on('click', function () {
+        modalElement.css('display', 'block');
+        listCamera.css('display', 'none');
+        selectPopup.css('display', 'none');
+        nonCalendar.css('display', 'none');
+        if (!isOpenList) {
+            listPopup.css('display', 'block');
+            isOpenList = true;
+        } else {
+            listPopup.css('display', 'none');
+            isOpenList = false;
+        }
+    });
+
+    switcherItemSelect.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(selectForm, optionText);
+        selectPopup.css('display', 'none');
+    });
+
+    switcherItemCamera.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(selectCamera, optionText);
+        listCamera.css('display', 'none');
+    });
+
+    switcherItemList.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(selectList, optionText);
+        listPopup.css('display', 'none');
+    });
+}
 
 window.onload = function () {
-    showCalendarTab();
     toDate();
-    buttonGroup();
     fillCurrentDate();
     updateDate();
     optionGroup();
     showCurrentPageData(1);
     buttonView();
+    selectSystem();
+    setupPercent();
 };
