@@ -1120,10 +1120,10 @@ div.form-input-group .input-append {
   color: white;
   background-color: rgb(55, 114, 255);
 }
-.m-input-moment .option button:first-child {
+/* .m-input-moment .option button:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-}
+} */
 .m-input-moment .option button {
   float: left;
   width: 50%;

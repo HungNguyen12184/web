@@ -1475,15 +1475,16 @@
                                                                                     class="css-0"
                                                                                 >
                                                                                     <div
-                                                                                        class="advance-select--wrapper h-max"
+                                                                                        class="advance-select--wrapper h-max" style="width: 100px;"
                                                                                     >
                                                                                         <div
-                                                                                            id=""
+                                                                                            id="list-current"
                                                                                             class="as-container"
                                                                                             tabindex="0"
                                                                                             aria-haspopup="menu"
                                                                                             aria-expanded="false"
                                                                                             data-autofocus="true"
+                                                                                            
                                                                                         >
                                                                                             <div
                                                                                                 class="as-control-container"
@@ -1491,46 +1492,21 @@
                                                                                                 <div
                                                                                                     class="dropdown-btn"
                                                                                                 >
-                                                                                                    <select>
-                                                                                                        <option
-                                                                                                            value="25"
-                                                                                                        >
-                                                                                                            25
-                                                                                                            dòng
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="50"
-                                                                                                        >
-                                                                                                            50
-                                                                                                            dòng
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="100"
-                                                                                                        >
-                                                                                                            100
-                                                                                                            dòng
-                                                                                                        </option>
-                                                                                                        <option
-                                                                                                            value="250"
-                                                                                                        >
-                                                                                                            250
-                                                                                                            dòng
-                                                                                                        </option>
-                                                                                                    </select>
-                                                                                                    <!-- <div class="dropdown-btn-text">25 dòng</div> -->
+                                                                                                   
+                                                                                                    <div class="dropdown-btn-text">25 dòng</div>
                                                                                                 </div>
-                                                                                                <!-- <div class="arrow">
+                                                                                                <div class="arrow">
                                             <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
-                                         </div> -->
+                                         </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <!-- <select hidden>
+                                                                                        <select hidden>
                                         <option></option>
                                         <option value="25"> 25 dòng</option>
                                         <option value="50"> 50 dòng</option>
                                         <option value="100">100 dòng</option>
                                         <option value="250">250 dòng</option>
-                                       </select> -->
+                                       </select>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -2356,6 +2332,75 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Dòng -->
+                            <div class="overlay-main" style="
+                                width: 114px;
+                                max-width: 90%;
+                                height: auto;
+                                max-height: 90%;
+                                min-width: 18px;
+                                left: 880px;
+                                top: 147px;
+                                " data-placement="bottom-left">
+                                <div id="select-current" class="as-dropdown-container dropdown-popup visible" tabindex="-1" style="display: none">
+                                    <div style="overscroll-behavior-y: contain" class="scrollbar-container ps--size-md ps">
+                                        <ul class="as-dropdown-list" role="menu">
+                                            <div class="switcher-item">
+                                                <li class="as-dropdown-item as-dropdown-item--active" role="menuitem" aria-selected="true" optionid="25">
+                                                    <div class="as-dropdown-item-button">
+                                                        <div class="active--icon">
+                                                            <i class="fal fa-check" style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "></i>
+                                                        </div>
+                                                        25 dòng
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li class="as-dropdown-item as-dropdown-item--active" role="menuitem" aria-selected="false" optionid="50">
+                                                    <div class="as-dropdown-item-button">
+                                                        <div class="active--icon">
+                                                            <i class="fal fa-check" style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "></i>
+                                                        </div>
+                                                      50 dòng
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li class="as-dropdown-item as-dropdown-item--active" role="menuitem" aria-selected="false" optionid="100">
+                                                    <div class="as-dropdown-item-button">
+                                                        <div class="active--icon">
+                                                            <i class="fal fa-check" style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "></i>
+                                                        </div>
+                                                       100 dòng
+                                                    </div>
+                                                </li>
+                                            </div>
+                                            <div class="switcher-item">
+                                                <li class="as-dropdown-item as-dropdown-item--active" role="menuitem" aria-selected="false" optionid="250">
+                                                    <div class="as-dropdown-item-button">
+                                                        <div class="active--icon">
+                                                            <i class="fal fa-check" style="
+                                                                    color: inherit;
+                                                                    background-color: transparent;
+                                                                "></i>
+                                                        </div>
+                                                      250 dòng
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- calendar -->
                             <div
                                 class="overlay-main"
@@ -2378,14 +2423,14 @@
                                 >
                                     <div class="option">
                                         <button
-                                            type="button"
-                                            class="ion-calendar im-btn active"
+                                            type="button" 
+                                            class="btn ion-calendar im-btn active"
                                         >
                                             Ngày
                                         </button>
                                         <button
                                             type="button"
-                                            class="ion-clock im-btn"
+                                            class="btn ion-clock im-btn"
                                         >
                                             Giờ
                                         </button>
@@ -3110,7 +3155,7 @@
                                             class="flex flex-grow flex-shrink flex-basis-0 justify-center gap-2 overflow-hidden"
                                         >
                                             <button
-                                                class="btn btn--primary btn--fill btn--md css-0 w-25"
+                                            type="button" class="btn btn-primary"
                                             >
                                                 <span
                                                     class="btn__content relative inline-flex justify-center items-center btn--icon-left"
@@ -3121,7 +3166,7 @@
                                                 </span>
                                             </button>
                                             <button
-                                                class="btn btn--primary btn--outline btn--md w-25"
+                                            type="button" class="btn btn-outline-primary"
                                             >
                                                 <span
                                                     class="btn__content relative inline-flex justify-center item-center btn--icon-left"

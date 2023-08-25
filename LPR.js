@@ -883,14 +883,18 @@ function selectSystem() {
     var listTime = $('#list-time');
     var selectTime = $('#time');
     var checkTime = $('#radio2');
+    var listCurrent = $('#list-current');
+    var selectCurrent = $('#select-current');
     var isOpenSystem = false;
     var isOpenCamera = false;
     var isOpenList = false;
     var isOpenTime = false;
+    var isOpenCurrent = false;
     var switcherItemSelect = selectPopup.find('.switcher-item');
     var switcherItemList = listPopup.find('.switcher-item');
     var switcherItemCamera = listCamera.find('.switcher-item');
     var switcherItemTime = selectTime.find('.switcher-item');
+    var switcherItemCurrent = selectCurrent.find('.switcher-item');
 
     function fillValue(target, optionText) {
         target.find('.dropdown-btn-text').text(optionText);
@@ -956,6 +960,20 @@ function selectSystem() {
             }
         }
     });
+    listCurrent.on('click', function () {
+        modalElement.css('display', 'block');
+        listCamera.css('display', 'none');
+        selectPopup.css('display', 'none');
+        selectTime.css('display', 'none');
+        nonCalendar.css('display', 'none');
+        if (!isOpenCurrent) {
+            selectCurrent.css('display', 'block');
+            isOpenCurrent = true;
+        } else {
+            selectCurrent.css('display', 'none');
+            isOpenCurrent = false;
+        }
+    });
 
     switcherItemSelect.on('click', function () {
         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
@@ -978,6 +996,11 @@ function selectSystem() {
         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
         fillValue(listTime, optionText);
         selectTime.css('display', 'none');
+    });
+    switcherItemCurrent.on('click', function () {
+        var optionText = $(this).find('.as-dropdown-item-button').text().trim();
+        fillValue(listCurrent, optionText);
+        selectCurrent.css('display', 'none');
     });
 }
 
