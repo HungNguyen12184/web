@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const port = 3000;
 const process = require('process');
-process.cwd();
+
 
 const imageDir = '..//web/scr';
 
