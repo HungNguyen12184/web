@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) throw err;
     console.log('Connected!');
-    for (let i = 1; i <= 1; i++) {
+    for (let i = 1; i <= 20000; i++) {
         const imagePath = path.join(
             __dirname,
             'src',
