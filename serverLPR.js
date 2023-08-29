@@ -2,14 +2,9 @@ const express = require('express');
 const fs = require('fs'); // file system
 const app = express();
 const path = require('path');
-
 const port = 3000;
 const process = require('process');
-
-const imageDir = '..//web/scr';
-
 var cors = require('cors');
-const port = 3000;
 app.use(cors());
 
 const imageDir = path.join(__dirname, 'src', 'public');
