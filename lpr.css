@@ -1,3 +1,46 @@
+
+
+/* Quy tắc CSS chung không phụ thuộc vào kích thước màn hình */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Media query cho màn hình nhỏ hơn 768px */
+@media screen and (max-width: 768px) {
+  body {
+      font-size: 16px;
+  }
+
+  .container {
+      padding: 10px;
+  }
+
+  /* Điều chỉnh các phần tử khác tại đây */
+}
+
+/* Media query cho màn hình từ 768px đến 992px */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  body {
+      font-size: 18px;
+  }
+
+  /* Điều chỉnh các phần tử khác tại đây */
+}
+
+/* Media query cho màn hình lớn hơn hoặc bằng 992px */
+@media screen and (min-width: 993px) {
+  body {
+      font-size: 20px;
+  }
+
+  /* Điều chỉnh các phần tử khác tại đây */
+}
+
+
+
 body {
   background-color: dimgray;
   display: flex;
@@ -1019,6 +1062,9 @@ div.form-input-group .input-append {
 } */
 .dg-body {
   flex:1;
+  overflow-y: auto;
+  max-height: 400px;
+  scrollbar-color: black;
 
 }
 .dg-row{

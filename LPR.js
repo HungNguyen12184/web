@@ -54,12 +54,12 @@ function toDate() {
         inputDateTime();
     });
     toDateElement.addEventListener('click', function () {
+        resizeModal();
         modalElement.style.display = 'block';
         inputCalendar.style.display = 'block';
         selectedInput = toDateInputElement;
         if (!isOpen) {
             modalElement.style.display = 'block';
-            resizeModal();
             isOpen = true;
         } else {
             modalElement.style.display = 'none';
@@ -68,7 +68,6 @@ function toDate() {
         showCalendarTab();
         buttonGroup();
         inputDateTime();
-        resizeModal();
     });
 }
 
@@ -77,7 +76,7 @@ function hideModal() {
     modalElement.style.display = 'none';
 }
 function resizeModal() {
-    var modalMainElement = document.querySelector('.overlay-main');
+    var modalMainElement = document.querySelector('#main-calendar');
     if (modalMainElement) {
         modalMainElement.style.width = '20rem';
         modalMainElement.style.maxWidth = '90%';
@@ -85,7 +84,7 @@ function resizeModal() {
         modalMainElement.style.maxHeight = '90%';
         modalMainElement.style.minWidth = '20rem';
         modalMainElement.style.left = '271px';
-        modalMainElement.style.top = '616px';
+        modalMainElement.style.top = '655px';
     }
 }
 
@@ -112,63 +111,7 @@ function activeCurrentDay(day) {
     );
 }
 
-// tao ngay thang
-// function updateDate() {
-//     var monthCL = document.querySelector('.month');
-//     var yearCL = document.querySelector('.year');
-//     var currentMonthDate = new Date(currentYear, currentMonth, 1);
-//     var currentMonthName = currentMonthDate.toLocaleString('vi-VN', {
-//         month: 'long',
-//     });
-
-//     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
-//     var startDay = currentMonthDate.getDay();
-
-//     var dateCL = document.getElementById('tbody-calendar');
-//     var dayCount = 1;
-//     var rows = dateCL.getElementsByTagName('tr');
-
-//     monthCL.textContent = currentMonthName;
-//     yearCL.textContent = currentYear;
-
-//     for (var i = 0; i < rows.length; i++) {
-//         var cells = rows[i].getElementsByTagName('td');
-//         for (var j = 0; j < cells.length; j++) {
-//             var td = cells[j];
-//             var div = td.querySelector('.day-content');
-//             td.classList.remove('prev-month', 'next-month');
-
-//             if (i === 0 && j < startDay) {
-//                 td.classList.add('prev-month');
-//                 var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
-//                 var prevDay = prevMonthDays - (startDay - j) + 1;
-//                 div.textContent = prevDay;
-//             } else if (dayCount > daysInMonth) {
-//                 td.classList.add('next-month');
-//                 var nextDay = dayCount - daysInMonth;
-//                 div.textContent = nextDay;
-//                 dayCount++;
-//             } else {
-//                 div.textContent = dayCount;
-//                 if (activeCurrentDay(dayCount)) {
-//                     td.classList.add('current-value');
-//                 } else {
-//                     td.classList.remove('current-value');
-//                 }
-//                 dayCount++;
-//             }
-//         }
-//     }
-//     var monthButton = document.querySelector('.current-date .month');
-//     var yearButton = document.querySelector('.current-date .year');
-
-//     monthButton.textContent = currentMonthName;
-//     yearButton.textContent = currentYear;
-// }
-
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-
+//tao ngay thang
 function updateDate() {
     var monthCL = document.querySelector('.month');
     var yearCL = document.querySelector('.year');
@@ -176,52 +119,111 @@ function updateDate() {
     var currentMonthName = currentMonthDate.toLocaleString('vi-VN', {
         month: 'long',
     });
+
     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
+    var startDay = currentMonthDate.getDay();
+
     var dateCL = document.getElementById('tbody-calendar');
+    var dayCount = 1;
     var rows = dateCL.getElementsByTagName('tr');
+
     monthCL.textContent = currentMonthName;
     yearCL.textContent = currentYear;
-    var a = [];
-    // Tính toán ngày của tháng trước
-    var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
-    var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
-    for (var i = 0; i < firstDayOfWeek; i++) {
-        a.push(prevMonthDays - firstDayOfWeek + i + 1);
-    }
-    // Tính toán ngày của tháng hiện tại
-    for (var i = 1; i <= daysInMonth; i++) {
-        a.push(i);
-    }
-    // Tính toán ngày của tháng sau
-    var remainingDays = 42 - a.length;
-    for (var i = 1; i <= remainingDays; i++) {
-        a.push(i);
-    }
+
     for (var i = 0; i < rows.length; i++) {
-        // Điền giá trị vào từng div trong bảng lịch dựa vào mảng a
-        for (var i = 0; i < rows.length; i++) {
-            // Lấy danh sách các ô (td) trong từng dòng
-            var cells = rows[i].querySelectorAll('.day-content');
-            for (var j = 0; j < cells.length; j++) {
-                var div = cells[j];
-                div.classList.remove('prev-month', 'next-month');
-                var value = a[i * 7 + j];
-                // Lấy giá trị từ mảng a theo chỉ số i * 7 + j
-                var value = a[i * 7 + j];
-                div.textContent = value;
-                if (value <= 0 || value > daysInMonth) {
-                    div.classList.add(value < 0 ? 'prev-month' : 'next-month');
+        var cells = rows[i].getElementsByTagName('td');
+        for (var j = 0; j < cells.length; j++) {
+            var td = cells[j];
+            var div = td.querySelector('.day-content');
+            td.classList.remove('prev-month', 'next-month');
+
+            if (i === 0 && j < startDay) {
+                td.classList.add('prev-month');
+                var prevMonthDays = getDaysInMonth(
+                    currentYear,
+                    currentMonth - 1,
+                );
+                var prevDay = prevMonthDays - (startDay - j) + 1;
+                div.textContent = prevDay;
+            } else if (dayCount > daysInMonth) {
+                td.classList.add('next-month');
+                var nextDay = dayCount - daysInMonth;
+                div.textContent = nextDay;
+                dayCount++;
+            } else {
+                div.textContent = dayCount;
+                if (activeCurrentDay(dayCount)) {
+                    td.classList.add('current-value');
                 } else {
-                    if (activeCurrentDay(value)) {
-                        div.classList.add('current-value');
-                    } else {
-                        div.classList.remove('current-value');
-                    }
+                    td.classList.remove('current-value');
                 }
+                dayCount++;
             }
         }
     }
+    var monthButton = document.querySelector('.current-date .month');
+    var yearButton = document.querySelector('.current-date .year');
+
+    monthButton.textContent = currentMonthName;
+    yearButton.textContent = currentYear;
 }
+
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+// function updateDate() {
+//     var monthCL = document.querySelector('.month');
+//     var yearCL = document.querySelector('.year');
+//     var currentMonthDate = new Date(currentYear, currentMonth, 1);
+//     var currentMonthName = currentMonthDate.toLocaleString('vi-VN', {
+//         month: 'long',
+//     });
+//     var daysInMonth = getDaysInMonth(currentYear, currentMonth);
+//     var dateCL = document.getElementById('tbody-calendar');
+//     var rows = dateCL.getElementsByTagName('tr');
+//     monthCL.textContent = currentMonthName;
+//     yearCL.textContent = currentYear;
+//     var a = [];
+//     // Tính toán ngày của tháng trước
+//     var prevMonthDays = getDaysInMonth(currentYear, currentMonth - 1);
+//     var firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
+//     for (var i = 0; i < firstDayOfWeek; i++) {
+//         a.push(prevMonthDays - firstDayOfWeek + i + 1);
+//     }
+//     // Tính toán ngày của tháng hiện tại
+//     for (var i = 1; i <= daysInMonth; i++) {
+//         a.push(i);
+//     }
+//     // Tính toán ngày của tháng sau
+//     var remainingDays = 42 - a.length;
+//     for (var i = 1; i <= remainingDays; i++) {
+//         a.push(i);
+//     }
+//     for (var i = 0; i < rows.length; i++) {
+//         // Điền giá trị vào từng div trong bảng lịch dựa vào mảng a
+//         for (var i = 0; i < rows.length; i++) {
+//             // Lấy danh sách các ô (td) trong từng dòng
+//             var cells = rows[i].querySelectorAll('.day-content');
+//             for (var j = 0; j < cells.length; j++) {
+//                 var div = cells[j];
+//                 div.classList.remove('prev-month', 'next-month');
+//                 var value = a[i * 7 + j];
+//                 // Lấy giá trị từ mảng a theo chỉ số i * 7 + j
+//                 var value = a[i * 7 + j];
+//                 div.textContent = value;
+//                 if (value <= 0 || value > daysInMonth) {
+//                     div.classList.add(value < 0 ? 'prev-month' : 'next-month');
+//                 } else {
+//                     if (activeCurrentDay(value)) {
+//                         div.classList.add('current-value');
+//                     } else {
+//                         div.classList.remove('current-value');
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 function activeCurrentDay(day) {
     var day1 = new Date().toDateString();
@@ -245,23 +247,25 @@ function buttonGroup() {
 
 function changeMonth(event, currentMonth, currentYear) {
     var target = event.target;
-    if (target.classList.contains('fa-angle-left')) {
+
+    if (target.id === 'fa-angle-left') {
         currentMonth -= 1;
         if (currentMonth < 0) {
             currentMonth = 11;
             currentYear -= 1;
         }
-    } else if (target.classList.contains('fa-angle-double-left')) {
+    } else if (target.id === 'fa-angle-double-left') {
         currentYear -= 1;
-    } else if (target.classList.contains('fa-angle-right')) {
+    } else if (target.id === 'fa-angle-right') {
         currentMonth += 1;
         if (currentMonth > 11) {
             currentMonth = 0;
             currentYear += 1;
         }
-    } else if (target.classList.contains('fa-angle-double-right')) {
+    } else if (target.id === 'fa-angle-double-right') {
         currentYear += 1;
     }
+
     return { currentMonth, currentYear };
 }
 
@@ -427,8 +431,8 @@ function inputDateTime() {
                 (currentMonth + 1) +
                 '/' +
                 currentYear +
-                ' ' +
-                updateShowTime();
+                ' ';
+            updateTimeDefaul();
             if (selectedInput) {
                 selectedInput.value = formattedDate;
             }
@@ -438,153 +442,122 @@ function inputDateTime() {
     });
 }
 //TAO BANG DU LIEU
-const tableData = [
-    {
-        stt: 1,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
-        do_chinh_xac: '90%',
-        chi_tiet: 'TruongSon_KOMOTA_2',
-    },
-    {
-        stt: 2,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_53_29.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_23.png',
-        do_chinh_xac: '80%',
-        chi_tiet: 'TruongSon_KOMOTA_3',
-    },
-    {
-        stt: 3,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_53_36.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
-        do_chinh_xac: '70%',
-        chi_tiet: 'TruongSon_KOMOTA_4',
-    },
-    {
-        stt: 4,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_53_56.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_51.png',
-        do_chinh_xac: '60%',
-        chi_tiet: 'TruongSon_KOMOTA_5',
-    },
-    {
-        stt: 5,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_08.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_02.png',
-        do_chinh_xac: '50%',
-        chi_tiet: 'TruongSon_KOMOTA_6',
-    },
-    {
-        stt: 6,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_15.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_11.png',
-        do_chinh_xac: '40%',
-        chi_tiet: 'TruongSon_KOMOTA_7',
-    },
-    {
-        stt: 7,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_27.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_19.png',
-        do_chinh_xac: '30%',
-        chi_tiet: 'TruongSon_KOMOTA_8',
-    },
-    {
-        stt: 8,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_37.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
-        do_chinh_xac: '20%',
-        chi_tiet: 'TruongSon_KOMOTA_9',
-    },
-    {
-        stt: 9,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
-        do_chinh_xac: '10%',
-        chi_tiet: 'TruongSon_KOMOTA_10',
-    },
-    {
-        stt: 10,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_55_00.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
-        do_chinh_xac: '25%',
-        chi_tiet: 'TruongSon_KOMOTA_11',
-    },
-    {
-        stt: 11,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_55_00.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
-        do_chinh_xac: '35%',
-        chi_tiet: 'TruongSon_KOMOTA_12',
-    },
-    {
-        stt: 12,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
-        do_chinh_xac: '86%',
-        chi_tiet: 'TruongSon_KOMOTA_13',
-    },
-    {
-        stt: 13,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_45.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
-        do_chinh_xac: '96%',
-        chi_tiet: 'TruongSon_KOMOTA_14',
-    },
-    {
-        stt: 14,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_54_37.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
-        do_chinh_xac: '69%',
-        chi_tiet: 'TruongSon_KOMOTA_15',
-    },
-    {
-        stt: 15,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_53_36.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
-        do_chinh_xac: '79%',
-        chi_tiet: 'TruongSon_KOMOTA_16',
-    },
-    {
-        stt: 16,
-        hinh_toan_canh:
-            'http://localhost:3000/api/image/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
-        do_chinh_xac: '59%',
-        chi_tiet: 'TruongSon_KOMOTA_17',
-    },
-    {
-        stt: 17,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_19.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_12.png',
-        do_chinh_xac: '59%',
-        chi_tiet: 'TruongSon_KOMOTA_17',
-    },
-    {
-        stt: 18,
-        hinh_toan_canh: 'scr/2023-07-28T16_53_36.png',
-        hinh_bien_so: 'scr/2023-07-28T16_53_32.png',
-        do_chinh_xac: '79%',
-        chi_tiet: 'TruongSon_KOMOTA_16',
-    },
-];
+// const tableData = [
+//     {
+//         stt: 1,
+//         hinh_toan_canh: 'http://localhost:3000/api/image/100',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
+//         do_chinh_xac: '90%',
+//         chi_tiet: 'TruongSon_KOMOTA_2',
+//     },
+//     {
+//         stt: 2,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_23.png',
+//         do_chinh_xac: '80%',
+//         chi_tiet: 'TruongSon_KOMOTA_3',
+//     },
+//     {
+//         stt: 3,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
+//         do_chinh_xac: '70%',
+//         chi_tiet: 'TruongSon_KOMOTA_4',
+//     },
+//     {
+//         stt: 4,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_51.png',
+//         do_chinh_xac: '60%',
+//         chi_tiet: 'TruongSon_KOMOTA_5',
+//     },
+//     {
+//         stt: 5,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_02.png',
+//         do_chinh_xac: '50%',
+//         chi_tiet: 'TruongSon_KOMOTA_6',
+//     },
+//     {
+//         stt: 6,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_11.png',
+//         do_chinh_xac: '40%',
+//         chi_tiet: 'TruongSon_KOMOTA_7',
+//     },
+//     {
+//         stt: 7,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_19.png',
+//         do_chinh_xac: '30%',
+//         chi_tiet: 'TruongSon_KOMOTA_8',
+//     },
+//     {
+//         stt: 8,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
+//         do_chinh_xac: '20%',
+//         chi_tiet: 'TruongSon_KOMOTA_9',
+//     },
+//     {
+//         stt: 9,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
+//         do_chinh_xac: '10%',
+//         chi_tiet: 'TruongSon_KOMOTA_10',
+//     },
+//     {
+//         stt: 10,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
+//         do_chinh_xac: '25%',
+//         chi_tiet: 'TruongSon_KOMOTA_11',
+//     },
+//     {
+//         stt: 11,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_49.png',
+//         do_chinh_xac: '35%',
+//         chi_tiet: 'TruongSon_KOMOTA_12',
+//     },
+//     {
+//         stt: 12,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
+//         do_chinh_xac: '86%',
+//         chi_tiet: 'TruongSon_KOMOTA_13',
+//     },
+//     {
+//         stt: 13,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_41.png',
+//         do_chinh_xac: '96%',
+//         chi_tiet: 'TruongSon_KOMOTA_14',
+//     },
+//     {
+//         stt: 14,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_54_32.png',
+//         do_chinh_xac: '69%',
+//         chi_tiet: 'TruongSon_KOMOTA_15',
+//     },
+//     {
+//         stt: 15,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_32.png',
+//         do_chinh_xac: '79%',
+//         chi_tiet: 'TruongSon_KOMOTA_16',
+//     },
+//     {
+//         stt: 16,
+//         hinh_toan_canh: '',
+//         hinh_bien_so: 'http://localhost:3000/api/image/2023-07-28T16_53_12.png',
+//         do_chinh_xac: '59%',
+//         chi_tiet: 'TruongSon_KOMOTA_17',
+//     },
+// ];
 
-var itemsPerPage = 9;
-var totalPage = Math.ceil(tableData.length / itemsPerPage); //math.ceil là làm tròn số làm tròn lên số nguyên lớn nhất
+var itemsPerPage = 25;
 var currentPage = 1;
 
 function showCurrentPageData(page) {
@@ -594,69 +567,146 @@ function showCurrentPageData(page) {
     var dataBody = document.querySelector('.dg-body');
     dataBody.innerHTML = '';
     // Hiển thị dữ liệu mới vào bảng
-    for (var i = startIndex; i < endIndex; i++) {
-        var row = document.createElement('div');
-        row.className = 'dg-row selectable-row';
-        row.innerHTML = `
-    <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
-        <div class="dg-cell">
-        <span class="auto-number">${tableData[i].stt}</span>
-        </div>
-    </div>
-    <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
-        <div class="dg-cell dg-cell--align-left">
-        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-        <div class="image-container">
-        <img crossorigin="anonymous" class="image-content" src="${tableData[i].hinh_toan_canh}" alt="" style="height: 5rem; object-fit: cover;">
-        </div>
-        </div>
-        <div class="flex flex-shrink-0"></div>
-        </div>
-    </div>
-    <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
-        <div class="dg-cell dg-cell--align-left">
-        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
-        <div class="image-container">
-        <img crossorigin="anonymous" class="image-content" src="${tableData[i].hinh_bien_so}" alt="" style="height: 5rem; object-fit: cover;"></div>
-        </div>
-        <div class="flex flex-shrink-0"></div>
-        </div>
-    </div>
-    <div class="dg-row-item row--horizontal-border" style="flex: 0 0 112px; width: 112px;">
-        <div class="dg-cell dg-cell--align-left">
-        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
-        <span class="tb tb1">${tableData[i].do_chinh_xac}</span>
-        </div>
-        <div class="flex flex-shrink-0"></div>
-        </div>
-    </div>
-    <div class="dg-row-item row--horizontal-border" style="flex: 1 1 0%; min-width: 646px;">
-        <div class="dg-cell dg-cell--align-left">
-        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
-            <span class="m-0 hd hd-6"></span>
-            <span class="tb tb1"></span>
-            <span class="tb tb1">${tableData[i].chi_tiet}</span>
-            <span class="tb tb1"></span>
-        </div>
-        <div class="flex flex-shrink-0"></div>
-        </div>
-    </div>
-    <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
-        <div class="dg-cell">
-        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden"                                                                               >
-       <button type="button" class="btn btn-secondary   "  style="min-height: 2.5rem;">
-        <span class="btn-content relative">
-            i
-        </span>
-        </button> 
-    </div>
-    
-        </div>
-    </div>
-    `;
+    // for (var i = startIndex; i < endIndex; i++) {
+    //     var row = document.createElement('div');
+    //     row.className = 'dg-row selectable-row';
+    //     row.innerHTML = `
+    // <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
+    //     <div class="dg-cell">
+    //     <span class="auto-number">${tableData[i].stt}</span>
+    //     </div>
+    // </div>
+    // <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
+    //     <div class="dg-cell dg-cell--align-left">
+    //     <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+    //     <div class="image-container">
+    //     <img crossorigin="anonymous" class="image-content" src="${tableData[i].hinh_toan_canh}" alt="" style="height: 5rem; object-fit: cover;">
+    //     </div>
+    //     </div>
+    //     <div class="flex flex-shrink-0"></div>
+    //     </div>
+    // </div>
+    // <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
+    //     <div class="dg-cell dg-cell--align-left">
+    //     <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+    //     <div class="image-container">
+    //     <img crossorigin="anonymous" class="image-content" src="${tableData[i].hinh_bien_so}" alt="" style="height: 5rem; object-fit: cover;"></div>
+    //     </div>
+    //     <div class="flex flex-shrink-0"></div>
+    //     </div>
+    // </div>
+    // <div class="dg-row-item row--horizontal-border" style="flex: 0 0 112px; width: 112px;">
+    //     <div class="dg-cell dg-cell--align-left">
+    //     <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
+    //     <span class="tb tb1">${tableData[i].do_chinh_xac}</span>
+    //     </div>
+    //     <div class="flex flex-shrink-0"></div>
+    //     </div>
+    // </div>
+    // <div class="dg-row-item row--horizontal-border" style="flex: 1 1 0%; min-width: 646px;">
+    //     <div class="dg-cell dg-cell--align-left">
+    //     <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
+    //         <span class="m-0 hd hd-6"></span>
+    //         <span class="tb tb1"></span>
+    //         <span class="tb tb1">${tableData[i].chi_tiet}</span>
+    //         <span class="tb tb1"></span>
+    //     </div>
+    //     <div class="flex flex-shrink-0"></div>
+    //     </div>
+    // </div>
+    // <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
+    //     <div class="dg-cell">
+    //     <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden"                                                                               >
+    //    <button type="button" class="btn btn-secondary   "  style="min-height: 2.5rem;">
+    //     <span class="btn-content relative">
+    //         i
+    //     </span>
+    //     </button>
+    // </div>
 
-        dataBody.appendChild(row);
-    }
+    //     </div>
+    // </div>
+    // `;
+
+    //     dataBody.appendChild(row);
+    // }
+    fetch('http://localhost:3000/api/data')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            // Hiển thị dữ liệu từ API trong danh sách lưới
+            data.slice(startIndex, endIndex).forEach((item, index) => {
+                var row = document.createElement('div');
+                row.className = 'dg-row selectable-row';
+                row.innerHTML = `
+                <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
+                    <div class="dg-cell">
+                        <span class="auto-number">${item.userId}
+                        </span>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+                            <div class="image-container">
+                            <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,base64Image" alt="Hình ảnh" style="height: 5rem; object-fit: cover;">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+                            <div class="image-container">
+                                <img crossorigin="anonymous" class="image-content" src="" alt="Hình ảnh" style="height: 5rem; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 0 0 112px; width: 112px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
+                            <span class="tb tb1"></span>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 1 1 0%; min-width: 646px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
+                            <span class="m-0 hd hd-6"></span>
+                            <span class="tb tb1">${item.date_update}</span>
+                            <span class="tb tb1"></span>
+                            <span class="tb tb1"></span>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
+                    <div class="dg-cell">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden">
+                            <button type="button" class="btn btn-secondary   " style="min-height: 2.5rem;">
+                                <span class="btn-content relative">
+                                    i
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+                dataBody.appendChild(row);
+            });
+        })
+        .catch((error) => {
+            console.error('Lỗi khi lấy dữ liệu từ API:', error);
+        });
     paginGroup();
 }
 
@@ -678,26 +728,28 @@ function updateCurrentPage() {
 
 function changePage(event) {
     var target = event.target;
-    if (target.classList.contains('fa-angle-left')) {
+    if (target.id === 'fa-angle-left') {
         if (currentPage > 1) {
             currentPage--;
             updateCurrentPage();
             showCurrentPageData(currentPage);
         }
-    } else if (target.classList.contains('fa-angle-double-left')) {
+    } else if (target.classList.contains('#fa-angle-double-left')) {
         updateCurrentPage();
         showCurrentPageData(1);
-    } else if (target.classList.contains('fa-angle-right')) {
+    } else if (target.classList.contains('#fa-angle-right')) {
         if (currentPage < totalPage) {
             currentPage++;
             updateCurrentPage();
             showCurrentPageData(currentPage);
         }
-    } else if (target.classList.contains('fa-angle-double-right')) {
+    } else if (target.classList.contains('#fa-angle-double-right')) {
         updateCurrentPage();
         showCurrentPageData(totalPage);
     }
 }
+
+// Lưu ý: Đảm bảo bạn đã thêm event listeners cho các nút có ID tương ứng trong mã HTML của bạn.
 
 document.addEventListener('DOMContentLoaded', function () {
     //chuyển đổi một giá trị phần trăm thành một giá trị số dựa trên giá trị tối đa đã cho.
@@ -950,7 +1002,7 @@ function selectSystem() {
             listCamera.css('display', 'none');
             selectPopup.css('display', 'none');
             nonCalendar.css('display', 'none');
-            selectList.css('display', 'none');
+            listPopup.css('display', 'none');
             if (!isOpenTime) {
                 selectTime.css('display', 'block');
                 isOpenTime = true;

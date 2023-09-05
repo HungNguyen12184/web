@@ -1400,7 +1400,7 @@
                                                                                                 ></i>
                                                                                             </span>
                                                                                         </button> -->
-                                                                                        <button type="button" class="btn btn-outline-secondary">
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-double-left'>
                                                                                             <span
                                                                                             class="btn__content relative inline-flex justify-center items-center"
                                                                                         >
@@ -1413,7 +1413,7 @@
                                                                                                 "
                                                                                             ></i>
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-outline-secondary">
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-left'>
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
@@ -1430,7 +1430,7 @@
                                                                                         
                                                                                         <button
                                                                                         type="button" class="btn btn-primary"
-                                                                                        style="min-width: 2.5rem;"
+                                                                                        style="min-width: 2.5rem;" 
                                                                                         >
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
@@ -1441,7 +1441,7 @@
                                                                                                 >
                                                                                             </span>
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-outline-secondary">
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-right'>
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
@@ -1455,7 +1455,7 @@
                                                                                                 ></i>
                                                                                             </span>
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-outline-secondary">
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-double-right'>
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
@@ -1675,23 +1675,18 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div
-                                                                                            class="scrollbar-container ps--size-md ps"
+                                                                                            class="scrollbar-container ps--size-md ps overflow-y: auto"
                                                                                         >
                                                                                             <div
                                                                                                 style="
-                                                                                                    width: 1638px,
-                                                                                                        overflow-hidden;
-                                                                                                    height: 520px;
+                                                                                                    width: 1638 px;
                                                                                                 "
                                                                                             >
                                                                                                 <div
                                                                                                     class="dg-body"
-                                                                                                    style="
-                                                                                                        overflow-y: auto;
-                                                                                                    "
                                                                                                 ></div>
                                                                                             </div>
-                                                                                            <div
+                                                                                            <!-- <div
                                                                                                 class="ps__rail-x"
                                                                                                 style="
                                                                                                     left: 0px;
@@ -1707,7 +1702,7 @@
                                                                                                         width: 1638;
                                                                                                     "
                                                                                                 ></div>
-                                                                                            </div>
+                                                                                            </div> -->
                                                                                             <div
                                                                                                 class="ps__rail-y"
                                                                                                 style="
@@ -2404,6 +2399,7 @@
                             <!-- calendar -->
                             <div
                                 class="overlay-main"
+                                id = "main-calendar"
                                 style="
                                     width: 20rem;
                                     max-width: 90%;
@@ -2411,7 +2407,7 @@
                                     max-height: 90%;
                                     min-width: 20rem;
                                     left: 271px;
-                                    top: 576.89px;
+                                    top: 620px;
                                 "
                                 data-placement="top-left"
                             >
@@ -2442,6 +2438,7 @@
                                                     <button
                                                         type="button"
                                                         class="prev-month"
+                                                        id="fa-angle-double-left"
                                                     >
                                                         <i
                                                             class="fa-solid fa-angle-double-left"
@@ -2455,6 +2452,7 @@
                                                     <button
                                                         type="button"
                                                         class="prev-month"
+                                                        id="fa-angle-left"
                                                     >
                                                         <i
                                                             class="fa-solid fa-angle-left"
@@ -2478,6 +2476,7 @@
                                                     <button
                                                         type="button"
                                                         class="next-month"
+                                                        id="fa-angle-right"
                                                     >
                                                         <i
                                                             class="fa-solid fa-angle-right"
@@ -2491,6 +2490,7 @@
                                                     <button
                                                         type="button"
                                                         class="next-month"
+                                                        id="fa-angle-double-right"
                                                     >
                                                         <i
                                                             class="fa-solid fa-angle-double-right"
