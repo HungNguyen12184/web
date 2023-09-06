@@ -1,6 +1,9 @@
-const express = require('express');
+express = require('express');
+const fs = require('fs'); // file system
 const app = express();
-const cors = require('cors');
+const path = require('path');
+var cors = require('cors');
+const port = 3000;
 const mysql = require('mysql2');
 app.use(cors());
 
@@ -9,14 +12,6 @@ const connection = mysql.createConnection({
     user: 'root',
     password: 'hung1234',
     database: 'IMG_LPR',
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.error('Lỗi khi kết nối đến cơ sở dữ liệu:', err);
-        return;
-    }
-    console.log('Kết nối đến cơ sở dữ liệu thành công.');
 });
 
 app.get('/api/data', (req, res) => {
@@ -29,21 +24,20 @@ app.get('/api/data', (req, res) => {
             return;
         }
         const formattedResults = results.map((item) => {
-            const bufferData = item.picture_data;
-            const base64Image = bufferData.toString('base64'); // Chuyển đổi Buffer thành base64
+            const imageDataBuffer = results[0].picture_data;
+            const imageDataBase64 = imageDataBuffer.toString('base64');
+            // Chuyển đổi Buffer thành base64
             return {
                 userId: item.userId,
-                picture_data_base64: base64Image,
+                picture_data_base64: imageDataBase64,
                 date_update: item.date_update,
             };
         });
 
         res.json(formattedResults);
-        console.log(results);
     });
 });
 
-const port = 3000;
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
