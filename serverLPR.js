@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
 
 app.get('/api/data', (req, res) => {
     const query =
-        'SELECT userId, picture_data, date_update FROM IMG_LPR LIMIT 100';
+        'SELECT userId, picture_data, date_update FROM IMG_LPR LIMIT 500';
     connection.query(query, (error, results) => {
         if (error) {
             console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
@@ -24,7 +24,7 @@ app.get('/api/data', (req, res) => {
             return;
         }
         const formattedResults = results.map((item) => {
-            const imageDataBuffer = results[0].picture_data;
+            const imageDataBuffer = Buffer.from(item.picture_data, 'base64');
             const imageDataBase64 = imageDataBuffer.toString('base64');
             // Chuyển đổi Buffer thành base64
             return {

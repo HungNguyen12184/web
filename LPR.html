@@ -16,6 +16,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
         <title>LPR</title>
     </head>
 
@@ -1372,17 +1373,12 @@
                                                                         "
                                                                         id="tablelist"
                                                                     >
+                                                                    <div class="p-4" style="display: flex; align-items: center;">
                                                                         <div
-                                                                            class="p-4"
-                                                                        >
-                                                                            <div
-                                                                                class="flex flex-grow flex-shrink flex-basis-0 item-center gap-4 overflow-hidden"
-                                                                            >
-                                                                                <div
-                                                                                    class="css-0"
+                                                                                    class="css-0 flex  justify-start gap-1 overflow-hidden"
                                                                                 >
                                                                                     <div
-                                                                                        class="pagination flex flex-grow flex-shrink flex-basis-0 justify-end gap-1 overflow-hidden"
+                                                                                        class="pagination gap-1"
                                                                                     >
                                                                                         <!-- <button
                                                                                             class="btn btn--default btn--outline btn--md btn--only-icon btn--icon-sm btn--icon rounded-lg custom-button"
@@ -1400,7 +1396,7 @@
                                                                                                 ></i>
                                                                                             </span>
                                                                                         </button> -->
-                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-double-left'>
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='btn_dbleft'>
                                                                                             <span
                                                                                             class="btn__content relative inline-flex justify-center items-center"
                                                                                         >
@@ -1413,7 +1409,7 @@
                                                                                                 "
                                                                                             ></i>
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-left'>
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='btn_left'>
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
@@ -1441,7 +1437,7 @@
                                                                                                 >
                                                                                             </span>
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-right'>
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='btn_right'>
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
@@ -1455,7 +1451,7 @@
                                                                                                 ></i>
                                                                                             </span>
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-outline-secondary" id='fa-angle-double-right'>
+                                                                                        <button type="button" class="btn btn-outline-secondary" id='btn_dbright'>
                                                                                             <span
                                                                                                 class="btn__content relative inline-flex justify-center items-center"
                                                                                             >
@@ -1471,45 +1467,16 @@
                                                                                         </button>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div
-                                                                                    class="css-0"
-                                                                                >
-                                                                                    <div
-                                                                                        class="advance-select--wrapper h-max" style="width: 100px;"
-                                                                                    >
-                                                                                        <div
-                                                                                            id="list-current"
-                                                                                            class="as-container"
-                                                                                            tabindex="0"
-                                                                                            aria-haspopup="menu"
-                                                                                            aria-expanded="false"
-                                                                                            data-autofocus="true"
-                                                                                            
-                                                                                        >
-                                                                                            <div
-                                                                                                class="as-control-container"
-                                                                                            >
-                                                                                                <div
-                                                                                                    class="dropdown-btn"
-                                                                                                >
-                                                                                                   
-                                                                                                    <div class="dropdown-btn-text">25 dòng</div>
-                                                                                                </div>
-                                                                                                <div class="arrow">
-                                            <i class="fa-solid fa-chevron-down" style="font-size: 1rem; color: inherit; background-color:transparent; cursor: pointer;"></i>
-                                         </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <select hidden>
-                                        <option></option>
-                                        <option value="25"> 25 dòng</option>
-                                        <option value="50"> 50 dòng</option>
-                                        <option value="100">100 dòng</option>
-                                        <option value="250">250 dòng</option>
-                                       </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                                <div class="dropdown p-2" >
+                                                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                      25 dòng
+                                                                                    </button>
+                                                                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                                                                      <li><a class="dropdown-item active" href="#">25 dòng </a></li>
+                                                                                      <li><a class="dropdown-item" href="#">50 dòng</a></li>
+                                                                                      <li><a class="dropdown-item" href="#">100 dòng</a></li>
+                                                                                    </ul>
+                                                                                  </div>
                                                                         </div>
                                                                         <div
                                                                             class="data-grid-wrapper"

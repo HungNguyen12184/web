@@ -559,6 +559,13 @@ function inputDateTime() {
 
 // var itemsPerPage = 25;
 // var currentPage = 1;
+// Lay gia tri dropdown
+function initializeDropdown() {
+    $('.dropdown-menu a.dropdown-item').click(function () {
+        var selectedValue = $(this).text();
+        $('.dropdown button.dropdown-toggle').text(selectedValue);
+    });
+}
 
 // function showCurrentPageData(page, results) {
 //     currentPage = page;
@@ -587,10 +594,10 @@ function inputDateTime() {
 //     }
 
 //     paginGroup();
-// }
-const totalItems = 100; // Tổng số mục
-const itemsPerPage = 25; // Số mục trên mỗi trang
-const totalPage = Math.ceil(totalItems / itemsPerPage);
+var totalItems = 100; // Tổng số mục (100 phần tử)
+console.log(totalItems);
+var itemsPerPage = 25; // Số mục trên mỗi trang
+var totalPage = Math.ceil(totalItems / itemsPerPage);
 var currentPage = 1;
 
 function showCurrentPageData(page) {
@@ -636,7 +643,7 @@ function showCurrentPageData(page) {
                     <div class="dg-cell dg-cell--align-left">
                         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
                             <div class="image-container">
-                                <img crossorigin="anonymous" class="image-content" src="" alt="" style="height: 5rem; object-fit: cover;">
+                                <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
                             </div>
                         </div>
                         <div class="flex flex-shrink-0"></div>
@@ -699,27 +706,38 @@ function updateCurrentPage() {
     }
 }
 
+var isClickInProgress = false;
 function changePage(event) {
+    if (isClickInProgress) {
+        return;
+    }
+
+    isClickInProgress = true;
+
     var target = event.target;
-    if (target.classList.contains('fa-angle-left')) {
+    if (target.id === 'btn_left') {
         if (currentPage > 1) {
             currentPage--;
-            updateCurrentPage();
             showCurrentPageData(currentPage);
+            updateCurrentPage();
         }
-    } else if (target.classList.contains('fa-angle-double-left')) {
+    } else if (target.id === 'btn_dbleft') {
+        showCurrentPageData(1);
         updateCurrentPage();
-        showCurrentPageData(currentPage);
-    } else if (target.classList.contains('fa-angle-right')) {
+    } else if (target.id === 'btn_right') {
         if (currentPage < totalPage) {
             currentPage++;
-            updateCurrentPage();
+            console.log(currentPage);
             showCurrentPageData(currentPage);
+            updateCurrentPage();
         }
-    } else if (target.classList.contains('fa-angle-double-right')) {
-        updateCurrentPage();
+    } else if (target.id === 'btn_dbright') {
         showCurrentPageData(totalPage);
+        updateCurrentPage();
     }
+    setTimeout(function () {
+        isClickInProgress = false;
+    }, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -1021,9 +1039,13 @@ function selectSystem() {
         selectTime.css('display', 'none');
     });
     switcherItemCurrent.on('click', function () {
+        var optionValue = null;
         var optionText = $(this).find('.as-dropdown-item-button').text().trim();
-        fillValue(listCurrent, optionText);
-        selectCurrent.css('display', 'none');
+        optionValue = parseInt(optionText);
+        if (!isNaN(optionValue)) {
+            fillValue(selectForm, optionText);
+            selectPopup.css('display', 'none');
+        }
     });
 }
 
@@ -1033,6 +1055,7 @@ window.onload = function () {
     updateDate();
     optionGroup();
     showCurrentPageData(1);
+    initializeDropdown();
     buttonView();
     selectSystem();
     setupPercent();
