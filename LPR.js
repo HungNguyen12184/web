@@ -625,7 +625,7 @@ function showCurrentPageData(page) {
                     <div class="dg-cell dg-cell--align-left">
                         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
                             <div class="image-container">
-                            <img crossorigin="anonymous" class="image-content" src="${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
+                            <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
                             </div>
                             </div>
                         </div>
