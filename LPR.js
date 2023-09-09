@@ -594,19 +594,110 @@ function initializeDropdown() {
 //     }
 
 //     paginGroup();
-var totalItems = 100; // Tổng số mục (100 phần tử)
-console.log(totalItems);
-var itemsPerPage = 25; // Số mục trên mỗi trang
-var totalPage = Math.ceil(totalItems / itemsPerPage);
-var currentPage = 1;
+// var totalItems = 100; // Tổng số mục (100 phần tử)
+// console.log(totalItems);
+// var itemsPerPage = 25; // Số mục trên mỗi trang
+// var totalPage = Math.ceil(totalItems / itemsPerPage);
+// var currentPage = 1;
 
+// function showCurrentPageData(page) {
+//     currentPage = page;
+//     var startIndex = (page - 1) * itemsPerPage;
+//     var endIndex = currentPage * itemsPerPage;
+//     var dataBody = document.querySelector('.dg-body');
+//     dataBody.innerHTML = '';
+//     fetch('http://localhost:3000/api/data')
+//         .then((response) => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.json();
+//         })
+//         .then((data) => {
+//             // Hiển thị dữ liệu từ API trong danh sách lưới
+//             var dataForCurrentPage = data.slice(startIndex, endIndex);
+
+//             // Hiển thị dữ liệu từ API trong danh sách lưới
+//             dataForCurrentPage.forEach((item, index) => {
+//                 var row = document.createElement('div');
+//                 row.className = 'dg-row selectable-row';
+//                 row.innerHTML = `
+//                 <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
+//                     <div class="dg-cell">
+//                         <span class="auto-number">${item.userId}
+//                         </span>
+//                     </div>
+//                 </div>
+//                 <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
+//                     <div class="dg-cell dg-cell--align-left">
+//                         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+//                             <div class="image-container">
+//                             <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
+//                             </div>
+//                             </div>
+//                         </div>
+//                         <div class="flex flex-shrink-0"></div>
+//                     </div>
+//                 </div>
+//                 <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
+//                     <div class="dg-cell dg-cell--align-left">
+//                         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+//                             <div class="image-container">
+//                                 <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
+//                             </div>
+//                         </div>
+//                         <div class="flex flex-shrink-0"></div>
+//                     </div>
+//                 </div>
+//                 <div class="dg-row-item row--horizontal-border" style="flex: 0 0 112px; width: 112px;">
+//                     <div class="dg-cell dg-cell--align-left">
+//                         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
+//                             <span class="tb tb1"></span>
+//                         </div>
+//                         <div class="flex flex-shrink-0"></div>
+//                     </div>
+//                 </div>
+//                 <div class="dg-row-item row--horizontal-border" style="flex: 1 1 0%; min-width: 646px;">
+//                     <div class="dg-cell dg-cell--align-left">
+//                         <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
+//                             <span class="m-0 hd hd-6"></span>
+//                             <span class="tb tb1">${item.date_update}</span>
+//                             <span class="tb tb1"></span>
+//                             <span class="tb tb1"></span>
+//                         </div>
+//                         <div class="flex flex-shrink-0"></div>
+//                     </div>
+//                 </div>
+//                 <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
+//                     <div class="dg-cell">
+//                         <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden">
+//                             <button type="button" class="btn btn-secondary   " style="min-height: 2.5rem;">
+//                                 <span class="btn-content relative">
+//                                     i
+//                                 </span>
+//                             </button>
+//                         </div>
+//                     </div>
+//                 </div>
+//             `;
+//                 dataBody.appendChild(row);
+//             });
+//         })
+//         .catch((error) => {
+//             console.error('Lỗi khi lấy dữ liệu từ API:', error);
+//         });
+
+//     paginGroup();
+// }
+// Trang mặc định
+var totalPage = 10;
 function showCurrentPageData(page) {
     currentPage = page;
-    var startIndex = (page - 1) * itemsPerPage;
-    var endIndex = currentPage * itemsPerPage;
     var dataBody = document.querySelector('.dg-body');
+    var tempuserId = (page - 1) * 25 + 1;
     dataBody.innerHTML = '';
-    fetch('http://localhost:3000/api/data')
+
+    fetch(`http://localhost:3000/api/data?page=${page}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -615,14 +706,11 @@ function showCurrentPageData(page) {
         })
         .then((data) => {
             // Hiển thị dữ liệu từ API trong danh sách lưới
-            var dataForCurrentPage = data.slice(startIndex, endIndex);
-
-            // Hiển thị dữ liệu từ API trong danh sách lưới
-            dataForCurrentPage.forEach((item, index) => {
+            data.forEach((item) => {
                 var row = document.createElement('div');
                 row.className = 'dg-row selectable-row';
                 row.innerHTML = `
-                <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 50px; left: 0px;">
+                <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 70px; left: 0px;">
                     <div class="dg-cell">
                         <span class="auto-number">${item.userId}
                         </span>
@@ -681,6 +769,7 @@ function showCurrentPageData(page) {
                 </div>
             `;
                 dataBody.appendChild(row);
+                tempuserId++;
             });
         })
         .catch((error) => {

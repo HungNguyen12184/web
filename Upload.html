@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Upload</title>
+    </head>
+    <body>
+        <h2>Upload input</h2>
+        <img alt="" id="preview" width="300" height="200" />
+        <form action="Upload.html" method="post">
+            <input type="file" name="file" id="file" />
+        </form>
+    </body>
+    <script>
+        var image = document.getElementById('preview');
+        var input = document.getElementById('file');
+        input.addEventListener('change', (e) => {
+            image.src = URL.createObjectURL(e.target.files[0]);
+        });
+    </script>
+</html>
