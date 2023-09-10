@@ -560,13 +560,20 @@ function inputDateTime() {
 // var itemsPerPage = 25;
 // var currentPage = 1;
 // Lay gia tri dropdown
+var selectedOption = 25;
+var totalRecords = 500;
+var totalPage;
 function initializeDropdown() {
-    $('.dropdown-menu a.dropdown-item').click(function () {
-        var selectedValue = $(this).text();
-        $('.dropdown button.dropdown-toggle').text(selectedValue);
+    $('.dropdown-menu .dropdown-item').click(function () {
+        selectedOption = $(this).attr('optionid');
+        var selectedText = $(this).find('.dropdown').text();
+        $('.dropdown button.dropdown-toggle').attr('optionid', selectedOption);
+        $('.dropdown button.dropdown-toggle').text(selectedText);
+        var limit = parseInt(selectedOption);
+        totalPage = Math.ceil(totalRecords / limit);
+        showCurrentPageData(currentPage, limit);
     });
 }
-
 // function showCurrentPageData(page, results) {
 //     currentPage = page;
 //     var startIndex = (page - 1) * itemsPerPage;
@@ -690,14 +697,14 @@ function initializeDropdown() {
 //     paginGroup();
 // }
 // Trang mặc định
-var totalPage = 10;
-function showCurrentPageData(page) {
+
+var currentPage = 1;
+function showCurrentPageData(page, limit) {
     currentPage = page;
     var dataBody = document.querySelector('.dg-body');
-    var tempuserId = (page - 1) * 25 + 1;
+    var tempuserId = (page - 1) * limit + 1;
     dataBody.innerHTML = '';
-
-    fetch(`http://localhost:3000/api/data?page=${page}`)
+    fetch(`http://localhost:3000/api/data?page=${currentPage}&limit=${limit}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1143,7 +1150,7 @@ window.onload = function () {
     fillCurrentDate();
     updateDate();
     optionGroup();
-    showCurrentPageData(1);
+    showCurrentPageData(1, 25);
     initializeDropdown();
     buttonView();
     selectSystem();

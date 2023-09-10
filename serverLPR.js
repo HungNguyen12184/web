@@ -5,6 +5,7 @@ const path = require('path');
 var cors = require('cors');
 const port = 3000;
 const mysql = require('mysql2');
+const { verify } = require('crypto');
 app.use(cors());
 
 const connection = mysql.createConnection({
@@ -44,26 +45,26 @@ const connection = mysql.createConnection({
 //     });
 // });
 app.get('/api/data', (req, res) => {
-    const page = req.query.page ? req.query.page : 1;
-    console.log(page);
-    const limit = 25;
-    const start = (page - 1) * limit;
+    const currentPage = req.query.page ? req.query.page : 1;
+    const limit = req.query.limit ? req.query.limit : 25;
+    const total = 500;
+    const start = (currentPage - 1) * limit;
+    const end = start + limit;
+    const actualLimit = Math.min(limit, total - start);
 
     const query =
         `SELECT userId, picture_data, date_update FROM IMG_LPR LIMIT ` +
-        start +
+        +start +
         ',' +
-        limit;
-    const values = [start, limit];
-
-    connection.query(query, values, (error, results) => {
+        actualLimit;
+    console.log(actualLimit);
+    connection.query(query, (error, results) => {
         console.log(query);
         if (error) {
             console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
             res.status(500).json({ error: 'Internal server error.' });
             return;
         }
-
         const formattedResults = results.map((item) => {
             const imageDataBuffer = Buffer.from(item.picture_data, 'base64');
             const imageDataBase64 = imageDataBuffer.toString('base64');
@@ -74,7 +75,12 @@ app.get('/api/data', (req, res) => {
             };
         });
 
-        res.json(formattedResults);
+        res.json({
+            totalRecords: total,
+            currentPage: currentPage,
+            limit: actualLimit, // Giới hạn trang hiện tại
+            data: formattedResults, // Dữ liệu trả về
+        });
     });
 });
 
