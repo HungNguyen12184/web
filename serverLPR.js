@@ -5,7 +5,6 @@ const path = require('path');
 var cors = require('cors');
 const port = 3000;
 const mysql = require('mysql2');
-const { verify } = require('crypto');
 app.use(cors());
 
 const connection = mysql.createConnection({
@@ -45,41 +44,49 @@ const connection = mysql.createConnection({
 //     });
 // });
 app.get('/api/data', (req, res) => {
-    const currentPage = req.query.page ? req.query.page : 1;
-    const limit = req.query.limit ? req.query.limit : 25;
-    const total = 500;
-    const start = (currentPage - 1) * limit;
-    const end = start + limit;
-    const actualLimit = Math.min(limit, total - start);
+    const page = req.query.page || 1;
+    const totalRecordsPerPage = req.query.totalRecordsPerPage || 25;
+    const startRecord = (page - 1) * totalRecordsPerPage;
 
-    const query =
-        `SELECT userId, picture_data, date_update FROM IMG_LPR LIMIT ` +
-        +start +
-        ',' +
-        actualLimit;
-    console.log(actualLimit);
-    connection.query(query, (error, results) => {
-        console.log(query);
+    const countQuery = 'SELECT COUNT(*) AS totalRecords FROM IMG_LPR';
+
+    connection.query(countQuery, (error, countResults) => {
         if (error) {
-            console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
+            console.error('Lỗi khi truy vấn số lượng bản ghi:', error);
             res.status(500).json({ error: 'Internal server error.' });
             return;
         }
-        const formattedResults = results.map((item) => {
-            const imageDataBuffer = Buffer.from(item.picture_data, 'base64');
-            const imageDataBase64 = imageDataBuffer.toString('base64');
-            return {
-                userId: item.userId,
-                picture_data_base64: imageDataBase64,
-                date_update: item.date_update,
-            };
-        });
 
-        res.json({
-            totalRecords: total,
-            currentPage: currentPage,
-            limit: actualLimit, // Giới hạn trang hiện tại
-            data: formattedResults, // Dữ liệu trả về
+        const totalRecords = countResults[0].totalRecords;
+        const totalPages = Math.ceil(totalRecords / totalRecordsPerPage);
+
+        const query = `SELECT * FROM IMG_LPR LIMIT ${startRecord}, ${totalRecordsPerPage}`;
+
+        connection.query(query, (error, results) => {
+            console.log(query);
+            if (error) {
+                console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
+                res.status(500).json({ error: 'Internal server error.' });
+                return;
+            }
+            const formattedResults = results.map((item) => {
+                const imageDataBuffer = Buffer.from(
+                    item.picture_data,
+                    'base64',
+                );
+                const imageDataBase64 = imageDataBuffer.toString('base64');
+                return {
+                    userId: item.userId,
+                    picture_data_base64: imageDataBase64,
+                    date_update: item.date_update,
+                };
+            });
+
+            res.json({
+                currentPage: page,
+                total: totalPages,
+                data: formattedResults,
+            });
         });
     });
 });
