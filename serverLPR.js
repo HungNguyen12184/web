@@ -5,15 +5,15 @@ const path = require('path');
 var cors = require('cors');
 const port = 3000;
 const mysql = require('mysql2');
+const { error } = require('console');
 app.use(cors());
 
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'hung1234',
-    database: 'IMG_LPR',
+    database: 'img_data',
 });
-
 // app.get('/api/data', (req, res) => {
 //     const limit = 25;
 //     const start = 0;
@@ -43,12 +43,13 @@ const connection = mysql.createConnection({
 //         res.json(formattedResults);
 //     });
 // });
+
 app.get('/api/data', (req, res) => {
     const page = req.query.page || 1;
     const totalRecordsPerPage = req.query.totalRecordsPerPage || 25;
     const startRecord = (page - 1) * totalRecordsPerPage;
 
-    const countQuery = 'SELECT COUNT(*) AS totalRecords FROM IMG_LPR';
+    const countQuery = 'SELECT COUNT(*) AS totalRecords FROM img_data';
 
     connection.query(countQuery, (error, countResults) => {
         if (error) {
@@ -60,7 +61,7 @@ app.get('/api/data', (req, res) => {
         const totalRecords = countResults[0].totalRecords;
         const totalPages = Math.ceil(totalRecords / totalRecordsPerPage);
 
-        const query = `SELECT * FROM IMG_LPR LIMIT ${startRecord}, ${totalRecordsPerPage}`;
+        const query = `SELECT * FROM img_data LIMIT ${startRecord}, ${totalRecordsPerPage}`;
 
         connection.query(query, (error, results) => {
             console.log(query);

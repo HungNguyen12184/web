@@ -84,7 +84,7 @@ function resizeModal() {
         modalMainElement.style.maxHeight = '90%';
         modalMainElement.style.minWidth = '20rem';
         modalMainElement.style.left = '271px';
-        modalMainElement.style.top = '655px';
+        modalMainElement.style.top = '410px';
     }
 }
 
@@ -572,9 +572,10 @@ var currentPage = 1;
 function showCurrentPageData(page, totalRecordsPerPage) {
     currentPage = page;
     var dataBody = document.querySelector('.dg-body');
-    var startIndex = (page - 1) * totalRecordsPerPage;
-    var endIndex = startIndex + totalRecordsPerPage;
+    var startIndex = (page - 1) * totalRecordsPerPage + 1;
+    var endIndex = currentPage * totalRecordsPerPage;
     var tempuserId = (page - 1) * totalRecordsPerPage + 1;
+    dataBody.innerHTML = '';
     fetch(
         `http://localhost:3000/api/data?page=${currentPage}&totalRecordsPerPage=${totalRecordsPerPage}`,
     )
@@ -584,10 +585,17 @@ function showCurrentPageData(page, totalRecordsPerPage) {
             }
             return response.json();
         })
-        .then((data) => {
-            dataBody.innerHTML = '';
-            totalPages = data.total;
-            data.data.slice(startIndex, endIndex).forEach((item) => {
+        .then((res) => {
+            totalPages = res.total;
+            const slicedData = res.data.slice(startIndex, endIndex);
+            if (slicedData.length === 0) {
+                console.error(
+                    'Dữ liệu trống hoặc startIndex/EndIndex không chính xác.',
+                );
+                return;
+            }
+            for (let i = 0; i < slicedData.length; i++) {
+                const item = slicedData[i];
                 var row = document.createElement('div');
                 row.className = 'dg-row selectable-row';
                 row.innerHTML = `
@@ -655,12 +663,12 @@ function showCurrentPageData(page, totalRecordsPerPage) {
                 if (totalPagesElement) {
                     totalPagesElement.textContent = totalPages;
                 }
-            });
-            paginGroup();
+            }
         })
         .catch((error) => {
             console.error('Lỗi khi lấy dữ liệu từ API:', error);
         });
+    paginGroup();
 }
 function paginGroup() {
     var buttonGroups = document.querySelectorAll('.pagination'); // trả về 1 nodelist

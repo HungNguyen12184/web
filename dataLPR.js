@@ -5,7 +5,15 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'hung1234',
-    database: 'IMG_LPR',
+    database: 'img_data',
+});
+const createsTable =
+    ' CREATE TABLE img_data  ( userId INT AUTO_INCREMENT PRIMARY KEY, picture_data LONGBLOB, date_update TIME)';
+
+connection.query(createsTable, (error) => {
+    if (error) {
+        console.error('lỗi khi tạo ', error);
+    }
 });
 connection.connect((err) => {
     if (err) throw err;
@@ -19,7 +27,7 @@ connection.connect((err) => {
         );
         const pictureData = fs.readFileSync(imagePath);
         const query =
-            'INSERT INTO IMG_LPR(picture_data, date_update) VALUES (?,NOW())';
+            'INSERT INTO img_data(picture_data, date_update) VALUES (?,NOW())';
         connection.query(query, [pictureData]);
     }
 });
