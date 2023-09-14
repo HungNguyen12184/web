@@ -572,23 +572,23 @@ var currentPage = 1;
 function showCurrentPageData(page, totalRecordsPerPage) {
     currentPage = page;
     var dataBody = document.querySelector('.dg-body');
-    var startIndex = (page - 1) * totalRecordsPerPage + 1;
-    var endIndex = currentPage * totalRecordsPerPage;
+    // var startIndex = (page - 1) * totalRecordsPerPage + 1;
+    // var endIndex = currentPage * totalRecordsPerPage;
     var tempuserId = (page - 1) * totalRecordsPerPage + 1;
     dataBody.innerHTML = '';
     fetch(
         `http://localhost:3000/api/data?page=${currentPage}&totalRecordsPerPage=${totalRecordsPerPage}`,
     )
-        .then((response) => {
+        .then(async (response) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
-        })
-        .then((res) => {
+            const res = await response.json();
             totalPages = res.total;
-            const slicedData = res.data.slice(startIndex, endIndex);
-            if (slicedData.length === 0) {
+            console.log(res.data);
+            const slicedData = res.data;
+            //const slicedData = res.data.slice(startIndex, endIndex);
+            if (res.data.length === 0) {
                 console.error(
                     'Dữ liệu trống hoặc startIndex/EndIndex không chính xác.',
                 );

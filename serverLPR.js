@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'hung1234',
-    database: 'img_data',
+    database: 'IMG_LPR',
 });
 // app.get('/api/data', (req, res) => {
 //     const limit = 25;
@@ -49,7 +49,8 @@ app.get('/api/data', (req, res) => {
     const totalRecordsPerPage = req.query.totalRecordsPerPage || 25;
     const startRecord = (page - 1) * totalRecordsPerPage;
 
-    const countQuery = 'SELECT COUNT(*) AS totalRecords FROM img_data';
+    const countQuery = 'SELECT COUNT(*) AS totalRecords FROM IMG_LPR';
+    console.log(countQuery);
 
     connection.query(countQuery, (error, countResults) => {
         if (error) {
@@ -61,10 +62,8 @@ app.get('/api/data', (req, res) => {
         const totalRecords = countResults[0].totalRecords;
         const totalPages = Math.ceil(totalRecords / totalRecordsPerPage);
 
-        const query = `SELECT * FROM img_data LIMIT ${startRecord}, ${totalRecordsPerPage}`;
-
+        const query = `SELECT * FROM IMG_LPR LIMIT ${startRecord}, ${totalRecordsPerPage}`;
         connection.query(query, (error, results) => {
-            console.log(query);
             if (error) {
                 console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
                 res.status(500).json({ error: 'Internal server error.' });
@@ -82,7 +81,7 @@ app.get('/api/data', (req, res) => {
                     date_update: item.date_update,
                 };
             });
-
+            console.log(formattedResults.length);
             res.json({
                 currentPage: page,
                 total: totalPages,
