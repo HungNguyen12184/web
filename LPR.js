@@ -639,7 +639,7 @@ function showCurrentPageData(page, totalRecordsPerPage) {
                         <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
                             <span class="m-0 hd hd-6"></span>
                             <span class="tb tb1">${item.date_update}</span>
-                            <span class="tb tb1"></span>
+                            <span class="tb tb1">${item.license_plate}</span>
                             <span class="tb tb1"></span>
                         </div>
                         <div class="flex flex-shrink-0"></div>
