@@ -62,6 +62,39 @@ app.get('/api/data', (req, res) => {
     });
 });
 
+app.get('/api/search', (req, res) => {
+    const searchkey = req.query.searchkey;
+
+    let query = '';
+    if (searchkey.includes('*')) {
+        const searchTerm = searchkey.replace(/\*/g, '.*');
+        query = `SELECT * FROM IMG_LPR WHERE plate_number REGEXP '^${searchTerm}$'`;
+    } else {
+        query = `SELECT * FROM IMG_LPR WHERE plate_number LIKE '%${searchkey}%'`;
+    }
+    console.log(query);
+    connection.query(query, (error, results) => {
+        if (error) {
+            console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
+            res.status(500).json({ error: 'Internal server error.' });
+            return;
+        }
+        const formattedResults = results.map((item) => {
+            const imageDataBuffer = Buffer.from(item.picture_data, 'base64');
+            const imageDataBase64 = imageDataBuffer.toString('base64');
+            return {
+                userId: item.userId,
+                picture_data_base64: imageDataBase64,
+                date_time: item.date_update,
+                license_plate: item.plate_number,
+            };
+        });
+        res.json({
+            data: formattedResults,
+        });
+    });
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });

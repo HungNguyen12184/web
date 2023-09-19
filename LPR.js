@@ -585,7 +585,6 @@ function showCurrentPageData(page, totalRecordsPerPage) {
             }
             const res = await response.json();
             totalPages = res.total;
-            console.log(res.data);
             const slicedData = res.data;
             //const slicedData = res.data.slice(startIndex, endIndex);
             if (res.data.length === 0) {
@@ -638,7 +637,7 @@ function showCurrentPageData(page, totalRecordsPerPage) {
                     <div class="dg-cell dg-cell--align-left">
                         <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
                             <span class="m-0 hd hd-6"></span>
-                            <span class="tb tb1">${item.date_update}</span>
+                            <span class="tb tb1">${item.date_time}</span>
                             <span class="tb tb1">${item.license_plate}</span>
                             <span class="tb tb1"></span>
                         </div>
@@ -670,6 +669,29 @@ function showCurrentPageData(page, totalRecordsPerPage) {
         });
     paginGroup();
 }
+//Tim kiem bien so
+
+function searchData() {
+    var searchInput = document.getElementById('searchInput');
+    var timeoutId;
+    searchInput.addEventListener('input', function () {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function () {
+            var searchKey = searchInput.value;
+            console.log(searchKey);
+            fetch(
+                `http://localhost:3000/api/search?searchkey=${searchKey}`,
+            ).then(async (response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const res = await response.json();
+                console.log(res.data);
+            });
+        }, 3000);
+    });
+}
+
 function paginGroup() {
     var buttonGroups = document.querySelectorAll('.pagination'); // trả về 1 nodelist
     buttonGroups.forEach(function (buttonGroup) {
@@ -1033,6 +1055,7 @@ window.onload = function () {
     updateDate();
     optionGroup();
     showCurrentPageData(1, 25);
+    searchData();
     initializeDropdown();
     buttonView();
     selectSystem();
