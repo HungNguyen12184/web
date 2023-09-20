@@ -21,8 +21,6 @@ app.get('/api/data', (req, res) => {
     const startRecord = (page - 1) * totalRecordsPerPage;
 
     const countQuery = 'SELECT COUNT(*) AS totalRecords FROM IMG_LPR';
-    console.log(countQuery);
-
     connection.query(countQuery, (error, countResults) => {
         if (error) {
             console.error('Lỗi khi truy vấn số lượng bản ghi:', error);
@@ -64,33 +62,64 @@ app.get('/api/data', (req, res) => {
 
 app.get('/api/search', (req, res) => {
     const searchkey = req.query.searchkey;
-
     let query = '';
+
     if (searchkey.includes('*')) {
         const searchTerm = searchkey.replace(/\*/g, '.*');
-        query = `SELECT * FROM IMG_LPR WHERE plate_number REGEXP '^${searchTerm}$'`;
+        query = `SELECT COUNT(*) AS totalRecords FROM IMG_LPR WHERE plate_number REGEXP '^${searchTerm}$'`;
     } else {
-        query = `SELECT * FROM IMG_LPR WHERE plate_number LIKE '%${searchkey}%'`;
+        query = `SELECT COUNT(*) AS totalRecords FROM IMG_LPR WHERE plate_number LIKE '%${searchkey}%'`;
     }
-    console.log(query);
-    connection.query(query, (error, results) => {
+
+    connection.query(query, (error, countResults) => {
         if (error) {
             console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
             res.status(500).json({ error: 'Internal server error.' });
             return;
         }
-        const formattedResults = results.map((item) => {
-            const imageDataBuffer = Buffer.from(item.picture_data, 'base64');
-            const imageDataBase64 = imageDataBuffer.toString('base64');
-            return {
-                userId: item.userId,
-                picture_data_base64: imageDataBase64,
-                date_time: item.date_update,
-                license_plate: item.plate_number,
-            };
-        });
-        res.json({
-            data: formattedResults,
+
+        const totalRecords = countResults[0].totalRecords;
+        const totalRecordsPerPage = req.query.totalRecordsPerPage || 25;
+        const currentPage = req.query.page || 1;
+        const totalPages = Math.ceil(totalRecords / totalRecordsPerPage);
+
+        const offset = (currentPage - 1) * totalRecordsPerPage;
+
+        let searchQuery = '';
+
+        if (searchkey.includes('*')) {
+            const searchTerm = searchkey.replace(/\*/g, '.*');
+            searchQuery = `SELECT * FROM IMG_LPR WHERE plate_number REGEXP '^${searchTerm}$' LIMIT ${offset}, ${totalRecordsPerPage}`;
+        } else {
+            searchQuery = `SELECT * FROM IMG_LPR WHERE plate_number LIKE '%${searchkey}%' LIMIT ${offset}, ${totalRecordsPerPage}`;
+        }
+
+        connection.query(searchQuery, (error, searchResults) => {
+            if (error) {
+                console.error('Lỗi khi truy vấn cơ sở dữ liệu:', error);
+                res.status(500).json({ error: 'Internal server error.' });
+                return;
+            }
+
+            const formattedResults = searchResults.map((item) => {
+                const imageDataBuffer = Buffer.from(
+                    item.picture_data,
+                    'base64',
+                );
+                const imageDataBase64 = imageDataBuffer.toString('base64');
+                return {
+                    userId: item.userId,
+                    picture_data_base64: imageDataBase64,
+                    date_time: item.date_update,
+                    license_plate: item.plate_number,
+                };
+            });
+
+            res.json({
+                currentPage: currentPage,
+                total: totalPages,
+                data: formattedResults,
+            });
         });
     });
 });

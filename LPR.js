@@ -671,6 +671,27 @@ function showCurrentPageData(page, totalRecordsPerPage) {
 }
 //Tim kiem bien so
 
+// function searchData() {
+//     var searchInput = document.getElementById('searchInput');
+//     var timeoutId;
+//     searchInput.addEventListener('input', function () {
+//         clearTimeout(timeoutId);
+//         timeoutId = setTimeout(function () {
+//             var searchKey = searchInput.value;
+//             console.log(searchKey);
+//             fetch(
+//                 `http://localhost:3000/api/search?searchkey=${searchKey}`,
+//             ).then(async (response) => {
+//                 if (!response.ok) {
+//                     throw new Error('Network response was not ok');
+//                 }
+//                 const res = await response.json();
+//                 const plateData = res.data;
+//                 console.log(plateData);
+//             });
+//         }, 3000);
+//     });
+// }
 function searchData() {
     var searchInput = document.getElementById('searchInput');
     var timeoutId;
@@ -678,18 +699,99 @@ function searchData() {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(function () {
             var searchKey = searchInput.value;
-            console.log(searchKey);
-            fetch(
-                `http://localhost:3000/api/search?searchkey=${searchKey}`,
-            ).then(async (response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const res = await response.json();
-                console.log(res.data);
-            });
+            updateDataAfterSearch(searchKey, totalRecordsPerPage);
         }, 3000);
     });
+}
+
+var currentDate = 1;
+function updateDataAfterSearch(searchKey, totalRecordsPerPage) {
+    var dataBody = document.querySelector('.dg-body');
+    dataBody.innerHTML = '';
+    fetch(
+        `http://localhost:3000/api/search?searchkey=${searchKey}&page=${currentPage}&totalRecordsPerPage=${totalRecordsPerPage}`,
+    )
+        .then(async (response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const res = await response.json();
+            totalPages = res.total;
+            const slicedData = res.data;
+            for (let i = 0; i < slicedData.length; i++) {
+                const item = slicedData[i];
+                var row = document.createElement('div');
+                row.className = 'dg-row selectable-row';
+                row.innerHTML = `
+                <div class="dg-row-item row--horizontal-border dg-freeze" style="flex: 0 0 50px; width: 70px; left: 0px;">
+                    <div class="dg-cell">
+                        <span class="auto-number">${item.userId}
+                        </span>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 0 0 270px; width: 270px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+                            <div class="image-container">
+                            <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 0 0 290px; width: 290px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center overflow-hidden css-0">
+                            <div class="image-container">
+                                <img crossorigin="anonymous" class="image-content" src="data:image/png;base64,${item.picture_data_base64}" alt="" style="height: 5rem; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 0 0 112px; width: 112px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center item-center overflow-hidden h-full">
+                            <span class="tb tb1"></span>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border" style="flex: 1 1 0%; min-width: 646px;">
+                    <div class="dg-cell dg-cell--align-left">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 flex-col justify-center item-center gap-4 h-full overflow-hidden">
+                            <span class="m-0 hd hd-6"></span>
+                            <span class="tb tb1">${item.date_time}</span>
+                            <span class="tb tb1">${item.license_plate}</span>
+                            <span class="tb tb1"></span>
+                        </div>
+                        <div class="flex flex-shrink-0"></div>
+                    </div>
+                </div>
+                <div class="dg-row-item row--horizontal-border dg-freeze-end" style="flex: 0 0 70px; width: 70px;">
+                    <div class="dg-cell">
+                        <div class="flex flex-grow flex-shrink flex-basis-0 justify-center items-center overflow-hidden">
+                            <button type="button" class="btn btn-secondary   " style="min-height: 2.5rem;">
+                                <span class="btn-content relative">
+                                    i
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+                dataBody.appendChild(row);
+                var totalPagesElement = document.querySelector('.paging-count');
+                if (totalPagesElement) {
+                    totalPagesElement.textContent = totalPages;
+                }
+            }
+        })
+        .catch((error) => {
+            console.error('Lỗi khi lấy dữ liệu từ API:', error);
+        });
+    paginGroup();
 }
 
 function paginGroup() {
@@ -697,6 +799,7 @@ function paginGroup() {
     buttonGroups.forEach(function (buttonGroup) {
         buttonGroup.addEventListener('click', function (event) {
             changePage(event, totalRecordsPerPage);
+            changePageSearch(event, searchKey, totalRecordsPerPage);
         });
     });
 }
@@ -733,11 +836,45 @@ function changePage(event, totalRecordsPerPage) {
         }
     } else if (target.id === 'btn_dbright') {
         updateCurrentPage();
-        showCurrentPageData(totalPages, totalRecordsPerPage);
+        showCurrentPageData(totalPages);
     }
     setTimeout(function () {
         isClickInProgress = false;
     }, 1000);
+}
+// change page sau search
+function changePageSearch(event, searchKey, totalRecordsPerPage) {
+    if (isClickInProgress) {
+        return;
+    }
+
+    isClickInProgress = true;
+
+    var target = event.target;
+    if (target.id === 'btn_left') {
+        if (currentPage > 1) {
+            currentPage--;
+            updateCurrentPage();
+            updateDataAfterSearch(searchKey, totalRecordsPerPage);
+        }
+    } else if (target.id === 'btn_dbleft') {
+        currentPage = 1;
+        updateCurrentPage();
+        updateDataAfterSearch(searchKey, totalRecordsPerPage);
+    } else if (target.id === 'btn_right') {
+        if (currentPage < totalPages) {
+            currentPage++;
+            updateCurrentPage();
+            updateDataAfterSearch(searchKey, totalRecordsPerPage);
+        } else if (target.id === 'btn_dbright') {
+            currentPage = totalPages;
+            updateCurrentPage();
+            updateDataAfterSearch(searchKey, totalRecordsPerPage);
+        }
+        setTimeout(function () {
+            isClickInProgress = false;
+        }, 1000);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
